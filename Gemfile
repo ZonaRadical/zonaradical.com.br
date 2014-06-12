@@ -13,6 +13,10 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #gem 'omniauth-linkedin'
 
+
+gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'will_paginate', '3.0.5'
+
 gem 'i18n'
 
 # Use SCSS for stylesheets
