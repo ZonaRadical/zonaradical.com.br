@@ -19,6 +19,19 @@ gem 'will_paginate', '3.0.5'
 
 gem 'i18n'
 
+group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'i18n-tasks'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

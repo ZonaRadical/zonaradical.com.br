@@ -1,0 +1,9 @@
+# config/i18n-tasks.yml
+data:
+  read:
+    # read from namespaced files, e.g. simple_form.en.yml
+    - 'config/locales/*.%{locale}.yml'
+    # read from a gem (config is parsed with ERB first, then YAML)
+    - "<%= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
+    # default
+    - 'config/locales/%{locale}.yml'
