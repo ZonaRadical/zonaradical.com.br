@@ -1,9 +1,8 @@
 <div class="jumbotron">
   <% if user_signed_in? %>
-      <h1>Welcome back, trusted user!</h1>
+      <h1><%= t('greetings') %></h1>
       <p class="lead">
-        You have signed in!  If this were a real app some sweet conent
-        would go here.  But it's just a test.  You might want to sign out now.
+        <%= t('homePageText') %>
       </p>
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
   <% else %>

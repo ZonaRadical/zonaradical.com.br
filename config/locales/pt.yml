@@ -19,7 +19,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-pt:
-    home: "Homus Portugalis"
-    signIn: "Signi Inne"
+pt-BR:
+    hello: "Hello world"
+    home: "Homis"
+    logoWinter: "ZONARADICAL.snowboard"
+    logoSummer: "ZONARADICAL.surf"
+    greetings: "Bla Bla Bla!!!"
+    homePageText: "BRasilis You have signed in!  If this were a real app some sweet conent
+                             would go here.  But it's just a test.  You might want to sign out now."
 

@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  home: "Homas"
+  logoWinter: "ZONARADICAL.snowboard"
+  logoSummer: "ZONARADICAL.surf"
+  greetings: "Welcome back, trusted user!"
+  homePageText: "You have signed in!  If this were a real app some sweet conent
+                         would go here.  But it's just a test.  You might want to sign out now."
