@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  respond_to :html, :json
+
   def self.provides_callback_for(provider)
     class_eval %Q{
       def #{provider}

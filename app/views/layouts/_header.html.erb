@@ -1,4 +1,14 @@
 <div class="header">
+  <% if current_user %>
+      <%= "Hello, #{current_user.email}" %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+      <%= link_to "Sign in", "#sign_in", "data-target" => "#signIn", "data-toggle" => "modal", :class => 'btn btn-small' %>
+      <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small' %>
+      <%= render 'shared/sign_in' %>
+      <%= render 'shared/sign_up' %>
+  <% end %>
+
   <ul class="nav nav-pills pull-right">
     <li class="active"><a href="#"><%= t('home') %></a></li>
     <li><%= link_to t('forum'), 'forums' %></li>
