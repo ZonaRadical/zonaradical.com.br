@@ -1,23 +1,175 @@
-<div class="jumbotron">
-  <% if user_signed_in? %>
-      <h1><%= t('greetings') %></h1>
-      <p class="lead">
-        <%= t('homePageText') %>
-      </p>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
-  <% else %>
-      <h1>Welcome, new user!</h1>
-      <p class="lead">
-        You must sign in or sign up before you can access our super sweet,
-        top secret content.
-      </p>
-      <div class="row-fluid">
-        <div class="col-lg-3">
-          <%= link_to t('signIn'), new_user_session_path, :class => "btn btn-success" %>
-        </div>
-        <div class="col-lg-3">
-          <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-info" %>
+<section class="top-section">
+  <div class="slider-field">
+    <span class="tag">Popular</span>
+    <div class="index-slider">
+      <div class="slide"><%= image_tag('slide-1.jpg') %><p><b>Existem muitas variações das passagens</b>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma <br/>página quando analisa a sua mancha gráfica. </p></div>
+      <div class="slide"><%= image_tag('slide-2.jpg') %><p><b>Existem muitas variações das passagens</b>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma <br/>página quando analisa a sua mancha gráfica. </p></div>
+      <div class="slide"><%= image_tag('slide-3.jpg') %><p><b>Existem muitas variações das passagens</b>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma <br/>página quando analisa a sua mancha gráfica. </p></div>
+      <div class="slide"><%= image_tag('slide-4.jpg') %><p><b>Existem muitas variações das passagens</b>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma <br/>página quando analisa a sua mancha gráfica. </p></div>
+      <div class="slide"><%= image_tag('slide-5.jpg') %><p><b>Existem muitas variações das passagens</b>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma <br/>página quando analisa a sua mancha gráfica. </p></div>
+    </div><!-- end index-slider -->
+  </div><!-- end slider-field -->
+  <div class="gallery-field">
+    <div class="gallery-field-large">
+      <span class="tag">Galerias</span>
+      <%= image_tag('gallery-1.jpg') %>
+      <p><b>Ao contrário da crença popular</b>O pedaço mais habitual do Lorem Ipsum usado desde os anos 1500...</p>
+    </div>
+    <div class="gallery-field-small">
+      <%= image_tag('gallery-2.jpg') %>
+      <p><b>Lorem Ipsum vem das secções</b></p>
+    </div>
+    <div class="gallery-field-small right">
+      <%= image_tag('gallery-3.jpg') %>
+      <p><b>Lorem Ipsum vem das secções</b></p>
+    </div>
+    <div class="clear"></div>
+  </div><!-- end gallery-field -->
+  <div class="clear"></div>
+</section> <!-- end top-section -->
+<section class="content">
+  <div class="main-content">
+    <div class="heading"><h2>Últimas Notícias</h2></div>
+    <div class="news-slider">
+      <div class="slide">
+        <div class="news-item">
+          <a href="#" class="img-wrap"><%= image_tag('news-1.jpg') %></a>
+          <div class="details">
+            <a href="#" class="date">22 de maio, 2014</a>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis...</p>
+          </div>
+          <div class="clear"></div>
         </div>
       </div>
-  <% end %>
-</div>
+      <div class="slide">
+        <div class="news-item">
+          <a href="#" class="img-wrap"><%= image_tag('news-2.jpg') %></a>
+          <div class="details">
+            <a href="#" class="date">17 de maio, 2014</a>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis...</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="news-item">
+          <a href="#" class="img-wrap"><%= image_tag('news-3.jpg') %></a>
+          <div class="details">
+            <a href="#" class="date">10 de maio, 2014</a>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis...</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="news-item">
+          <a href="#" class="img-wrap"><%= image_tag('news-1.jpg') %></a>
+          <div class="details">
+            <a href="#" class="date">8 de maio, 2014</a>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis...</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="news-item">
+          <a href="#" class="img-wrap"><%= image_tag('news-2.jpg') %></a>
+          <div class="details">
+            <a href="#" class="date">7 de maio, 2014</a>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis...</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="slide">
+        <div class="news-item">
+          <a href="#" class="img-wrap"><%= image_tag('news-3.jpg') %></a>
+          <div class="details">
+            <a href="#" class="date">5 de maio, 2014</a>
+            <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis...</p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div><!-- news-slider -->
+    <div class="heading"><h2>as últimas dicas</h2><a href="#" class="all">Tudo</a></div>
+    <ul class="item-list">
+      <li>
+        <a href="#" class="img-wrap"><%= image_tag('item-1.jpg') %></a>
+        <div class="details">
+          <a href="#" class="title">O pedaço mais habitual do Lorem Ipsum</a>
+          <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer...</p>
+        </div>
+        <div class="clear"></div>
+      </li>
+      <li>
+        <a href="#" class="img-wrap"><%= image_tag('item-2.jpg') %></a>
+        <div class="details">
+          <a href="#" class="title">O Lorem Ipsum é um texto modelo</a>
+          <p>Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard McClintock, um...</p>
+        </div>
+        <div class="clear"></div>
+      </li>
+      <li>
+        <a href="#" class="img-wrap"><%= image_tag('item-3.jpg') %></a>
+        <div class="details">
+          <a href="#" class="title">Desta forma, o Lorem Ipsum gerado</a>
+          <p>Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker...</p>
+        </div>
+        <div class="clear"></div>
+      </li>
+      <li>
+        <a href="#" class="img-wrap"><%= image_tag('item-4.jpg') %></a>
+        <div class="details">
+          <a href="#" class="title">Várias versões têm evoluído ao longo dos anos</a>
+          <p>Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites...</p>
+        </div>
+        <div class="clear"></div>
+      </li>
+    </ul><!-- end item-list -->
+  </div><!-- end main-content -->
+  <aside>
+    <div class="heading"><h2>Fique conectado</h2></div>
+    <ul class="social-buttons">
+      <li><a href="#" class="fb"></a></li>
+      <li><a href="#" class="yt"></a></li>
+      <li><a href="#" class="tw"></a></li>
+      <li><a href="#" class="gp"></a></li>
+      <li><a href="#" class="rss"></a></li>
+    </ul>
+    <div class="heading"><h2>Lugares</h2><a href="#" class="all">Tudo</a></div>
+    <ul class="places-list">
+      <li><a href="#"><%= image_tag('places-1.jpg') %></a></li>
+      <li><a href="#"><%= image_tag('places-2.jpg') %></a></li>
+      <li><a href="#"><%= image_tag('places-3.jpg') %></a></li>
+      <li><a href="#"><%= image_tag('places-4.jpg') %></a></li>
+    </ul><!-- end places-list -->
+    <div class="heading"><h2>Facebook</h2></div>
+    <div class="fb-block"><%= image_tag('fb-block.jpg') %></div>
+    <div class="advert-block"><%= image_tag('advert-img.jpg') %></div>
+  </aside>
+  <div class="jumbotron">
+    <% if user_signed_in? %>
+        <h1><%= t('greetings') %></h1>
+        <p class="lead">
+          <%= t('homePageText') %>
+        </p>
+        <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+    <% else %>
+        <h1>Welcome, new user!</h1>
+        <p class="lead">
+          You must sign in or sign up before you can access our super sweet,
+          top secret content.
+        </p>
+        <div class="row-fluid">
+          <div class="col-lg-3">
+            <%= link_to t('signIn'), new_user_session_path, :class => "btn btn-success" %>
+          </div>
+          <div class="col-lg-3">
+            <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-info" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+</section><!-- end content -->

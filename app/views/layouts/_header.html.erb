@@ -1,7 +1,47 @@
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a href="#"><%= t('home') %></a></li>
-    <li><%= link_to t('forum'), 'forums' %></li>
-  </ul>
-  <h3 class="text-muted"><%= t('logoWinter') %></h3>
-</div>
+<header>
+  <div class="inner">
+    <a href="#" class="logo"><%= t('logoWinter') %></a>
+    <div class="enter-block">
+      <div class="registered" style="display:none">
+        <span>Você está logado como: <a href="#">Alexander / </a></span>
+        <a href="#" class="exit-link">Saida</a>
+      </div>
+      <div class="non-registered">
+        <%- if controller_name != 'sessions' %>
+            <%= link_to t('Sign in'), new_session_path(:user) %>
+            <%= link_to (omniauth_authorize_path(:user, 'facebook')) do %><span class="fb"></span><% end %>
+            <%= link_to (omniauth_authorize_path(:user, 'twitter')) do %><span class="tw"></span><% end %>
+        <span> / </span>
+            <%= link_to "Sign up", new_registration_path(:user) %><br />
+        <% end -%>
+
+      </div>
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><%= link_to t('Home'), root_path %></li>
+        <li class="submenu-item">
+          <a href="#">Estações</a>
+          <ul class="submenu">
+            <li><a href="#">texto português-1</a></li>
+            <li class="subsubmenu-item">
+              <a href="#">texto português-2</a>
+              <ul class="subsubmenu">
+                <li><a href="#">texto -1</a></li>
+                <li><a href="#">texto -2</a></li>
+              </ul>
+            </li>
+            <li><a href="#">texto português-3</a></li>
+            <li><a href="#">texto português-4</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Dicas</a></li>
+        <li><a href="#">Trips</a></li>
+        <li><a href="#">Vamo junto</a></li>
+        <li><%= link_to t('forum'), 'forums' %></li>
+        <li><a href="#">Galera <span>ZR</span></a></li>
+      </ul>
+      <div class="search-field"><input type="text" placeholder="Pesquisa" /><a href="#"></a></div>
+    </nav>
+  </div><!-- end inner -->
+</header>
