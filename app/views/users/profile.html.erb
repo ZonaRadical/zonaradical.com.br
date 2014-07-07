@@ -1,0 +1,80 @@
+<section class="content">
+  <div class="main-content">
+    <div class="heading"><h2><%= t('userProfile') %></h2></div>
+    <div class="profile-card">
+      <div class="leftcol">
+        <%= image_tag('avatar.jpg', class: 'userpic', alt: @user.name ) %>
+        <div class="reputation"><a href="#">Reputação:</a><span> a sua cara</span></div>
+        <ul class="stars">
+          <li class="full"></li>
+          <li class="full"></li>
+          <li class="full"></li>
+          <li class="full"></li>
+          <li class="full"></li>
+          <li class="full"></li>
+          <li class="full"></li>
+          <li class="empty"></li>
+        </ul>
+      </div><!-- end leftcol -->
+      <div class="rightcol">
+        <div class="title">
+          <span class="name"><%= @user.name %></span>
+          <% if @user.signed_in? %>
+            <span class="online">online</span>
+          <% else %>
+              <span class="offline">offline</span>
+          <% end %>
+          <span class="activity"><b><%= t('lastSignInAt') %>:</b> <%= @user.last_sign_in_at %>  <%= @user.current_sign_in_at %></span>
+        </div>
+        <ul class="details-list">
+          <li><b>Posição:</b><span>master of sports</span></li>
+          <li><b><%= t('age')%>:</b><span>27</span></li>
+          <li><b><%= t('sex')%>:</b><span>Masculino</span></li>
+          <li><b><%= t('birthday')%>:</b><span>31 de maio, 2014</span></li>
+          <li><b><%= t('country')%>:</b><span>Brasil</span></li>
+          <li><b><%= t('city')%>:</b><span>Rio de Janeiro</span></li>
+          <li><b><%= t('interests')%>:</b><span>Snowboarding, Rolos, Windsurf, Escalada, Surfe, Turismo</span></li>
+          <li class="contacts">
+            <b><%= t('contacts')%>:</b>
+            <div class="contacts-list">
+              <% if @user.email %>
+                <span class="email"><%= @user.email %></span>
+              <% end %>
+              <span class="web">www.snowcontatos.com.br</span>
+              <span class="fb">https://www.facebook.com/alexromanov</span>
+            </div>
+            <div class="clear"></div>
+          </li>
+        </ul><!-- end details-list -->
+      </div><!-- end rightcol -->
+      <div class="clear"></div>
+      <p class="bio"><b>Biografia:</b>  um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância. Várias versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).</p>
+      <div class="buttons">
+        <a href="#" class="button">Posts do Fórum</a>
+        <a href="#" class="button">Posts do Vamo Junto</a>
+        <div class="clear"></div>
+      </div>
+    </div><!-- end profile-card -->
+  </div><!-- end main-content -->
+  <aside>
+    <div class="heading"><h2>Fique conectado</h2></div>
+    <ul class="social-buttons">
+      <li><a href="#" class="fb"></a></li>
+      <li><a href="#" class="yt"></a></li>
+      <li><a href="#" class="tw"></a></li>
+      <li><a href="#" class="gp"></a></li>
+      <li><a href="#" class="rss"></a></li>
+    </ul>
+    <div class="heading"><h2>Estações</h2><a href="#" class="all">Tudo</a></div>
+    <ul class="places-list">
+      <li><a href="#"><img src="images/places-1.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="images/places-2.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="images/places-3.jpg" alt="" /></a></li>
+      <li><a href="#"><img src="images/places-4.jpg" alt="" /></a></li>
+    </ul><!-- end places-list -->
+    <div class="heading"><h2>Facebook</h2></div>
+    <div class="fb-block"><img src="images/fb-block.jpg" alt="" /></div>
+    <div class="advert-block"><img src="images/advert-img.jpg" alt="" /></div>
+  </aside>
+  <div class="clear"></div>
+</section><!-- end content -->

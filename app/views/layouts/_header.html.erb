@@ -4,7 +4,7 @@
     <div class="enter-block">
       <%- if user_signed_in? %>
       <div class="registered">
-        <span><%= t('hello')%>, <%= link_to current_user.name, main_app.edit_user_registration_path %> / </span>
+        <span><%= t('hello')%>, <%= link_to current_user.name, user_profile_path(current_user.id) %> / </span>
         <%= link_to t('signOut'), main_app.destroy_user_session_path, :class => 'exit-link', :method => :delete %>
       </div>
       <%- else %>

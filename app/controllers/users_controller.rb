@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+  end
+
   private
 
   def set_user

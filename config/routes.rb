@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
-  mount Forem::Engine, :at => '/forums'
-
-  get 'static_pages/index'
 
   root 'static_pages#index'
 
@@ -16,6 +13,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  match '/users/:id/profile',  to: 'users#profile', via: 'get', :as => 'user_profile'
+
+  mount Forem::Engine, :at => '/forums'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

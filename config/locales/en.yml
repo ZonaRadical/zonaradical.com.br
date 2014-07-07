@@ -28,3 +28,14 @@ en:
   logoWinter: "ZONARADICAL.snowboard"
   logoSummer: "ZONARADICAL.surf"
 
+  userProfile: 'User profile'
+  age: 'Age'
+  sex: 'Sex'
+  birthday: 'Birthday'
+  country: 'Country'
+  city: 'City'
+  interests: 'Interests'
+  contacts: 'Contacts'
+  lastSignInAt: 'Last visit'
+
+
