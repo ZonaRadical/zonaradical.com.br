@@ -9,7 +9,7 @@ bbad9b2c1df271a13d4c8bc6c3b0e807b8dac9c8		branch 'niluser-pattern' of git://gith
 2b47d810c90b86279557b819cd7150014c33d21c		branch 'partials_know_too_much' of git://github.com/radar/forem
 d3fa0b2121660267c224181633500301367080ca		branch 'purge_permissions' of git://github.com/radar/forem
 4726ad67a36d441b99990ca230bc651745c1541e		branch 'rails3' of git://github.com/radar/forem
-11d3b015a4c6930874677e913a3f6e40f0f68587		branch 'rails4' of git://github.com/radar/forem
+cc6e884c64a0be5aa64647235ff604b42a04a51f		branch 'rails4' of git://github.com/radar/forem
 e948b250477ac449cfc5d748bd5cd4beb5b1cc21		branch 'routing' of git://github.com/radar/forem
 231774c50e4ae45edbc3e4510371d0d4ca250e13		branch 'topics_controller' of git://github.com/radar/forem
 5a871563a8bc069a638662b37c2c40d30f4866b9		branch 'travis' of git://github.com/radar/forem
