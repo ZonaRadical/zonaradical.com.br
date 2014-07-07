@@ -2,20 +2,26 @@
   <div class="inner">
     <a href="#" class="logo"><%= t('logoWinter') %></a>
     <div class="enter-block">
-      <div class="registered" style="display:none">
-        <span>Você está logado como: <a href="#">Alexander / </a></span>
-        <a href="#" class="exit-link">Saida</a>
+      <%- if user_signed_in? %>
+      <div class="registered">
+        <span><%= t('hello')%>, <%= link_to current_user.name, main_app.edit_user_registration_path %> / </span>
+        <%= link_to t('signOut'), main_app.destroy_user_session_path, :class => 'exit-link', :method => :delete %>
       </div>
+      <%- else %>
       <div class="non-registered">
         <%- if controller_name != 'sessions' %>
-            <%= link_to t('Sign in'), new_session_path(:user) %>
-            <%= link_to (omniauth_authorize_path(:user, 'facebook')) do %><span class="fb"></span><% end %>
-            <%= link_to (omniauth_authorize_path(:user, 'twitter')) do %><span class="tw"></span><% end %>
+            <%= link_to t('signIn'), new_session_path(:user), :class => 'login' %>
+            <%= link_to omniauth_authorize_path(:user, 'facebook'), :class => 'login' do %>
+                <span class="fb"></span>
+            <% end %>
+            <%= link_to omniauth_authorize_path(:user, 'twitter'), :class => 'login' do %>
+                <span class="tw"></span>
+            <% end %>
         <span> / </span>
-            <%= link_to "Sign up", new_registration_path(:user) %><br />
+            <%= link_to t('Sign up'), new_registration_path(:user) %><br />
         <% end -%>
-
       </div>
+      <% end %>
     </div>
     <nav>
       <ul class="menu">

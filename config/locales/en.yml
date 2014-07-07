@@ -20,11 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  home: "Homas"
+  hello: "Hello"
+  signIn: 'Sign In'
+  signOut: 'Sign Out'
+  home: "Home"
   forum: 'Forum'
   logoWinter: "ZONARADICAL.snowboard"
   logoSummer: "ZONARADICAL.surf"
-  greetings: "Welcome back, trusted user!"
-  homePageText: "You have signed in!  If this were a real app some sweet conent
-                         would go here.  But it's just a test.  You might want to sign out now."
+
