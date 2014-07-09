@@ -56,6 +56,6 @@ class User < ActiveRecord::Base
   end
 
   def signed_in?
-    true
+    self.last_sign_in_at.to_i - self.current_sign_in_at.to_i > 0
   end
 end

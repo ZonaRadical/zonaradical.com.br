@@ -24,7 +24,7 @@
           <% else %>
               <span class="offline">offline</span>
           <% end %>
-          <span class="activity"><b><%= t('lastSignInAt') %>:</b> <%= @user.last_sign_in_at %>  <%= @user.current_sign_in_at %></span>
+          <span class="activity"><b><%= t('lastSignInAt') %>:</b> <%= @user.last_sign_in_at %>  <%= @user.current_sign_in_at.to_i %></span>
         </div>
         <ul class="details-list">
           <li><b>Posição:</b><span>master of sports</span></li>
