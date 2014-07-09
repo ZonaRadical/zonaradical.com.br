@@ -11,5 +11,7 @@ git config --global core.excludesfile '~/.gitignore_global'
 /log/*.log
 /tmp
 
+vendor/bundle/*
+public/assets/*
 
 database.yml
