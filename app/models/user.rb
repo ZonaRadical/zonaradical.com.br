@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
-  def signed_in?
-    self.last_sign_in_at.to_i - self.current_sign_in_at.to_i > 0
+  def online?
+    self.last_seen_at.to_i - self.current_sign_in_at.to_i > 0
   end
 end

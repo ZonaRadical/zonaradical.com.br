@@ -19,12 +19,12 @@
       <div class="rightcol">
         <div class="title">
           <span class="name"><%= @user.name %></span>
-          <% if @user.signed_in? %>
+          <% if @user.online? %>
             <span class="online">online</span>
           <% else %>
               <span class="offline">offline</span>
           <% end %>
-          <span class="activity"><b><%= t('lastSignInAt') %>:</b> <%= @user.last_sign_in_at %>  <%= @user.current_sign_in_at.to_i %></span>
+          <span class="activity"><b><%= t('lastSignInAt') %>:</b> <%= @user.last_seen_at %> </span>
         </div>
         <ul class="details-list">
           <li><b>Posição:</b><span>master of sports</span></li>
