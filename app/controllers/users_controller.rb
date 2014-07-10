@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, :finish_signup
+  before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
 
   def finish_signup
     if request.patch? && params[:user] #&& params[:user][:email]
@@ -26,5 +27,10 @@ class UsersController < ApplicationController
     accessible = [ :name, :email ] # extend with your own params
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
+  end
+
+  def set_last_seen_at
+    current_user.update_attribute(:last_seen_at, Time.now)
+    session[:last_seen_at] = Time.now
   end
 end
