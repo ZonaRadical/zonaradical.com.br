@@ -15,6 +15,7 @@ vendor/bundle/*
 public/assets/*
 
 database.yml
+secrets.yml
 
 /Procfile
 /config/deploy/
