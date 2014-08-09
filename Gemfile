@@ -7,6 +7,8 @@ gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'foreman'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'

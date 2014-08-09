@@ -8,6 +8,7 @@ application = 'zonaradical'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.1.1'
 set :deploy_to, '/var/www/apps/zonaradical'
+set :rails_env, 'production'
 
 namespace :foreman do
   desc 'Start server'
@@ -82,6 +83,7 @@ end
 # set :keep_releases, 5
 
 namespace :deploy do
+
   desc 'Setup'
   task :setup do
     on roles(:all) do
@@ -89,8 +91,9 @@ namespace :deploy do
       execute "mkdir  /var/www/apps/#{application}/run/"
       execute "mkdir  /var/www/apps/#{application}/log/"
       execute "mkdir  /var/www/apps/#{application}/socket/"
+      execute 'mkdir -p /var/www/log/upstart'
       execute "mkdir #{shared_path}/system"
-      sudo "ln -s /var/log/upstart /var/www/log/upstart"
+      sudo 'ln -s /var/log/upstart /var/www/log/upstart'
 
       upload!('shared/database.yml', "#{shared_path}/config/database.yml")
 
@@ -100,12 +103,12 @@ namespace :deploy do
       upload!('shared/nginx.conf', "#{shared_path}/nginx.conf")
       sudo 'stop nginx'
       sudo "rm -f /etc/nginx/nginx.conf"
-      sudo "ln -s #{shared_path}/nginx.conf /usr/local/nginx/conf/nginx.conf"
+      sudo "ln -s #{shared_path}/nginx.conf /etc/nginx/nginx.conf"
       sudo 'start nginx'
 
       within release_path do
         with rails_env: fetch(:rails_env) do
-          execute :rake, "db:create"
+          execute :rake, 'db:create'
         end
       end
 
