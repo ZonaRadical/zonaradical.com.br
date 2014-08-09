@@ -97,6 +97,8 @@ namespace :deploy do
 
       upload!('shared/database.yml', "#{shared_path}/config/database.yml")
 
+      upload!('shared/secrets.yml', "#{shared_path}/config/secrets.yml")
+
       upload!('shared/Procfile', "#{shared_path}/Procfile")
 
 
@@ -121,6 +123,7 @@ namespace :deploy do
   task :symlink do
     on roles(:all) do
       execute "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      execute "ln -s #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
       execute "ln -s #{shared_path}/Procfile #{release_path}/Procfile"
       execute "ln -s #{shared_path}/system #{release_path}/public/system"
     end
@@ -136,7 +139,7 @@ namespace :deploy do
 
       within current_path do
         execute "cd #{current_path}"
-        execute :bundle, "exec foreman export upstart #{foreman_temp} -a #{application} -u deployer -l /var/www/apps/#{application}/log -d #{current_path}"
+        execute :bundle, "exec foreman export upstart #{foreman_temp} -a #{application} -u zonvu -l /var/www/apps/#{application}/log -d #{current_path}"
       end
       sudo "mv #{foreman_temp}/* /etc/init/"
       sudo "rm -r #{foreman_temp}"
