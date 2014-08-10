@@ -3,7 +3,6 @@ lock '3.2.1'
 
 set :application, 'zonaradical'
 set :repo_url, 'git@bitbucket.org:ihhha/zoneradical.git'
-set :branch, 'capistrano3-unicorn'
 
 application = 'zonaradical'
 set :rvm_type, :user
@@ -120,10 +119,7 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
+    invoke 'unicorn:reload'
   end
 
   after :publishing, :restart
