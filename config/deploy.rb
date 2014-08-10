@@ -104,9 +104,10 @@ namespace :deploy do
 
       upload!('shared/nginx.conf', "#{shared_path}/nginx.conf")
       sudo 'stop nginx'
-      sudo "rm -f /etc/nginx/nginx.conf"
-      sudo "ln -s #{shared_path}/nginx.conf /etc/nginx/nginx.conf"
+      sudo "rm -f /usr/local/nginx/conf/nginx.conf"
+      sudo "ln -s #{shared_path}/nginx.conf /usr/local/nginx/conf/nginx.conf"
       sudo 'start nginx'
+
 
       within release_path do
         with rails_env: fetch(:rails_env) do
@@ -139,7 +140,7 @@ namespace :deploy do
 
       within current_path do
         execute "cd #{current_path}"
-        execute :bundle, "exec foreman export upstart #{foreman_temp} -a #{application} -u zonvu -l /var/www/apps/#{application}/log -d #{current_path}"
+        execute :bundle, "exec foreman export upstart #{foreman_temp} -a #{application} -u deployer -l /var/www/apps/#{application}/log -d #{current_path}"
       end
       sudo "mv #{foreman_temp}/* /etc/init/"
       sudo "rm -r #{foreman_temp}"
