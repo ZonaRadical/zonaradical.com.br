@@ -28,6 +28,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
+  gem 'capistrano3-unicorn'
 
 end
 
@@ -74,5 +75,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'rails_12factor', group: :production
 group :production do
   gem 'unicorn'
-  gem 'foreman'
 end
