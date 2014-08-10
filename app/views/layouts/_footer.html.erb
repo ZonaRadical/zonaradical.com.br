@@ -1,46 +1,53 @@
 <footer>
   <a href="#" class="to-top"></a>
+  <a href="#" class="to-top"></a>
   <div class="inner">
     <ul class="footer-cols">
       <li>
         <div class="heading"><h2>Tweets</h2></div>
         <ul class="tweet-list">
-          <li><a href="#" class="author">@jayhafling</a> É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.  <a href="#" class="date">2014/05/22</a></li>
-          <li><a href="#" class="author">@jayhafling</a> É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica.  <a href="#" class="date">2014/05/22</a></li>
+          <li><a href="#" class="author">@TWSNOW</a>
+            Preview from ryan_tarbell's #Minnesota edit up at #TWSNOW.com, click the link in our profile to watch<a href="#" class="date">2014/05/22</a></li>
+          <li><a href="#" class="author">‏@onboardmag</a>
+            The snowboarding Daily is out! http://paper.li/onboardmag/snowboarding … Stories via @absinthefilms @theMustachio<a href="#" class="date">2014/05/22</a></li>
         </ul>
       </li>
       <li>
         <div class="heading"><h2>navegação</h2></div>
         <nav>
           <ul class="footer-menu">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">Estações</a></li>
-            <li><a href="#">DICAS</a></li>
-            <li><a href="#">trips</a></li>
-            <li><a href="#">VAMO JUNTO</a></li>
-            <li><a href="#">forum</a></li>
-            <li><a href="#">galera zr</a></li>
+            <li><%= link_to t('Home'), root_path %></li>
+            <li><a href="list-estacoes.html">Estações</a></li>
+            <li><a href="list-dicas.html">DICAS</a></li>
+            <li><a href="#">TRIPS</a></li>
+            <li><a href="vamo-junto.html">VAMO JUNTO</a></li>
+            <li><a href="#">FORUM</a></li>
+            <li><a href="galera.html">Galera ZR</a></li>
           </ul>
         </nav>
       </li>
       <li>
         <div class="heading"><h2>flickr</h2></div>
         <ul class="flickr-list">
-          <li><a href="#"><img src="images/flickr-1.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-2.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-3.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-4.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-5.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-6.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-7.jpg" alt="" /></a></li>
-          <li><a href="#"><img src="images/flickr-8.jpg" alt="" /></a></li>
+          <li><a href="#"><%= image_tag('flickr-1.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-2.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-3.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-4.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-5.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-6.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-7.jpg') %></a></li>
+          <li><a href="#"><%= image_tag('flickr-8.jpg') %></a></li>
         </ul>
       </li>
       <li>
         <div class="heading"><h2>Sobre</h2></div>
-        <p class="about">Todos os geradores de Lorem Ipsum na Internet acabam por repetir porções de texto pré-definido, como necessário, fazendo com que este seja o primeiro verdadeiro gerador na Internet. Usa um dicionário de 200 palavras em Latim, combinado com uma dúzia de modelos de frases.</p>
+        <p class="about">
+          A ideia deste site nasceu nas pistas de chile onde se econtraram um brasileiro, que foi virar snowbordista
+          e um russo, que virou um brasileiro. A eles juntaram os profissionais tanto de parte visual
+          e de programacao, quanto na parte de divulgacao e journalismo para realizar este projeto.</p>
       </li>
     </ul><!-- end footer-cols -->
     <div class="copyright">Copyright 2014. All Rights Reserved</div>
   </div>
+
 </footer>
