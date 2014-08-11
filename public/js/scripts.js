@@ -39,7 +39,7 @@ $(document).ready(function(){
 	});
 	
 	//Scroll to-top
-    $('a.to-top').topLink({
+	$('a.to-top').topLink({
         min: 400,
         fadeSpeed: 500
     });
@@ -49,13 +49,75 @@ $(document).ready(function(){
     });
 
 
+	// SELECT stylization 
+	$('.select-wrap').each(function(){
+		$(this).find('input[type=hidden]').val($(this).find('.option-list li.default').attr('data-value'));		
+	});
 	
+	$('.select').click(function() {
+		var select_wrap = $(this).closest('.select-wrap');
+		var option_list = select_wrap.find('.option-list');
+	  
+		if (option_list.is(':visible')){
+			option_list.slideUp('fast');
+			$(this).find('.arrow').removeClass('active');
+		} else {
+			if ($('.select-wrap .option-list:visible').length){
+				$('.select-wrap .option-list:visible').hide();
+				$('.select-wrap .arrow').removeClass('active');
+			}
+			option_list.slideDown('fast');
+			$(this).find('.arrow').addClass('active');
+		}
+	});
+	
+	$('.option-list li').click(function() {
+		var title = $(this).closest('.select-wrap').find('.select .name');
+		var option = $(this).html();
+		$(this).closest('.select-wrap').find('input[type=hidden]').val($(this).attr('data-value'));
+		title.empty();
+		title.html(option);
+		$(this).closest('.option-list').slideUp(300);
+		$(this).closest('.select-wrap').find('.arrow').removeClass('active');
+	});
+	
+	$(document).click(function(e){
+		if ($('.select-wrap .option-list:visible').length && !$(e.target).closest('.select-wrap').length){
+			$('.select-wrap .option-list').slideUp(300);
+			$('.select-wrap .arrow').removeClass('active');
+		}
+	});
+	$(document).keyup(function(e){
+		if (e.keyCode == 27) {
+			$('.select-wrap .option-list').slideUp(300);
+		}
+	});
+
+	//Input placeholder
+	$('header .search-field input').each(function(index, element) {
+		var pl_val = $(this).attr('placeholder');
+		$(this).removeAttr('placeholder');
+		$(this).attr('plholder',pl_val);
+		if ($(this).val() == ''){
+			$(this).val($(this).attr('plholder')).css({color:'#fff', 'opacity': '0.37'});
+		}
+		$(this).blur(function(){
+			if ($(this).val() == ''){
+				$(this).val($(this).attr('plholder')).css({color:'#fff', 'opacity': '0.37'});
+			}
+		});
+		$(this).focus(function(){
+			if ($(this).val() == $(this).attr('plholder')){
+				if (!$(this).is('.mask-input')) $(this).val('');
+				$(this).css({color:'#fff', 'opacity':'1'});
+			}
+		});
+	});
 	$('a[href=#]').click(function(e){ e.preventDefault(); });
 
 });
 
 
-/* plugin fo ScrollToTopLink */
 jQuery.fn.topLink = function(settings) {
     settings = jQuery.extend({
         min: 1,

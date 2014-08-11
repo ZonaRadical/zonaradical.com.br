@@ -789,8 +789,8 @@ a.to-top {
   width:59px;
   height:63px;
   background:image_url('to-top-button.png') no-repeat;
-  position:absolute;
-  top:-120px;
+  position:fixed;
+  bottom:10px;
   left:10px;
 }
 
