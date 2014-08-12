@@ -232,8 +232,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :facebook, "1410728445875629", "81a893566b1527856afabb8c02947d51"
-  config.omniauth :twitter, "yFTWIHqYiWvkLMp8Kwl1fdEIk", "WnNjIAbvx1GeQNWzM3QG4EV6YAwv655okAEqnN2B6CZtcnldXr"
+  config.omniauth :facebook, "1410728445875629", "c9fd6d8e9daeab47b7510eed96dbde33"
+  config.omniauth :twitter, "om7HYHTOBUu4hBm8jXDKso3Am", "VI6PZYOwLybjhuquWHRhhkItRjFzInsBecT4y0XA5HTD3maKTW"
   #config.omniauth :linked_in, "KEY", "SECRET"
 
   # ==> Warden configuration
