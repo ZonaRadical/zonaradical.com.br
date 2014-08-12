@@ -1530,7 +1530,8 @@ ol.announcement-list li a.read-more {
     display:none;
   }
 }
-footer {
+
+footer#mainApplication {
   height:406px;
   position:absolute;
   bottom:0;
@@ -1539,10 +1540,64 @@ footer {
   background:#fff;
   background:image_url('footer-bg.png') repeat-x center top #f0f0f0;
   border-bottom:4px solid #ee9200;
+
+  .inner {
+    height:406px;
+  }
+
+  ul.tweet-list {
+    margin:0;
+    list-style:none;
+
+    li {
+      margin-bottom:15px;
+      font:normal normal 12px/18px Georgia, Arial, Helvetica, sans-serif;
+      color:#6c6c6c;
+
+      .author {
+        text-decoration:none;
+        color:#00a4d2;
+      }
+
+      .date {
+        font:normal normal 10px/18px Arial, Helvetica, sans-serif;
+        color:#010101;
+        border-bottom:1px dashed #a0a0a0;
+        text-decoration:none;
+      }
+    }
+  }
+  ul.flickr-list {
+    margin:0;
+    list-style:none;
+    li {
+      float:left;
+      margin:0 8px 8px 0;
+
+      img {
+        width:60px;
+        height:60px;
+        display:block;
+      }
+
+      a {
+        width:60px;
+        height:60px;
+        display:block;
+        border:2px solid #999;
+      }
+      a:hover {
+        border:2px solid #716f6f;
+      }
+    }
+  }
+  p.about {
+    font-size:13px;
+    color:#878686;
+    line-height:24px;
+  }
 }
-footer .inner {
-  height:406px;
-}
+
 ul.footer-cols {
   margin:0 0 0 -20px;
   list-style:none;
@@ -1558,25 +1613,10 @@ ul.footer-cols > li:first-child,
 ul.footer-cols > li:last-child {
   width:246px;
 }
-footer ul.tweet-list {
-  margin:0;
-  list-style:none;
-}
-footer ul.tweet-list li {
-  margin-bottom:15px;
-  font:normal normal 12px/18px Georgia, Arial, Helvetica, sans-serif;
-  color:#6c6c6c;
-}
-footer ul.tweet-list li .author {
-  text-decoration:none;
-  color:#00a4d2;
-}
-footer ul.tweet-list li .date {
-  font:normal normal 10px/18px Arial, Helvetica, sans-serif;
-  color:#010101;
-  border-bottom:1px dashed #a0a0a0;
-  text-decoration:none;
-}
+
+
+
+
 ul.footer-menu {
   margin:0;
   list-style:none;
@@ -1594,42 +1634,4 @@ ul.footer-menu li a {
 }
 ul.footer-menu li a:hover {
   color:#9b9b9b;
-}
-footer ul.flickr-list {
-  margin:0;
-  list-style:none;
-}
-footer ul.flickr-list li {
-  float:left;
-  margin:0 8px 8px 0;
-}
-footer ul.flickr-list li img {
-  width:60px;
-  height:60px;
-  display:block;
-}
-footer ul.flickr-list li a {
-  width:60px;
-  height:60px;
-  display:block;
-  border:2px solid #999;
-}
-footer ul.flickr-list li a:hover {
-  border:2px solid #716f6f;
-}
-footer p.about {
-  font-size:13px;
-  color:#878686;
-  line-height:24px;
-}
-footer .copyright {
-  position:absolute;
-  right:0;
-  bottom:0;
-  width:237px;
-  height:40px;
-  color:#fff;
-  padding-left:10px;
-  line-height:44px;
-  background:#ee9200;
 }
