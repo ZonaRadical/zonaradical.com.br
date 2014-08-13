@@ -1,10 +1,10 @@
 <header>
     <div class="inner">
-      <%= link_to image_tag('logo.png'), root_path, class: :logo %>
+      <%= link_to image_tag('logo.png'), main_app.root_path, class: :logo %>
       <div class="enter-block">
         <%- if user_signed_in? %>
             <div class="registered">
-              <span><%= t('hello')%>, <%= link_to current_user.name, user_profile_path(current_user.id) %> / </span>
+              <span><%= t('hello')%>, <%= link_to current_user.name, main_app.user_profile_path(current_user.id) %> / </span>
               <%= link_to t('signOut'), main_app.destroy_user_session_path, :class => 'exit-link', :method => :delete %>
             </div>
         <%- else %>
@@ -25,7 +25,7 @@
       </div>
       <nav>
         <ul class="menu">
-          <li><%= link_to t('Home'), root_path %></li>
+          <li><%= link_to t('Home'), main_app.root_path %></li>
           <li><a href="list-estacoes.html">Estações</a></li>
           <!-- <li class="submenu-item">
               <a href="#">Estações</a>
@@ -45,7 +45,7 @@
           <li><a href="list-dicas.html">Dicas</a></li>
           <li><a href="#">Trips</a></li>
           <li><a href="vamo-junto.html">Vamo junto</a></li>
-          <li><%= link_to t('forum'), 'forums' %></li>
+          <li><%= link_to t('forum'), 'forum' %></li>
           <li><a href="galera.html">Galera <span>ZR</span></a></li>
         </ul>
         <div class="search-field"><input type="text" placeholder="Pesquisa" /><a href="#"></a></div>
