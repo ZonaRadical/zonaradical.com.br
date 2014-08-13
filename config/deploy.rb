@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'zonaradical'
-set :repo_url, 'git@bitbucket.org:ihhha/zoneradical.git'
+set :repo_url, 'git@bitbucket.org:ignatfialkovskiy/zonaradical.git'
 
 application = 'zonaradical'
 set :rvm_type, :user
