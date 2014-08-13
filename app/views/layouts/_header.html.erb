@@ -10,15 +10,15 @@
         <%- else %>
             <div class="non-registered">
               <%- if controller_name != 'sessions' %>
-                  <%= link_to t('signIn'), new_session_path(:user), :class => 'login' %>
-                  <%= link_to omniauth_authorize_path(:user, 'facebook'), :class => 'login' do %>
+                  <%= link_to t('signIn'), main_app.new_session_path(:user), :class => 'login' %>
+                  <%= link_to main_app.omniauth_authorize_path(:user, 'facebook'), :class => 'login' do %>
                       <span class="fb"></span>
                   <% end %>
-                  <%= link_to omniauth_authorize_path(:user, 'twitter'), :class => 'login' do %>
+                  <%= link_to main_app.omniauth_authorize_path(:user, 'twitter'), :class => 'login' do %>
                       <span class="tw"></span>
                   <% end %>
                   <span> / </span>
-                  <%= link_to t('Sign up'), new_registration_path(:user) %><br />
+                  <%= link_to t('Sign up'), main_app.new_registration_path(:user) %><br />
               <% end -%>
             </div>
         <% end %>
