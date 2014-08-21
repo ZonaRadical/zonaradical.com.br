@@ -29,6 +29,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
+  gem 'mailcatcher'
 
 end
 
