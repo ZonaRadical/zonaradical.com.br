@@ -8,7 +8,6 @@ application = 'zonaradical'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.1.1'
 set :deploy_to, '/var/www/apps/zonaradical'
-set :rails_env, 'production'
 
 # capistrano unicorn
 set :unicorn_pid, '/var/www/apps/zonaradical/run/unicorn.pid'
