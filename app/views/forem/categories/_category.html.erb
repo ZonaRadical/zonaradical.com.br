@@ -1,6 +1,8 @@
 <% if can?(:read, category) %>
   <div id='category_<%= category.id %>' class='category'>
-    <h2><%= link_to forem_emojify(category.name), [forem, category] %></h2>
+    <div class='heading'>
+        <h6> <%= link_to forem_emojify(category.name), [forem, category], :class => "forem_cat" %></h6>
+    </div>
     <%= render "/forem/forums/listing", :category => category %>
   </div>
 <% end %>

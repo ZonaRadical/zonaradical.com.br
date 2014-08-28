@@ -1,5 +1,5 @@
 <tr class="topic <%= cycle('odd', 'even') %> <%= topic.locked? ? 'locked' : 'unlocked' %>">
-  <td class='icon'>
+  <!-- <td class='icon'>
     <% if topic.locked? %>
       <span class='lock icon'></span>
     <% end %>
@@ -14,7 +14,7 @@
         <span class='new_posts icon'>new</span>
       <% end %>
     <% end %>
-  </td>
+  </td> -->
   <td class='byline'>
     <%= new_since_last_view_text(topic) %>
     <div class='subject'><%= link_to forem_emojify(topic.subject), forem.forum_topic_path(@forum, topic) %></div>
