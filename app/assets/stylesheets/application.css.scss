@@ -96,7 +96,13 @@ h3 {
 }
 h4 {}
 h5 {}
-h6 {}
+h6 {
+  font:normal normal 17px/20px 'HelveticaNeueBold', Arial, Helvetica, sans-serif;
+  color:#686868;
+  text-transform:uppercase;
+  padding-top:26px;
+  border-bottom:4px solid #f78e00;
+}
 
 label {
   display:block;
@@ -1634,4 +1640,16 @@ ul.footer-menu li a {
 }
 ul.footer-menu li a:hover {
   color:#9b9b9b;
+}
+
+footer .copyright {
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:237px;
+  height:40px;
+  color:#fff;
+  padding-left:10px;
+  line-height:44px;
+  background:#ee9200;
 }

@@ -1,17 +1,17 @@
 .topics thead th {
-  background: #0088cc;
+  background: #dddddd;
   color: white;
-  padding: 5px;
-  border-bottom: 3px solid #232323;
+  padding: 3px;
   font-size: 110%;
+  width: 400px;
+  align: left;
 }
-
 .topic td.byline {
   padding: 10px;
 }
 
 .topic .subject {
-  font-size: 20px;
+  font:normal normal 19px/21px 'HelveticaNeueBold', Arial, Helvetica, sans-serif;
 }
 
 .new_topic textarea {

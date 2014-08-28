@@ -1,21 +1,30 @@
 .forum .title {
-  font-size: 25px;
+  font-size: 15px;
+}
+
+.forum a.forem_cat{
+  font-style: italic
 }
 
 .forums thead th {
-  background: #0088cc;
+  background: #dddddd;
   color: white;
-  padding: 10px;
-  border-bottom: 3px solid #232323;
+  padding: 0px;
   font-size: 110%;
+  width: 400px;
+  align: right;
+}
+.forums .title {
+  font:normal normal 19px/21px 'HelveticaNeueBold', Arial, Helvetica, sans-serif;
 }
 
 .forums .last_post {
   font-style: italic;
+  font-size: 75%;
 
   time {
     color: #aaa;
-    font-size: 75%;
+    font-size: 100%;
   }
 }
 
