@@ -3,13 +3,22 @@
   color: white;
   padding: 3px;
   font-size: 110%;
-  width: 400px;
-  align: left;
+  width: 140px;
+  text-align: center;
 }
 .topic td.byline {
   padding: 10px;
+  width: 800px;
 }
-
+.topic td.latest-post {
+  text-align: center;
+}
+.topic td.posts-count {
+  text-align: center;
+}
+.topic td.views-count {
+  text-align: center;
+}
 .topic .subject {
   font:normal normal 19px/21px 'HelveticaNeueBold', Arial, Helvetica, sans-serif;
 }
