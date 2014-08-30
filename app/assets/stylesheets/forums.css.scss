@@ -11,9 +11,25 @@
   color: white;
   padding: 0px;
   font-size: 110%;
-  width: 400px;
-  align: right;
+  width: 100px;
 }
+
+.forums thead th.desc-and-last-post {
+  background: white;
+  color: #dddddd;
+  width: 800px;
+  align: left;
+}
+.forums td.topics-count {
+  text-align: center;
+}
+.forums td.posts-count {
+  text-align: center;
+}
+.forums td.views-count {
+  text-align: center;
+}
+
 .forums .title {
   font:normal normal 19px/21px 'HelveticaNeueBold', Arial, Helvetica, sans-serif;
 }
