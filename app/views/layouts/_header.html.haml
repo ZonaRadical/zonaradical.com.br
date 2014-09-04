@@ -1,0 +1,39 @@
+%header
+  .inner
+    = link_to image_tag('logo.png'), main_app.root_path, class: :logo
+    .enter-block
+      - if user_signed_in?
+        .registered
+          %span
+            = t('hello')
+            , #{link_to current_user.name, main_app.user_profile_path(current_user.id)} /
+          = link_to t('signOut'), main_app.destroy_user_session_path, :class => 'exit-link', :method => :delete
+      - else
+        .non-registered
+          - if controller_name != 'sessions'
+            = link_to t('signIn'), new_session_path(:user), :class => 'login'
+            = link_to omniauth_authorize_path(:user, 'facebook'), :class => 'login' do
+              %span.fb
+            = link_to omniauth_authorize_path(:user, 'twitter'), :class => 'login' do
+              %span.tw
+            %span /
+            = link_to t('Sign up'), new_registration_path(:user)
+            %br/
+    %nav
+      %ul.menu
+        %li= link_to t('Home'), main_app.root_path
+        %li
+          %a{:href => "http://zonaradical.com.br/list-estacoes.html"} Estações
+        %li
+          %a{:href => "http://zonaradical.com.br/list-dicas.html"} Dicas
+        %li= link_to t('resorts'), main_app.resorts_url
+        %li
+          %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
+        %li= link_to t('forum'), main_app.forem_path
+        %li
+          %a{:href => "http://zonaradical.com.br/galera.html"}
+            Galera
+            %span ZR
+      .search-field
+        %input{:placeholder => "Pesquisa", :type => "text"}/
+        %a{:href => "#"}
