@@ -16,17 +16,13 @@
     %br/
     = f.file_field :image
   .field
-    = f.label :country
+    = f.label :web
     %br/
-    = f.country_select :country_code, {priority: %w(BR RU), prompt: 'Please select a country'}
+    = f.text_field :web
   .field
-    = f.label :link
+    = f.label :fb
     %br/
-    = f.text_field :link
-  .field
-    = f.label :link_to_map
-    %br/
-    = f.text_field :link_to_map
+    = f.text_field :fb
   .field
     = f.label :level1_description
     %br/

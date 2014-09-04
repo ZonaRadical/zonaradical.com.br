@@ -143,9 +143,9 @@ ActiveRecord::Schema.define(version: 20140902182959) do
   create_table "resorts", force: true do |t|
     t.string   "name"
     t.string   "image"
-    t.string   "link"
-    t.string   "link_to_map"
-    t.string   "country_code"
+    t.string   "web"
+    t.string   "fb"
+    t.string   "category"
     t.text     "level1_description"
     t.text     "level2_description"
     t.text     "level3_description"
