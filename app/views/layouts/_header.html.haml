@@ -37,3 +37,7 @@
       .search-field
         %input{:placeholder => "Pesquisa", :type => "text"}/
         %a{:href => "#"}
+    - if current_user && current_user.forem_admin?
+      %nav.admin
+        %ul.menu
+          %li= link_to t('newResort'), new_resort_path
