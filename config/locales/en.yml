@@ -39,7 +39,6 @@ en:
   lastSignInAt: 'Last visit'
 
   # Resort Profile
-  linkToMap: 'Link to map'
-  linkToResort: 'Link to resort'
   resorts: 'Resorts'
+  newResort: 'New resort'
 
