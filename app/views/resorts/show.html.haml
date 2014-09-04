@@ -1,0 +1,116 @@
+%section.content
+  .main-content
+    .heading
+      %h2
+        = t('resorts')
+        \: #{@resort.country}: #{@resort.name}
+    .resort-card
+      .leftcol
+        = image_tag @resort.image_url(:thumb).to_s, :class => :resortlogo
+        %ul.stars
+          %li.full
+          %li.full
+          %li.full
+          %li.full
+          %li.empty
+        %ul.details-list
+          %li.contacts
+            .contacts-list
+              %span.web www.snowcontatos.com.br
+              %span.fb https://www.facebook.com/alexromanov
+            .clear
+      .rightcol
+        .title
+          %span.name= @resort.name
+        %ul.details-list
+          %li
+            %b Posição:
+            %span master of sports
+          %li
+            %b Idade:
+            %span 27
+          %li
+            %b Sexo:
+            %span Masculino
+          %li
+            %b Inscrição:
+            %span 31 de maio, 2014
+          %li
+            %b País:
+            %span Brasil
+          %li
+            %b Cidade:
+            %span Rio de Janeiro
+          %li
+            %b Interesses:
+            %span Snowboarding, Rolos, Windsurf, Escalada, Surfe, Turismo
+      .clear
+      %p.descr
+        %b Biografia:
+        um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância. Várias versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).
+      .buttons
+        = link_to t('linkToMap'), @resort.link_to_map, :class => :button
+        = link_to t('linkToResort'), @resort.link, :class => :button
+        .clear
+      - if current_user && current_user.forem_admin?
+        = link_to 'Edit', edit_resort_path(@resort)
+        |
+        \#{link_to 'Back', resorts_path}
+    / end resort-card
+  %aside
+    .heading
+      %h2 Fique conectado
+    %ul.social-buttons
+      %li
+        %a.fb{:href => "#"}
+      %li
+        %a.yt{:href => "#"}
+      %li
+        %a.tw{:href => "#"}
+      %li
+        %a.gp{:href => "#"}
+      %li
+        %a.rss{:href => "#"}
+    .heading
+      %h2 Estações
+    %ul.categories
+      %li
+        %a{:href => "#"}
+          All
+          %span (53)
+      %li
+        %a.active{:href => "#"}
+          Argentina
+          %span >>
+          %span Valle Nevado
+      %li
+        %a{:href => "#"}
+          Chile
+          %span (3)
+      %li
+        %a{:href => "#"}
+          Peru
+          %span (6)
+    .heading
+      %h2 Lugares: Valle Nevado
+      %a.all{:href => "#"} Tudo
+    %ul.places-list
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-1.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-2.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-3.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-4.jpg"}/
+    .heading
+      %h2 Facebook
+    .fb-block
+      %img{:alt => "", :src => "images/fb-block.jpg"}/
+    .advert-block
+      %img{:alt => "", :src => "images/advert-img.jpg"}/
+  .clear
