@@ -1,0 +1,21 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title ZonaRadical
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  %body
+    = render 'layouts/header'
+    %section.content
+      - flash.each do |key, value|
+        - if key == 'alert'
+          .alert.alert-danger= value
+        - else
+          %div{:class => "alert alert-#{key}"}= value
+      = yield
+    = render 'layouts/footer'
+    %a.to-top{:href => "#"}
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = render 'layouts/analytics'
