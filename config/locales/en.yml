@@ -27,7 +27,7 @@ en:
   forum: 'Forum'
   logoWinter: "ZONARADICAL.snowboard"
   logoSummer: "ZONARADICAL.surf"
-
+  # User Profile
   userProfile: 'User profile'
   age: 'Age'
   sex: 'Sex'
@@ -38,4 +38,7 @@ en:
   contacts: 'Contacts'
   lastSignInAt: 'Last visit'
 
+  # Resort Profile
+  resorts: 'Resorts'
+  newResort: 'New resort'
 

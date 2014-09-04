@@ -1,0 +1,89 @@
+%section.top-section
+  .slider-field
+    %span.tag Bem vindo a Zona Radical
+    .index-slider
+      .slide
+        = image_tag('slide-1.jpg')
+        %p
+          Snowboard é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
+          cheinha de neve com um “pedaço de madeira” preso nos pés?
+          %br/
+          Nós tentaremos neste site juntar o máximo das informações possíveis para você aprender o snowboarding, escolher os
+          equipamentos certos e viajar pelo mundo inteiro desfrutando o máximo que o esporte radical pode te oferecer!
+  .gallery-field
+    .gallery-field-large
+      %span.tag Estações
+      = image_tag('gallery-1.jpg')
+      %p
+        %b> Ski resorts de mundo inteiro
+        Para vc  saber onde praticar o snow!
+    .gallery-field-small
+      = image_tag('gallery-2.jpg')
+      %p Dicas basicas, e nao so
+    .gallery-field-small.right
+      = image_tag('gallery-3.jpg')
+      %p Trips e ofertas
+    .clear
+  / end gallery-field
+  .clear
+/ end top-section
+%section.content
+  .main-content
+    .heading
+      %h2 Últimas Notícias
+    .news-slider
+      .slide
+        .news-item
+          %a.img-wrap{:href => "#"}= image_tag('news-3.jpg')
+          .details
+            %a.date{:href => "#"} 10 de Julho, 2014
+            %p
+              Design estah tudo feito. Ainda esperando os programadores... =(
+              Que vida dificil!
+          .clear
+      .slide
+        .news-item
+          %a.img-wrap{:href => "#"}= image_tag('news-2.jpg')
+          .details
+            %a.date{:href => "#"} 10 de Junho, 2014
+            %p
+              Os dominios registrados, ate em Portugal...
+              Agora esperamos o designer e os programadores fazer o trabalho deles.
+          .clear
+      .slide
+        .news-item
+          %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
+          .details
+            %a.date{:href => "#"} 22 de maio, 2014
+            %p
+              Depois de mais algumas brejas e muita dicussao escolhemos o nome -
+              = succeed "!!!" do
+                %b Zona Radical
+          .clear
+      .slide
+        .news-item
+          %a.img-wrap{:href => "#"}= image_tag('breja.jpg')
+          .details
+            %a.date{:href => "#"} 14 de maio, 2014
+            %p Nos reinumos para tomar uma breja e resolvemos (finalmente!) lancar um site para toda galera Snow do Brasil =)
+          .clear
+    / end main-content
+  %aside
+    .heading
+      %h2 Fique conectado
+    %ul.social-buttons
+      %li
+        %a.fb{:href => "https://www.facebook.com/zonaradicalbrasil", :target => "_blank"}
+      %li
+        %a.yt{:href => "http://instagram.com/zonaradicalbr"}
+      %li
+        %a.tw{:href => "https://twitter.com/ZonaRadicalBR"}
+      %li
+        %a.gp{:href => "#"}
+      %li
+        %a.rss{:href => "#"}
+    .heading
+      %h2 Facebook
+    .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
+  .clear
+  %a{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+

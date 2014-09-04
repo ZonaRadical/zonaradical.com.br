@@ -1,0 +1,39 @@
+= form_for(@resort, :html => {:multipart => true}) do |f|
+  - if @resort.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@resort.errors.count, "error")
+        prohibited this resort from being saved:
+      %ul
+        - @resort.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = image_tag @resort.image_url(:thumb).to_s
+    %br/
+    = f.file_field :image
+  .field
+    = f.label :web
+    %br/
+    = f.text_field :web
+  .field
+    = f.label :fb
+    %br/
+    = f.text_field :fb
+  .field
+    = f.label :level1_description
+    %br/
+    = f.text_area :level1_description
+  .field
+    = f.label :level2_description
+    %br/
+    = f.text_area :level2_description
+  .field
+    = f.label :level3_description
+    %br/
+    = f.text_area :level3_description
+  .actions
+    = f.submit

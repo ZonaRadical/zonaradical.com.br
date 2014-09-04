@@ -13,6 +13,11 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #gem 'omniauth-linkedin'
 
+gem 'carrierwave'
+gem 'rmagick', '2.13.2',require: false
+gem 'carmen-rails', '~> 1.0.0'
+gem "haml-rails"
+
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '3.0.5'
@@ -30,7 +35,6 @@ group :development, :test do
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
   gem 'mailcatcher'
-
 end
 
 group :test do
