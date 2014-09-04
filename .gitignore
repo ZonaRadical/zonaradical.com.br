@@ -21,3 +21,4 @@ secrets.yml
 /config/deploy/
 /shared/
 /public/system/
+/public/uploads/

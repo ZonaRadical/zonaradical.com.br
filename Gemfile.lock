@@ -68,6 +68,16 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carmen (1.0.1)
+      unicode_utils (~> 1.4.0)
+    carmen-rails (1.0.1)
+      carmen (~> 1.0.0)
+      rails
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     childprocess (0.5.3)
@@ -230,6 +240,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -322,6 +333,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
@@ -344,6 +356,8 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-unicorn
   capybara
+  carmen-rails (~> 1.0.0)
+  carrierwave
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails
@@ -359,6 +373,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   rails (= 4.1.1)
+  rmagick (= 2.13.2)
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

@@ -1,0 +1,47 @@
+<section class="content">
+  <div class="main-content">
+    <div class="heading"><h2>Estacoes: Chile</h2></div>
+    <div class="introtext">
+      Aqui nos postamos todos os lugares nas proximidades do Brasil, e mais longe,
+      onde voce pode practicar snowboard e ski, damos tbm algumas informações adicionais sobre alojamento, transporte e ski tickets (telefericos).
+    </div>
+    <%- if current_user && current_user.forem_admin? %>
+        <%= link_to 'New Resort', new_resort_path %>
+    <% end %>
+    <div class="clear"></div>
+    <ul class="stations-list">
+      <% @resorts.each do |resort| %>
+      <li>
+        <%= link_to (image_tag resort.image_url(:thumb).to_s ), resort, :class => 'img-wrap' %>
+        <div class="details">
+          <p class="name"><%= resort.name %></p>
+          <a href="#" class="pics-amount">0</a>
+          <p>Muito perto de Santiago de Chile, no coração da Cordilheira dos Andes, é a maior e, provavelmente, o centro de esqui do Hemisfério Sul a mais moderno da Patagônia. Seu nome é sinônimo de esqui: Valle Nevado está...</p>
+        </div>
+        <div class="clear"></div>
+        <%- if current_user && current_user.forem_admin? %>
+            <div class="control">
+              <%= link_to 'Edit', edit_resort_path(resort) %>
+              <%= link_to 'Destroy', resort, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        <% end %>
+      </li>
+      <% end %>
+    </ul><!-- end pagination -->
+    <div class="clear"></div>
+  </div><!-- end main-content -->
+  <aside>
+    <div id="ficConn"></div>
+    <div class="heading"><h2>Instagram</h2></div>
+    <!-- SnapWidget 3*3 aside -->
+    <iframe src="http://snapwidget.com/in/?u=em9uYXJhZGljYWxicnxpbnw4N3wzfDN8fHllc3w1fG5vbmV8b25TdGFydHx5ZXN8bm8=&ve=230814" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:306px; height:306px"></iframe>
+    <div class="clear"></div>
+    <div class="heading"><h2>Facebook</h2></div>
+    <!-- <div class="fb-block"></div> -->
+    <div class="fb-like-box"  data-width="303" data-href="https://www.facebook.com/zonaradicalbrasil" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+    <div class="clear"></div>
+    <div class="heading"><h2>Eventos</h2></div>
+    <div class="advert-block"><img src="images/advert-img.jpg" alt="" /></div>
+  </aside>
+  <div class="clear"></div>
+</section>
