@@ -41,5 +41,12 @@ pt-BR:
     # Resort Profile
     resorts: 'Estaçoes'
     newResort: 'Nova Estação'
+    airport: 'Aeroporto mais Próximo'
+    altitude: 'Altitude de pico/base'
+    drop: 'Vertical Drop'
+    terrain: 'Terreno esquiável'
+    lifts: 'Número de Teleféricos'
+    slopes: 'Proporcao de terreno'
+    ourtake: 'Opinhao da ZR'
     linkToResortWeb: 'Link web da estação'
-    linkToResortFB: 'Link FB da estação'
+    linkToResortMap: 'Mapa das pistas'

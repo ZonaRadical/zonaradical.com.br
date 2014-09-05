@@ -41,4 +41,14 @@ en:
   # Resort Profile
   resorts: 'Resorts'
   newResort: 'New resort'
+  airport: 'Nearest Airport'
+  altitude: 'Altitude top/bottmo'
+  drop: 'Vertical Drop'
+  terrain: 'Skiable Terrain'
+  lifts: 'Number of Lifts'
+  slopes: 'Percentage of slopes'
+  ourtake: 'Opnion of ZR'
+  linkToResortWeb: 'Resorts web site'
+  linkToResortMap: 'Slopes map'
+
 

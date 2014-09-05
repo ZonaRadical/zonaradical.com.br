@@ -18,27 +18,41 @@
           %span.name= @resort.name
         %ul.details-list
           %li
-            %b Aeroporto mais Próximo:
+            %b
+              = t('airport')
+              \:
             %span
           %li
-            %b Altitude de pico/base:
+            %b
+              = t('altitude')
+              \:
             %span 27
           %li
-            %b Vertical Drop:
+            %b
+              = t('drop')
+              \:
             %span Masculino
           %li
-            %b Terreno esquiável:
+            %b
+              = t('terrain')
+              \:
             %span
           %li
-            %b Número de Teleféricos :
+            %b
+              = t('lifts')
+              \:
             %span
           %li
-            %b Proporcao de terreno
+            %b
+              = t('slopes')
+              \:
             (inic/interm/experto):
             %span
       .clear
       %p.descr
-        %b Opinhao da ZR:
+        %b
+          = t('ourtake')
+          \:
         = @resort.level1_description
       .buttons
         = link_to t('linkToResortWeb'), @resort.link, :class => :button
