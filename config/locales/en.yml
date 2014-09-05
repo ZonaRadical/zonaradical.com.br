@@ -51,4 +51,7 @@ en:
   linkToResortWeb: 'Resorts web site'
   linkToResortMap: 'Slopes map'
 
+  #forms
+  create: 'Create'
+
 

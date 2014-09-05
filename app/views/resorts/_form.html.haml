@@ -1,4 +1,4 @@
-= form_for(@resort, :html => {:multipart => true}) do |f|
+= form_for(@resort, :html => {:multipart => true, :class => 'admin-form'}) do |f|
   - if @resort.errors.any?
     #error_explanation
       %h2
@@ -12,20 +12,18 @@
     = f.text_field :name
   .field
     = image_tag @resort.image_url(:thumb).to_s
-    %p
+    = f.label :image
     = f.file_field :image
-    %br/
+
   .field
     = f.label :web
     = f.text_field :web
   .field
     = f.label :fb
-    %br/
     = f.text_field :fb
-    %p
+
   .field
     = f.label :level1_description
-    %br/
     = f.text_area :level1_description
   .actions
-    = f.submit
+    = f.submit({:value => t('create')})
