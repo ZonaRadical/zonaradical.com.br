@@ -5,7 +5,7 @@ class CreateResorts < ActiveRecord::Migration
       t.string :image
       t.string :web
       t.string :fb
-      t.string :category
+      t.integer :category_id
       t.text :level1_description
       t.text :level2_description
       t.text :level3_description

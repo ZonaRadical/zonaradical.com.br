@@ -10,8 +10,8 @@
         %ul.details-list
           %li.contacts
             .contacts-list
-              %span.web= link_to @resort.link, @resort.link
-              %span.web= link_to @resort.link_to_map, @resort.link_to_map
+              %span.web= link_to @resort.web, @resort.web
+              %span.web= link_to @resort.fb, @resort.fb
             .clear
       .rightcol
         .title
@@ -55,8 +55,8 @@
           \:
         = @resort.level1_description
       .buttons
-        = link_to t('linkToResortWeb'), @resort.link, :class => :button
-        = link_to t('linkToResortMap'), @resort.link_to_map, :class => :button
+        = link_to t('linkToResortWeb'), @resort.web, :class => :button
+        = link_to t('linkToResortMap'), @resort.fb, :class => :button
         .clear
       - if current_user && current_user.forem_admin?
         = link_to 'Edit', edit_resort_path(@resort)
