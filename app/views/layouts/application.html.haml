@@ -9,11 +9,6 @@
     %script{:src => "js/inclusions.js", :type => "text/javascript"}
   %body
     = render 'layouts/header'
-    - flash.each do |key, value|
-      - if key == 'alert'
-        .alert.alert-danger= value
-      - else
-        %div{:class => "alert alert-#{key}"}= value
     = yield
     = render 'layouts/footer'
     %a.to-top{:href => "#"}

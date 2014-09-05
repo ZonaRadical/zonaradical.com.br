@@ -360,6 +360,16 @@ header {
     }
   }
 
+  div.flash {
+    height: 30px;
+    background: #fda418;
+    position: relative;
+    line-height: 30px;
+    color: #fff;
+    padding: 5px;
+    z-index: 5000;
+  }
+
   nav.admin {
     height: 30px;
     background: #458b92;
