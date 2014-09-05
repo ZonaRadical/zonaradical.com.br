@@ -7,50 +7,42 @@
     .resort-card
       .leftcol
         = image_tag @resort.image_url(:thumb).to_s, :class => :resortlogo
-        %ul.stars
-          %li.full
-          %li.full
-          %li.full
-          %li.full
-          %li.empty
         %ul.details-list
           %li.contacts
             .contacts-list
-              %span.web= link_to @resort.web, @resort.web
-              %span.fb= link_to @resort.fb, @resort.fb
+              %span.web= link_to @resort.link, @resort.link
+              %span.web= link_to @resort.link_to_map, @resort.link_to_map
             .clear
       .rightcol
         .title
           %span.name= @resort.name
         %ul.details-list
           %li
-            %b Posição:
-            %span master of sports
+            %b Aeroporto mais Próximo:
+            %span
           %li
-            %b Idade:
+            %b Altitude de pico/base:
             %span 27
           %li
-            %b Sexo:
+            %b Vertical Drop:
             %span Masculino
           %li
-            %b Inscrição:
-            %span 31 de maio, 2014
+            %b Terreno esquiável:
+            %span
           %li
-            %b País:
-            %span Brasil
+            %b Número de Teleféricos :
+            %span
           %li
-            %b Cidade:
-            %span Rio de Janeiro
-          %li
-            %b Interesses:
-            %span Snowboarding, Rolos, Windsurf, Escalada, Surfe, Turismo
+            %b Proporcao de terreno
+            (inic/interm/experto):
+            %span
       .clear
       %p.descr
-        %b Biografia:
-        um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissão, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infância. Várias versões têm evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).
+        %b Opinhao da ZR:
+        = @resort.level1_description
       .buttons
-        = link_to t('linkToMap'), @resort.web, :class => :button
-        = link_to t('linkToResort'), @resort.fb, :class => :button
+        = link_to t('linkToResortWeb'), @resort.link, :class => :button
+        = link_to t('linkToResortMap'), @resort.link_to_map, :class => :button
         .clear
       - if current_user && current_user.forem_admin?
         = link_to 'Edit', edit_resort_path(@resort)

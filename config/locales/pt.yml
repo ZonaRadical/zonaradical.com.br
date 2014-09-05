@@ -28,16 +28,18 @@ pt-BR:
     logoWinter: "ZONARADICAL.snowboard"
     logoSummer: "ZONARADICAL.surf"
     # User Profile
-    userProfile: 'User profile'
-    age: 'Age'
-    sex: 'Sex'
-    birthday: 'Birthday'
-    country: 'Country'
-    city: 'City'
-    interests: 'Interests'
-    contacts: 'Contacts'
-    lastSignInAt: 'Last visit'
+    userProfile: 'Perfil de usuario'
+    age: 'Idade'
+    sex: 'Sexo'
+    birthday: 'D. de nacimento'
+    country: 'Pais'
+    city: 'Cidade'
+    interests: 'Interesses'
+    contacts: 'Contatos'
+    lastSignInAt: 'Ultima visita'
 
     # Resort Profile
-    resorts: 'Estacao'
-    newResort: 'New resort'
+    resorts: 'Estaçoes'
+    newResort: 'Nova Estação'
+    linkToResortWeb: 'Link web da estação'
+    linkToResortFB: 'Link FB da estação'
