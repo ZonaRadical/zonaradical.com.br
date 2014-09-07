@@ -11,7 +11,7 @@
           %li.contacts
             .contacts-list
               %span.web= link_to @resort.web, @resort.web
-              %span.web= link_to @resort.fb, @resort.fb
+              %span.fb= link_to @resort.fb, @resort.fb
             .clear
       .rightcol
         .title
@@ -41,7 +41,7 @@
             %b
               = t('lifts')
               \:
-            %span
+            %span.lifts
           %li
             %b
               = t('slopes')

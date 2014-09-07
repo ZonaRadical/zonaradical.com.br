@@ -192,8 +192,6 @@ input[type=submit] {
 
 }
 
-
-
 /*	-------------------------------------------------
 	Стили блоков, содержимого страниц | Other styles
 	------------------------------------------------- */
@@ -1031,7 +1029,8 @@ ul.galera-list {
     color: #646464;
   }
 }
-/* Styles for profile.html */
+
+/* Styles for resort.html */
 
 .resort-card {
   position: relative;
@@ -1049,6 +1048,38 @@ ul.galera-list {
     margin-bottom: 10px;
   }
 }
+
+.resort-card {
+  .rightcol {
+    width: 395px;
+    float: left;
+  }
+  .title {
+    .name {
+      text-transform: uppercase;
+      font: normal normal 18px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
+      color: #646464;
+      margin-right: 10px;
+    }
+  }
+}
+
+.resort-card p.descr {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+ul.details-list {
+  /* only what differs from prifile */
+  .contacts-list {
+    span {
+      &.lifts {
+        background: image_url("fb-icon.png") no-repeat 5px center;
+      }
+    }
+  }
+}
+/* Styles for profile.html */
 
 .profile-card {
   position: relative;
@@ -1085,33 +1116,6 @@ ul.stars {
   }
 }
 
-.resort-card {
-  .rightcol {
-    width: 395px;
-    float: left;
-  }
-  .title {
-    .name {
-      text-transform: uppercase;
-      font: normal normal 18px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
-      color: #646464;
-      margin-right: 10px;
-    }
-    .online {
-      display: inline-block;
-      height: 21px;
-      padding: 0 3px;
-      background: #2ba106;
-      color: #fff;
-      line-height: 21px;
-      text-transform: uppercase;
-      margin-right: 10px;
-    }
-    .activity {
-      color: #646464;
-    }
-  }
-}
 
 .profile-card {
   .rightcol {
@@ -1180,10 +1184,6 @@ ul.details-list {
   margin-bottom: 24px;
 }
 
-.resort-card p.descr {
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
 
 .buttons {
   margin-bottom: 20px;
