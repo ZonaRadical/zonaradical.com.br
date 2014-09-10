@@ -15,6 +15,8 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'rmagick', '2.13.2',require: false
+gem "fog"
+
 gem 'carmen-rails', '~> 1.0.0'
 gem 'haml-rails'
 gem 'globalize', '~> 4.0.2'
