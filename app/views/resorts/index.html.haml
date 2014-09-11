@@ -15,7 +15,7 @@
           .details
             %p.name= resort.name
             %a.pics-amount{:href => "#"} 0
-            %p Muito perto de Santiago de Chile, no coração da Cordilheira dos Andes, é a maior e, provavelmente, o centro de esqui do Hemisfério Sul a mais moderno da Patagônia. Seu nome é sinônimo de esqui: Valle Nevado está...
+            %p= resort.level1_description
           .clear
           - if current_user && current_user.forem_admin?
             .control

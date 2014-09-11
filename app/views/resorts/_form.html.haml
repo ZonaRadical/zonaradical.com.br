@@ -16,6 +16,10 @@
     = f.file_field :image
 
   .field
+    = f.label :country
+    = f.collection_select(:country_id, Country.all,:id, :name,{:prompt => t('SelectCountry')})
+
+  .field
     = f.label :web
     = f.text_field :web
   .field
