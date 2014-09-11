@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'users_controller/finish_signup'
 
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
