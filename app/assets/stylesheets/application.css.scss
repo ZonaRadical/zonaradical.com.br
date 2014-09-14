@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= reset
+ *= require jquery-ui
  *= require 'forem/base'
  *= require_tree .
  *= require_self
@@ -243,6 +244,11 @@ header {
     }
     .non-registered {
       color: #fda418;
+      span.signIn-dialog {
+        text-decoration: underline;
+        font-weight: bold;
+        cursor: pointer;
+      }
       span {
         &.fb {
           width: 19px;
@@ -261,6 +267,9 @@ header {
           margin: 0 4px;
           background-position: -27px 0;
         }
+      }
+      .login{
+        text-decoration: none;
       }
     }
   }
@@ -1868,4 +1877,7 @@ footer .copyright {
   line-height:44px;
   background:#ee9200;
 }
+
+/* Modal Login */
+#signIn {display: none}
 

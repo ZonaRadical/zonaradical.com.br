@@ -1,3 +1,4 @@
+=render 'shared/sign_in'
 %header
   .inner
     = link_to image_tag('logo.png'), main_app.root_path, class: :logo
@@ -11,7 +12,7 @@
       - else
         .non-registered
           - if controller_name != 'sessions'
-            = link_to t('signIn'), new_session_path(:user), :class => 'login'
+            %span.signIn-dialog= t('signIn')
             = link_to omniauth_authorize_path(:user, 'facebook'), :class => 'login' do
               %span.fb
             = link_to omniauth_authorize_path(:user, 'twitter'), :class => 'login' do

@@ -12,10 +12,12 @@
 //
 //= require modernizr.custom
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //= require forem
+//= require inclusions
 
 
 /* Запускаем когда страница готова | trigger when page is ready */
@@ -65,6 +67,11 @@ $(document).ready(function(){
 
 
     $('a[href=#]').click(function(e){ e.preventDefault(); });
+
+    $( "#signIn" ).dialog({ autoOpen: false, modal: true });
+    $( "span.signIn-dialog" ).click(function() {
+        $( "#signIn" ).dialog( "open" );
+    });
 
 });
 
