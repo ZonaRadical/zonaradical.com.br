@@ -25,7 +25,25 @@
   .field
     = f.label :fb
     = f.text_field :fb
-
+  .field
+    = f.label t('airport')
+    = number_field_tag 'resort[airport]', @resort.airport
+  .field
+    = f.label t('altitude')
+    = number_field_tag 'resort[altitude_top]', @resort.altitude_top
+    = number_field_tag 'resort[altitude_bottom]', @resort.altitude_bottom
+  .field
+    = f.label t('drop')
+    = number_field_tag 'resort[drop]', @resort.drop
+  .field
+    = f.label t('terrain')
+    = number_field_tag 'resort[terrain]', @resort.terrain
+  .field
+    = f.label t('lifts')
+    = number_field_tag 'resort[lifts]', @resort.lifts
+  .field
+    = f.label t('slopes')
+    = f.text_field :slopes
   .field
     = f.label :level1_description
     = f.text_area :level1_description

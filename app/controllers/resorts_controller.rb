@@ -70,6 +70,8 @@ class ResortsController < ApplicationController
     def resort_params
       params.require(:resort).permit(:name, :image, :country_id, :web,
                                      :fb, :level1_description,
+                                     :airport, :altitude_top, :altitude_bottom,
+                                     :drop, :terrain, :lifts, :slopes,
                                      :level2_description, :level3_description)
     end
 end

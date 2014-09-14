@@ -21,32 +21,40 @@
             %b
               = t('airport')
               \:
+              =@resort.airport
             %span
           %li
             %b
               = t('altitude')
               \:
-            %span 27
+              =@resort.altitude_top
+              \-
+              =@resort.altitude_bottom
+              \=
+              = @resort.altitude_top.to_f-@resort.altitude_bottom.to_f
           %li
             %b
               = t('drop')
               \:
-            %span Masculino
+              =@resort.drop
           %li
             %b
               = t('terrain')
               \:
+              =@resort.terrain
             %span
           %li
             %b
               = t('lifts')
               \:
+              =@resort.lifts
             %span.lifts
           %li
             %b
               = t('slopes')
+              (inic/interm/experto)
               \:
-            (inic/interm/experto):
+              =@resort.slopes
             %span
       .clear
       %p.descr
