@@ -1,0 +1,74 @@
+%section.content
+  .main-content
+    .heading
+      %h2
+        #{@country.name}
+      %h3 Children
+      %ul
+        - @country.children.each do |children|
+          %li= link_to children.name, country_path(children.id)
+      %h3 Ancestors
+      %ul
+        - @country.ancestors.each do |parent|
+          %li= link_to parent.name, country_path(parent.id)
+      - if current_user && current_user.forem_admin?
+        = link_to 'Edit', edit_country_path(@country)
+        |
+        \#{link_to 'Back', countries_path}
+  %aside
+    .heading
+      %h2 Fique conectado
+    %ul.social-buttons
+      %li
+        %a.fb{:href => "#"}
+      %li
+        %a.yt{:href => "#"}
+      %li
+        %a.tw{:href => "#"}
+      %li
+        %a.gp{:href => "#"}
+      %li
+        %a.rss{:href => "#"}
+    .heading
+      %h2 Estações
+    %ul.categories
+      %li
+        %a{:href => "#"}
+          All
+          %span (53)
+      %li
+        %a.active{:href => "#"}
+          Argentina
+          %span >>
+          %span Valle Nevado
+      %li
+        %a{:href => "#"}
+          Chile
+          %span (3)
+      %li
+        %a{:href => "#"}
+          Peru
+          %span (6)
+    .heading
+      %h2 Lugares: Valle Nevado
+      %a.all{:href => "#"} Tudo
+    %ul.places-list
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-1.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-2.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-3.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-4.jpg"}/
+    .heading
+      %h2 Facebook
+    .fb-block
+      %img{:alt => "", :src => "images/fb-block.jpg"}/
+    .advert-block
+      %img{:alt => "", :src => "images/advert-img.jpg"}/
+  .clear
