@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/radar/forem.git
-  revision: 03908c467ffa156e0186528d2e60f15013a8cb55
+  revision: dc2900d6dd7f94f2afac1c709d86f3d9d31546d3
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -48,6 +48,7 @@ GEM
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
+    cancan (1.6.10)
     cancancan (1.9.2)
     capistrano (3.2.1)
       i18n
@@ -80,8 +81,8 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    celluloid (0.15.2)
-      timers (~> 1.1.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
@@ -126,7 +127,7 @@ GEM
       fog-softlayer
       ipaddress (~> 0.5)
       nokogiri (~> 1.5, >= 1.5.11)
-    fog-brightbox (0.5.0)
+    fog-brightbox (0.5.1)
       fog-core (~> 1.22)
       fog-json
       inflecto
@@ -168,8 +169,9 @@ GEM
     hashie (3.3.1)
     highline (1.6.21)
     hike (1.2.3)
+    hitimes (1.2.2)
     i18n (0.6.11)
-    i18n-tasks (0.7.5)
+    i18n-tasks (0.7.6)
       activesupport
       easy_translate (>= 0.5.0)
       erubis
@@ -276,29 +278,29 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.1.1)
+    rdoc (4.1.2)
       json (~> 1.4)
     rmagick (2.13.2)
-    rspec (3.0.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-    rspec-core (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.4)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+    rspec-core (3.1.4)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-rails (3.0.2)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.1)
+      rspec-support (~> 3.1.0)
+    rspec-rails (3.1.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-      rspec-support (~> 3.0.0)
-    rspec-support (3.0.4)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+      rspec-support (~> 3.1.0)
+    rspec-support (3.1.0)
     rubyzip (1.1.6)
     sanitize (2.0.6)
       nokogiri (>= 1.4.4)
@@ -313,11 +315,11 @@ GEM
       rdoc (~> 4.0)
     select2-rails (3.5.9.1)
       thor (~> 0.14)
-    selenium-webdriver (2.42.0)
-      childprocess (>= 0.5.0)
+    selenium-webdriver (2.43.0)
+      childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
-      websocket (~> 1.0.4)
+      websocket (~> 1.0)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -359,8 +361,9 @@ GEM
     thread (0.1.4)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    timers (1.1.0)
-    tins (1.3.2)
+    timers (4.0.1)
+      hitimes
+    tins (1.3.3)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -378,7 +381,7 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.3)
       rack (>= 1.0)
-    websocket (1.0.7)
+    websocket (1.2.1)
     will_paginate (3.0.5)
     workflow (1.0.0)
     xpath (2.0.0)
@@ -389,6 +392,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_tree
+  cancan
   capistrano
   capistrano-bundler
   capistrano-rails

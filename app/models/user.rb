@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  has_many :role_assignments
+  has_many :roles, :through => :role_assignments
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 

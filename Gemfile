@@ -13,6 +13,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 #gem 'omniauth-linkedin'
 
+gem 'cancan'
+
 gem 'carrierwave'
 gem 'rmagick', '2.13.2',require: false
 gem "fog"
