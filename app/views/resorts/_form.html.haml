@@ -14,6 +14,7 @@
     = image_tag @resort.image_url(:thumb).to_s
     = f.label :image
     = f.file_field :image
+    = f.check_box :remove_image
 
   .field
     = f.label :country
