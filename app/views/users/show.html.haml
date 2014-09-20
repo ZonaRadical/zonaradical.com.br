@@ -4,7 +4,7 @@
       %h2= t('userProfile')
     .profile-card
       .leftcol
-        = image_tag('avatar.jpg', class: 'userpic', alt: @user.name )
+        = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
         .reputation
           %a{:href => "#"} Reputação:
           %span Brother

@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
 
+  mount_uploader :avatar, AvatarImageUploader
+
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
