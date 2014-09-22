@@ -56,6 +56,8 @@ en:
           resort:
             create: 'Create'
             update: 'Update'
-
+          country:
+            create: 'Create'
+            update: 'Update'
   newCountry: "new country"
   Home: "Home"
