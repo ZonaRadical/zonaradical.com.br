@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Resorts", :type => :request do
   describe "GET /resorts" do
-    it "works! (now write some real specs)" do
-      get resorts_path
-      expect(response.status).to be(200)
+    it "Should see all resort page" do
+      @resort = FactoryGirl.create(:resort)
+
     end
   end
 end
