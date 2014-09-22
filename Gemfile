@@ -26,7 +26,7 @@ gem 'acts_as_tree'
 
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
-gem 'will_paginate', '3.0.5'
+gem 'will_paginate', '~> 3.0.5'
 
 gem 'i18n'
 
@@ -41,6 +41,8 @@ group :development, :test do
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
   gem 'mailcatcher'
+  gem 'populator'
+  gem 'faker'
 end
 
 group :test do
