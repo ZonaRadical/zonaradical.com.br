@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "Resorts", :type => :request do
-  describe "GET /resorts" do
-    it "Should see all resort page" do
-      @resort = FactoryGirl.create(:resort)
+  subject { page }
 
+  describe 'GET /resorts' do
+    100.times { FactoryGirl.create(:resort) }
+    before { visit resorts_path }
+    describe 'with pagination' do
+      it { should have_content('Estacoes: Chile') }
+      it { should have_css('div.pagination')  }
     end
   end
 end
