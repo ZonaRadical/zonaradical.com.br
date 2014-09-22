@@ -23,38 +23,32 @@ RSpec.describe ResortsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Resort. As you add validations to Resort, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ResortsController. Be sure to keep this updated too.
+
   let(:valid_session) { {} }
+
 
   describe "GET index" do
     it "assigns all resorts as @resorts" do
-      resort = Resort.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:resorts)).to eq([resort])
+      @resort = FactoryGirl.create(:resort)
+      expect(assigns(:resorts)).to eq(@resort)
     end
   end
 
   describe "GET show" do
     it "assigns the requested resort as @resort" do
-      resort = Resort.create! valid_attributes
-      get :show, {:id => resort.to_param}, valid_session
-      expect(assigns(:resort)).to eq(resort)
+      @resort = FactoryGirl.create(:resort)
+      visit resort_path(@resort.id)
+      expect(assigns(:resort)).to eq(@resort)
     end
   end
 
   describe "GET new" do
     it "assigns a new resort as @resort" do
-      get :new, {}, valid_session
+      get :new
       expect(assigns(:resort)).to be_a_new(Resort)
     end
   end
