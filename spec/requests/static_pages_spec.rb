@@ -24,7 +24,7 @@ describe 'StaticPages', :type => :request do
         visit root_path
       end
 
-      it { should have_link( @user.name, :href => user_profile_path(@user.id) ) }
+      it { should have_link( @user.name, :href => user_path(@user.id) ) }
       it { should_not have_content( I18n.t('signIn') ) }
       it { should have_link( I18n.t('signOut') ) }
       it { should_not have_link( I18n.t('newResort'), :href => new_resort_path ) }
@@ -36,7 +36,7 @@ describe 'StaticPages', :type => :request do
       before(:each) do
         @user = FactoryGirl.create(:user)
         @user.confirmed_at = Time.now
-        @user.forem_admin = true
+        @user.roles = [Role.find_by_name('admin')]
         @user.save
 
         login_as @user, :scope => :user
@@ -44,6 +44,7 @@ describe 'StaticPages', :type => :request do
       end
 
       it { should have_link( I18n.t('newResort'), :href => new_resort_path ) }
+      it { should have_link( I18n.t('newCountry'), :href => new_country_path ) }
     end
 
   end
