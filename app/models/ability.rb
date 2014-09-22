@@ -9,7 +9,7 @@ class Ability
     @user.roles.each { |role| send(role.name.downcase) }
 
     if @user.roles.size == 0
-      can :read, :all #for guest without roles
+      can :read, Resort #for guest without roles
     end
     #
     # The first argument to `can` is the action you are giving the user

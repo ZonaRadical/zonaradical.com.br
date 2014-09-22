@@ -5,14 +5,14 @@
     .introtext
       Aqui nos postamos todos os lugares nas proximidades do Brasil, e mais longe,
       onde voce pode practicar snowboard e ski, damos tbm algumas informações adicionais sobre alojamento, transporte e ski tickets (telefericos).
-    - if current_user && current_user.forem_admin?
-      = link_to 'New country', new_resort_path
+    - if can? :create, Country
+      = link_to 'New country', new_country_path
     .clear
     %ul.stations-list
       - @countries.each do |country|
         %li
           %p.name= country.name
-          - if current_user && current_user.forem_admin?
+          - if can? [:update,:destroy], @country
             .control
               = link_to 'Edit', edit_country_path(country)
               = link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' }

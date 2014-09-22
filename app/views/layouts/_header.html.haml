@@ -38,10 +38,11 @@
       .search-field
         %input{:placeholder => "Pesquisa", :type => "text"}/
         %a{:href => "#"}
-    - if current_user && current_user.forem_admin?
+    - if can? :manage, :all
       %nav.admin
         %ul.menu
           %li= link_to t('newResort'), main_app.new_resort_path
+          %li= link_to t('newCountry'), main_app.new_country_path
     - flash.each do |key, value|
       %div{:class => "flash flash-#{key}"}= value
 
