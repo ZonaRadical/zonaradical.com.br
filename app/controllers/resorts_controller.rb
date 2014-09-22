@@ -1,10 +1,10 @@
 class ResortsController < ApplicationController
-  before_action :set_resort, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /resorts
   # GET /resorts.json
   def index
-    @resorts = Resort.all
+    @resorts = Resort.page(params[:page])
   end
 
   # GET /resorts/1
@@ -61,11 +61,6 @@ class ResortsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_resort
-      @resort = Resort.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def resort_params
       params.require(:resort).permit(:name, :image, :remove_image, :country_id, :web,

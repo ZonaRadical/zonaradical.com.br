@@ -21,7 +21,7 @@
             .control
               = link_to 'Edit', edit_resort_path(resort)
               = link_to 'Destroy', resort, method: :delete, data: { confirm: 'Are you sure?' }
-    / end pagination
+      = will_paginate @resorts
     .clear
   / end main-content
   %aside
