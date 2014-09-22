@@ -4,6 +4,7 @@ FactoryGirl.define do
     email    "testmail@mail.com"
     password "foobar"
     password_confirmation "foobar"
+    confirmed_at Time.now
   end
 
   factory :resort do

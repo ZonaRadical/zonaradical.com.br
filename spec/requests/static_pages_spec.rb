@@ -17,8 +17,6 @@ describe 'StaticPages', :type => :request do
     describe 'Logged in User' do
       before(:each) do
         @user = FactoryGirl.create(:user)
-        @user.confirmed_at = Time.now
-        @user.save
 
         login_as @user, :scope => :user
         visit root_path
