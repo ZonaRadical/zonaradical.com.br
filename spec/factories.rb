@@ -5,6 +5,10 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
     confirmed_at Time.now
+
+    factory :admin do
+      roles [Role.find_by_name('admin')]
+    end
   end
 
   factory :resort do

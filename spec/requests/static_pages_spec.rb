@@ -33,12 +33,8 @@ describe 'StaticPages', :type => :request do
 
     describe 'Logged in as admin' do
       before(:each) do
-        @user = FactoryGirl.create(:user)
-        @user.confirmed_at = Time.now
-        @user.roles = [Role.find_by_name('admin')]
-        @user.save
-
-        login_as @user, :scope => :user
+        @admin = FactoryGirl.create(:admin)
+        login_as @admin, :scope => :user
         visit root_path
       end
 
