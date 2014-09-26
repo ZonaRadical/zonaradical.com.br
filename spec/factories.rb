@@ -13,6 +13,9 @@ FactoryGirl.define do
     factory :admin do
       roles [Role.find_by_name('admin')]
     end
+    factory :editor do
+      roles [Role.find_by_name('editor')]
+    end
   end
 
   factory :resort do

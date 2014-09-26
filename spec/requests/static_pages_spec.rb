@@ -22,7 +22,7 @@ describe 'StaticPages', :type => :request do
         visit root_path
       end
 
-      it { should have_link( @user.name, :href => user_path(@user.id) ) }
+      it { should have_link( @user.name, :href => profile_path ) }
       it { should_not have_content( I18n.t('signIn') ) }
       it { should have_link( I18n.t('signOut') ) }
       it { should_not have_link( I18n.t('newResort'), :href => new_resort_path ) }

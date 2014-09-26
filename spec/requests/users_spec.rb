@@ -10,7 +10,7 @@ describe 'Users', :type => :request do
     before(:each) do
       @admin = FactoryGirl.create(:admin)
       login_as @admin, :scope => :user
-      visit user_path(@admin.id)
+      visit edit_user_path(@admin.id)
     end
 
 
