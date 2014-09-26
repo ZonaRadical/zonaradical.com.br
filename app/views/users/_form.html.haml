@@ -15,5 +15,11 @@
     = f.label :avatar
     = f.file_field :avatar
     = f.check_box :remove_avatar
+  -if can? :manage, :all
+    %h3= t('assignedRoles')
+    -for role in Role.all
+      = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
+      =h role.name
+    = hidden_field_tag 'user[role_ids][]', ''
   .actions
     = f.submit
