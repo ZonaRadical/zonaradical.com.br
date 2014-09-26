@@ -62,3 +62,5 @@ en:
   newCountry: "new country"
   Home: "Home"
   assignedRoles: "Assigned Roles"
+  parent: "Parent"
+  selectParent: "Select parent"

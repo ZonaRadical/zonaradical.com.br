@@ -2,7 +2,7 @@
   - if @country.errors.any?
     #error_explanation
       %h2
-        = pluralize(@country.errors.count, "error")
+        = pluralize(@country.errors.count, 'error')
         prohibited this resort from being saved:
       %ul
         - @country.errors.full_messages.each do |message|
@@ -11,7 +11,7 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :parent_id, t('Parent')
-    = f.collection_select(:parent_id, Country.all,:id, :name,{:prompt => t('SelectParent')})
+    = f.label :parent_id, t('parent')
+    = f.collection_select(:parent_id, Country.all,:id, :name,{:prompt => t('selectParent')})
   .actions
     = f.submit
