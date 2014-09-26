@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, :finish_signup
+  load_and_authorize_resource
+  before_action :finish_signup
   before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
 
   def finish_signup
@@ -29,11 +30,12 @@ class UsersController < ApplicationController
   def show
   end
 
-  private
-
-  def set_user
-    @user = User.find(params[:id])
+  def profile
+    @user = @current_user
+    render :show
   end
+
+  private
 
   def user_params
     accessible = [ :name, :email, :avatar, :remove_avatar ] # extend with your own params

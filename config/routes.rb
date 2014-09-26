@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
+  match '/user' => 'users#profile', via: [:get], :as => :profile
+
   mount Forem::Engine, :at => '/forum', :as => 'forem'
 
   # The priority is based upon order of creation: first created -> highest priority.
