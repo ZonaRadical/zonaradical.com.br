@@ -23,15 +23,14 @@
     %nav
       %ul.menu
         %li= link_to t('Home'), main_app.root_path
-        %li
-          %a{:href => "http://zonaradical.com.br/list-estacoes.html"} Estações
-        %li
-          %a{:href => "http://zonaradical.com.br/list-dicas.html"} Dicas
         %li.submenu-item
           =link_to t('resorts'),main_app.resorts_url
           %ul.submenu
             %li= link_to Country.find(46).name, main_app.country_path(Country.find(46).id)
             %li= link_to Country.find(10).name, main_app.country_path(Country.find(10).id)
+        %li
+          %a{:href => "http://zonaradical.com.br/list-dicas.html"} Dicas
+
         %li
           %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
         %li= link_to t('forum'), main_app.forem_path
