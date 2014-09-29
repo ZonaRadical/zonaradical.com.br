@@ -11,7 +11,7 @@
           .details
             %p.name= resort.name
             %a.pics-amount{:href => "#"} 0
-            %p= resort.level1_description
+            %p= truncate( resort.level1_description, length: 200)
           .clear
           - if current_user && current_user.forem_admin?
             .control

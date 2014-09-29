@@ -28,6 +28,11 @@
         %li
           %a{:href => "http://zonaradical.com.br/list-dicas.html"} Dicas
         %li= link_to t('resorts'), main_app.resorts_url
+        %li.submenu-item
+          =link_to t('resorts'),'#'
+          %ul.submenu
+            %li= link_to Country.find(46).name, country_path(Country.find(46).id)
+            %li= link_to Country.find(10).name, country_path(Country.find(10).id)
         %li
           %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
         %li= link_to t('forum'), main_app.forem_path
