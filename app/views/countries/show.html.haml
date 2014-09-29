@@ -2,19 +2,15 @@
   .main-content
     .heading
       %h2
-        #{@country.name}
-      %h3 Children
-      %ul
-        - @country.children.each do |children|
-          %li= link_to children.name, country_path(children.id)
-      %h3 Ancestors
-      %ul
-        - @country.ancestors.each do |parent|
-          %li= link_to parent.name, country_path(parent.id)
-      - if current_user && current_user.forem_admin?
-        = link_to 'Edit', edit_country_path(@country)
-        |
-        \#{link_to 'Back', countries_path}
+        = t('country')
+        \: #{@country.name}
+    - if can? :country, :update
+      = link_to 'Edit', edit_country_path(@country)
+      |
+      \#{link_to 'Back', countries_path}
+    .introtext=@country.description
+  =render template: 'resorts/index'
+
   %aside
     .heading
       %h2 Fique conectado

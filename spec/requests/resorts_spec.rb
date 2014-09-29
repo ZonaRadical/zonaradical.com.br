@@ -7,7 +7,6 @@ RSpec.describe "Resorts", :type => :request do
     100.times { FactoryGirl.create(:resort) }
     before { visit resorts_path }
     describe 'with pagination' do
-      it { should have_content('Estacoes: Chile') }
       it { should have_css('div.pagination')  }
     end
   end

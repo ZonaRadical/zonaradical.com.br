@@ -9,6 +9,7 @@ class CountriesController < ApplicationController
   # GET /resorts/1
   # GET /resorts/1.json
   def show
+    @resorts=@country.resorts.page(params[:page])
   end
 
   # GET /resorts/new
@@ -67,6 +68,6 @@ class CountriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def country_params
-      params.require(:country).permit(:name, :parent_id )
+      params.require(:country).permit(:name, :parent_id, :description )
     end
 end

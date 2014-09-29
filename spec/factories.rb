@@ -4,15 +4,16 @@ FactoryGirl.define do
   end
 
   factory :user do
-    name     "Test User"
+    name     'Test user'
     email
-    password "foobar"
-    password_confirmation "foobar"
+    password 'foobar'
+    password_confirmation 'foobar'
     confirmed_at Time.now
 
     factory :admin do
       roles [Role.find_by_name('admin')]
     end
+
     factory :editor do
       roles [Role.find_by_name('editor')]
     end

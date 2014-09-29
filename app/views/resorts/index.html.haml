@@ -1,11 +1,7 @@
 %section.content
   .main-content
     .heading
-      %h2 Estacoes: Chile
-    .introtext
-      Aqui nos postamos todos os lugares nas proximidades do Brasil, e mais longe,
-      onde voce pode practicar snowboard e ski, damos tbm algumas informações adicionais sobre alojamento, transporte e ski tickets (telefericos).
-    - if current_user && current_user.forem_admin?
+    - if can? :resort, :new
       = link_to 'New Resort', new_resort_path
     .clear
     %ul.stations-list

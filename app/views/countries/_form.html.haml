@@ -11,6 +11,9 @@
     = f.label :name
     = f.text_field :name
   .field
+    = f.label :description
+    = f.text_area :description
+  .field
     = f.label :parent_id, t('parent')
     = f.collection_select(:parent_id, Country.all,:id, :name,{:prompt => t('selectParent')})
   .actions
