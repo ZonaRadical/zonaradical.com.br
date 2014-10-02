@@ -22,8 +22,8 @@ gem "fog"
 gem 'carmen-rails', '~> 1.0.0'
 gem 'haml-rails'
 gem 'globalize', '~> 4.0.2'
-gem 'acts_as_tree'
-
+#gem 'acts_as_tree'
+gem 'ancestry'
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '~> 3.0.5'

@@ -1,6 +1,6 @@
 class ResortCategory < ActiveRecord::Base
-  has_many :resorts
-  acts_as_tree order: 'name'
+  has_ancestry
 
+  has_many :resorts
   validates :name, presence: true
 end

@@ -13,7 +13,7 @@
     - @resort_categories.each do |resort_category|
       %tr
         %td= resort_category.name
-        %td= resort_category.parent_id
+        %td= resort_category.parent.name unless resort_category.root?
         %td= resort_category.description
         %td= link_to 'Show', resort_category
         -if can? ResortCategory, :update,:destroy

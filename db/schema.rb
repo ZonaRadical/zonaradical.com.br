@@ -141,10 +141,10 @@ ActiveRecord::Schema.define(version: 20140930180127) do
   end
 
   create_table "resort_categories", force: true do |t|
-    t.string  "name"
-    t.integer "parent_id"
-    t.integer "index"
-    t.text    "description"
+    t.string "name"
+    t.text   "description"
+    t.string "ancestry"
+    t.string "index"
   end
 
   create_table "resorts", force: true do |t|
