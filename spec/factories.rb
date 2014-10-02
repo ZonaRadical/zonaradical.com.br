@@ -19,10 +19,15 @@ FactoryGirl.define do
     end
   end
 
+  factory :resort_category do
+    name  'Category Name'
+    description 'Some description for the country'
+  end
+
   factory :resort do
     name   'MyString'
     image  File.open(Rails.root.join('app/assets/images/article-1.jpg'))
-    country_id  1
+    resort_category_id 1
     web  'MyString'
     fb  'MyString'
     airport  3000
@@ -36,4 +41,6 @@ FactoryGirl.define do
     level2_description  'MyText'
     level3_description  'MyText'
   end
+
+
 end

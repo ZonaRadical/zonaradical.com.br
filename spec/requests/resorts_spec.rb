@@ -4,7 +4,9 @@ RSpec.describe "Resorts", :type => :request do
   subject { page }
 
   describe 'GET /resorts' do
-    100.times { FactoryGirl.create(:resort) }
+    parent = FactoryGirl.create(:resort_category, :name => "Test Category")
+    FactoryGirl.build_list(:resort_category, 5, :parent_id => parent.id)
+    100.times { FactoryGirl.create(:resort, :resort_category_id => parent.id) }
     before { visit resorts_path }
     describe 'with pagination' do
       it { should have_css('div.pagination')  }

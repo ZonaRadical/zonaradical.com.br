@@ -36,6 +36,6 @@ class Ability
   end
 
   def editor
-    can :manage, Resort
+    can :manage, Resort, ResortCategory
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926091224) do
+ActiveRecord::Schema.define(version: 20140930180127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,25 +23,6 @@ ActiveRecord::Schema.define(version: 20140926091224) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "countries", force: true do |t|
-    t.string  "name"
-    t.string  "code"
-    t.integer "parent_id"
-    t.text    "description"
-  end
-
-  create_table "country_translations", force: true do |t|
-    t.integer  "country_id",  null: false
-    t.string   "locale",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.text     "description"
-  end
-
-  add_index "country_translations", ["country_id"], name: "index_country_translations_on_country_id", using: :btree
-  add_index "country_translations", ["locale"], name: "index_country_translations_on_locale", using: :btree
 
   create_table "forem_categories", force: true do |t|
     t.string   "name",       null: false
@@ -159,17 +140,23 @@ ActiveRecord::Schema.define(version: 20140926091224) do
     t.integer "user_id"
   end
 
+  create_table "resort_categories", force: true do |t|
+    t.string  "name"
+    t.integer "parent_id"
+    t.integer "index"
+    t.text    "description"
+  end
+
   create_table "resorts", force: true do |t|
     t.string   "name"
     t.string   "image"
     t.string   "web"
     t.string   "fb"
+    t.integer  "resort_category_id"
+    t.integer  "index"
     t.text     "level1_description"
     t.text     "level2_description"
     t.text     "level3_description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "country_id"
     t.integer  "airport"
     t.integer  "altitude_top"
     t.integer  "altitude_bottom"
@@ -177,6 +164,8 @@ ActiveRecord::Schema.define(version: 20140926091224) do
     t.integer  "terrain"
     t.integer  "lifts"
     t.string   "slopes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "role_assignments", force: true do |t|

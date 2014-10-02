@@ -39,7 +39,6 @@ describe 'StaticPages', :type => :request do
       end
 
       it { should have_link( I18n.t('newResort'), :href => new_resort_path ) }
-      it { should have_link( I18n.t('newCountry'), :href => new_country_path ) }
     end
 
   end
