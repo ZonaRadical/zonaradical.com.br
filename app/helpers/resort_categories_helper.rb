@@ -13,7 +13,7 @@ module ResortCategoriesHelper
 
   def sub_menu_resort_categories(resort_categories)
     resort_categories.map do |resort_category, sub_resort_category|
-      content_tag(:li,link_to(resort_category.name, resort_category_path(resort_category.id)))
+      content_tag(:li,link_to(resort_category.name, main_app.resort_category_path(resort_category.id)))
     end.join.html_safe
   end
 
