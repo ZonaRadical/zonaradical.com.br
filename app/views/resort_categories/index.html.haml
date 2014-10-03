@@ -1,24 +1,9 @@
 %section.content
-  %h1 Listing resort_categories
-
-  %table
-    %tr
-      %th Name
-      %th Parent
-      %th description
-      %th
-      %th
-      %th
-
-    - @resort_categories.each do |resort_category|
-      %tr
-        %td= resort_category.name
-        %td= resort_category.parent.name unless resort_category.root?
-        %td= resort_category.description
-        %td= link_to 'Show', resort_category
-        -if can? ResortCategory, :update,:destroy
-          %td= link_to 'Edit', edit_resort_category_path(resort_category)
-          %td= link_to 'Destroy', resort_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  %br
-  -if can? ResortCategory, :create
-    = link_to 'New Resort category', new_resort_category_path
+  .main-content
+    .heading
+    -if can? ResortCategory, :create
+      = link_to 'New Resort category', new_resort_category_path
+    .clear
+    %ul.resort_category_list
+      =nested_resort_categories @resort_categories.arrange
+.clear

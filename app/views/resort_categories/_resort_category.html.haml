@@ -1,0 +1,9 @@
+%li.resort_category
+  .details
+    %p.name= resort_category.name
+    %p= truncate( resort_category.description, length: 200)
+  .clear
+  - if can? :resort_category, :update, :destroy
+    .control
+      = link_to 'Edit', edit_resort_category_path(resort_category)
+      = link_to 'Destroy', resort_category, method: :delete, data: { confirm: 'Are you sure?' }

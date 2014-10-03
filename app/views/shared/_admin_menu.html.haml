@@ -1,0 +1,7 @@
+%nav.admin
+  %ul.menu
+    %li= link_to t('newResort')
+    %li.submenu-item
+      = link_to t('categoties'), main_app.resort_categories_path
+      %ul.submenu
+        %li= link_to t('newResortCategory'), main_app.new_resort_category_path
