@@ -1361,36 +1361,44 @@ ul {
       text-decoration: none;
     }
   }
-  &.pagination {
-    margin: 0 0 30px;
-    list-style: none;
-    float: right;
-    li {
+}
+
+div.pagination {
+  margin: 0 0 30px;
+  list-style: none;
+  float: right;
+  a,em {
       display: inline-block;
       margin-left: 1px;
-      a {
-        display: block;
-        text-decoration: none;
-        color: #fff;
-        text-align: center;
-        font-size: 14px;
-        height: 40px;
-        width: 35px;
-        line-height: 40px;
-        background: #9a9a9a;
-        &.active {
-          cursor: default;
-          background: #4f4f4f;
-        }
-        &.prev, &.next {
-          width: 63px;
-          color: #d3d3d3;
-        }
-        &:hover {
-          background: #4f4f4f;
-        }
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      font-size: 14px;
+      height: 40px;
+      width: 35px;
+      line-height: 40px;
+      background: #9a9a9a;
+      &:hover {
+        background: #4f4f4f;
       }
     }
+  .disabled {
+    display: inline-block;
+    margin-left: 1px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    height: 40px;
+    width: 35px;
+    line-height: 40px;
+    background: #4f4f4f;
+  }
+  em.current {
+    background: #4f4f4f;
+  }
+  &.prev_page, &.next_page {
+    width: 63px;
+    color: #d3d3d3;
   }
 }
 /* Styles for article-page.html */
