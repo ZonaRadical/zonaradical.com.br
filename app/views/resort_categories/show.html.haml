@@ -1,16 +1,13 @@
 %section.content
   %p#notice= notice
-
-  %p
-    %b Name:
-    = @resort_category.name
-  %p
-    %b Parent:
-    = @resort_category.parent_id
-  %p
-    %b description:
-    = @resort_category.description
-
-  = link_to 'Edit', edit_resort_category_path(@resort_category)
-  \|
-  = link_to 'Back', resort_categories_path
+  .main-content
+    .heading
+      %h2= t('resort') + ': ' + @resort_category.name
+    .introtext= @resort_category.description
+  -if can? :resort_categories, :update, :destroy
+    = link_to 'Edit', edit_resort_category_path(@resort_category)
+    \|
+    = link_to 'Back', resort_categories_path
+    .clear
+    %ul.stations-list
+      =render @resorts
