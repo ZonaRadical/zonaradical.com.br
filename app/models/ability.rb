@@ -8,9 +8,17 @@ class Ability
     @user = user || User.new # for guest
     @user.roles.each { |role| send(role.name.downcase) }
 
-    if @user.roles.size == 0
-      can :read, Resort #for guest without roles
+    # Access to edit own profile
+    can :manage, User do |user|
+      user && user == @user
     end
+
+    if @user.roles.size == 0
+      can :read, :all #for guest without roles
+    end
+
+
+
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
@@ -38,4 +46,5 @@ class Ability
   def editor
     can :manage, Resort, ResortCategory
   end
+
 end
