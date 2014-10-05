@@ -4,10 +4,9 @@
     .heading
       %h2= t('resort') + ': ' + @resort_category.name
     .introtext= @resort_category.description
-  -if can? :resort_categories, :update, :destroy
-    = link_to 'Edit', edit_resort_category_path(@resort_category)
-    \|
-    = link_to 'Back', resort_categories_path
+    -if can? :update, @resort_category
+      = link_to 'Edit', edit_resort_category_path(@resort_category)
     .clear
     %ul.stations-list
       =render @resorts
+  .clear

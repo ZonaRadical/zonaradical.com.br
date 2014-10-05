@@ -15,6 +15,7 @@ class Ability
 
     if @user.roles.size == 0
       can :read, :all #for guest without roles
+      cannot :index, ResortCategory
     end
 
 
@@ -44,7 +45,7 @@ class Ability
   end
 
   def editor
-    can :manage, Resort, ResortCategory
+    can :manage, [Resort, ResortCategory]
   end
 
 end
