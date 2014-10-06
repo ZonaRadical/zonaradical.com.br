@@ -8,7 +8,13 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body
     = render 'layouts/header'
-    = yield
+    -if content_for? :top_section
+      %section.top-section= content_for :top_section
+    %section.content
+      = yield
+      -if content_for? :aside
+        %aside= content_for :aside
+        .clear
     = render 'layouts/footer'
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

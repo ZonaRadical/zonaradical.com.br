@@ -1,9 +1,8 @@
-%section.content
-  .main-content
-    .heading
-    -if can? ResortCategory, :create
-      = link_to 'New Resort category', new_resort_category_path
-    .clear
-    %ul.resort_category_list
-      =nested_resort_categories @resort_categories.arrange
+.main-content
+  .heading
+  -if can? ResortCategory, :create
+    = link_to 'New Resort category', new_resort_category_path
+  .clear
+  %ul.resort_category_list
+    =nested_resort_categories @resort_categories.arrange
 .clear

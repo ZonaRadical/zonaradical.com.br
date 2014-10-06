@@ -1,12 +1,11 @@
-%section.content
-  %p#notice= notice
-  .main-content
-    .heading
-      %h2= t('resort') + ': ' + @resort_category.name
-    .introtext= @resort_category.description
-    -if can? :update, @resort_category
-      = link_to 'Edit', edit_resort_category_path(@resort_category)
-    .clear
-    %ul.stations-list
-      =render @resorts
+%p#notice= notice
+.main-content
+  .heading
+    %h2= t('resort') + ': ' + @resort_category.name
+  .introtext= @resort_category.description
+  -if can? :update, @resort_category
+    = link_to 'Edit', edit_resort_category_path(@resort_category)
   .clear
+  %ul.stations-list
+    =render @resorts
+.clear
