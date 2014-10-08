@@ -473,15 +473,17 @@ header {
 
 }
 
-ul.menu li {
-  &.submenu-item:hover, &.subsubmenu-item:hover {
-    ul.submenu {
-      display: block;
-    }
-    > a {
-      background: #ee9200;
-    }
-  }
+ul.menu li.submenu-item:hover ul.submenu {
+  display:block;
+}
+ul.menu li.submenu-item:hover > a {
+  background:#ee9200;
+}
+ul.menu li.subsubmenu-item:hover ul.subsubmenu {
+  display:block;
+}
+ul.menu li.subsubmenu-item:hover > a {
+  background:#ee9200;
 }
 
 header .search-field {
