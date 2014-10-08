@@ -119,13 +119,13 @@ RSpec.describe ResortCategoriesController, :type => :controller do
 
         it "assigns the requested resort_category as @resort_category" do
           resort_category = ResortCategory.create! valid_attributes
-          put :update, {:id => resort_category.to_param, :resort_category => valid_attributes}
+          put :update, {:id => resort_category.to_param, :resort_category => new_attributes}
           expect(assigns(:resort_category)).to eq(resort_category)
         end
 
         it "redirects to the resort_category" do
           resort_category = ResortCategory.create! valid_attributes
-          put :update, {:id => resort_category.to_param, :resort_category => valid_attributes}
+          put :update, {:id => resort_category.to_param, :resort_category => new_attributes}
           expect(response).to redirect_to(resort_category)
         end
       end
@@ -235,7 +235,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
 
         it "redirects to the site_root with flash-alert" do
           resort_category = ResortCategory.create! valid_attributes
-          put :update, {:id => resort_category.to_param, :resort_category => valid_attributes}
+          put :update, {:id => resort_category.to_param, :resort_category => new_attributes}
           expect(response).to redirect_to( root_path )
           expect( response.request.flash[:alert] ).to eq('You are not authorized to access this page.')
         end
