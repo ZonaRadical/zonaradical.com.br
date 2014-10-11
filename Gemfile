@@ -30,6 +30,15 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'i18n'
 
+# Active Admin
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'formtastic', github: 'justinfrench/formtastic'
+
+
+
+
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'

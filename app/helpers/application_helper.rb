@@ -7,4 +7,5 @@ module ApplicationHelper
     end
     result
   end
+
 end

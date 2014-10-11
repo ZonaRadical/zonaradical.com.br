@@ -16,6 +16,7 @@ class Ability
     if @user.roles.size == 0
       can :read, :all #for guest without roles
       cannot :index, ResortCategory
+      cannot :read, ActiveAdmin
     end
 
 
@@ -42,6 +43,7 @@ class Ability
 
   def admin
     can :manage, :all
+    can :read, ActiveAdmin::Page, :name => 'Dashboard'
   end
 
   def editor

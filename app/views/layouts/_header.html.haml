@@ -26,7 +26,7 @@
         %li.submenu-item
           =link_to t('resorts'),main_app.resort_categories_url
           %ul.submenu
-            =menu_resort_categories @resort_categories.arrange
+            =menu_resort_categories ResortCategory.all.arrange
         %li
           %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
         %li= link_to t('forum'), main_app.forem_path
