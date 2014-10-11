@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-
   resources :resorts, :countries, :resort_categories
+
+  ActiveAdmin.routes(self)
 
   # This line mounts Forem's routes at /forums by default.
   # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
