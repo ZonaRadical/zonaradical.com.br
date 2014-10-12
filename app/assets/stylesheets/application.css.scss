@@ -13,7 +13,15 @@
  *= reset
  *= require jquery-ui
  *= require 'forem/base'
- *= require_tree .
+ *= require admin
+ *= require forums
+ *= require posts
+ *= require reset
+ *= require resort_categories
+ *= require resorts
+ *= require static_pages
+ *= require topics
+ *= require users
  *= require_self
  */
 
