@@ -8,7 +8,10 @@
       %li
         = link_to (image_tag resort.image_url(:thumb).to_s ), resort, :class => 'img-wrap'
         .details
-          %p.name= resort.name
+          -if resort.resort_category
+            %p.name=resort.resort_category.name + ': ' + resort.name
+          -else
+            %p.name= resort.name
           %a.pics-amount{:href => "#"} 0
           %p= truncate( resort.level1_description, length: 200)
         .clear
