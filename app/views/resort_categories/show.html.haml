@@ -8,4 +8,14 @@
   .clear
   %ul.stations-list
     =render @resorts
+  -if @resort_category.children?
+    -@resort_category.children.each do |resort_category|
+      .heading
+        %h2= t('resort') + ': ' + resort_category.name
+      .introtext= resort_category.description
+      -if can? :update, resort_category
+        = link_to 'Edit', edit_resort_category_path(resort_category)
+      .clear
+      %ul.stations-list
+        =render resort_category.resorts
 .clear
