@@ -1,7 +1,7 @@
 %li
   =link_to image_tag(resort.image_url(:thumb).to_s), resort_path(resort), :class => 'img-wrap'
   .details
-    %p.name=resort.name
+    %p.name=link_to resort.name, resort_path(resort)
     %a.pics-amount 0
     %p= truncate( resort.level1_description, length: 200)
   -if can? :resort, :update
