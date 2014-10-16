@@ -28,7 +28,7 @@
     = f.text_field :fb
   .field
     = f.label t('airport')
-    = number_field_tag 'resort[airport]', @resort.airport
+    = f.text_field :airport
   .field
     = f.label t('altitude')
     = number_field_tag 'resort[altitude_top]', @resort.altitude_top

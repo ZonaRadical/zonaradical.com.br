@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008172358) do
+ActiveRecord::Schema.define(version: 20141016161646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(version: 20141008172358) do
     t.text     "level1_description"
     t.text     "level2_description"
     t.text     "level3_description"
-    t.integer  "airport"
+    t.string   "airport"
     t.integer  "altitude_top"
     t.integer  "altitude_bottom"
     t.integer  "drop"
