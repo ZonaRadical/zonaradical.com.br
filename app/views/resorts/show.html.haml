@@ -89,22 +89,14 @@
       %h2 Estações
     %ul.categories
       %li
-        %a{:href => "#"}
+        =link_to resorts_path  do
           All
-          %span (53)
+          %span='(' + Resort.all.size.to_s + ')'
       %li
-        %a.active{:href => "#"}
-          Argentina
-          %span >>
-          %span Valle Nevado
-      %li
-        %a{:href => "#"}
-          Chile
-          %span (3)
-      %li
-        %a{:href => "#"}
-          Peru
-          %span (6)
+        -@resort.resort_category.path.from_depth(0).each do |resort_category|
+          =link_to resort_category.name, resort_category_path(resort_category), :class => :active
+          -if resort_category.depth < @resort.resort_category.depth
+            %span >>
     .heading
       %h2 Lugares: Valle Nevado
       %a.all{:href => "#"} Tudo
