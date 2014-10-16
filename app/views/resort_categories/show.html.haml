@@ -10,12 +10,13 @@
     =render @resorts
   -if @resort_category.children?
     -@resort_category.children.each do |resort_category|
-      .heading
-        %h2= t('resort') + ': ' + resort_category.name
-      .introtext= resort_category.description
-      -if can? :update, resort_category
-        = link_to 'Edit', edit_resort_category_path(resort_category)
-      .clear
-      %ul.stations-list
-        =render resort_category.resorts
+      -unless resort_category.resorts.empty?
+        .heading
+          %h2= t('resort') + ': ' + resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
+        .introtext= resort_category.description
+        -if can? :update, resort_category
+          = link_to 'Edit', edit_resort_category_path(resort_category)
+        .clear
+        %ul.stations-list
+          =render resort_category.resorts.limit(3)
 .clear
