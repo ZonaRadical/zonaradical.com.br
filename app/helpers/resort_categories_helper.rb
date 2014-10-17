@@ -17,6 +17,16 @@ module ResortCategoriesHelper
     end.join.html_safe
   end
 
+  def aside_resort_categories(resort_category)
+    html = ''
+    resort_category.path.from_depth(0).each do |parent|
+      html += link_to parent.name, resort_category_path(parent), :class => :active
+      if parent.depth < resort_category.depth
+        html +=content_tag(:span, ' >> ')
+      end
+    end
+    html.html_safe
+  end
 
 end
 

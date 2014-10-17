@@ -93,10 +93,7 @@
           All
           %span='(' + Resort.all.size.to_s + ')'
       %li
-        -@resort.resort_category.path.from_depth(0).each do |resort_category|
-          =link_to resort_category.name, resort_category_path(resort_category), :class => :active
-          -if resort_category.depth < @resort.resort_category.depth
-            %span >>
+        =aside_resort_categories @resort.resort_category
     .heading
       %h2 Lugares: Valle Nevado
       %a.all{:href => "#"} Tudo

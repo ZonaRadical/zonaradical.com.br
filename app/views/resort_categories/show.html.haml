@@ -19,4 +19,51 @@
         .clear
         %ul.stations-list
           =render resort_category.resorts.limit(3)
-.clear
+
+-content_for :aside do
+  %aside
+    .heading
+      %h2 Fique conectado
+    %ul.social-buttons
+      %li
+        %a.fb{:href => "#"}
+      %li
+        %a.yt{:href => "#"}
+      %li
+        %a.tw{:href => "#"}
+      %li
+        %a.gp{:href => "#"}
+      %li
+        %a.rss{:href => "#"}
+    .heading
+      %h2 Estações
+    %ul.categories
+      %li
+        =link_to resorts_path  do
+          All
+          %span='(' + Resort.all.size.to_s + ')'
+      %li
+        =aside_resort_categories @resort_category
+    .heading
+      %h2 Lugares: Valle Nevado
+      %a.all{:href => "#"} Tudo
+    %ul.places-list
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-1.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-2.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-3.jpg"}/
+      %li
+        %a{:href => "#"}
+          %img{:alt => "", :src => "images/places-4.jpg"}/
+    .heading
+      %h2 Facebook
+    .fb-block
+      %img{:alt => "", :src => "images/fb-block.jpg"}/
+    .advert-block
+      %img{:alt => "", :src => "images/advert-img.jpg"}/
+  .clear
