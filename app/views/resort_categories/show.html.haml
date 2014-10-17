@@ -19,7 +19,8 @@
         .clear
         %ul.stations-list
           =render resort_category.resorts.limit(3)
-
+        -if resort_category.resorts.size > 3
+          %div=link_to t('otherResorts'), resort_category_path(resort_category)
 -content_for :aside do
   %aside
     .heading
