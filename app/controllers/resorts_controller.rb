@@ -64,7 +64,7 @@ class ResortsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def resort_params
       params.require(:resort).permit(:name, :image, :remove_image, :resort_category_id, :web,
-                                     :fb, :level1_description,
+                                     :fb, :map_url, :level1_description,
                                      :airport, :altitude_top, :altitude_bottom,
                                      :drop, :terrain, :lifts, :slopes,
                                      :level2_description, :level3_description)
