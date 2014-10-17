@@ -17,7 +17,7 @@ gem 'cancan'
 
 gem 'carrierwave'
 gem 'rmagick', '2.13.2',require: false
-gem "fog"
+gem 'fog'
 
 gem 'carmen-rails', '~> 1.0.0'
 gem 'haml-rails'
@@ -27,6 +27,8 @@ gem 'ancestry'
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '~> 3.0.5'
+
+gem 'tinymce-rails'
 
 gem 'i18n'
 
