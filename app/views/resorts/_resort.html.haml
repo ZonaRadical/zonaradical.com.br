@@ -4,6 +4,7 @@
     %p.name=link_to resort.name, resort_path(resort)
     %a.pics-amount 0
     %p= truncate( resort.level1_description, length: 200)
+    =link_to t('ReadMore'), resort_path(resort)
   -if can? :resort, :update
     = link_to 'Edit', edit_resort_path(resort)
   .clear
