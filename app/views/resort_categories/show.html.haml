@@ -2,7 +2,7 @@
 .main-content
   .heading
     %h2= t('resort') + ': ' + @resort_category.name
-  .introtext= @resort_category.description.html_safe
+  .introtext= @resort_category.description.html_safe unless @resort_category.description.nil?
   -if can? :update, @resort_category
     = link_to 'Edit', edit_resort_category_path(@resort_category)
   .clear
@@ -13,7 +13,7 @@
       -unless resort_category.resorts.empty?
         .heading
           %h2= t('resort') + ': ' + resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
-        .introtext= resort_category.description
+        .introtext= resort_category.description.html_safe unless resort_category.description.nil?
         -if can? :update, resort_category
           = link_to 'Edit', edit_resort_category_path(resort_category)
         .clear
