@@ -66,7 +66,7 @@ class ResortsController < ApplicationController
       params.require(:resort).permit(:name, :image, :remove_image, :resort_category_id, :web,
                                      :fb, :map_url, :level1_description,
                                      :airport, :altitude_top, :altitude_bottom,
-                                     :drop, :terrain, :lifts, :slopes,
+                                     :drop, :terrain, :lifts, :slopes, :short_description,
                                      :level2_description, :level3_description)
     end
 end
