@@ -7,4 +7,6 @@
     =link_to t('ReadMore'), resort_path(resort)
   -if can? :resort, :update
     = link_to 'Edit', edit_resort_path(resort)
+  -if can? :resort, :delete
+    = link_to 'Destroy', resort, method: :delete, data: { confirm: 'Are you sure?' }
   .clear

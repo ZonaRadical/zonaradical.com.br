@@ -4,21 +4,7 @@
     = link_to 'New Resort', new_resort_path
   .clear
   %ul.stations-list
-    - @resorts.each do |resort|
-      %li
-        = link_to (image_tag resort.image_url(:thumb).to_s ), resort, :class => 'img-wrap'
-        .details
-          -if resort.resort_category
-            %p.name=resort.resort_category.name + ': ' + resort.name
-          -else
-            %p.name= resort.name
-          %a.pics-amount{:href => "#"} 0
-          %p= truncate( resort.level1_description, length: 200)
-        .clear
-        - if current_user && current_user.forem_admin?
-          .control
-            = link_to 'Edit', edit_resort_path(resort)
-            = link_to 'Destroy', resort, method: :delete, data: { confirm: 'Are you sure?' }
+    =render @resorts
     = will_paginate @resorts,:previous_label => '<<',:next_label => '>>', :inner_window => 1
   .clear
 
