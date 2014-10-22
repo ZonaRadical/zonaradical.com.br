@@ -27,6 +27,16 @@
   %aside
     #ficConn
     .heading
+      %h2 Estações
+    %ul.categories
+      %li
+        =link_to resorts_path  do
+          All
+          %span='(' + Resort.all.size.to_s + ')'
+      -ResortCategory.roots.each do |root_category|
+        %li
+          =link_to root_category.name, resort_category_path(root_category)
+    .heading
       %h2 Instagram
     / SnapWidget 3*3 aside
     %iframe.snapwidget-widget{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "http://snapwidget.com/in/?u=em9uYXJhZGljYWxicnxpbnw4N3wzfDN8fHllc3w1fG5vbmV8b25TdGFydHx5ZXN8bm8=&ve=230814", :style => "border:none; overflow:hidden; width:306px; height:306px", :title => "Instagram Widget"}
