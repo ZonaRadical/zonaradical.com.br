@@ -60,7 +60,7 @@
       %b
         = t('ourtake')
         \:
-      = @resort.level1_description
+      = @resort.level1_description.html_safe unless @resort.level1_description.nil?
     .buttons
       = link_to t('linkToResortWeb'), @resort.web, :class => :button, :target => '_blank'
       = link_to t('linkToResortMap'), @resort.map_url, :class => :button, :target => '_blank'
