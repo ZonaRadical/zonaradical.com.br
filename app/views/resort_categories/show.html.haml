@@ -12,7 +12,7 @@
     -@resort_category.children.each do |resort_category|
       -unless resort_category.resorts.empty?
         .heading
-          %h2= t('resorts') + ': ' + resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
+          %h2= resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
         .introtext= resort_category.description.html_safe unless resort_category.description.nil?
         -if can? :update, resort_category
           = link_to =t('Edit'), edit_resort_category_path(resort_category)
