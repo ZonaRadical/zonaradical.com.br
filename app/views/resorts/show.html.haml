@@ -2,57 +2,57 @@
   .heading
     %h2
       = t('resorts')
-      \: #{@resort.resort_category.name}: #{@resort.name}
+      \: #{@resort.resort_category.name}:
   .resort-card
     .leftcol
       = image_tag @resort.image_url(:thumb).to_s, :class => :resortlogo
       %ul.details-list
         %li.contacts
           .contacts-list
-            %span.web= link_to @resort.web, @resort.web
-            %span.fb= link_to @resort.fb, @resort.fb
+            %span.web= link_to @resort.web, @resort.web, :target => '_blank'
+            %span.fb= link_to @resort.fb, @resort.fb, :target => '_blank'
           .clear
     .rightcol
       .title
         %span.name= @resort.name
       %ul.details-list
         %li
+          %img{:alt => 'Closest Airport', :src => '/images/web-icon.png'}/
+          = t('airport')
+        %li
+          = t('airport')
+          \:
           %b
-            = t('airport')
-            \:
             =@resort.airport
           %span
         %li
+          = t('altitude')
+          \:
           %b
-            = t('altitude')
-            \:
             =@resort.altitude_top
             \-
             =@resort.altitude_bottom
-            \=
-            = @resort.altitude_top.to_f-@resort.altitude_bottom.to_f
         %li
+          = t('drop')
+          \:
           %b
-            = t('drop')
-            \:
             =@resort.drop
         %li
+          = t('terrain')
+          \:
           %b
-            = t('terrain')
-            \:
             =@resort.terrain
           %span
         %li
+          = t('lifts')
+          \:
           %b
-            = t('lifts')
-            \:
             =@resort.lifts
           %span.lifts
         %li
+          = t('slopes')
+          \:
           %b
-            = t('slopes')
-            (inic/interm/experto)
-            \:
             =@resort.slopes
           %span
     .clear
@@ -74,7 +74,8 @@
   %aside
     =render 'shared/aside_social_buttons'
     .heading
-      %h2 Estações
+      %h2
+      =t('resorts')
     %ul.categories
       %li
         =link_to resorts_path  do

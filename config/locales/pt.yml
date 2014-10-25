@@ -29,7 +29,7 @@ pt-BR:
     userProfile: 'Perfil de usuario'
     age: 'Idade'
     sex: 'Sexo'
-    birthday: 'D. de nacimento'
+    birthday: 'Data de nacimento'
     country: 'Pais'
     city: 'Cidade'
     interests: 'Interesses'
@@ -44,7 +44,11 @@ pt-BR:
     drop: 'Vertical Drop'
     terrain: 'Terreno esquiável'
     lifts: 'Número de Teleféricos'
-    slopes: 'Proporcao de terreno'
-    ourtake: 'Opinhao da ZR'
+    slopes: 'Proporção de terreno'
+    ourtake: 'Opinhão da ZR'
     linkToResortWeb: 'Link web da estação'
     linkToResortMap: 'Mapa das pistas'
+
+    # More about resorts
+    ReadMore: 'Continuar lendo'
+    Edit: 'Editar'
