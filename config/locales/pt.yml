@@ -48,6 +48,8 @@ pt-BR:
     ourtake: 'Opinhão da ZR'
     linkToResortWeb: 'Link web da estação'
     linkToResortMap: 'Mapa das pistas'
+    meters: 'metros'
+    hectars: 'hectares'
 
     # More about resorts
     ReadMore: 'Continuar lendo'
