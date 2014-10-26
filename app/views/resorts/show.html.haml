@@ -72,17 +72,9 @@
 
 -content_for :aside do
   %aside
-    =render 'shared/aside_social_buttons'
-    .heading
-      %h2 Estações
-    %ul.categories
-      %li
-        =link_to resorts_path  do
-          All
-          %span='(' + Resort.all.size.to_s + ')'
-      %li
-        =aside_resort_categories @resort.resort_category
-    =render 'shared/aside_fb_like_box'
-    =render 'shared/aside_resort_gallery'
-    =render 'shared/aside_advert'
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_resort_category', :resort_category => @resort.resort_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_resort_gallery'
+    =render 'shared/aside/aside_advert'
   .clear
