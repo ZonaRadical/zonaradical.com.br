@@ -22,3 +22,4 @@ secrets.yml
 /shared/
 /public/system/
 /public/uploads/
+.idea/

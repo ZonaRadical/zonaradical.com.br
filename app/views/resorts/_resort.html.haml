@@ -2,7 +2,7 @@
   =link_to image_tag(resort.image_url(:thumb).to_s), resort_path(resort), :class => 'img-wrap'
   .details
     %p.name=link_to resort.name, resort_path(resort)
-    %a.pics-amount 0
+    %a.drop= resort.drop
     %p= resort.short_description
     =link_to t('ReadMore'), resort_path(resort)
   -if can? :resort, :update
