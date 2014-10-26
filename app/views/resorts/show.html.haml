@@ -2,7 +2,7 @@
   .heading
     %h2
       = t('resorts')
-      \: #{@resort.resort_category.name}:
+      \: #{@resort.resort_category.name}
   .resort-card
     .leftcol
       = image_tag @resort.image_url(:thumb).to_s, :class => :resortlogo
@@ -17,31 +17,24 @@
         %span.name= @resort.name
       %ul.details-list
         %li
-          %img{:alt => 'Closest Airport', :src => '/images/web-icon.png'}/
-          = t('airport')
-        %li
-          = t('airport')
-          \:
+          %img{:alt => t('airport'), :src => '/images/web-icon.png'}/
           %b
-            =@resort.airport
+          = t('airport')
           %span
         %li
-          = t('altitude')
-          \:
+          %img{:alt => t('altitude'), :src => '/images/pics-base-icon.png'}/
           %b
             =@resort.altitude_top
             \-
             =@resort.altitude_bottom
             =t('meters')
         %li
-          = t('drop')
-          \:
+          %img{:alt => t('drop'), :src => '/images/pics-base-icon.png'}/
           %b
             =@resort.drop
             =t('meters')
         %li
-          = t('terrain')
-          \:
+          %img{:alt => t('terrain'), :src => '/images/pics-base-icon.png'}/
           %b
             =@resort.terrain
             =t('hectars')
@@ -78,6 +71,6 @@
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_resort_category', :resort_category => @resort.resort_category
     =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_resort_gallery'
     =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
   .clear

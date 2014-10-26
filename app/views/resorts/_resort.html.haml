@@ -3,6 +3,7 @@
   .details
     %p.name=link_to resort.name, resort_path(resort)
     %a.drop= resort.drop
+    t('meters')
     %p= resort.short_description
     =link_to t('ReadMore'), resort_path(resort)
   -if can? :resort, :update
