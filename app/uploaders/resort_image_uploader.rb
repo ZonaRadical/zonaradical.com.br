@@ -35,7 +35,7 @@ class ResortImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [286, 162]
+    process :create_thumb
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -49,5 +49,12 @@ class ResortImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def create_thumb
+    manipulate! do |source|
+      source = source.resize_to_fit(286,162)
+      background = Magick::Image.new(286,162){self.background_color = 'white'}
+      background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
+    end
+  end
 
 end
