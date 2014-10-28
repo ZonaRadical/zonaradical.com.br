@@ -1086,17 +1086,6 @@ ul.galera-list {
   margin-top: 24px;
   margin-bottom: 24px;
 }
-
-ul.details-list {
-  /* only what differs from prifile */
-  .contacts-list {
-    span {
-      &.lifts {
-        background: image_url("fb-icon.png") no-repeat 5px center;
-      }
-    }
-  }
-}
 /* Styles for profile.html */
 
 .profile-card {

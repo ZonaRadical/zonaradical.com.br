@@ -19,13 +19,13 @@
         .clear
         %ul.stations-list
           =render resort_category.resorts.limit(3)
-        -if resort_category.resorts.size > 3
-          %p=link_to t('otherResorts'), resort_category_path(resort_category)
+          -if resort_category.resorts.size > 3
+            %p=link_to t('otherResorts'), resort_category_path(resort_category)
 -content_for :aside do
   %aside
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_resort_category', :resort_category => @resort_category
     =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_resort_gallery'
     =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
   .clear
