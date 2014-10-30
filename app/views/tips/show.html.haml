@@ -1,0 +1,71 @@
+.main-content
+  .heading
+    %h2 Dicas: equipamento
+  %article
+    %h3=@tip.title
+    %i.extra-info=@tip.updated_at
+    ='/ 2 Comentários / Marcações:  Snowboard , Viagem , Montanhas'
+    %ul.levels
+      %li
+        %a.active{:href => "#"}
+          %span Nivel 1
+      %li
+        %a{:href => "#"}
+          %span Nivel 2
+      %li
+        %a{:href => "#"}
+          %span Nivel 3
+    / end levels
+    %img.small-img= image_tag @tip.image_url(:thumb).to_s
+    =@tip.body.html_safe unless @tip.body.nil?
+    - if current_user && current_user.forem_admin?
+      = link_to 'Edit', edit_tip_path(@tip)
+      |
+      \#{link_to 'Back', tips_path}
+  .heading
+    %h2 Comentários
+  %ul.comments-list
+    %li
+      %a.img-wrap{:href => "#"}
+        %img.userpic{:alt => "", :src => "images/avatar-2.jpg"}/
+      .details
+        %p.title
+          %span Nome Sobrenome, 04 de Abril, 2014 às 12:27 AM
+          %i Responder
+        %p O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada.
+      .clear
+    %li.comment-reply
+      %a.img-wrap{:href => "#"}
+        %img.userpic{:alt => "", :src => "images/avatar-3.jpg"}/
+      .details
+        %p.title
+          %span Título Humano, 07 de Abril, 2014 às 09:48 PM
+          %i Responder
+        %p Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
+      .clear
+  / end comments-list
+  .heading
+    %h2 Deixe um comentário
+  %form{:action => "#"}
+    %label
+      %input{:type => "text"}/
+      Nome *
+    %label
+      %input{:type => "text"}/
+      E-mail (nunca será publicado) *
+    %label
+      %input{:type => "text"}/
+      Website *
+    %label
+      %textarea{:cols => "30", :rows => "10"}
+    %input{:type => "submit", :value => "Enviar"}/
+/ end main-content
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_tip_category', :tip_category => @tip.tip_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear

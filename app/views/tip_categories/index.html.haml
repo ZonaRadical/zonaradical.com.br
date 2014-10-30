@@ -1,0 +1,8 @@
+.main-content
+  .heading
+  -if can? TipCategory, :create
+    = link_to 'New Tip category', new_tip_category_path
+  .clear
+  %ul.tip_category_list
+    =nested_categories @tip_categories.arrange
+.clear

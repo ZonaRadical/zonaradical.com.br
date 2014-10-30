@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :resorts, :countries, :resort_categories
+  resources :resorts, :resort_categories
+  resources :tips, :tip_categories
 
   ActiveAdmin.routes(self)
 

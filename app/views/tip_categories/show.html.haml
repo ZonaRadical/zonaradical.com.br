@@ -1,0 +1,31 @@
+%p#notice= notice
+.main-content
+  .heading
+    %h2= t('tips') + ': ' + @tip_category.name
+  .introtext= @tip_category.description.html_safe unless @tip_category.description.nil?
+  -if can? :update, @tip_category
+    = link_to t('Edit'), edit_tip_category_path(@tip_category)
+  .clear
+  %ul.stations-list
+    =render @tips
+  -if @tip_category.children?
+    -@tip_category.children.each do |tip_category|
+      -unless tip_category.tips.empty?
+        .heading
+          %h2= tip_category.name + ' (' + tip_category.tips.size.to_s + ')'
+        .introtext= tip_category.description.html_safe unless tip_category.description.nil?
+        -if can? :update, tip_category
+          = link_to t('Edit'), edit_tip_category_path(tip_category)
+        .clear
+        %ul.stations-list
+          =render tip_category.tips.limit(3)
+        -if tip_category.tips.size > 3
+          %p=link_to t('otherTips'), tip_category_path(tip_category)
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_tip_category', :tip_category => @tip_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_resort_gallery'
+    =render 'shared/aside/aside_advert'
+  .clear

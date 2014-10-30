@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022204225) do
+ActiveRecord::Schema.define(version: 20141029212436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,25 @@ ActiveRecord::Schema.define(version: 20141022204225) do
 
   create_table "roles", force: true do |t|
     t.string "name"
+  end
+
+  create_table "tip_categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ancestry"
+    t.string   "index"
+    t.integer  "ancestry_depth", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tips", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "tip_category_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
