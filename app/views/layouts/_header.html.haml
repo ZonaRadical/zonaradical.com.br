@@ -27,6 +27,12 @@
           =link_to t('resorts'),main_app.resorts_url
           %ul.submenu
             =menu_resort_categories ResortCategory.all.arrange
+
+        %li.submenu-item
+          =link_to t('tips'),main_app.tips_url
+          %ul.submenu
+            =menu_tip_categories TipCategory.all.arrange
+
         %li
           %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
         %li= link_to t('forum'), main_app.forem_path
