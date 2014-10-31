@@ -52,7 +52,6 @@ namespace :db do
           :fb => 'http://' + Faker::Internet.domain_name,
           :map_url => 'http://' + Faker::Internet.domain_name,
           :level1_description => Populator.sentences(1..20),
-          :short_description => Populator.sentences(1..20),
           :airport => Populator.words(1).titleize,
           :altitude_top => 2000..4000,
           :altitude_bottom => 100..1800,
@@ -69,6 +68,7 @@ namespace :db do
       category.tips.create(
           :title => Populator.words(1..3).titleize,
           :body => Populator.sentences(1..20),
+          :short_description => Populator.sentences(1..10),
       )
     end
   end
