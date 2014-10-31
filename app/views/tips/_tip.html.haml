@@ -2,7 +2,7 @@
   =link_to image_tag(tip.image_url(:thumb).to_s), tip_path(tip), :class => 'img-wrap'
   .details
     %p.name=link_to tip.title, tip_path(tip)
-    %p= tip.body.html_safe unless tip.body.nil?
+    %p=tip.short_description
     =link_to t('ReadMore'), tip_path(tip)
   -if can? :tip, :update
     = link_to 'Edit', edit_tip_path(tip)

@@ -18,10 +18,19 @@
     = f.label :image
     = f.file_field :image
     = f.check_box :remove_image
+  .field
+    = f.label :short_description
+    = f.text_field :short_description
 
   .field
-    = f.label :body
-    = f.text_area :body, :class => 'tinymce', :rows => 40, :cols => 120
+    = f.label :level1_description
+    = f.text_area :level1_description, :class => 'tinymce', :rows => 40, :cols => 120
+  .field
+    = f.label :level2_description
+    = f.text_area :level2_description, :class => 'tinymce', :rows => 40, :cols => 120
+  .field
+    = f.label :level3_description
+    = f.text_area :level3_description, :class => 'tinymce', :rows => 40, :cols => 120
   .actions
     = f.submit
 

@@ -63,6 +63,9 @@ class TipsController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def tip_params
-    params.require(:tip).permit(:title, :image, :remove_image, :tip_category_id, :body)
+    params.require(:tip).permit(:title, :image, :remove_image,
+                                :tip_category_id, :level1_description,
+                                :level2_description, :level3_description,
+                                :short_description)
   end
 end

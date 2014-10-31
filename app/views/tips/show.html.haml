@@ -17,7 +17,7 @@
           %span Nivel 3
     / end levels
     %img.small-img= image_tag @tip.image_url(:thumb).to_s
-    =@tip.body.html_safe unless @tip.body.nil?
+    =@tip.level1_description.html_safe unless @tip.level1_description.nil?
     - if current_user && current_user.forem_admin?
       = link_to 'Edit', edit_tip_path(@tip)
       |
