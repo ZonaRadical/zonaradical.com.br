@@ -1,5 +1,5 @@
 .heading
-  %h2 Estações
+  %h2 =t('resorts')
 %ul.categories
   %li
     =link_to resorts_path  do
@@ -10,4 +10,4 @@
   -ResortCategory.roots.each do |root_category|
     -if resort_category.root != root_category
       %li
-        =link_to root_category.name, resort_category_path(root_category)
+        %span.active =link_to root_category.name, resort_category_path(root_category)

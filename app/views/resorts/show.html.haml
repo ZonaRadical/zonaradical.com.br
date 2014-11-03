@@ -17,23 +17,23 @@
         %span.name= @resort.name
       %ul.details-list
         %li
-          %img{:alt => "airport", :src => "air-icon.png"}/
+          =image_tag("air-icon.png", alt: t('airport'))
           %b
             =@resort.airport
         %li
-          %img{:alt => "altitude", :src => "pics-base-icon.png"}/
+          =image_tag("pics-base-icon.png", alt: t('altitude')
           %b
             =@resort.altitude_top
             \-
             =@resort.altitude_bottom
             =t('meters')
         %li
-          %img{:alt => "drop", :src => "pics-base-icon.png"}/
+          =image_tag("pics-base-icon.png", alt: t('drop')
           %b
             =@resort.drop
             =t('meters')
         %li
-          %img{:alt => "terrain", :src => "pics-base-icon.png"}/
+          =image_tag("pics-base-icon.png", alt: t('terrain')
           %b
             =@resort.terrain
             =t('hectars')
