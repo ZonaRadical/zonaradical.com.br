@@ -21,7 +21,7 @@ class TipImageUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_path('/images/default_uploader/' + [version_name, 'default_tip.jpg'].compact.join('_'))
+    ActionController::Base.helpers.asset_path('/images/default_uploader/' + [version_name, 'default_tip.png'].compact.join('_'))
     #
     #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
@@ -35,7 +35,11 @@ class TipImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :create_thumb
+    process :create_thumb, 141, 141
+  end
+
+  version :big_thumb
+    process :create_thumb, 286, 162
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -49,12 +53,10 @@ class TipImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  def create_thumb
+  def create_thumb(width, height)
     manipulate! do |source|
-      source = source.resize_to_fit(141,141)
-      background = Magick::Image.new(141,141){self.background_color = 'white'}
+      source = source.resize_to_fit(width,height)
+      background = Magick::Image.new(width,height){self.background_color = 'white'}
       background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
     end
   end
-
-end

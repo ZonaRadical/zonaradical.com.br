@@ -1,5 +1,5 @@
 %li
-  =link_to image_tag(tip.image_url(:thumb).to_s), tip_path(tip), :class => 'img-wrap'
+  =link_to image_tag(tip.image_url(:big_thumb).to_s), tip_path(tip), :class => 'img-wrap'
   .details
     %p.name=link_to tip.title, tip_path(tip)
     %p=tip.short_description
