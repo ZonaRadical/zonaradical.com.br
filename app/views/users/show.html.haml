@@ -2,7 +2,7 @@
   .heading
     %h2= t('userProfile')
   -if can? :update, @user
-    =link_to 'Edit', edit_user_path(@user)
+    =link_to t('Edit'), edit_user_path(@user)
   .profile-card
     .leftcol
       = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
