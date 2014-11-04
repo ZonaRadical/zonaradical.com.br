@@ -67,8 +67,10 @@ namespace :db do
     (1..qty).each do
       category.tips.create(
           :title => Populator.words(1..3).titleize,
-          :body => Populator.sentences(1..20),
-          :short_description => Populator.sentences(1..10),
+          :short_description => Populator.words(1..10),
+          :level1_description => Populator.sentences(1..15),
+          :level2_description => Populator.sentences(1..15),
+          :level3_description => Populator.sentences(1..15),
       )
     end
   end
