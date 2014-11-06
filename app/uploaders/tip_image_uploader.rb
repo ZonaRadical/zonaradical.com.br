@@ -35,11 +35,11 @@ class TipImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :create_thumb, 141, 141
+    process :create_thumb => [141, 141]
   end
 
   version :big_thumb
-    process :create_thumb, 286, 162
+    process :create_thumb => [286, 162]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
