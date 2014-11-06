@@ -21,30 +21,12 @@
             = link_to t('Sign up'), new_registration_path(:user)
             %br/
     %nav
-      %ul.menu
-        %li= link_to t('home'), main_app.root_path
-        %li.submenu-item
-          =link_to t('resorts'),main_app.resorts_url
-          %ul.submenu
-            =menu_resort_categories ResortCategory.all.arrange
-
-        %li.submenu-item
-          =link_to t('tips'),main_app.tips_url
-          %ul.submenu
-            =menu_tip_categories TipCategory.all.arrange
-
-        %li
-          %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
-        %li= link_to t('forum'), main_app.forem_path
-        %li
-          %a{:href => "http://zonaradical.com.br/galera.html"}
-            Galera
-            %span ZR
+      =render 'shared/menu/top_menu'
       .search-field
         %input{:placeholder => "Pesquisa", :type => "text"}/
         %a{:href => "#"}
     - if can? :manage, :all
-      =render 'shared/admin_menu'
+      =render 'shared/menu/admin_menu'
     - flash.each do |key, value|
       %div{:class => "flash flash-#{key}"}= value
 
