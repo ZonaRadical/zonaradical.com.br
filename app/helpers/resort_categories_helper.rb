@@ -7,7 +7,12 @@ module ResortCategoriesHelper
 
   def menu_resort_categories(resort_categories)
     resort_categories.map do |resort_category, sub_resort_category|
+    if sub_resort_category.empty?
+      content_tag(:li, link_to(resort_category.name, main_app.resort_category_path(resort_category.id)))
+    else
       content_tag(:li, link_to(resort_category.name, main_app.resort_category_path(resort_category.id)) + content_tag(:ul, sub_menu_resort_categories(sub_resort_category),:class => 'subsubmenu'),:class => 'subsubmenu-item' )
+    end
+
     end.join.html_safe
   end
 
