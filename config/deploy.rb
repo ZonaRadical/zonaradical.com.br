@@ -118,8 +118,13 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
+    # @todo Раскоментировать когда выйдем в рабочий режим
     #invoke 'unicorn:restart'
-    invoke 'unicorn:restart'
+
+    # @todo пока не на полную катушку работаем, перезапускаем сервер. Он становится не доступен.
+
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
   end
 
   after :publishing, :restart
