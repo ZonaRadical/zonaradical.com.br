@@ -4,7 +4,7 @@
     %h2= t('tips') + ': ' + @tip_category.name
   .introtext= @tip_category.description.html_safe unless @tip_category.description.nil?
   -if can? :update, @tip_category
-    = link_to t('Edit'), edit_tip_category_path(@tip_category)
+    = link_to t('edit'), edit_tip_category_path(@tip_category)
   .clear
   %ul.stations-list
     =render @tips
@@ -15,12 +15,12 @@
           %h2= tip_category.name + ' (' + tip_category.tips.size.to_s + ')'
         .introtext= tip_category.description.html_safe unless tip_category.description.nil?
         -if can? :update, tip_category
-          = link_to t('Edit'), edit_tip_category_path(tip_category)
+          = link_to t('edit'), edit_tip_category_path(tip_category)
         .clear
         %ul.stations-list
           =render tip_category.tips.limit(3)
         -if tip_category.tips.size > 3
-          %p=link_to t('otherTips'), tip_category_path(tip_category)
+          %p= link_to t('otherTips') + tip_category.name, tip_category_path(tip_category)
 -content_for :aside do
   %aside
     =render 'shared/aside/aside_social_buttons'

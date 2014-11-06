@@ -3,7 +3,7 @@
   .details
     %p.name=link_to tip.title, tip_path(tip)
     %p=tip.short_description
-    =link_to t('ReadMore'), tip_path(tip)
+    =link_to t('readMore'), tip_path(tip)
   -if can? :tip, :update
     = link_to 'Edit', edit_tip_path(tip)
   -if can? :tip, :delete

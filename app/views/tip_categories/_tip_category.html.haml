@@ -5,5 +5,5 @@
   .clear
   - if can? :tip_category, :update, :destroy
     .control
-      = link_to t('Edit'), edit_tip_category_path(tip_category)
+      = link_to t('edit'), edit_tip_category_path(tip_category)
       = link_to 'Destroy', tip_category, method: :delete, data: { confirm: 'Are you sure?' }
