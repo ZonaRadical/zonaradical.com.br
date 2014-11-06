@@ -52,9 +52,10 @@ pt-BR:
     hectars: 'hectares'
 
     # More about resorts
-    ReadMore: 'Continuar lendo'
-    Edit: 'Editar'
-    otherResorts: 'Todas estaçoes'
+    readMore: 'Continuar lendo'
+    edit: 'Editar'
+    otherResorts: 'Outras estaçoes de '
 
     # TIPS
     tips: 'Dicas'
+    otherTips: 'Outras dicas sobre '

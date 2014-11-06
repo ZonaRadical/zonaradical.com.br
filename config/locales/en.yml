@@ -66,5 +66,12 @@ en:
   selectParent: "Select parent"
   newCategory: "new category"
   newResortCategory: "New resort category"
-  ReadMore: "read more..."
-  otherResorts: "other resorts"
+
+  # More about resorts
+  edit: 'Edit'
+  readMore: "Read more..."
+  otherResorts: "Other resorts of "
+
+  #Tips
+  tips: 'Tips'
+  otherTips: "Other tips from "
