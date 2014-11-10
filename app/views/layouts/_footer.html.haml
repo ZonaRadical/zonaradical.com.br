@@ -23,10 +23,8 @@
         %nav
           %ul.footer-menu
             %li= link_to t('Home'), main_app.root_path
-            %li
-              %a{:href => "http://zonaradical.com.br/resorts"} =t('resorts')
-            %li
-              %a{:href => "http://zonaradical.com.br/dicas"} =t('tips')
+            %li= link_to t('resorts'),main_app.resorts_url
+            %li= link_to t('tips'),main_app.tips_url
             %li
               %a{:href => "http://zonaradical.com.br/vamo-junto.html"} VAMO JUNTO
             %li= link_to t('forum'), main_app.forem_path

@@ -14,10 +14,11 @@
     .gallery-field-large
       %span.tag
         =t('resorts')
-      = image_tag('gallery-1.jpg')
+      = image_tag @resort.image_url(:thumb).to_s
       %p
-        %b Ski resorts de mundo inteiro
-        Para vc  saber onde praticar o snow!
+        %b= @resort.name
+        = @resort.level1_description[0..50]
+        \. . .
     .gallery-field-small
       = image_tag('gallery-2.jpg')
       %p Dicas basicas, e nao so
