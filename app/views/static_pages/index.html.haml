@@ -14,10 +14,10 @@
     .gallery-field-large
       %span.tag
         =t('resorts')
-      = image_tag @resort.image_url(:thumb).to_s
+      =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
       %p
         %b= @resort.name
-        = @resort.level1_description[0..50]
+        = @resort.level1_description[0..47]
         \. . .
     .gallery-field-small
       = image_tag('gallery-2.jpg')
