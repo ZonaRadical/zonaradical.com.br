@@ -17,11 +17,13 @@
       =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
       %p
         %b= @resort.name
-        = @resort.level1_description[0..47]
+        = @resort.level1_description.html_safe[0..47]
         \. . .
     .gallery-field-small
-      = image_tag('gallery-2.jpg')
-      %p Dicas basicas, e nao so
+      =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
+      %p
+        Leia sobre
+        = @resort.name
     .gallery-field-small.right
       = image_tag('gallery-3.jpg')
       %p Trips e ofertas
