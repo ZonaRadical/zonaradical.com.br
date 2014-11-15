@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: a436d693799e19dab0cf01be99687e10088e5421
+  revision: 327c62d9f8f5ad39f7cf9363f2195b44076e3baa
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: 8b4999af3c702603414f6ba9efc1848a0cdb6dbe
+  revision: 0b50328648a0de6990b22738c2b4698dd158f96c
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -51,7 +51,7 @@ GIT
       decorators (~> 1.0.2)
       friendly_id (~> 5.0.0)
       gemoji (= 2.1.0)
-      rails (>= 4.0.3, <= 4.1.6)
+      rails (~> 4.0, <= 4.2)
       sanitize (= 2.0.6)
       select2-rails (~> 3.5.4)
       simple_form (~> 3.0.1)
@@ -268,7 +268,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.2)
-    listen (2.7.11)
+    listen (2.8.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -289,7 +289,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.1)
-    minitest (5.4.2)
+    minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
