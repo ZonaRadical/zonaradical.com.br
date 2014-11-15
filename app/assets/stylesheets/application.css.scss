@@ -1433,18 +1433,7 @@ ul.levels {
       width: 141px;
       height: 27px;
       line-height: 27px;
-      background: #ee9200;
       font-size: 16px;
-      &.active {
-        background: #cc7e02;
-        cursor: default;
-      }
-      &:hover span {
-        border-bottom: 1px solid #fff;
-      }
-      &.active:hover span {
-        border-bottom: 0;
-      }
     }
   }
 }
