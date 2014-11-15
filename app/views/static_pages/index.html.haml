@@ -17,7 +17,7 @@
       =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
       %p
         %b= @resort.name
-        = @resort.level1_description.html_safe[0..47]
+        = strip_tags @resort.level1_description.html_safe[0..47]
         \. . .
     .gallery-field-small
       =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
