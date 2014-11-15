@@ -4,8 +4,10 @@
     \: #{@tip.tip_category.name}
   %article
     %h3=@tip.title
-    %i.extra-info=@tip.updated_at
-    ='/ 2 Comentários / Marcações:  Snowboard , Viagem , Montanhas'
+    %i.extra-info
+      =distance_of_time_in_words_to_now @tip.updated_at
+      = t('ago')
+      ='/ 2 Comentários / Marcações:  Snowboard , Viagem , Montanhas'
     %div#tabs
       %ul.levels
         -if !@tip.level1_description.blank?
