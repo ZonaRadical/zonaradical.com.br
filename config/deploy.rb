@@ -6,7 +6,7 @@ set :repo_url, 'git@bitbucket.org:ignatfialkovskiy/zonaradical.git'
 
 application = 'zonaradical'
 set :rvm_type, :user
-set :rvm_ruby_version, '2.1.1'
+set :rvm_ruby_version, '2.1.5'
 set :deploy_to, '/var/www/apps/zonaradical'
 
 # capistrano unicorn
