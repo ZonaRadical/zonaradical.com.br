@@ -13,6 +13,7 @@
       -unless resort_category.resorts.empty?
         .heading
           %h2= resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
+          = link_to t('allResorts') + resort_category.name, resort_category_path(resort_category), class: :all
         .introtext= resort_category.description.html_safe unless resort_category.description.nil?
         -if can? :update, resort_category
           = link_to t('edit'), edit_resort_category_path(resort_category)
