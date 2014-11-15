@@ -8,33 +8,33 @@
     ='/ 2 Comentários / Marcações:  Snowboard , Viagem , Montanhas'
     %div#tabs
       %ul.levels
-        -if !@tip.level1_description.nil?
+        -if !@tip.level1_description.blank?
           %li
-            %a.active{:href => '#tab_level1'}
+            %a{:href => '#tab_level1'}
               %span Nivel 1
-        -if !@tip.level2_description.nil?
+        -if !@tip.level2_description.blank?
           %li
             %a{:href => '#tab_level2'}
               %span Nivel 2
-        -if !@tip.level3_description.nil?
+        -if !@tip.level3_description.blank?
           %li
             %a{:href => '#tab_level3'}
               %span Nivel 3
       / end levels
-      -if !@tip.level1_description.nil?
+      -if !@tip.level1_description.blank?
         %div#tab_level1
           %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
-          =@tip.level1_description.html_safe unless @tip.level1_description.nil?
+          =@tip.level1_description.html_safe unless @tip.level1_description.blank?
 
-      -if !@tip.level2_description.nil?
+      -if !@tip.level2_description.blank?
         %div#tab_level2
           %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
-          =@tip.level2_description.html_safe unless @tip.level2_description.nil?
+          =@tip.level2_description.html_safe unless @tip.level2_description.blank?
 
-      -if !@tip.level3_description.nil?
+      -if !@tip.level3_description.blank?
         %div#tab_level3
           %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
-          =@tip.level3_description.html_safe unless @tip.level3_description.nil?
+          =@tip.level3_description.html_safe unless @tip.level3_description.blank?
 
     - if current_user && current_user.forem_admin?
       = link_to 'Edit', edit_tip_path(@tip)
