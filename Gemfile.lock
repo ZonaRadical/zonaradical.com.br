@@ -479,6 +479,7 @@ DEPENDENCIES
   ancestry
   cancan
   capistrano
+  capistrano-bundler
   capistrano-rails
   capistrano-rvm
   capistrano3-unicorn

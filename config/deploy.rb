@@ -9,6 +9,8 @@ set :rvm_type, :user
 set :rvm_ruby_version, '2.1.5'
 set :deploy_to, '/var/www/apps/zonaradical'
 
+set :bundle_binstubs, nil
+
 # capistrano unicorn
 set :unicorn_pid, '/var/www/apps/zonaradical/run/unicorn.pid'
 set :unicorn_config_path, '/var/www/apps/zonaradical/current/config/unicorn.rb'
