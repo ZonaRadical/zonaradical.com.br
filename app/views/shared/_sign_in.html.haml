@@ -2,13 +2,13 @@
   = form_for(User.new, url: session_path(:user),       |
     html:{id: 'sign_in_user', :'data-type' => 'json'}, |
     remote: true) do |f|                               |
-    = f.label :email
-    = f.email_field :email, :autofocus => true
-    = f.label :password
-    = f.password_field :password
+    = f.email_field :email, :autofocus => true, :placeholder => 'email'
+    %p
+    = f.password_field :password, :placeholder => 'password'
+    %p
     - if Devise.mappings[:user].rememberable?
       %label.checkbox
-        = f.label :remember_me
-        Rembmer me
+        = f.check_box :remember_me
+        \ Remember_me
     = f.submit "Sign in", :class => "btn btn-success"
   .modal-footer

@@ -134,7 +134,7 @@ label {
 }
 
 input {
-  &[type=text], &[type=password] {
+  &[type=text], &[type=password], &[type=email] {
     width: 194px;
     height: 15px;
     border: 1px solid #c5c4c4;
