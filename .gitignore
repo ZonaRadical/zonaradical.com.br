@@ -23,3 +23,6 @@ secrets.yml
 /public/system/
 /public/uploads/
 .idea/
+
+# rvm detect script for Pow
+.powenv
