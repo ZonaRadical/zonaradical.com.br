@@ -1,6 +1,5 @@
 -content_for :top_section do
   .slider-field
-    %span.tag Bem vindo a Zona Radical
     .index-slider
       .slide
         = image_tag('slide-1.jpg')
@@ -10,15 +9,15 @@
           %br/
           Nós tentaremos neste site juntar o máximo das informações possíveis para você aprender o snowboarding, escolher os
           equipamentos certos e viajar pelo mundo inteiro desfrutando o máximo que o esporte radical pode te oferecer!
+    %span.tag Bem vindo a Zona Radical
   .gallery-field
     .gallery-field-large
-      %span.tag
-        =t('resorts')
       =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
       %p
         %b= @resort.name
         = strip_tags @resort.level1_description.html_safe[0..47]
         \. . .
+      %span.tag=t('resorts')
     .gallery-field-small
       =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
       %p
