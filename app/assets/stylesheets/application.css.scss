@@ -146,6 +146,19 @@ input {
   }
 }
 
+select {
+  background: #fff;
+  width: 194px;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 41px;
+  color: #686868;
+  font: normal normal 13px / 15px "HelveticaNeueRegular", Arial, Helvetica, sans-serif;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 textarea {
   width: 100%;
   box-sizing: border-box;

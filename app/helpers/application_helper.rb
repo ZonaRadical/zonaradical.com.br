@@ -8,4 +8,12 @@ module ApplicationHelper
     result
   end
 
+  def sex sex
+    sex == 'm' ? t('man') : t('women')
+  end
+
+  def age(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
 end

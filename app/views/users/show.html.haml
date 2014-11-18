@@ -20,7 +20,9 @@
         %li.empty
     .rightcol
       .title
-        %span.name= @user.name
+        %span.name= @user.name + ' ' + @user.surname
+        -if !@user.login.blank?
+          =' aka ' + @user.login
         - if @user.online?
           %span.online online
         - else
@@ -32,33 +34,30 @@
             = distance_of_time_in_words_to_now @user.last_seen_at
       %ul.details-list
         %li
-          %b Posição:
-          %span master of sports
-        %li
           %b
             = t('age')
             \:
-          %span 27
+          %span= age @user.birthday
         %li
           %b
             = t('sex')
             \:
-          %span Masculino
+          %span=sex @user.sex
         %li
           %b
             = t('birthday')
             \:
-          %span 31 de maio, 2014
+          %span=@user.birthday.to_formatted_s(:long)
         %li
           %b
             = t('country')
             \:
-          %span Brasil
+          %span=Carmen::Country.coded(@user.country).name
         %li
           %b
             = t('city')
             \:
-          %span Sao Paulo
+          %span=@user.city
         %li
           %b
             = t('interests')
@@ -71,13 +70,15 @@
           .contacts-list
             - if @user.email
               %span.email= @user.email
-            %span.web www.zonaradical.com.br
-            %span.fb https://www.facebook.com/zonaradicalbrasil
+            - if @user.web
+              %span.web= @user.web
+            - if @user.fb
+              %span.fb= @user.fb
           .clear
     .clear
     %p.bio
       %b Biografia:
-      Jaja vc podera colocar aki todas as informacoes que vc quiser.
+      =@user.bio
     .buttons
       %a.button{:href => "#"} Posts do Fórum
       %a.button{:href => "#"} Posts do Vamo Junto
