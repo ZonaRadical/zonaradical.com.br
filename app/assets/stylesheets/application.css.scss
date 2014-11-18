@@ -378,12 +378,23 @@ header {
 
   div.flash {
     height: 30px;
-    background: #fda418;
     position: relative;
     line-height: 30px;
     color: #fff;
     padding: 5px;
-    z-index: 5000;
+    opacity: .5;
+  }
+  div.flash-notice
+  {
+    background: #fda418;
+  }
+  div.flash-alert
+  {
+    background: red;
+  }
+  div.flash-warning
+  {
+    background: yellow;
   }
 
   nav.admin {
