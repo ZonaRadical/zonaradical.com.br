@@ -12,3 +12,55 @@
  *= require jquery-ui-zr/core
  *= require jquery-ui-zr/theme
  */
+
+
+.ui-widget-header .ui-state-default {
+  border: none;
+  background: #ee9200;
+  font-weight: normal;
+  color: #fff;
+
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  width: 141px;
+  height: 27px;
+  cursor: auto;
+}
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: none;
+  background: #cc7e02;
+  font-weight: normal;
+  color: #fff;
+}
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: none;
+  background: #cc7e02;
+  font-weight: normal;
+  color: #fff;
+}
