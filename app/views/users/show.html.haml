@@ -29,7 +29,7 @@
           %b
             = t('lastSignInAt')
             \:
-          = @user.last_seen_at
+          = distance_of_time_in_words_to_now @user.last_seen_at
       %ul.details-list
         %li
           %b Posição:
