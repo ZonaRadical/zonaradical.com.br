@@ -33,31 +33,35 @@
               \:
             = distance_of_time_in_words_to_now @user.last_seen_at
       %ul.details-list
-        %li
-          %b
-            = t('age')
-            \:
-          %span= age @user.birthday
+        -unless @user.birthday.nil?
+          %li
+            %b
+              = t('age')
+              \:
+            %span= age @user.birthday
         %li
           %b
             = t('sex')
             \:
-          %span=sex @user.sex
-        %li
-          %b
-            = t('birthday')
-            \:
-          %span=@user.birthday.to_formatted_s(:long)
-        %li
-          %b
-            = t('country')
-            \:
-          %span=Carmen::Country.coded(@user.country).name
-        %li
-          %b
-            = t('city')
-            \:
-          %span=@user.city
+          %span=sex @user.sex.to_s
+        -unless @user.birthday.nil?
+          %li
+            %b
+              = t('birthday')
+              \:
+            %span=@user.birthday.to_formatted_s(:long)
+        -unless @user.country.nil?
+          %li
+            %b
+              = t('country')
+              \:
+            %span=Carmen::Country.coded(@user.country).name
+        -unless @user.city.nil?
+          %li
+            %b
+              = t('city')
+              \:
+            %span=@user.city
         %li
           %b
             = t('interests')
@@ -76,9 +80,10 @@
               %span.fb= @user.fb
           .clear
     .clear
-    %p.bio
-      %b Biografia:
-      =@user.bio
+    -unless @user.bio.blank?
+      %p.bio
+        %b Biografia:
+        =@user.bio
     .buttons
       %a.button{:href => "#"} Posts do Fórum
       %a.button{:href => "#"} Posts do Vamo Junto

@@ -9,7 +9,11 @@ module ApplicationHelper
   end
 
   def sex sex
-    sex == 'm' ? t('man') : t('women')
+    if sex.blank?
+      '?'
+    elsif
+      sex == 'm' ? t('man') : t('women')
+    end
   end
 
   def age(dob)
