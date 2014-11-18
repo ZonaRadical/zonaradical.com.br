@@ -25,11 +25,11 @@
           %span.online online
         - else
           %span.offline offline
-        %span.activity
-          %b
-            = t('lastSignInAt')
-            \:
-          = distance_of_time_in_words_to_now @user.last_seen_at
+          %span.activity
+            %b
+              = t('lastSignInAt')
+              \:
+            = distance_of_time_in_words_to_now @user.last_seen_at
       %ul.details-list
         %li
           %b Posição:
