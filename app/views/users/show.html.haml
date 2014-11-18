@@ -20,9 +20,9 @@
         %li.empty
     .rightcol
       .title
-        %span.name= @user.name + ' ' + @user.surname
+        %span.name= @user.name.to_s + ' ' + @user.surname.to_s
         -if !@user.login.blank?
-          =' aka ' + @user.login
+          =' aka ' + @user.login.to_s
         - if @user.online?
           %span.online online
         - else
