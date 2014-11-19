@@ -23,6 +23,10 @@ en:
   hello: "Hello"
   signIn: 'Sign In'
   signOut: 'Sign Out'
+  forgotPsw: "Forgot your password?"
+  noConfirm: "Didn't receive confirmation instructions?"
+  noUnlock: "Didn't receive unlock instructions?"
+  signWith: "Sign in with"
   home: "Home"
   forum: 'Forum'
   # User Profile
@@ -48,6 +52,8 @@ en:
   ourtake: 'Opnion of ZR'
   linkToResortWeb: 'Resorts web site'
   linkToResortMap: 'Slopes map'
+  meters: 'meters'
+  hectars: 'hectars'
 
   #forms
   SelectCountry: 'Please select Country'
