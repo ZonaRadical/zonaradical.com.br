@@ -16,37 +16,21 @@
       .title
         %span.name= @resort.name
       %ul.details-list
-        %li
-          =image_tag 'air-icon.png', :title => 'airport'
-          %b
-            =@resort.airport
-        %li
-          = image_tag "pics-base-icon.png", :title => t('altitude')
-          %b
-            =@resort.altitude_top
-            \-
-            =@resort.altitude_bottom
-            =t('meters')
-        %li
-          =image_tag "drop-icon.png", :title => t('drop')
-          %b
-            =@resort.drop
-            =t('meters')
-        %li
-          =image_tag "pics-base-icon.png", :title => t('terrain')
-          %b
-            =@resort.terrain
-            =t('hectars')
-        %li
-          =image_tag "lifts-icon.png", :title => t('lifts')
-          %b
-            =@resort.lifts
-        %li
-          = t('slopes')
-          \:
-          %b
-            =@resort.slopes
-          %span
+        %li.details
+          .details-list
+            %span.air
+              =print_with_meters(@resort.airport,'')
+            %span.pic-base
+              =print_pic_base(@resort.altitude_top,@resort.altitude_bottom,t('meters'))
+            %span.drop
+              =print_with_meters(@resort.drop,t('meters'))
+            %span.pic-base
+              =print_with_meters(@resort.terrain,t('hectars'))
+            %span.lifts
+              =print_with_meters(@resort.lifts,'lifts')
+            %span.pic-base
+              =@resort.slopes
+          .clear
     .clear
     %p.descr
       %b

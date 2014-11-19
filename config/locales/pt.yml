@@ -65,9 +65,9 @@ pt-BR:
     tips: 'Dicas'
     otherTips: 'Outras dicas sobre '
 
-    otherTips: 'Outras dicas sobre '
-    man: 'man'
-    women: 'women'
+    # User Profile
+    man: 'M'
+    women: 'F'
 
     # date time translation
     date:
@@ -169,7 +169,7 @@ pt-BR:
     errors:
       format: ! '%{attribute} %{message}'
       messages:
-       accepted: deve ser aceito
+        accepted: deve ser aceito
         blank: não pode ficar em branco
         present: deve ficar em branco
         confirmation: não é igual a %{attribute}

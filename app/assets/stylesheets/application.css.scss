@@ -1187,6 +1187,30 @@ ul.details-list {
       display: inline-block;
       vertical-align: top;
     }
+    &.details b {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  span {
+    display: block;
+    padding-left: 25px;
+    &.air {
+      background: image_url("air-icon.png") no-repeat left center;
+    }
+    &.pic-base {
+      background: image_url("pics-base-icon.png") no-repeat left center;
+    }
+    &.drop {
+      background: image_url("drop-icon.png") no-repeat left center;
+    }
+    &.lifts {
+      background: image_url("lifts-icon.png") no-repeat left center;
+    }
+    a {
+      color: #626262;
+      text-decoration: none;
+    }
   }
   .contacts-list {
     display: inline-block;
