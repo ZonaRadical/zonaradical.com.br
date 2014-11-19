@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
-    @resorts = Resort.all
     @resort = Resort.all.sample
+    @tip = Tip.all.sample
   end
 end
