@@ -24,7 +24,7 @@
         %p
           %b Muitas Dicas
       -else
-        =link_to image_tag @tip.image_url(:thumb).to_s, @tip.tip_path
+        =link_to image_tag(@tip.image_url(:thumb).to_s), tip_path(@tip)
         %p
           %b
             =@tip.title
