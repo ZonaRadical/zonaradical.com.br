@@ -73,11 +73,11 @@
             \:
           .contacts-list
             - if @user.email
-              %span.email= @user.email
+              %span.email=mail_to @user.email, @user.email, :target => "_blank"
             - if @user.web
-              %span.web= @user.web
+              %span.web=link_to @user.web, @user.web, :target => "_blank"
             - if @user.fb
-              %span.fb= @user.fb
+              %span.fb=link_to @user.fb, @user.fb, :target => "_blank"
           .clear
     .clear
     -unless @user.bio.blank?
