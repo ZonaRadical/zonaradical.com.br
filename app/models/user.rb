@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarImageUploader
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-  validates_uniqueness_of :login
+  validates_uniqueness_of :login, :allow_nil => true
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
       if user.nil?
         user = User.new(
             name: auth.extra.raw_info.name,
-            #username: auth.info.nickname || auth.uid,
+            username: auth.info.nickname || auth.uid,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
         )
