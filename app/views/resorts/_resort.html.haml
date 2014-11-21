@@ -3,7 +3,8 @@
   .details
     %p.name=link_to resort.name, resort_path(resort)
     %span.drop= print_with_meters(resort.drop,t('meters'))
-    %p= strip_tags(resort.level1_description)[0..200].html_safe unless resort.level1_description.nil?
+    -if !strip_tags(resort.level1_description)[0..200].blank?
+      %p= strip_tags(resort.level1_description)[0..200].html_safe
     =link_to t('readMore'), resort_path(resort)
   -if can? :resort, :update
     = link_to t('edit'), edit_resort_path(resort)
