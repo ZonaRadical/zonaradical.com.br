@@ -18,17 +18,17 @@
       %ul.details-list
         %li.details
           .details-list
-            %span.air
+            %span.air{:title=> t('airport')}
               =print_with_meters(@resort.airport,'')
-            %span.pic-base
+            %span.pic-base{:title=> t('altitude')}
               =print_pic_base(@resort.altitude_top,@resort.altitude_bottom,t('meters'))
-            %span.drop
+            %span.drop{:title=> t('drop')}
               =print_with_meters(@resort.drop,t('meters'))
-            %span.pic-base
+            %span.pic-base{:title=> t('terrain')}
               =print_with_meters(@resort.terrain,t('hectars'))
-            %span.lifts
+            %span.lifts{:title=> t('lifts')}
               =print_with_meters(@resort.lifts,'lifts')
-            %span.pic-base
+            %span.slopes{:title=> t('slopes')}
               =@resort.slopes
           .clear
     .clear
