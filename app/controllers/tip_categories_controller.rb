@@ -10,7 +10,7 @@ class TipCategoriesController < ApplicationController
   # GET /tip_categories/1
   # GET /tip_categories/1.json
   def show
-    @tips = @tip_category.tips
+    @tips = @tip_category.tips.page(params[:page])
   end
 
   # GET /tip_categories/new
