@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :finish_signup
   before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
 
+  def index
+    @users = User.all
+  end
+
   def finish_signup
     if request.patch? && params[:user] #&& params[:user][:email]
       if current_user.update(user_params)

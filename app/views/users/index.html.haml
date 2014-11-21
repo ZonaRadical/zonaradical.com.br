@@ -1,0 +1,33 @@
+.main-content
+  .heading
+  %p
+    =@users.sample.email
+
+-content_for :aside do
+  %aside
+    #ficConn
+    .heading
+      %h2 Estações
+    %ul.categories
+      %li
+        =link_to tips_path  do
+          All
+          %span='(' + Tip.all.size.to_s + ')'
+      -TipCategory.roots.each do |root_category|
+        %li
+          =link_to root_category.name, tip_category_path(root_category)
+    .heading
+      %h2 Instagram
+    / SnapWidget 3*3 aside
+    %iframe.snapwidget-widget{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "http://snapwidget.com/in/?u=em9uYXJhZGljYWxicnxpbnw4N3wzfDN8fHllc3w1fG5vbmV8b25TdGFydHx5ZXN8bm8=&ve=230814", :style => "border:none; overflow:hidden; width:306px; height:306px", :title => "Instagram Widget"}
+    .clear
+    .heading
+      %h2 Facebook
+    / <div class="fb-block"></div>
+    .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
+    .clear
+    .heading
+      %h2 Eventos
+    .advert-block
+      %img{:alt => "", :src => "images/advert-img.jpg"}/
+  .clear
