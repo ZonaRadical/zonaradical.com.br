@@ -1,23 +1,9 @@
 .main-content
   .heading
     %h2= t('userProfile')
-  -if can? :update, @user
-    =link_to t('edit'), edit_user_path(@user)
   .profile-card
     .leftcol
       = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
-      .reputation
-        %a{:href => "#"} Reputação:
-        %span Brother
-      %ul.stars
-        %li.full
-        %li.full
-        %li.full
-        %li.full
-        %li.full
-        %li.full
-        %li.full
-        %li.empty
     .rightcol
       .title
         %span.name= @user.name.to_s + ' ' + @user.surname.to_s
@@ -38,35 +24,36 @@
             %b
               = t('age')
               \:
-            %span= age @user.birthday
-        %li
-          %b
-            = t('sex')
-            \:
-          %span=sex @user.sex.to_s
-        -unless @user.birthday.nil?
+            = age @user.birthday
+        -unless @user.sex.nil?
+          %li
+            %b
+              = t('sex')
+              \:
+            =@user.sex.to_s
+        -unless @user.birthday.blank?
           %li
             %b
               = t('birthday')
               \:
-            %span=@user.birthday.to_formatted_s(:long)
-        -unless @user.country.nil?
+            =@user.birthday.to_formatted_s(:long)
+        -unless @user.country.blank?
           %li
             %b
               = t('country')
               \:
-            %span=Carmen::Country.coded(@user.country).name
-        -unless @user.city.nil?
+            =Carmen::Country.coded(@user.country).name
+        -unless @user.city.blank?
           %li
             %b
               = t('city')
               \:
-            %span=@user.city
+            =@user.city
         %li
           %b
             = t('interests')
             \:
-          %span Snowboard, Wakeboard, Surfe
+          Snowboard, Wakeboard, Surfe
         %li.contacts
           %b
             = t('contacts')
@@ -84,33 +71,21 @@
       %p.bio
         %b Biografia:
         =@user.bio
-    .buttons
-      %a.button{:href => "#"} Posts do Fórum
-      %a.button{:href => "#"} Posts do Vamo Junto
-    .clear
+    -if 2<0
+      .buttons
+        %a.button{:href => "#"} Posts do Fórum
+        %a.button{:href => "#"} Posts do Vamo Junto
+      .clear
+    -if can? :update, @user
+      .buttons
+        %a.button{:href => edit_user_path(@user)}= t('editProfile')
+      .clear
+
 
 -content_for :aside do
-  .heading
-    %h2 Fique conectado
-  %ul.social-buttons
-    %li
-      %a.fb{:href => "https://www.facebook.com/zonaradicalbrasil", :target => "_blank"}
-    %li
-      %a.yt{:href => "http://instagram.com/zonaradicalbr"}
-    %li
-      %a.tw{:href => "https://twitter.com/ZonaRadicalBR"}
-    %li
-      %a.gp{:href => "#"}
-    %li
-      %a.rss{:href => "#"}
-  .heading
-    %h2 Instagram
-  %ul.flickr-list
-    /
-      SnapWidget 3*3
-      <iframe src="http://snapwidget.com/in/?u=em9uYXJhZGljYWxicnxpbnw2NXwzfDN8fHllc3w0fGZhZGVJbnxvblN0YXJ0fHllc3xubw==&ve=230814" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:237px; height:237px"></iframe>
-    / SnapWidget 2*2
-    %iframe.snapwidget-widget{:allowtransparency => "true", :frameborder => "0", :scrolling => "no", :src => "http://snapwidget.com/in/?u=em9uYXJhZGljYWxicnxpbnwxMDN8MnwyfHx5ZXN8NXxub25lfG9uU3RhcnR8eWVzfG5v&ve=230814", :style => "border:none; overflow:hidden; width:236px; height:236px", :title => "Instagram Widget"}
-  .heading
-    %h2 Facebook
-  .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear   .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
