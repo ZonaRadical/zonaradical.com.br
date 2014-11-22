@@ -1,91 +1,16 @@
 .main-content
-  .heading
-    %h2= t('userProfile')
-  .profile-card
-    .leftcol
-      = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
-    .rightcol
-      .title
-        %span.name= @user.name.to_s + ' ' + @user.surname.to_s
-        -if !@user.login.blank?
-          =' aka ' + @user.login.to_s
-        - if @user.online?
-          %span.online online
-        - else
-          %span.offline offline
-          %span.activity
-            %b
-              = t('lastSignInAt')
-              \:
-            = distance_of_time_in_words_to_now @user.last_seen_at
-      %ul.details-list
-        -unless @user.birthday.nil?
-          %li
-            %b
-              = t('age')
-              \:
-            = age @user.birthday
-        -unless @user.sex.nil?
-          %li
-            %b
-              = t('sex')
-              \:
-            =@user.sex.to_s
-        -unless @user.birthday.blank?
-          %li
-            %b
-              = t('birthday')
-              \:
-            =@user.birthday.to_formatted_s(:long)
-        -unless @user.country.blank?
-          %li
-            %b
-              = t('country')
-              \:
-            =Carmen::Country.coded(@user.country).name
-        -unless @user.city.blank?
-          %li
-            %b
-              = t('city')
-              \:
-            =@user.city
-        %li
-          %b
-            = t('interests')
-            \:
-          Snowboard, Wakeboard, Surfe
-        %li.contacts
-          %b
-            = t('contacts')
-            \:
-          .contacts-list
-            - if @user.email
-              %span.email=mail_to @user.email, @user.email, :target => "_blank"
-            - if @user.web
-              %span.web=link_to @user.web, @user.web, :target => "_blank"
-            - if @user.fb
-              %span.fb=link_to @user.fb, @user.fb, :target => "_blank"
-          .clear
-    .clear
-    -unless @user.bio.blank?
-      %p.bio
-        %b Biografia:
-        =@user.bio
-    -if 2<0
-      .buttons
-        %a.button{:href => "#"} Posts do Fórum
-        %a.button{:href => "#"} Posts do Vamo Junto
-      .clear
-    -if can? :update, @user
+  =render 'profile'
+-content_for :aside do
+  %aside
+    -if !can? :update, @user
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_resort_gallery'
+    -else
+      .heading
+        %h2 Sobre seu perfil
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
       .clear
-
-
--content_for :aside do
-  %aside
-    =render 'shared/aside/aside_social_buttons'
-    =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
-  .clear   .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
+  .clear

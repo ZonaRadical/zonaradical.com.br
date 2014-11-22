@@ -1,0 +1,77 @@
+.heading
+  %h2= t('userProfile')
+.profile-card
+  .leftcol
+    = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
+  .rightcol
+    .title
+      %span.name= @user.name.to_s + ' ' + @user.surname.to_s
+      -if !@user.login.blank?
+        =' aka ' + @user.login.to_s
+      - if @user.online?
+        %span.online online
+      - else
+        %span.offline offline
+        %span.activity
+          %b
+            = t('lastSignInAt')
+            \:
+          = distance_of_time_in_words_to_now @user.last_seen_at
+    %ul.details-list
+      -unless @user.birthday.nil?
+        %li
+          %b
+            = t('age')
+            \:
+          = age @user.birthday
+      -unless @user.sex.nil?
+        %li
+          %b
+            = t('sex')
+            \:
+          =@user.sex.to_s
+      -unless @user.birthday.blank?
+        %li
+          %b
+            = t('birthday')
+            \:
+          =@user.birthday.to_formatted_s(:long)
+      -unless @user.country.blank?
+        %li
+          %b
+            = t('country')
+            \:
+          =Carmen::Country.coded(@user.country).name
+      -unless @user.city.blank?
+        %li
+          %b
+            = t('city')
+            \:
+          =@user.city
+      %li
+        %b
+          = t('interests')
+          \:
+        Snowboard, Wakeboard, Surfe
+      %li.contacts
+        %b
+          = t('contacts')
+          \:
+        .contacts-list
+          - if @user.email
+            %span.email=mail_to @user.email, @user.email, :target => "_blank"
+          - if @user.web
+            %span.web=link_to @user.web, @user.web, :target => "_blank"
+          - if @user.fb
+            %span.fb=link_to @user.fb, @user.fb, :target => "_blank"
+        .clear
+  .clear
+  -unless @user.bio.blank?
+    %p.bio
+      %b Biografia:
+      =@user.bio
+  -if 2<0
+    .buttons
+      %a.button{:href => "#"} Posts do Fórum
+      %a.button{:href => "#"} Posts do Vamo Junto
+    .clear

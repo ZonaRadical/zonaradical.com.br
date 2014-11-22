@@ -24,10 +24,10 @@
     = t('removeImage')
   .field
     = f.label :sex
-    = select(:user, :sex,options_for_select([[t('man'),'m'],[t('women'),'w']],@user.sex),:prompt => t('chooseSex'))
+    = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))
   .field
     = f.label :birthday
-    = f.date_select :birthday, :start_year=>1900, :end_year => 2010
+    = f.date_select :birthday, :start_year=>1950, :end_year => 2010
   .field
     = f.label :country
     = f.country_select :country

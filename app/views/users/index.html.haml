@@ -1,17 +1,6 @@
-.main-content
-  .heading
-    %h2 All Users
-  %p
-    -@users.each do |usuario|
-      =usuario.name
-      =usuario.email
-
-
-
--content_for :aside do
-  %aside
-    =render 'shared/aside/aside_social_buttons'
-    =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
-  .clear   .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
+.heading
+  %h2 All Users
+%p
+  -@users.each do |usuario|
+    =usuario.name
+    =usuario.email
