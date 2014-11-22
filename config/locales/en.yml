@@ -29,6 +29,7 @@ en:
   signWith: "Sign in with"
   home: "Home"
   forum: 'Forum'
+
   # User Profile
   userProfile: 'User profile'
   age: 'Age'
@@ -39,6 +40,9 @@ en:
   interests: 'Interests'
   contacts: 'Contacts'
   lastSignInAt: 'Last visit'
+  editProfile:  'Edit Profile'
+  man: 'M'
+  women: 'F'
 
   # Resort Profile
   resorts: 'Resorts'

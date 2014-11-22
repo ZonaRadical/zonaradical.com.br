@@ -1197,21 +1197,18 @@ ul.details-list {
     padding-left: 25px;
     &.air {
       background: image_url("air-icon.png") no-repeat left center;
-      title: 'Airport';
     }
     &.pic-base {
       background: image_url("pics-base-icon.png") no-repeat left center;
     }
     &.drop {
       background: image_url("drop-icon.png") no-repeat left center;
-      title: 'Drop';
     }
     &.lifts {
       background: image_url("lifts-icon.png") no-repeat left center;
     }
     &.slopes {
       background: image_url("slopes-icon.png") no-repeat left center;
-      title: 'Drop';
     }
     a {
       color: #626262;
