@@ -1,7 +1,7 @@
 .main-content
   .heading
     %h2=t('tips')
-    \: #{@tip.tip_category.name}
+      \: #{@tip.tip_category.name}
   %article
     %h3=@tip.title
     %i.extra-info
@@ -25,7 +25,7 @@
       / end levels
       -if !@tip.level1_description.blank?
         %div#tab_level1
-          =image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
+          =image_tag(@tip.image_url(:thumb).to_s, class: 'small-img')
           =@tip.level1_description.html_safe unless @tip.level1_description.blank?
 
       -if !@tip.level2_description.blank?
