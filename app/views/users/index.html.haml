@@ -4,3 +4,7 @@
   -@users.each do |usuario|
     =usuario.name
     =usuario.email
+    -if !can? :update, usuario
+      .buttons
+        %a.button{:href => edit_user_path(usuario)}= t('editProfile')
+      .clear
