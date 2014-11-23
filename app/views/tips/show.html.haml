@@ -25,7 +25,7 @@
       / end levels
       -if !@tip.level1_description.blank?
         %div#tab_level1
-          %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
+          =image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
           =@tip.level1_description.html_safe unless @tip.level1_description.blank?
 
       -if !@tip.level2_description.blank?
