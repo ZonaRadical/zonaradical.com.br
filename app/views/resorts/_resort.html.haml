@@ -5,8 +5,9 @@
     %span.drop{:title=> t('drop')}
       = print_with_meters(resort.drop,t('meters'))
     -if !strip_tags(resort.level1_description)[0..200].blank?
-      %p= strip_tags(resort.level1_description)[0..200].html_safe
-    =link_to t('readMore'), resort_path(resort)
+      %p
+        = strip_tags(resort.level1_description)[0..200].html_safe
+        =link_to t('readMore'), resort_path(resort)
   -if can? :resort, :update
     = link_to t('edit'), edit_resort_path(resort)
   -if can? :resort, :delete
