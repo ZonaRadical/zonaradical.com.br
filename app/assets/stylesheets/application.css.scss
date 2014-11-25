@@ -1207,6 +1207,9 @@ ul.details-list {
     &.lifts {
       background: image_url("lifts-icon.png") no-repeat left center;
     }
+    &.slopes {
+      background: image_url("slopes-icon.png") no-repeat left center;
+    }
     a {
       color: #626262;
       text-decoration: none;

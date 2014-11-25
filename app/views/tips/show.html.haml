@@ -1,16 +1,17 @@
 .main-content
   .heading
-    %h2=t('tips')
-    \: #{@tip.tip_category.name}
+    %h2
+      =t('tips')
+      \: #{@tip.tip_category.name}
   %article
     %h3=@tip.title
     %i.extra-info
       =distance_of_time_in_words_to_now @tip.updated_at
       = t('ago')
-      ='/ 2 Comentários / Marcações:  Snowboard , Viagem , Montanhas'
+      ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
     %div#tabs
       %ul.levels
-        -if !@tip.level1_description.blank?
+        -if !@tip.level1_description.blank? and !@tip.level2_description.blank?
           %li
             %a{:href => '#tab_level1'}
               %span Nivel 1
@@ -25,17 +26,15 @@
       / end levels
       -if !@tip.level1_description.blank?
         %div#tab_level1
-          %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
+          =image_tag(@tip.image_url(:thumb).to_s, class: 'small-img')
           =@tip.level1_description.html_safe unless @tip.level1_description.blank?
 
       -if !@tip.level2_description.blank?
         %div#tab_level2
-          %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
           =@tip.level2_description.html_safe unless @tip.level2_description.blank?
 
       -if !@tip.level3_description.blank?
         %div#tab_level3
-          %img= image_tag @tip.image_url(:thumb).to_s, :class=> 'small-img'
           =@tip.level3_description.html_safe unless @tip.level3_description.blank?
 
     - if current_user && current_user.forem_admin?

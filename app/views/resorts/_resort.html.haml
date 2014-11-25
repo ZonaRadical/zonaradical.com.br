@@ -2,7 +2,8 @@
   =link_to image_tag(resort.image_url(:thumb).to_s), resort_path(resort), :class => 'img-wrap'
   .details
     %p.name=link_to resort.name, resort_path(resort)
-    %span.drop= print_with_meters(resort.drop,t('meters'))
+    %span.drop{:title=> t('drop')}
+      = print_with_meters(resort.drop,t('meters'))
     -if !strip_tags(resort.level1_description)[0..200].blank?
       %p= strip_tags(resort.level1_description)[0..200].html_safe
     =link_to t('readMore'), resort_path(resort)

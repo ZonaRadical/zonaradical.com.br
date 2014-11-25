@@ -29,6 +29,7 @@ pt-BR:
     signWith: "Sign in com"
     home: "Home"
     forum: 'Forum'
+
     # User Profile
     userProfile: 'Perfil de usuario'
     age: 'Idade'
@@ -39,6 +40,10 @@ pt-BR:
     interests: 'Interesses'
     contacts: 'Contatos'
     lastSignInAt: 'Ultima visita'
+    editProfile:  'Editar Perfil'
+    man: 'M'
+    women: 'F'
+
 
     # Resort Profile
     resorts: 'Estaçoes'
@@ -64,10 +69,6 @@ pt-BR:
     # TIPS
     tips: 'Dicas'
     otherTips: 'Outras dicas sobre '
-
-    # User Profile
-    man: 'M'
-    women: 'F'
 
     # date time translation
     date:

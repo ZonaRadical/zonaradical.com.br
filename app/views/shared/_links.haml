@@ -9,5 +9,5 @@
   %br/
 - if Devise.mappings[:user].omniauthable?
   - User.omniauth_providers.each do |provider|
-    = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(:user, provider)
+    %b= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(:user, provider)
     %br/
