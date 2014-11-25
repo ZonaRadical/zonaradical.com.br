@@ -1,10 +1,10 @@
 .heading
   %h2 All Users
 %p
-  -@users.each do |usuario|
-    %b=usuario.name
-    =usuario.email
-    -if can? :update, usuario
+  -@users.each do |site_user|
+    %b=site_user.name
+    =site_user.email
+    -if can? :update, site_user
       .buttons
-        %a.button{:href => edit_user_path(usuario)}= t('editProfile')
+        %a.button{:href => edit_user_path(site_user)}= t('editProfile')
       .clear

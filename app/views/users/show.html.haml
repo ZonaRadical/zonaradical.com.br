@@ -2,15 +2,14 @@
   =render 'profile'
 -content_for :aside do
   %aside
-    -if !can? :update, @user
-      =render 'shared/aside/aside_social_buttons'
-      =render 'shared/aside/aside_fb_like_box'
-      =render 'shared/aside/aside_advert'
-      =render 'shared/aside/aside_resort_gallery'
-    -else
+    -if can? :update, @user
       .heading
-        %h2 Sobre seu perfil
+        %h2 =t('aboutProfile')
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
       .clear
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
   .clear

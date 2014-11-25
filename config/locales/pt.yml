@@ -46,11 +46,11 @@ pt-BR:
 
 
     # Resort Profile
-    resorts: 'Estaçoes'
+    resorts: 'Estações'
     newResort: 'Nova Estação'
     airport: 'Aeroporto mais Próximo'
     altitude: 'Altitude de pico/base'
-    drop: 'Vertical Drop'
+    drop: 'Desnivel Vertical'
     terrain: 'Terreno esquiável'
     lifts: 'Número de Teleféricos'
     slopes: 'Proporção de terreno'
@@ -63,8 +63,8 @@ pt-BR:
     # More about resorts
     readMore: '...continuar lendo'
     edit: 'Editar'
-    otherResorts: 'Outras estaçoes de '
-    allResorts: 'Todas estaçoes de '
+    otherResorts: 'Outras estaçõ de '
+    allResorts: 'Todas estações de '
 
     # TIPS
     tips: 'Dicas'

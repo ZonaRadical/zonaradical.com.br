@@ -12,7 +12,10 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarImageUploader
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
-  validates_uniqueness_of :login, :allow_nil => true
+  validates_uniqueness_of :login, :allow_nil => true, :allow_blank => true
+
+  validates :password, presence: true, length: {minimum: 5, maximum: 120}, on: :create
+  validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 

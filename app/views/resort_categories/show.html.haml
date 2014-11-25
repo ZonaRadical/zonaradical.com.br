@@ -8,6 +8,7 @@
   .clear
   %ul.stations-list
     =render @resorts
+    = will_paginate @resorts,:previous_label => '<<',:next_label => '>>', :inner_window => 1
   -if @resort_category.children?
     -@resort_category.children.each do |resort_category|
       -unless resort_category.resorts.empty?

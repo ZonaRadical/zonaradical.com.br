@@ -10,7 +10,7 @@ class ResortCategoriesController < ApplicationController
   # GET /resort_categories/1
   # GET /resort_categories/1.json
   def show
-    @resorts = @resort_category.resorts
+    @resorts = @resort_category.resorts.page(params[:page])
   end
 
   # GET /resort_categories/new
