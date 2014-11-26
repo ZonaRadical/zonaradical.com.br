@@ -30,6 +30,9 @@ gem 'will_paginate', '~> 3.0.5'
 
 gem 'tinymce-rails'
 
+gem 'wysiwyg-rails'
+gem 'font-awesome-rails'
+
 gem 'i18n'
 
 # Active Admin
