@@ -43,6 +43,7 @@ en:
   editProfile:  'Edit Profile'
   man: 'M'
   women: 'F'
+  aboutProfile: 'About the profile'
 
   # Resort Profile
   resorts: 'Resorts'
