@@ -41,6 +41,17 @@
       = link_to t('linkToResortWeb'), @resort.web, :class => :button, :target => '_blank'
       = link_to t('linkToResortMap'), @resort.map_url, :class => :button, :target => '_blank'
       .clear
+
+    -if @resort.resort_gallery_images.all.count
+      .slider-field
+        .index-slider
+          -@resort.resort_gallery_images.all.each do |image|
+            .slide
+              = image_tag image.image_url(:slider).to_s
+              -unless image.description.blank?
+                %p=image.description
+            %span.tag= @resort.name
+      .clear
     - if current_user && current_user.forem_admin?
       = link_to t('edit'), edit_resort_path(@resort)
       |

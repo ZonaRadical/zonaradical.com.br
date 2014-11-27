@@ -1,3 +1,25 @@
+# create_table :resorts, force: true do |t|
+#   t.string   :name
+#   t.string   :image
+#   t.string   :web
+#   t.string   :fb
+#   t.integer  :resort_category_id
+#   t.integer  :index
+#   t.text     :level1_description
+#   t.text     :level2_description
+#   t.text     :level3_description
+#   t.string   :airport
+#   t.integer  :altitude_top
+#   t.integer  :altitude_bottom
+#   t.integer  :drop
+#   t.integer  :terrain
+#   t.integer  :lifts
+#   t.string   :slopes
+#   t.datetime :created_at
+#   t.datetime :updated_at
+#   t.string   :map_url
+# end
+
 class Resort < ActiveRecord::Base
 
   validates :name, presence: true
@@ -7,6 +29,7 @@ class Resort < ActiveRecord::Base
   validates :map_url, format: { with: URI.regexp }, allow_blank: true
 
   belongs_to :resort_category
+  has_many :resort_gallery_images
 
   mount_uploader :image, ResortImageUploader
 end

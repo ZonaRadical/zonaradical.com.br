@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120105941) do
+ActiveRecord::Schema.define(version: 20141125200647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,14 @@ ActiveRecord::Schema.define(version: 20141120105941) do
     t.string  "ancestry"
     t.string  "index"
     t.integer "ancestry_depth", default: 0
+  end
+
+  create_table "resort_gallery_images", force: true do |t|
+    t.integer  "resort_id"
+    t.string   "image"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "resorts", force: true do |t|

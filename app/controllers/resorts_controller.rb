@@ -41,6 +41,22 @@ class ResortsController < ApplicationController
   def update
     respond_to do |format|
       if @resort.update(resort_params)
+        if params[:resort_gallery_images][:images]
+          params[:resort_gallery_images][:images].each do |i|
+            @resort.resort_gallery_images.create image: i
+          end
+        end
+        if params[:resort_gallery_images][:description]
+          params[:resort_gallery_images][:description].each do |k, d|
+            ResortGalleryImage.find(k).update(description: d)
+          end
+        end
+        if params[:resort_gallery_images][:remove_image]
+          params[:resort_gallery_images][:remove_image].each do |k, d|
+            ResortGalleryImage.destroy(k)
+          end
+        end
+
         format.html { redirect_to @resort, notice: 'Resort was successfully updated.' }
         format.json { render :show, status: :ok, location: @resort }
       else
@@ -63,10 +79,11 @@ class ResortsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def resort_params
-      params.require(:resort).permit(:name, :image, :remove_image, :resort_category_id, :web,
-                                     :fb, :map_url, :level1_description,
-                                     :airport, :altitude_top, :altitude_bottom,
-                                     :drop, :terrain, :lifts, :slopes,
-                                     :level2_description, :level3_description)
+      params.require(:resort).permit(
+          :name, :image, :remove_image, :resort_category_id, :web,
+          :fb, :map_url, :level1_description,
+          :airport, :altitude_top, :altitude_bottom,
+          :drop, :terrain, :lifts, :slopes
+      )
     end
 end
