@@ -60,9 +60,9 @@ html {
 }
 
 body {
-  font: normal normal 13px / 24px "HelveticaNeueRegular", Arial, Helvetica, sans-serif;
+  font: normal normal 14px / 24px "HelveticaNeueRegular", Arial, Helvetica, sans-serif;
   /* Arial on Windows - http://mky.be/fontstack */
-  color: #646464;
+  color: #535353; /* 646464 */
   -webkit-text-size-adjust: 100%;
   min-height: 100%;
   min-width: 1024px;
@@ -575,6 +575,19 @@ span.tag {
   font: normal normal 15px / 33px "HelveticaNeueMedium", Arial, Helvetica, sans-serif;
 }
 
+span.mat-title {
+  position:absolute;
+  display:block;
+  top:339px;
+  left:0;
+  padding:0 30px;
+  height:33px;
+  color:#fff;
+  background:rgba(0,0,0,0.6);
+  text-align:center;
+  font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
+  z-index:1000;
+}
 .index-slider .slide {
   p {
     position: absolute;
@@ -589,6 +602,14 @@ span.tag {
     line-height: 24px;
     margin-bottom: 0;
     background: rgba(0, 0, 0, 0.6);
+  pmat {
+    display:block;
+    bottom:0px;
+    left:0;
+    padding:15px 20px 10px 12px;
+    line-height:24px;
+    margin-bottom:0;
+  }
     b {
       font-size: 16px;
       line-height: 24px;

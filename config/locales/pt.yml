@@ -43,6 +43,7 @@ pt-BR:
     editProfile:  'Editar Perfil'
     man: 'M'
     women: 'F'
+    aboutProfile: 'Sobre o perfil'
 
 
     # Resort Profile
@@ -61,7 +62,7 @@ pt-BR:
     hectars: 'hectares'
 
     # More about resorts
-    readMore: 'Continuar lendo'
+    readMore: '...continuar lendo'
     edit: 'Editar'
     otherResorts: 'Outras estaçõ de '
     allResorts: 'Todas estações de '

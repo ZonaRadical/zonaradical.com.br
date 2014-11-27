@@ -355,9 +355,9 @@ section.top-section {
 	position:relative;
 	margin-bottom:37px;
 }
-.slider-field {
+.slider-field-mat {
 	width:635px;
-	height:372px;
+	height:472px;
 	position:relative;
 	float:left;
 }
@@ -374,20 +374,41 @@ span.tag {
 	font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
 	z-index:1000;
 }
+span.mat-title {
+    position:absolute;
+    display:block;
+    top:339px;
+    left:0;
+    padding:0 30px;
+    height:33px;
+    color:#fff;
+    background:rgba(0,0,0,0.6);
+    text-align:center;
+    font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
+    z-index:1000;
+}
 	.index-slider .slide p {
 		position:absolute;
-		bottom:0;
+		bottom:10px;
 		left:0;
 		width:100%;
 		box-sizing:border-box;
 		-moz-box-sizing:border-box;
 		padding:15px 20px 10px 12px;
-		color:#fff;
+		color: #ff5975;
 		font-size:13px;
 		line-height:24px;
-		margin-bottom:0;
+		margin-bottom:200;
 		background:rgba(0,0,0,0.6);
 	}
+    .index-slider .slide pmat {
+        display:block;
+        bottom:0px;
+        left:0;
+        padding:15px 20px 10px 12px;
+        line-height:24px;
+        margin-bottom:0;
+    }
 		.index-slider .slide p b {
 			font-size:16px;
 			line-height:24px;
