@@ -67,8 +67,13 @@ group :test do
   gem "spork-rails"
 end
 
-gem 'pry-rails', group: :development
 
+group :development do
+  gem 'pry-rails'
+  gem 'active_record-annotate', '~> 0.4'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
