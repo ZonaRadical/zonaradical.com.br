@@ -30,6 +30,8 @@
               =print_with_meters(@resort.lifts,'lifts')
             %span.slopes{:title=> t('slopes')}
               =@resort.slopes
+            %span.map{:title=> t('slopeMap')}
+              = link_to @resort.map_url[0..40], @resort.map_url, :class => :button, :target => '_blank'
           .clear
     .clear
     %p.descr
@@ -37,10 +39,6 @@
         = t('ourtake')
         \:
       = @resort.level1_description.html_safe unless @resort.level1_description.nil?
-    .buttons
-      = link_to t('linkToResortWeb'), @resort.web, :class => :button, :target => '_blank'
-      = link_to t('linkToResortMap'), @resort.map_url, :class => :button, :target => '_blank'
-      .clear
 
     -if @resort.resort_gallery_images.all.count
       .slider-field
@@ -50,7 +48,9 @@
               = image_tag image.image_url(:slider).to_s
               -unless image.description.blank?
                 %p=image.description
-            %span.tag= @resort.name
+            %span.tag
+              = @resort.name
+              fotos
       .clear
     - if current_user && current_user.forem_admin?
       = link_to t('edit'), edit_resort_path(@resort)

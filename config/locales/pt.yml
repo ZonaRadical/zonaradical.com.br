@@ -60,6 +60,7 @@ pt-BR:
     linkToResortMap: 'Mapa das pistas'
     meters: 'metros'
     hectars: 'hectares'
+    slopeMap: 'Mapa das pistas'
 
     # More about resorts
     readMore: '...continuar lendo'

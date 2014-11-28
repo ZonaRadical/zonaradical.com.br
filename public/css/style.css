@@ -347,19 +347,84 @@ header {
 			right:8px;
 			top:14px;
 		}
-	
-	
+
+
+
+/* SLIDER FOR MATERIALS  */
+.slider-field-mat {
+    width:635px;
+    height:472px;
+    position:relative;
+    float:left;
+}
+span.upper-title {
+    position:absolute;
+    display:block;
+    top:0;
+    left:0;
+    padding:0 30px;
+    height:33px;
+    color:#fff;
+    background:#ee9200;
+    text-align:center;
+    font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
+    z-index:1000;
+}
+span.lower-title {
+    position:absolute;
+    display:block;
+    top:339px;
+    left:0;
+    padding:0 30px;
+    height:33px;
+    color:#fff;
+    background:rgba(0,0,0,0.6);
+    text-align:center;
+    font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
+    z-index:1000;
+}
+    .index-slider .slide pmat {
+        display:block;
+        bottom:0px;
+        left:0;
+        padding:15px 20px 10px 12px;
+        line-height:24px;
+        margin-bottom:0;
+    }
+    .index-slider .slide p {
+        position:absolute;
+        bottom:10px;
+        left:0;
+        width:100%;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        padding:15px 20px 10px 12px;
+        color: #ff5975;
+        font-size:13px;
+        line-height:24px;
+        margin-bottom:200;
+        background:rgba(0,0,0,0.6);
+    }
+        .index-slider .slide p b {
+            font-size:16px;
+            line-height:24px;
+            font-family:'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
+            display:block;
+        }
+    .index-slider .slide img {
+        width:635px;
+        height:372px;
+        display:block;
+    }
+
+
+
+/* MAIN PAGE slider */
 section.top-section {
 	width:1024px;
 	margin:0 auto;
 	position:relative;
 	margin-bottom:37px;
-}
-.slider-field-mat {
-	width:635px;
-	height:472px;
-	position:relative;
-	float:left;
 }
 span.tag {
 	position:absolute;
@@ -373,19 +438,6 @@ span.tag {
 	text-align:center;
 	font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
 	z-index:1000;
-}
-span.mat-title {
-    position:absolute;
-    display:block;
-    top:339px;
-    left:0;
-    padding:0 30px;
-    height:33px;
-    color:#fff;
-    background:rgba(0,0,0,0.6);
-    text-align:center;
-    font:normal normal 15px/33px 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
-    z-index:1000;
 }
 	.index-slider .slide p {
 		position:absolute;
@@ -401,14 +453,6 @@ span.mat-title {
 		margin-bottom:200;
 		background:rgba(0,0,0,0.6);
 	}
-    .index-slider .slide pmat {
-        display:block;
-        bottom:0px;
-        left:0;
-        padding:15px 20px 10px 12px;
-        line-height:24px;
-        margin-bottom:0;
-    }
 		.index-slider .slide p b {
 			font-size:16px;
 			line-height:24px;

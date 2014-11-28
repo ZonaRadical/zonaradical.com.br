@@ -59,6 +59,7 @@ en:
   linkToResortMap: 'Slopes map'
   meters: 'meters'
   hectars: 'hectars'
+  slopeMap: 'Slopes map'
 
   #forms
   SelectCountry: 'Please select Country'

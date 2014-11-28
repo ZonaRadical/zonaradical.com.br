@@ -1234,6 +1234,9 @@ ul.details-list {
     &.slopes {
       background: image_url("slopes-icon.png") no-repeat left center;
     }
+    &.map {
+      background: image_url("map-icon.png") no-repeat left center;
+    }
     a {
       color: #626262;
       text-decoration: none;
