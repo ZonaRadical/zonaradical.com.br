@@ -20,4 +20,13 @@ module ApplicationHelper
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
+
+  def cut_phrase(origin,dim)
+    if origin.length < dim
+      out=origin
+    else
+      out=origin[0..dim]
+      out+='...'
+    end
+  end
 end
