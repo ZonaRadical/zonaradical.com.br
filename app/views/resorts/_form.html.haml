@@ -50,7 +50,7 @@
   .field
     = f.label :level1_description
     = f.text_area :level1_description, :class => 'froala', :rows => 40, :cols => 120
-  -if @resort.gallery_images.all.count
+  -unless @resort.gallery_images.all.count.zero?
     %h3 Gallery
     %ul
     -@resort.gallery_images.all.each do |image|
