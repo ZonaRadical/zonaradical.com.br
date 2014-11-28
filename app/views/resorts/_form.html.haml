@@ -56,7 +56,7 @@
     -@resort.resort_gallery_images.all.each do |image|
       %li
         = image_tag image.image_url(:thumb).to_s
-        = text_field_tag "resort_gallery_images[description][#{image.id}]"
+        = text_area_tag "resort_gallery_images[description][#{image.id}]", image.description, size: '30x5'
         = check_box_tag "resort_gallery_images[remove_image][#{image.id}]"
   .field
     = f.label :add_gallery_images

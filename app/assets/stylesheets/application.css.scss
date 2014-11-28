@@ -163,7 +163,6 @@ select {
 }
 
 textarea {
-  width: 100%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   border: 1px solid #c5c4c4;
@@ -172,8 +171,6 @@ textarea {
   color: #686868;
   padding: 12px 15px;
   resize: none;
-  display: block;
-  height: 110px;
 }
 
 input[type=submit] {
