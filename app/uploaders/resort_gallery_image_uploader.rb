@@ -27,11 +27,11 @@ class ResortGalleryImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :create_thumb
+    process resize_to_limit(100,100)
   end
 
   version :slider do
-    process :create_slider
+    process resize_to_fill(635,372)
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -45,20 +45,5 @@ class ResortGalleryImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  def create_thumb
-    manipulate! do |source|
-      source = source.resize_to_fit(100,100)
-      background = Magick::Image.new(100,100){self.background_color = 'white'}
-      background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
-    end
-  end
-
-  def create_slider
-    manipulate! do |source|
-      source = source.resize_to_fit(635,372)
-      background = Magick::Image.new(635,372){self.background_color = 'white'}
-      background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
-    end
-  end
 
 end
