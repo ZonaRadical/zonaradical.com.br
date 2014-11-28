@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ResortGalleryImageUploader < CarrierWave::Uploader::Base
+class GalleryImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick

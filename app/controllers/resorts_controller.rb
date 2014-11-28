@@ -41,19 +41,19 @@ class ResortsController < ApplicationController
   def update
     respond_to do |format|
       if @resort.update(resort_params)
-        if params[:resort_gallery_images][:images]
-          params[:resort_gallery_images][:images].each do |i|
-            @resort.resort_gallery_images.create image: i
+        unless params[:gallery_images][:images].nil?
+          params[:gallery_images][:images].each do |i|
+            @resort.gallery_images.create image: i
           end
         end
-        if params[:resort_gallery_images][:description]
-          params[:resort_gallery_images][:description].each do |k, d|
-            ResortGalleryImage.find(k).update(description: d)
+        unless params[:gallery_images][:description].nil?
+          params[:gallery_images][:description].each do |k, d|
+            GalleryImage.find(k).update(description: d)
           end
         end
-        if params[:resort_gallery_images][:remove_image]
-          params[:resort_gallery_images][:remove_image].each do |k, d|
-            ResortGalleryImage.destroy(k)
+        unless params[:gallery_images][:remove_image].nil?
+          params[:gallery_images][:remove_image].each do |k, d|
+            GalleryImage.destroy(k)
           end
         end
 

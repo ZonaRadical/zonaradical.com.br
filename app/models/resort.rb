@@ -29,7 +29,7 @@ class Resort < ActiveRecord::Base
   validates :map_url, format: { with: URI.regexp }, allow_blank: true
 
   belongs_to :resort_category
-  has_many :resort_gallery_images
+  has_many :gallery_images, as: :gallerable
 
   mount_uploader :image, ResortImageUploader
 end

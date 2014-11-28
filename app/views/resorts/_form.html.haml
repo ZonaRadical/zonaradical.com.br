@@ -50,16 +50,16 @@
   .field
     = f.label :level1_description
     = f.text_area :level1_description, :class => 'froala', :rows => 40, :cols => 120
-  -if @resort.resort_gallery_images.all.count
+  -if @resort.gallery_images.all.count
     %h3 Gallery
     %ul
-    -@resort.resort_gallery_images.all.each do |image|
+    -@resort.gallery_images.all.each do |image|
       %li
         = image_tag image.image_url(:thumb).to_s
-        = text_area_tag "resort_gallery_images[description][#{image.id}]", image.description, size: '30x5'
-        = check_box_tag "resort_gallery_images[remove_image][#{image.id}]"
+        = text_area_tag "gallery_images[description][#{image.id}]", image.description, size: '30x5'
+        = check_box_tag "gallery_images[remove_image][#{image.id}]"
   .field
     = f.label :add_gallery_images
-    = f.file_field :add_gallery_images, :multiple => true, name: 'resort_gallery_images[images][]'
+    = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
   .actions
     = f.submit

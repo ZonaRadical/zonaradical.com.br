@@ -40,10 +40,10 @@
         \:
       = @resort.level1_description.html_safe unless @resort.level1_description.nil?
 
-    -unless @resort.resort_gallery_images.all.count.zero?
+    -unless @resort.gallery_images.all.count.zero?
       .slider-field
         .index-slider
-          -@resort.resort_gallery_images.all.each do |image|
+          -@resort.gallery_images.all.each do |image|
             .slide
               = image_tag image.image_url(:slider).to_s
               -unless image.description.blank?

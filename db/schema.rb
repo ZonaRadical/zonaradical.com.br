@@ -136,6 +136,16 @@ ActiveRecord::Schema.define(version: 20141125200647) do
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
+  create_table "gallery_images", force: true do |t|
+    t.integer  "resort_id"
+    t.string   "image"
+    t.text     "description"
+    t.integer  "gallerable_id"
+    t.string   "gallerable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "identities", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -163,14 +173,6 @@ ActiveRecord::Schema.define(version: 20141125200647) do
     t.string  "ancestry"
     t.string  "index"
     t.integer "ancestry_depth", default: 0
-  end
-
-  create_table "resort_gallery_images", force: true do |t|
-    t.integer  "resort_id"
-    t.string   "image"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "resorts", force: true do |t|
