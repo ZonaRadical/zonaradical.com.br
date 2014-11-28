@@ -7,47 +7,64 @@
       %ul
         - @user.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :surname
-    = f.text_field :surname
-  .field
-    = f.label :login
-    = f.text_field :login
-  .field
-    = image_tag @user.avatar_url if @user.avatar?
-    = f.label :avatar
-    = f.file_field :avatar
-    = f.check_box :remove_avatar
-    = t('removeImage')
-  .field
-    = f.label :sex
-    = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))
-  .field
-    = f.label :birthday
-    = f.date_select :birthday, :start_year=>1950, :end_year => 2010
-  .field
-    = f.label :country
-    = f.country_select :country
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :web
-    = f.text_field :web
-  .field
-    = f.label :fb
-    = f.text_field :fb
-  .field
-    = f.label :bio
-    = f.text_area :bio
-  -if can? :manage, :all
-    %h3= t('assignedRoles')
-    -for role in Role.all
-      = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
-      =h role.name
-    = hidden_field_tag 'user[role_ids][]', ''
+  %div#tabs
+    %ul.levels
+      %li
+        %a{:href => '#tab_main'}
+          %span Main info
+      %li
+        %a{:href => '#tab_avatar'}
+          %span Avatar
+      -if can? :manage, :all
+        %li
+          %a{:href => '#tab_roles'}
+            %span Roles
+    %div#tab_main
+      .field
+        = f.label :name
+        = f.text_field :name
+      .field
+        = f.label :surname
+        = f.text_field :surname
+      .field
+        = f.label :login
+        = f.text_field :login
+      .field
+        = f.label :sex
+        = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))
+      .field
+        = f.label :birthday
+        = f.date_select :birthday, :start_year=>1950, :end_year => 2010
+      .field
+        = f.label :country
+        = f.country_select :country
+      .field
+        = f.label :city
+        = f.text_field :city
+      .field
+        = f.label :web
+        = f.text_field :web
+      .field
+        = f.label :fb
+        = f.text_field :fb
+      .field
+        = f.label :bio
+        = f.text_area :bio
+    %div#tab_avatar
+      .field
+        = image_tag @user.avatar_url if @user.avatar?
+        = f.label :avatar
+        = f.file_field :avatar
+        = f.check_box :remove_avatar
+        = t('removeImage')
+    -if can? :manage, :all
+      %div#tab_roles
+        %h3= t('assignedRoles')
+        %ul
+          -for role in Role.all
+            %li
+              = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
+              = role.name
+          = hidden_field_tag 'user[role_ids][]', ''
   .actions
     = f.submit

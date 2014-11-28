@@ -4,7 +4,7 @@
   %aside
     -if can? :update, @user
       .heading
-        %h2 =t('aboutProfile')
+        %h2= t('personalMenu')
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
       .clear
