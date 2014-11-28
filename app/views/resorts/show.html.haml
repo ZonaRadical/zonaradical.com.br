@@ -9,8 +9,8 @@
       %ul.details-list
         %li.contacts
           .contacts-list
-            %span.web= link_to cut_phrase(@resort.web,40), @resort.web, :target => '_blank'
-            %span.fb= link_to cut_phrase(@resort.fb,40), @resort.fb, :target => '_blank'
+            %span.web= link_to cut_phrase(@resort.web,33), @resort.web, :target => '_blank'
+            %span.fb= link_to cut_phrase(@resort.fb,33), @resort.fb, :target => '_blank'
           .clear
     .rightcol
       .title
@@ -31,7 +31,7 @@
             %span.slopes{:title=> t('slopes')}
               =@resort.slopes
             %span.map{:title=> t('slopeMap')}
-              = link_to cut_phrase(@resort.map_url,40), @resort.map_url, :target => '_blank'
+              = link_to cut_phrase(@resort.map_url,45), @resort.map_url, :target => '_blank'
           .clear
     .clear
     %p.descr
