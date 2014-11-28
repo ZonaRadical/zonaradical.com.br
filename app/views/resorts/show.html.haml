@@ -52,7 +52,7 @@
               = @resort.name
               fotos
       .clear
-    - if current_user && current_user.forem_admin?
+    - if can? :resort, :update
       = link_to t('edit'), edit_resort_path(@resort)
       |
       \#{link_to 'Back', resorts_path}
