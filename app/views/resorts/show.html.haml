@@ -40,7 +40,7 @@
         \:
       = @resort.level1_description.html_safe unless @resort.level1_description.nil?
 
-    -if @resort.resort_gallery_images.all.count>0
+    -unless @resort.resort_gallery_images.all.count.zero?
       .slider-field
         .index-slider
           -@resort.resort_gallery_images.all.each do |image|
