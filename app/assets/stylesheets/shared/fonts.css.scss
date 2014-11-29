@@ -1,0 +1,22 @@
+/*	-------------------------------------------------
+	Подключаем нестандартные шрифты | Custom fonts
+	------------------------------------------------- */
+@font-face {
+  font-family: 'HelveticaNeueRegular';
+  src: font_url("helveticaneue.eot");
+  src: font_url("helveticaneue.eot") format("embedded-opentype"), font_url("helveticaneue.woff") format("woff"), font_url("helveticaneue.ttf") format("truetype"), font_url("helveticaneue.svg#HelveticaNeueRegular") format("svg");
+}
+
+
+@font-face {
+  font-family: 'HelveticaNeueBold';
+  src: font_url("helvetica-neue-bold.eot");
+  src: font_url("helvetica-neue-bold.eot") format("embedded-opentype"), font_url("helvetica-neue-bold.woff") format("woff"), font_url("helvetica-neue-bold.ttf") format("truetype"), font_url("helvetica-neue-bold.svg#HelveticaNeueBold") format("svg");
+}
+
+
+@font-face {
+  font-family: 'HelveticaNeueMedium';
+  src: font_url("helveticaneue-medium.eot");
+  src: font_url("helveticaneue-medium.eot") format("embedded-opentype"), font_url("helveticaneue-medium.woff") format("woff"), font_url("helveticaneue-medium.ttf") format("truetype"), font_url("helveticaneue-medium.svg#HelveticaNeueMedium") format("svg");
+}

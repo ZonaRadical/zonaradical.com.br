@@ -1,0 +1,61 @@
+/*
+  Aside gallery, right column
+*/
+
+
+.gallery-field {
+  width: 368px;
+  float: right;
+}
+
+.gallery-field-large {
+  width: 368px;
+  height: 218px;
+  position: relative;
+  margin-bottom: 20px;
+  img {
+    display: block;
+    width: 368px;
+    height: 218px;
+  }
+}
+
+.gallery-field p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 10px 20px 10px 8px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 24px;
+  margin-bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  b {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
+    display: block;
+  }
+}
+
+.gallery-field-small {
+  float: left;
+  width: 174px;
+  height: 133px;
+  position: relative;
+  &.right {
+    float: right;
+  }
+  img {
+    width: 174px;
+    height: 133px;
+    display: block;
+  }
+}
+
+.gallery-field .gallery-field-small p {
+  padding: 3px 8px 3px 12px;
+}
