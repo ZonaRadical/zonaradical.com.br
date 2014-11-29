@@ -18,4 +18,5 @@
     = render 'layouts/footer'
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag params[:controller], 'data-turbolinks-track' => true
     = render 'layouts/analytics'
