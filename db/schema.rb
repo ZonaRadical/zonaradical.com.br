@@ -31,14 +31,6 @@ ActiveRecord::Schema.define(version: 20141129195728) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "articles", force: true do |t|
-    t.text     "body"
-    t.text     "title"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "forem_categories", force: true do |t|
     t.string   "name",                   null: false
     t.datetime "created_at"
@@ -157,17 +149,6 @@ ActiveRecord::Schema.define(version: 20141129195728) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
-
-  create_table "interests", force: true do |t|
-    t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "interests_users", id: false, force: true do |t|
-    t.integer "interest_id"
-    t.integer "user_id"
-  end
 
   create_table "resort_categories", force: true do |t|
     t.string  "name"
