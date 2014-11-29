@@ -40,6 +40,21 @@ class TipsController < ApplicationController
   # PATCH/PUT /tips/1.json
   def update
     respond_to do |format|
+      unless params[:gallery_images][:images].nil?
+        params[:gallery_images][:images].each do |i|
+          @tip.gallery_images.create image: i
+        end
+      end
+      unless params[:gallery_images][:description].nil?
+        params[:gallery_images][:description].each do |k, d|
+          GalleryImage.find(k).update(description: d)
+        end
+      end
+      unless params[:gallery_images][:remove_image].nil?
+        params[:gallery_images][:remove_image].each do |k, d|
+          GalleryImage.destroy(k)
+        end
+      end
       if @tip.update(tip_params)
         format.html { redirect_to @tip, notice: 'Tip was successfully updated.' }
         format.json { render :show, status: :ok, location: @tip }

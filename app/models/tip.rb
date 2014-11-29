@@ -17,6 +17,7 @@ class Tip < ActiveRecord::Base
   validates :tip_category_id, presence: true
 
   belongs_to :tip_category
+  has_many :gallery_images, as: :gallerable
 
   mount_uploader :image, TipImageUploader
 end
