@@ -27,6 +27,13 @@ class ResortsController < ApplicationController
     @resort = Resort.new(resort_params)
     respond_to do |format|
       if @resort.save
+
+        unless params[:gallery_images][:images].nil?
+          params[:gallery_images][:images].each do |i|
+            @resort.gallery_images.create image: i
+          end
+        end
+
         format.html { redirect_to @resort, notice: 'Resort was successfully created.' }
         format.json { render :show, status: :created, location: @resort }
       else
