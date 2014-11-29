@@ -38,7 +38,7 @@
           =@tip.level3_description.html_safe unless @tip.level3_description.blank?
     
     -unless @tip.gallery_images.all.count.zero?
-      =render 'shared/sliders/main', images: @tip.gallery_images.all, name: @tip.title
+      =render 'shared/sliders/tip', images: @tip.gallery_images.all, name: @tip.title
     .clear
     - if current_user && current_user.forem_admin?
       = link_to 'Edit', edit_tip_path(@tip)

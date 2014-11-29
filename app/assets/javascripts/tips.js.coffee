@@ -9,11 +9,12 @@ $ ->
 
 
   # .index-slider Slick
-  $(".index-slider").slick
+  $(".tip-slider").slick
     dots: false
     arrows: true
     infinite: true
     speed: 500
     autoplay: false
+
 
   return

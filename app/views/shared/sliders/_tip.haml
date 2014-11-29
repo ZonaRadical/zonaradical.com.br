@@ -1,0 +1,9 @@
+.slider-field
+  .tip-slider
+    -images.each do |image|
+      .slide
+        = image_tag image.image_url(:slider).to_s
+        -unless image.description.blank?
+          %p=image.description
+      %span.tag
+        = name
