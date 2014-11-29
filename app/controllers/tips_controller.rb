@@ -57,11 +57,24 @@ class TipsController < ApplicationController
           GalleryImage.find(k).update(description: d)
         end
       end
+      unless params[:gallery_images][:name].nil?
+        params[:gallery_images][:name].each do |k, d|
+          GalleryImage.find(k).update(name: d)
+        end
+      end
+      unless params[:gallery_images][:url].nil?
+        params[:gallery_images][:url].each do |k, d|
+          GalleryImage.find(k).update(url: d)
+        end
+      end
+
       unless params[:gallery_images][:remove_image].nil?
         params[:gallery_images][:remove_image].each do |k, d|
           GalleryImage.destroy(k)
         end
       end
+      
+
       if @tip.update(tip_params)
         format.html { redirect_to @tip, notice: 'Tip was successfully updated.' }
         format.json { render :show, status: :ok, location: @tip }
