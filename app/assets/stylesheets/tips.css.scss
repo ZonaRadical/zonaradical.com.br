@@ -22,10 +22,10 @@
     line-height: 24px;
     margin-bottom: 0;
     background: rgba(0, 0, 0, 0.2);
-    height: 45px;
+    max-height: 45px;
 
-    -webkit-transition: background 1s, height 1s; /* For Safari 3.1 to 6.0 */
-    transition: background 1s, height 1s;
+    -webkit-transition: background 1s, max-height 1s; /* For Safari 3.1 to 6.0 */
+    transition: background 1s, max-height 1s;
 
     b {
       font-size: 16px;
@@ -33,12 +33,14 @@
       font-family: 'HelveticaNeueMedium', Arial, Helvetica, sans-serif;
       display: block;
     }
-
     &:hover {
-      height: 90%;
+      max-height: 315px;
       background: rgba(0, 0, 0, 0.8);
     }
   }
+
+
+
 }
 
 
