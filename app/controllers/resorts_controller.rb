@@ -28,7 +28,7 @@ class ResortsController < ApplicationController
     respond_to do |format|
       if @resort.save
 
-        unless params[:gallery_images][:images].nil?
+        unless params[:gallery_images].nil? && params[:gallery_images][:images].nil?
           params[:gallery_images][:images].each do |i|
             @resort.gallery_images.create image: i
           end
@@ -48,19 +48,22 @@ class ResortsController < ApplicationController
   def update
     respond_to do |format|
       if @resort.update(resort_params)
-        unless params[:gallery_images][:images].nil?
-          params[:gallery_images][:images].each do |i|
-            @resort.gallery_images.create image: i
+
+        unless params[:gallery_images].nil?
+          unless params[:gallery_images][:images].nil?
+            params[:gallery_images][:images].each do |i|
+              @resort.gallery_images.create image: i
+            end
           end
-        end
-        unless params[:gallery_images][:description].nil?
-          params[:gallery_images][:description].each do |k, d|
-            GalleryImage.find(k).update(description: d)
+          unless params[:gallery_images][:description].nil?
+            params[:gallery_images][:description].each do |k, d|
+              GalleryImage.find(k).update(description: d)
+            end
           end
-        end
-        unless params[:gallery_images][:remove_image].nil?
-          params[:gallery_images][:remove_image].each do |k, d|
-            GalleryImage.destroy(k)
+          unless params[:gallery_images][:remove_image].nil?
+            params[:gallery_images][:remove_image].each do |k, d|
+              GalleryImage.destroy(k)
+            end
           end
         end
 

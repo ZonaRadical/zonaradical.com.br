@@ -2,8 +2,12 @@
   .tip-slider
     -images.each do |image|
       .slide
-        = image_tag image.image_url(:slider).to_s
+        -if image.url.blank?
+          =image_tag image.image_url(:slider).to_s
+        -else
+          =link_to image_tag(image.image_url(:slider).to_s), nil, {href: image.url}
         -unless image.description.blank?
           %p=image.description
-      %span.tag
-        = name
+        -unless image.name.blank?
+          %span.tag
+            = image.name
