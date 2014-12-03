@@ -16,6 +16,7 @@ public/assets/*
 
 database.yml
 secrets.yml
+/db/scheme.rb
 
 /Procfile
 /shared/
