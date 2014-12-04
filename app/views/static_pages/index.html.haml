@@ -2,6 +2,14 @@
   .slider-field
     .index-slider
       .slide
+        =link_to image_tag('newyear.jpg'), "http://zonaradical.com.br/tips/14"
+        %p
+          Voce tah em duvida inda aonde passar as ferias de Natal e Ano Novo?
+          misturando uma boa festa com experiencia inedita e, claro, snowboarding radical?
+          Aki temos nossas dicas.
+          =link_to "Aki temos nossas dicas", "http://zonaradical.com.br/tips/14"
+        %span.tag Skiando no Ano Novo
+      .slide
         = image_tag('slide-1.jpg')
         %p
           Snowboard é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
@@ -9,7 +17,7 @@
           %br/
           Nós tentaremos neste site juntar o máximo das informações possíveis para você aprender o snowboarding, escolher os
           equipamentos certos e viajar pelo mundo inteiro desfrutando o máximo que o esporte radical pode te oferecer!
-    %span.tag Bem vindo a Zona Radical
+        %span.tag Bem vindo a Zona Radical
   .gallery-field
     -unless @resort.nil?
       .gallery-field-large
@@ -39,6 +47,14 @@
   .heading
     %h2 Últimas Notícias
   .news-slider
+    .slide
+      .news-item
+        %a.img-wrap{:href => "#"}= image_tag('news-4.jpg')
+        .details
+          %a.date{:href => "#"} 10 de Novembro, 2014
+          %p
+            Temos 25 estacoes! A lista tah todo dia crescendo.
+        .clear
     .slide
       .news-item
         %a.img-wrap{:href => "#"}= image_tag('news-3.jpg')
