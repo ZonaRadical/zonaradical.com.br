@@ -11,23 +11,25 @@
           equipamentos certos e viajar pelo mundo inteiro desfrutando o máximo que o esporte radical pode te oferecer!
     %span.tag Bem vindo a Zona Radical
   .gallery-field
-    .gallery-field-large
-      =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
-      %p
-        %b= @resort.name
-        = strip_tags(@resort.level1_description.html_safe)[0..47].html_safe
-        \. . .
-      %span.tag=t('resorts')
-    .gallery-field-small
-      -if @tip.nil?
-        =link_to image_tag('gallery-2.jpg'), main_app.tips_url
+    -unless @resort.nil?
+      .gallery-field-large
+        =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
         %p
-          %b Muitas Dicas
-      -else
-        =link_to image_tag(@tip.image_url(:thumb).to_s), tip_path(@tip)
-        %p
-          %strong
-            =@tip.title
+          %b= @resort.name
+          = strip_tags(@resort.level1_description.html_safe)[0..47].html_safe
+          \. . .
+        %span.tag=t('resorts')
+    -unless @tip.nil?
+      .gallery-field-small
+        -if @tip.nil?
+          =link_to image_tag('gallery-2.jpg'), main_app.tips_url
+          %p
+            %b Muitas Dicas
+        -else
+          =link_to image_tag(@tip.image_url(:thumb).to_s), tip_path(@tip)
+          %p
+            %strong
+              =@tip.title
     .gallery-field-small.right
       = image_tag('gallery-3.jpg')
       %p Trips e ofertas
