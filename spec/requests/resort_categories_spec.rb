@@ -1,7 +1,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "ResortCategories", :type => :request do
+RSpec.describe "ResortCategories", :type => :request, broken: true do
   subject { page }
 
   before do

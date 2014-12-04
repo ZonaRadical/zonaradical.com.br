@@ -73,6 +73,7 @@ group :development do
   gem 'active_record-annotate', '~> 0.4'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'database_cleaner'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

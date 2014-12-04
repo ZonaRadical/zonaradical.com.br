@@ -24,11 +24,11 @@ RSpec.describe ResortCategoriesController, :type => :controller do
   # ResortCategory. As you add validations to ResortCategory, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {:name => 'Some Category', :description => 'A lot of text', :parent_id => 1}
+    {:name => 'Some Category', :description => 'A lot of text' }
   }
 
   let(:invalid_attributes) {
-    {:name => '', :description => 'A lot of text', :parent_id => 1}
+    {:name => '', :description => 'A lot of text'}
   }
 
 
@@ -41,7 +41,8 @@ RSpec.describe ResortCategoriesController, :type => :controller do
 
 
     describe "GET index" do
-      it "assigns all resort_categories as @resort_categories" do
+      it "assigns resort_categories as @resort_categories with pagination" do
+
         resort_categories = ResortCategory.all
         get :index, {}
         expect(assigns(:resort_categories)).to eq(resort_categories)
@@ -107,7 +108,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
     describe "PUT update" do
       describe "with valid params" do
         let(:new_attributes) {
-          {:name => 'Changed Category II', :description => 'Changed description', :parent_id => 1}
+          { :name => 'Changed Category II', :description => 'Changed description' }
         }
 
         it "updates the requested resort_category" do

@@ -26,7 +26,7 @@ describe 'StaticPages', :type => :request do
       it { should_not have_content( I18n.t('signIn') ) }
       it { should have_link( I18n.t('signOut') ) }
       it { should_not have_link( I18n.t('newResort'), :href => new_resort_path ) }
-      it { should_not have_link( I18n.t('newCountry'), :href => new_country_path ) }
+
 
 
     end
@@ -38,7 +38,7 @@ describe 'StaticPages', :type => :request do
         visit root_path
       end
 
-      it { should have_link( I18n.t('newResort'), :href => new_resort_path ) }
+      it { should have_link( I18n.t('newResort'), new_resort_path) }
     end
 
   end
