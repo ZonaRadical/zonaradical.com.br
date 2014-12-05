@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "resort_categories/show", :type => :view do
+RSpec.describe "resort_categories/show", :type => :view, broken: true do
   before(:each) do
     @resort_category = assign(:resort_category, ResortCategory.create!(
       :name => "Name",

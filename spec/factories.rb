@@ -4,30 +4,29 @@ FactoryGirl.define do
   end
 
   factory :role do
-    factory :admin_role do
-      name 'admin'
-    end
-    factory :editor_role do
-      name 'editor'
-    end
   end
-
 
   factory :user do
     name     'Test user'
-    email
+    email     'mail@mail123.ru'
     password 'foobar'
     password_confirmation 'foobar'
     confirmed_at Time.now
 
     factory :admin do
-      admin_role
+      name 'Admin'
+      email 'admin@mail.com'
+      after(:create){|u| u.roles << create(:role, name: 'admin')}
     end
 
     factory :editor do
-      editor_role
+      name 'Editor'
+      email 'editor@mail.com'
+      after(:create){|u| u.roles << create(:role, name: 'editor')}
     end
   end
+
+
 
   factory :resort_category do
     name  'Category Name'
