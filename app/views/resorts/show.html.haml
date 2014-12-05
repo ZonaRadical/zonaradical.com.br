@@ -41,7 +41,7 @@
       = @resort.level1_description.html_safe unless @resort.level1_description.nil?
 
     -unless @resort.gallery_images.all.count.zero?
-      =render 'shared/sliders/main', images: @resort.gallery_images.all, name: @resort.name
+      =render 'shared/sliders/resort_gal', images: @resort.gallery_images.all, name: @resort.name
       .clear
     - if can? :resort, :update
       = link_to t('edit'), edit_resort_path(@resort)
