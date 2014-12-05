@@ -7,8 +7,10 @@
         -else
           =link_to image_tag(image.image_url(:slider).to_s), nil, {href: image.url}
         -unless image.description.blank?
-          %p=image.description
+          %p
+            %span.arrow
+            =image.description
         -unless image.name.blank?
           %span.tag
             = image.name
-    %p Passa o mouse no texto encima para ver a descrição completa
+    Passa o mouse no texto para ver a descrição completa

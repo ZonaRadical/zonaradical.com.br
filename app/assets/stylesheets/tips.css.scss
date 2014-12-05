@@ -7,20 +7,8 @@
 *=  require sliders/slick
 */
 
-  .tip-slider {
-  p {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   color: #fff;
-   font-size: 11px;
-   margin-bottom: 0;
-   background: rgba(0, 0, 0, 0.2);
-   text-align: center;
-  }
 
-  .tip-slider .slide {
+.tip-slider .slide {
   p {
     position: absolute;
     bottom: 0;
@@ -38,6 +26,19 @@
 
     -webkit-transition: background 1s, max-height 1s; /* For Safari 3.1 to 6.0 */
     transition: background 1s, max-height 1s;
+    span.arrow {
+      display:block;
+      width: 11px;
+      height: 6px;
+      top: -6px;
+      left:313px;
+      position:relative;
+      background: center top no-repeat image_url('slider-vertical-arrows.png');
+    }
+    &:hover span.arrow {
+      //background: center bottom no-repeat image_url('slider-vertical-arrows.png');
+      background: none;
+    }
 
     b {
       font-size: 16px;
@@ -50,7 +51,6 @@
       background: rgba(0, 0, 0, 0.8);
     }
   }
-
 
 
 
