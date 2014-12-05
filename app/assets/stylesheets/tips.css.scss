@@ -6,6 +6,14 @@
 /*
 *=  require sliders/slick
 */
+
+.slider-field {
+  width: 701px;
+  height: 410px;
+  position: relative;
+  float: left;
+}
+
 .tip-slider {
   p.help {
     position: absolute;
