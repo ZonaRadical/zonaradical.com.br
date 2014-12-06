@@ -18,7 +18,6 @@ database.yml
 secrets.yml
 
 /Procfile
-/config/deploy/
 /shared/
 /public/system/
 /public/uploads/
