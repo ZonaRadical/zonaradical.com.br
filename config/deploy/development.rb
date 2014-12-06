@@ -9,7 +9,7 @@ role :web, %w{deployer@54.94.134.214}
 role :db,  %w{deployer@54.94.134.214}
 
 set :rails_env, 'production'
-set :branch, 'ignat_dev'
+#set :branch, 'ignat_dev'
 
 # Extended Server Syntax
 # ======================
