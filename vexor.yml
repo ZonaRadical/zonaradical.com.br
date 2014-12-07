@@ -1,0 +1,5 @@
+language: ruby
+
+before_install:
+- cat config/secrets.yml.enc | openssl enc -d -aes-256-cbc -a -salt -k $CI_PROJECT_TOKEN > shared/secrets.yml
+- cat config/database.yml.enc | openssl enc -d -aes-256-cbc -a -salt -k $CI_PROJECT_TOKEN > shared/database.yml
