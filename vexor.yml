@@ -4,3 +4,6 @@ before_install:
 - mkdir shared
 - cat config/secrets.yml.enc | openssl enc -d -aes-256-cbc -a -salt -k $CI_PROJECT_TOKEN > shared/secrets.yml
 - cat config/database.yml.enc | openssl enc -d -aes-256-cbc -a -salt -k $CI_PROJECT_TOKEN > shared/database.yml
+
+deploy:
+  shell: bundle exec cap production deploy
