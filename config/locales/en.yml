@@ -60,6 +60,7 @@ en:
   meters: 'meters'
   hectars: 'hectars'
   slopeMap: 'Slopes map'
+  picsAmount: 'Number of photos'
 
   #forms
   SelectCountry: 'Please select Country'

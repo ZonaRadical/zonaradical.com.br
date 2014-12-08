@@ -61,6 +61,7 @@ pt-BR:
     meters: 'metros'
     hectars: 'hectares'
     slopeMap: 'Mapa das pistas'
+    picsAmount: 'Numero das fotos'
 
     # More about resorts
     readMore: '...continuar lendo'

@@ -48,6 +48,14 @@
   .news-slider
     .slide
       .news-item
+        =link_to image_tag('news-5.jpg'), main_app.tips_url, class: "img-wrap"
+        .details
+          =link_to "05 de Dezembero, 2014", main_app.tips_url, class: "date"
+          %p
+            São 20 dicas já preparadas para vocês.
+        .clear
+    .slide
+      .news-item
         %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
         .details
           %a.date{:href => "#"} 10 de Novembro, 2014
