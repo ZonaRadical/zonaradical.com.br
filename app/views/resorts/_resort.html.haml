@@ -7,7 +7,8 @@
         = print_with_meters(resort.drop,t('meters'))
     -else
       %span.pics-amount{:title=> t('picsAmount')}
-        = @resort.gallery_images.all.count.to_s
+        -# = @resort.gallery_images.all.count.to_s
+        Tem photos
     -if !strip_tags(resort.level1_description)[0..200].blank?
       %p
         = strip_tags(resort.level1_description)[0..200].html_safe
