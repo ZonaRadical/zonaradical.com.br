@@ -7,7 +7,11 @@
 - if Devise.mappings[:user].lockable? && User.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
   = link_to "Didn't receive unlock instructions?", new_unlock_path(:user)
   %br/
-- if Devise.mappings[:user].omniauthable?
-  - User.omniauth_providers.each do |provider|
-    %b= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(:user, provider)
-    %br/
+.buttons
+  - if Devise.mappings[:user].omniauthable?
+    - User.omniauth_providers.each do |provider|
+      -#
+        %b= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(:user, provider)
+      %a.button{:href => omniauth_authorize_path(:user, provider)}, "Sign in with #{provider.to_s.titleize}"
+      -# %br/
+.clear
