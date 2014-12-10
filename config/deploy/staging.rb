@@ -9,6 +9,7 @@ role :web, %w{deployer@ec2-54-94-181-125.sa-east-1.compute.amazonaws.com}
 role :db,  %w{deployer@ec2-54-94-181-125.sa-east-1.compute.amazonaws.com}
 
 set :rails_env, 'production'
+
 # set :branch, 'add-article'
 
 # Extended Server Syntax
