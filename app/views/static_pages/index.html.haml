@@ -99,31 +99,19 @@
         .clear
   .heading
     %h2 as últimas dicas
-    %a.all{:href => "#"} Tudo
+    %a.all{:href => "../tips"} Todas
   %ul.item-list
-    %li
-      =link_to image_tag(@tipsOrdered.image_url(:thumb).to_s), tip_path(@tipsOrdered), class: "img-wrap"
-      .details
-        %a.title{:href => "#"} O pedaço mais habitual do Lorem Ipsum
-        =link_to @tipsOrdered.title, tip_path(@tipsOrdered), class: "title"
-        %p Existem
+    -@tipsOrdered.each do |tipsOrd|
+      %li
+        =link_to image_tag(tipsOrd.image_url(:thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
+        .details
+          =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
+          %p
+            =tipsOrd.short_description
       .clear
 %aside
-  .heading
-    %h2 Fique conectado
-  %ul.social-buttons
-    %li
-      %a.fb{:href => "https://www.facebook.com/zonaradicalbrasil", :target => "_blank"}
-    %li
-      %a.yt{:href => "http://instagram.com/zonaradicalbr"}
-    %li
-      %a.tw{:href => "https://twitter.com/ZonaRadicalBR"}
-    %li
-      %a.gp{:href => "#"}
-    %li
-      %a.rss{:href => "#"}
-  .heading
-    %h2 Facebook
-  .fb-like-box{"data-colorscheme" => "light", "data-header" => "true", "data-href" => "https://www.facebook.com/zonaradicalbrasil", "data-show-border" => "true", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "303"}
+  =render 'shared/aside/aside_social_buttons'
+  =render 'shared/aside/aside_advert'
+  =render 'shared/aside/aside_fb_like_box'
 .clear
 %a{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+

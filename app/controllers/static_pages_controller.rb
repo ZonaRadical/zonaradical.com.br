@@ -5,6 +5,6 @@ class StaticPagesController < ApplicationController
     @resort = Resort.order('RANDOM()').first
 
     @tip = Tip.order('RANDOM()').first
-    @tipsOrdered = Tip.order(created_at :desc).first
+    @tipsOrdered = Tip.order(created_at: :desc)[1..3]
   end
 end
