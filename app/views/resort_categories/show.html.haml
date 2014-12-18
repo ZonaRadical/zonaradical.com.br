@@ -17,7 +17,7 @@
           = link_to t('allResorts') + resort_category.name, resort_category_path(resort_category), class: :all
         .introtext
           -if !resort_category.description.nil?
-            = resort_category.description.html_safe[0..200]
+            = strip_tags(resort_category.description)[0..200].html_safe
             -if resort_category.description.html_safe.length>200
               =link_to t('readMore'), resort_category_path(resort_category)
         -if can? :update, resort_category
