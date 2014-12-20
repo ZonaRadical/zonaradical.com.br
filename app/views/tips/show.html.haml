@@ -1,9 +1,13 @@
-.main-content
+.main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   .heading
-    %h2
+    %h2{:itemprop=>"articleSection"}
       =t('tips')
-      \: #{@tip.tip_category.name}
-  %article{:itemscope => true, :itemtype => "http://schema.org/Article"}
+      \:
+      %span{:itemprop=>"about"}
+        #{@tip.tip_category.name}
+  %article
+    %meta{:itemprop=>"description", :content => @tip.short_description}
+    %meta{:itemprop=>"url", :content => tip_path(tip)}
     %h3{:itemprop=>"name"}
       =@tip.title
     %i.extra-info
