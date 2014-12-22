@@ -1,8 +1,17 @@
 .main-content
   .heading
-  - if can? :tip, :new
-    = link_to 'New tip', new_tip_path
+    %h2
+      =t('tips')
+      \:
+      - unless TipCategory.all.empty?
+        -TipCategory.all.each do |tip_category|
+          - if tip_category.ancestry_depth==0
+            =link_to(tip_category.name, main_app.tip_category_path(tip_category.id))
+            ,
+    - if can? :tip, :new
+      = link_to 'New tip', new_tip_path
   .clear
+
   %ul.stations-list
     =render @tips
     = will_paginate @tips,:previous_label => '<<',:next_label => '>>', :inner_window => 1
