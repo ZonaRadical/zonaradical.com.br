@@ -100,15 +100,16 @@
   .heading
     %h2 as últimas dicas
     %a.all{:href => "../tips"} Todas
-  %ul.item-list
-    -@tipsOrdered.each do |tipsOrd|
-      %li
-        =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
-        .details
-          =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
-          %p
-            = strip_tags(tipsOrd.level1_description)[0..200].html_safe unless tipsOrd.level1_description.blank?
-      .clear
+  -unless @tipsOrdered.nil?
+    %ul.item-list
+      -@tipsOrdered.each do |tipsOrd|
+        %li
+          =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
+          .details
+            =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
+            %p
+              = strip_tags(tipsOrd.level1_description)[0..200].html_safe unless tipsOrd.level1_description.blank?
+        .clear
 %aside
   =render 'shared/aside/aside_social_buttons'
   =render 'shared/aside/aside_advert'
