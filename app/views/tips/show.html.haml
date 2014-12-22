@@ -8,7 +8,7 @@
   %article
     %meta{:name=>"description", :content => @tip.short_description}
     %meta{:itemprop=>"description", :content => @tip.short_description}
-    %meta{:itemprop=>"url", :content => tip_path(@tip).to_s}
+    %link{:itemprop=>"url", :content => tip_path(@tip).to_s}
     %h3{:itemprop=>"name"}
       =@tip.title
     %i.extra-info
