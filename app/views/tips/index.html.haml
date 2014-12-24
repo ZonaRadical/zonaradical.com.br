@@ -7,9 +7,8 @@
         -TipCategory.all.each do |tip_category|
           - if tip_category.ancestry_depth==0
             =link_to(tip_category.name, main_app.tip_category_path(tip_category.id))
-            ,
-    - if can? :tip, :new
-      = link_to 'New tip', new_tip_path
+            -if tip_category !=TipCategory.all.last
+              ,
   .clear
 
   %ul.stations-list

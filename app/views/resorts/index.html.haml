@@ -7,7 +7,8 @@
         -ResortCategory.all.each do |resort_category|
           - if resort_category.ancestry_depth==0
             =link_to(resort_category.name, main_app.tip_category_path(resort_category.id))
-            ,
+            - if resort_category!=ResortCategory.all.last
+              ,
   .clear
   %ul.stations-list
     =render @resorts
