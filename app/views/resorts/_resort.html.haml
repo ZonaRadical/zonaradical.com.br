@@ -8,11 +8,10 @@
     -else
       %span.pics-amount{:title=> t('picsAmount')}
         = resort.gallery_images.all.count.to_s
-    -if !strip_tags(resort.level1_description)[0..200].blank?
+    -if !resort.level1_description.blank?
       %p
-        = strip_tags(resort.level1_description)[0..200].html_safe
-        -if strip_tags(resort.level1_description).length >200
-          =link_to t('readMore'), resort_path(resort)
+        =truncate_html(resort.level1_description, length: 203, omission: '...')
+        =link_to t('readMore'), resort_path(resort)
   -if can? :resort, :update
     = link_to t('edit'), edit_resort_path(resort)
   -if can? :resort, :delete

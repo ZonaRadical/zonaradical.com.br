@@ -23,11 +23,10 @@
         =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
         %p
           %b= @resort.name
-          = strip_tags(@resort.level1_description.html_safe)[0..47].html_safe
-          \. . .
+          =truncate_html(@resort.level1_description, length: 47, omission: '...')
         %span.tag=t('resorts')
     -unless @tip.nil?
-      .gallery-field-small{:title=> t('dicas')}
+      .gallery-field-small{:title=> t('tips')}
         -if @tip.nil?
           =link_to image_tag('gallery-2.jpg'), main_app.tips_url
           %p
@@ -36,7 +35,7 @@
           =link_to image_tag(@tip.image_url(:thumb).to_s), tip_path(@tip)
           %p
             %strong
-              =@tip.title
+              =truncate_html(@tip.title, length: 20, omission: '...')
     .gallery-field-small.right
       = image_tag('gallery-3.jpg')
       %p Trips e ofertas
@@ -108,7 +107,8 @@
           .details
             =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
             %p
-              = strip_tags(tipsOrd.level1_description)[0..230].html_safe unless tipsOrd.level1_description.blank?
+              =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
+              = link_to t('readMore'), tip_path(tipsOrd)
         .clear
 %aside
   =render 'shared/aside/aside_social_buttons'
