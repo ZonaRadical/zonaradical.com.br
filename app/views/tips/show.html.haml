@@ -6,8 +6,13 @@
       %span{:itemprop=>"about"}
         #{@tip.tip_category.name}
   %article
-    %meta{:name=>"description", :content => @tip.short_description}
-    %meta{:itemprop=>"description", :content => @tip.short_description}
+    %meta{:name=>"description", :content => @tip.short_description.to_s}
+    %meta{:itemprop=>"author", :content =>"Zona Radical"}
+    %meta{:itemprop=>"copyrightHolder", :content =>"Zona Radical"}
+    %meta{:itemprop=>"copyrightYear", :content =>"2014"}
+    %meta{:itemprop=>"editor", :content =>"Ignat Fialkovskiy"}
+    %meta{:itemprop=>"description", :content => @tip.short_description.to_s}
+    %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
     %link{:itemprop=>"url", :content => tip_path(@tip).to_s}
     %h3{:itemprop=>"name"}
       =@tip.title
