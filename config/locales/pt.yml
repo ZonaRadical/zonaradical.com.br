@@ -64,7 +64,7 @@ pt-BR:
     picsAmount: 'Numero das fotos'
 
     # More about resorts
-    readMore: '...continuar lendo'
+    readMore: 'continuar lendo'
     edit: 'Editar'
     otherResorts: 'Outras estaçõ de '
     allResorts: 'Todas estações de '

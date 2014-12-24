@@ -15,6 +15,8 @@ gem 'omniauth-facebook'
 
 gem 'cancan'
 
+gem 'truncate_html'
+
 gem 'carrierwave'
 gem 'rmagick', '2.13.2',require: false
 gem 'fog'

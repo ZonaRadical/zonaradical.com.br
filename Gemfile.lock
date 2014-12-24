@@ -496,6 +496,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     trollop (2.0)
+    truncate_html (0.9.3)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -570,6 +571,7 @@ DEPENDENCIES
   spork-rails
   spring-commands-rspec
   tinymce-rails
+  truncate_html
   uglifier (>= 1.3.0)
   unicorn
   will_paginate (~> 3.0.5)
