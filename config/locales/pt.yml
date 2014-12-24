@@ -72,6 +72,7 @@ pt-BR:
     # TIPS
     tips: 'Dicas'
     otherTips: 'Outras dicas sobre '
+    newTip: "Nova Dica"
 
     # date time translation
     date:
