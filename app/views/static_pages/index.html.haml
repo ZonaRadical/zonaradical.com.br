@@ -108,7 +108,7 @@
           .details
             =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
             %p
-              = strip_tags(tipsOrd.level1_description)[0..200].html_safe unless tipsOrd.level1_description.blank?
+              = strip_tags(tipsOrd.level1_description)[0..230].html_safe unless tipsOrd.level1_description.blank?
         .clear
 %aside
   =render 'shared/aside/aside_social_buttons'
