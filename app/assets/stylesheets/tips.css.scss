@@ -31,7 +31,7 @@
     width: 100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    padding: 15px 20px 10px 12px;
+    padding: 10px 20px 10px 12px;
     color: #fff;
     font-size: 13px;
     line-height: 24px;
@@ -45,7 +45,7 @@
       display:block;
       width: 11px;
       height: 6px;
-      top: -6px;
+      top: -3px;
       left:313px;
       position:relative;
       background: center top no-repeat image_url('slider-vertical-arrows.png');
@@ -54,7 +54,6 @@
       //background: center bottom no-repeat image_url('slider-vertical-arrows.png');
       background: none;
     }
-
     b {
       font-size: 16px;
       line-height: 24px;
@@ -63,6 +62,27 @@
     }
     &:hover {
       max-height: 315px;
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+  p.noarr {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 6px 20px 6px 12px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 24px;
+    margin-bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    max-height: 45px;
+
+    -webkit-transition: background 1s, max-height 1s; /* For Safari 3.1 to 6.0 */
+    transition: background 1s, max-height 1s;
+    &:hover {
       background: rgba(0, 0, 0, 0.8);
     }
   }
