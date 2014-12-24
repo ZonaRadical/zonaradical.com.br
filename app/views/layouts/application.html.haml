@@ -1,9 +1,12 @@
 !!!
 %html{:lang => "en"}
   %head
-    %title Snowboard com Zona Radical: como aprender, praticar e apreciar
-    %meta{:name => "description",
-      :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos dicas de tudo - como aprender, como viajar, como escolher equipamento."}
+    -if content_for? :for_head
+      = yield :for_head
+    -else
+      %title Snowboard com Zona Radical: como aprender, praticar e apreciar
+      %meta{:name => "description",
+        :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos dicas de tudo - como aprender, como viajar, como escolher equipamento."}
     %meta{:name => "keywords",
       :content => "snowboard, snowboarding, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
