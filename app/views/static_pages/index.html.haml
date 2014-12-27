@@ -29,7 +29,9 @@
         =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
         %p
           %b= @resort.name
-          =truncate_html(@resort.level1_description, length: 47, omission: '...')
+          /* =truncate_html(@resort.level1_description, length: 47, omission: '...')
+          =strip_tags(@resort.level1_description)[0..47].html_safe
+          \...
         %span.tag=t('resorts')
     -unless @tip.nil?
       .gallery-field-small{:title=> t('tips')}
