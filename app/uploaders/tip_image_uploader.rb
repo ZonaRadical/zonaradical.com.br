@@ -64,3 +64,4 @@ class TipImageUploader < CarrierWave::Uploader::Base
       background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
     end
   end
+end
