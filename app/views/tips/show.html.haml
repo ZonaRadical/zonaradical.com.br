@@ -5,10 +5,8 @@
     %meta{:property=> "og:description", :content =>  @tip.short_description.to_s}
     %meta{:property=>"og:title", :content => "Zona Radical: Dicas de Snowboard:" + @tip.tip_category.name.to_s}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
-    %meta{:property=> "og:image", :content=> @tip.image_url(:big_thumb).to_s}
+    %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=>"og:site_name", :content =>"Zona Radical"}
-    %meta{:property=>"fb:admins", :content=>"1646785799"}
   .heading
     %h2{:itemprop=>"articleSection"}
       =t('tips')
