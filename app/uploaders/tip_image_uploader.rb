@@ -38,11 +38,11 @@ class TipImageUploader < CarrierWave::Uploader::Base
     process :create_thumb => [141, 141]
   end
 
-  version :big_thumb
+  version :big_thumb do
     process :create_thumb => [286, 162]
   end
 
-  version :extra_big_thumb
+  version :extra_big_thumb do
     process :create_thumb => [368, 210]
   end
 
