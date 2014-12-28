@@ -42,6 +42,10 @@ class TipImageUploader < CarrierWave::Uploader::Base
     process :create_thumb => [286, 162]
   end
 
+  version :extra_big_thumb
+    process :create_thumb => [368, 210]
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list

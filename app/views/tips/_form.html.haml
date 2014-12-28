@@ -16,6 +16,7 @@
     = f.label :category
     = f.select(:tip_category_id, nested_dropdown(TipCategory.all.arrange))
   .field
+    minimal image 368*210
     = image_tag @tip.image_url(:thumb).to_s
     = f.label :image
     = f.file_field :image
