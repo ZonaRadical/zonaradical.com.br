@@ -31,11 +31,11 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   end
 
   version :slider do
-    process resize_to_fill(635,372)
+    process resize_to_fit(635,372)
   end
 
   version :tip_slider do
-    process resize_to_fill(701,410)
+    process resize_to_fit(701,410)
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
