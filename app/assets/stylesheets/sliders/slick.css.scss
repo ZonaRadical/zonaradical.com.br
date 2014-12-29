@@ -152,3 +152,18 @@
   right: 0;
   background-position: -36px 0;
 }
+
+/* Title */
+
+span.tag {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  padding: 0 30px;
+  height: 33px;
+  color: #fff;
+  background: #ee9200;
+  text-align: center;
+  font: normal normal 15px / 33px "HelveticaNeueMedium", Arial, Helvetica, sans-serif;
+}
