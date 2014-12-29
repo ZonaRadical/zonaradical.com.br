@@ -3,7 +3,7 @@
     %title Zona Radical: Dicas de Snowboard: #{@tip.tip_category.name}
     %meta{:name => "description", :content =>  @tip.short_description.to_s}
     %meta{:property=> "og:description", :content =>  @tip.short_description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical: Dicas de Snowboard:" + @tip.tip_category.name.to_s}
+    %meta{:property=>"og:title", :content => "Zona Radical: "+@tip.title}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
     %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
     %meta{:property=>"og:type", :content =>"article"}
@@ -17,9 +17,10 @@
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
     %meta{:itemprop=>"copyrightHolder", :content =>"Zona Radical"}
     %meta{:itemprop=>"copyrightYear", :content =>"2014"}
-    %meta{:itemprop=>"editor", :content =>"Ignat Fialkovskiy"}
+    %meta{:itemprop=>"editor", :content =>"Ignat Fialkovsky"}
     %meta{:itemprop=>"description", :content => @tip.short_description.to_s}
-    %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
+    / @todo Adding (!) separate keywords set for every material
+    / %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
     %link{:itemprop=>"url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
     %link{itemprop: "image", :content=> @tip.image_url(:big_thumb).to_s}
     %h3{:itemprop=>"name"}
