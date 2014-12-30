@@ -1,20 +1,18 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/SkiResort"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical: Dicas de Snowboard: #{@resort.name}
+    %title Zona Radical | Estações de Snowboard: #{@resort.name}
     %meta{:name => "description", :content =>  @resort.level1_description.to_s}
     /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=> "og:description", :content =>   @resort.level1_description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical: "+@resort.name}
+    %meta{:property=>"og:title", :content => "Zona Radical | Estações de Snowboard: "+@resort.name}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
     %meta{:property=> "og:image", :content=> @resort.image_url(:thumb).to_s}
     -unless @resort.gallery_images.all.count.zero?
       -@resort.gallery_images.each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
-    %meta{:property=>"og:type", :content =>"article"}
     /* schema.org METAS
-    %meta{:property=>"url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
-    %meta{:property=>"name", :content => "Zona Radical: "+@resort.name}
     %meta{:itemprop=>"logo", :content => @resort.image_url(:thumb).to_s}
     %meta{:itemprop=>"location", :content => @resort.resort_category.name.to_s}
     %meta{:itemprop=>"hasMap", :content => @resort.map_url}
