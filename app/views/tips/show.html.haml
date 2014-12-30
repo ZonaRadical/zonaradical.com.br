@@ -5,12 +5,13 @@
     %meta{:name => "description", :content =>  @tip.short_description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=> "og:description", :content =>  @tip.short_description.to_s}
+    %meta{:property=>"og:description", :content =>  @tip.short_description.to_s}
     %meta{:property=>"og:title", :content => "Zona Radical: "+@tip.title}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
     %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
-    -@tip.gallery_images.each do |image|
-      %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
+    -unless @tip.gallery_images.all.count.zero?
+      -@tip.gallery_images.each do |image|
+        %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
     /* schema.org METAS
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
     %meta{:itemprop=>"copyrightHolder", :content =>"Zona Radical"}
