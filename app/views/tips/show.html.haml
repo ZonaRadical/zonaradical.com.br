@@ -67,8 +67,8 @@
     -unless @tip.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @tip.gallery_images.all
     .clear
-    - if current_user && current_user.forem_admin?
-      = link_to 'Edit', edit_tip_path(@tip)
+    - if can? :tip, :update
+      = link_to t('edit'), edit_tip_path(@tip)
       |
       \#{link_to 'Back', tips_path}
   .heading
