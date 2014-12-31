@@ -25,19 +25,19 @@
     = render 'layouts/header'
     -if content_for? :top_section
       %section.top-section= content_for :top_section
-    %p.ivn
-      %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
-      Editor:
-      %span{:itemprop=>"editor"}
-        Ignat Fialkovskiy
-      , founder of
-      %span{:itemprop=>"copyrightHolder"}
-        ZonaRadical.com.br
     %section.content
       = yield
       -if content_for? :aside
         %aside= content_for :aside
         .clear
+      %p.inv
+        %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
+        Editor:
+        %span{:itemprop=>"editor"}
+          Ignat Fialkovskiy
+        , founder of
+        %span{:itemprop=>"copyrightHolder"}
+          ZonaRadical.com.br
     = render 'layouts/footer'
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
