@@ -6,25 +6,25 @@
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:description", :content =>  @tip.short_description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical: "+@tip.title}
+    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@tip.title}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
     %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
     -unless @tip.gallery_images.all.count.zero?
       -@tip.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
-  .heading
     /* schema.org METAS
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
+  .heading
     %meta{:itemprop=>"copyrightHolder", :content =>"Zona Radical"}
-    %meta{:itemprop=>"copyrightYear", :content =>"2014"}
     %meta{:itemprop=>"editor", :content =>"Ignat Fialkovsky"}
     %meta{:itemprop=>"description", :content => @tip.short_description.to_s}
     / @todo Adding (!) separate keywords set for every material
     / %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
     %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
     %meta{itemprop: "image", :content=> @tip.image_url(:big_thumb).to_s}
-    %h2{:itemprop=>"articleSection"}
-      =t('tips')
+    %h2
+      %span{:itemprop=>"articleSection"}
+        =t('tips')
       \:
       %span{:itemprop=>"about"}
         #{@tip.tip_category.name}
