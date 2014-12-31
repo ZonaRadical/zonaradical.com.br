@@ -1,6 +1,6 @@
 .slider-field
   .tip-slider
-    -images.each do |image|
+    -images.each_with_index do |image,i|
       .slide
         -if image.url.blank?
           =image_tag image.image_url(:slider).to_s
@@ -17,4 +17,8 @@
         -unless image.name.blank?
           %span.tag
             = image.name
+        %span.counter
+          = i+1
+          \/
+          #{images.count}
     / %p.help Passa o mouse no texto encima para ver ,elhor a descrição.
