@@ -12,6 +12,7 @@
     -unless @resort.gallery_images.all.count.zero?
       -@resort.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
+  .heading
     /* schema.org METAS
     /%meta{:itemprop=>"name", :content => @resort.name}
     %meta{:itemprop=>"logo", :content => @resort.image_url(:thumb).to_s}
@@ -24,8 +25,7 @@
     %meta{:itemprop=>"priceRange", :content => "avarage"}
     %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
     %meta{:itemprop=>"address", :content => @resort.airport}
-    %meta{:itemprop=>"isicV4", :content => "8329"}  
-  .heading
+    %meta{:itemprop=>"isicV4", :content => "8329"}
     %h2
       = t('resorts')
       \:
