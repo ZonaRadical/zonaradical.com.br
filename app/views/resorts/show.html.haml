@@ -22,7 +22,7 @@
       -@resort.gallery_images[0..3].each do |image|
         %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
     %meta{:itemprop=>"review", :content => @resort.level1_description}
-    %meta{:itemprop=>"priceRange", :content => "avarage"}
+    %meta{:itemprop=>"priceRange", :content => "average"}
     %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
     %meta{:itemprop=>"address", :content => @resort.airport}
     %meta{:itemprop=>"isicV4", :content => "8329"}
