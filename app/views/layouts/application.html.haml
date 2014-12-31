@@ -5,7 +5,6 @@
     %meta{:property=>"og:site_name", :content =>"Zona Radical"}
     %meta{:name => "keywords",
       :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
-    %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
     -if content_for? :for_head
       = yield :for_head
     -else
@@ -26,6 +25,7 @@
     = render 'layouts/header'
     -if content_for? :top_section
       %section.top-section= content_for :top_section
+    %a{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
     %section.content
       = yield
       -if content_for? :aside

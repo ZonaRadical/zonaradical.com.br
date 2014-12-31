@@ -1,4 +1,15 @@
 -content_for :top_section do
+  -content_for :for_head d
+    %title Zona Radical | Snowboard: como aprender, praticar e apreciar
+    %meta{:name => "description",
+      :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+    /* facebook METAS
+    %meta{:property=> "og:description", :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+    %meta{:property=>"og:title", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
+    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"}
+    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+    %meta{:property=>"og:type", :content =>"website"}
+  %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
   .slider-field
     .index-slider
       .slide
@@ -126,4 +137,3 @@
   =render 'shared/aside/aside_advert'
   =render 'shared/aside/aside_fb_like_box'
 .clear
-%a{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
