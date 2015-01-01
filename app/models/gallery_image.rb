@@ -8,10 +8,13 @@
 #   t.datetime :updated_at
 #   t.string   :name
 #   t.string   :url
+#   t.integer  :order
 # end
 
 class GalleryImage < ActiveRecord::Base
 
   belongs_to :galerable, polymorphic: true
   mount_uploader :image, GalleryImageUploader
+
+  default_scope {order :order}
 end

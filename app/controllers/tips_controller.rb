@@ -59,6 +59,11 @@ class TipsController < ApplicationController
             GalleryImage.find(k).update(description: d)
           end
         end
+        unless params[:gallery_images][:order].nil?
+          params[:gallery_images][:order].each do |k, d|
+            GalleryImage.find(k).update(order: d)
+          end
+        end
         unless params[:gallery_images][:name].nil?
           params[:gallery_images][:name].each do |k, d|
             GalleryImage.find(k).update(name: d)
