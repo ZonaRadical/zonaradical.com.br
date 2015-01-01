@@ -5,7 +5,6 @@
     %meta{:property=>"og:site_name", :content =>"Zona Radical"}
     %meta{:name => "keywords",
       :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
-    %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
     -if content_for? :for_head
       = yield :for_head
     -else
@@ -31,6 +30,14 @@
       -if content_for? :aside
         %aside= content_for :aside
         .clear
+      %p.inv
+        %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
+        Editor:
+        %span{:itemprop=>"editor"}
+          Ignat Fialkovskiy
+        , founder of
+        %span{:itemprop=>"copyrightHolder"}
+          ZonaRadical.com.br
     = render 'layouts/footer'
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

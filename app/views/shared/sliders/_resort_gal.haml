@@ -1,9 +1,13 @@
 .slider-field
   .index-slider
-    -images.each do |image|
+    -images.each_with_index do |image,i|
       .slide
         = image_tag image.image_url(:slider).to_s
         -unless image.description.blank?
           %p=image.description
+        %span.counter
+          = i+1
+          \/
+          #{images.count}
       %span.tag
         = name

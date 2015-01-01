@@ -1,4 +1,4 @@
-.main-content{:itemscope => true, :itemtype => "http://schema.org/SkiResort"}
+.main-content{:itemscope => true, :itemtype => "http://schema.org/LocalBusiness"}
   -content_for :for_head do
     /* general METAS
     %title Zona Radical | Estações de Snowboard: #{@resort.name}
@@ -12,8 +12,9 @@
     -unless @resort.gallery_images.all.count.zero?
       -@resort.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
+  .heading
     /* schema.org METAS
-    %meta{:itemprop=>"name", :content => @resort.name}
+    /%meta{:itemprop=>"name", :content => @resort.name}
     %meta{:itemprop=>"logo", :content => @resort.image_url(:thumb).to_s}
     %meta{:itemprop=>"location", :content => @resort.resort_category.name.to_s}
     %meta{:itemprop=>"hasMap", :content => @resort.map_url}
@@ -21,10 +22,15 @@
       -@resort.gallery_images[0..3].each do |image|
         %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
     %meta{:itemprop=>"review", :content => @resort.level1_description}
-  .heading
+    %meta{:itemprop=>"priceRange", :content => "average"}
+    %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
+    %meta{:itemprop=>"address", :content => @resort.airport}
+    %meta{:itemprop=>"isicV4", :content => "8329"}
     %h2
       = t('resorts')
-      \: #{@resort.resort_category.name}
+      \:
+      %span{:itemprop=>"containedIn"}
+        #{@resort.resort_category.name}
   .resort-card
     .leftcol
       = image_tag @resort.image_url(:thumb).to_s, :class => :resortlogo
@@ -36,7 +42,8 @@
           .clear
     .rightcol
       .title
-        %span.name= @resort.name
+        %span.name{:itemprop=>"name"}
+          = @resort.name
       %ul.details-list
         %li.details
           .details-list
