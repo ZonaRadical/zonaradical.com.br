@@ -1,0 +1,20 @@
+= form_for @breeze_category do |f|
+  - if @breeze_category.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@breeze_category.errors.count, "error")} prohibited this breeze_category from being saved:"
+      %ul
+        - @breeze_category.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :parent_id, t('parent')
+    = f.collection_select(:parent_id, BreezeCategory.all,:id, :name,{:prompt => t('selectParent')})
+  .field
+    = f.label :description
+    = f.text_area :description,:class => 'tinymce', :rows => 40, :cols => 120
+  .actions
+    = f.submit 'Save'
+= tinymce_assets
+= tinymce

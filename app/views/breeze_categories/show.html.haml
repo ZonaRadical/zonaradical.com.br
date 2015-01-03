@@ -1,0 +1,32 @@
+%p#notice= notice
+.main-content
+  .heading
+    %h2= t('breezes') + ': ' + @breeze_category.name
+  .introtext= @breeze_category.description.html_safe unless @breeze_category.description.nil?
+  -if can? :update, @breeze_category
+    = link_to t('edit'), edit_breeze_category_path(@breeze_category)
+  .clear
+  %ul.stations-list
+    =render @breezes
+    = will_paginate @breezes,:previous_label => '<<',:next_label => '>>', :inner_window => 1
+  -if @breeze_category.children?
+    -@breeze_category.children.each do |breeze_category|
+      -unless breeze_category.breezes.empty?
+        .heading
+          %h2= breeze_category.name + ' (' + breeze_category.breezes.size.to_s + ')'
+        .introtext= breeze_category.description.html_safe unless breeze_category.description.nil?
+        -if can? :update, breeze_category
+          = link_to t('edit'), edit_breeze_category_path(breeze_category)
+        .clear
+        %ul.stations-list
+          =render breeze_category.breezes.limit(3)
+        -if breeze_category.breezes.size > 3
+          %p= link_to t('otherbreezes') + breeze_category.name, breeze_category_path(breeze_category)
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =#render 'shared/aside/aside_breeze_category', :breeze_category => @breeze_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_resort_gallery'
+    =render 'shared/aside/aside_advert'
+  .clear

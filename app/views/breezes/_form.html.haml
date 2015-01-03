@@ -1,0 +1,31 @@
+= form_for(@breeze, :html => {:mulbreezeart => true, :class => 'admin-form'}) do |f|
+  - if @breeze.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@breeze.errors.count, "error")
+        prohibited this breeze from being saved:
+      %ul
+        - @breeze.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :body
+    = f.text_field :body
+  .field
+    = f.label :category
+    = f.select(:breeze_category_id, nested_dropdown(BreezeCategory.all.arrange))
+  .field
+    minimal image 127*86
+    = image_tag @breeze.image_url(:thumb).to_s
+    = f.label :image
+    = f.file_field :image
+    = f.check_box :remove_image
+  .actions
+    = f.submit

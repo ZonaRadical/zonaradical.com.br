@@ -1,0 +1,27 @@
+.main-content
+  .heading
+    %h2
+      =t('breezes')
+      \:
+      - unless breezeCategory.all.empty?
+        -breezeCategory.all.each do |breeze_category|
+          - if breeze_category.ancestry_depth==0
+            =link_to(breeze_category.name, main_app.breeze_category_path(breeze_category.id))
+            -if breeze_category !=breezeCategory.all.last
+              ,
+  .clear
+
+  %ul.stations-list
+    =render @breezes
+    = will_paginate @breezes,:previous_label => '<<',:next_label => '>>', :inner_window => 1
+  .clear
+
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_breeze_category', :breeze_category => nil
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear

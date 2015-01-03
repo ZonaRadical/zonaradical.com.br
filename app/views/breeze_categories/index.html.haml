@@ -1,0 +1,8 @@
+.main-content
+  .heading
+  -if can? BreezeCategory, :create
+    = link_to 'New breeze category', new_breeze_category_path
+  .clear
+  %ul.breeze_category_list
+    =nested_categories @breeze_categories.arrange
+.clear

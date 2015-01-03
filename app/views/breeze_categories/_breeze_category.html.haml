@@ -1,0 +1,9 @@
+%li.breeze_category
+  .details
+    %p.name= breeze_category.name
+    %p= truncate( breeze_category.description.html_safe, length: 200)
+  .clear
+  - if can? :breeze_category, :update, :destroy
+    .control
+      = link_to t('edit'), edit_breeze_category_path(breeze_category)
+      = link_to 'Destroy', breeze_category, method: :delete, data: { confirm: 'Are you sure?' }

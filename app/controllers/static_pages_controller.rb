@@ -6,5 +6,6 @@ class StaticPagesController < ApplicationController
 
     @tip = Tip.order('RANDOM()').first
     @tipsOrdered = Tip.order(created_at: :desc)[1..3]
+    @breezes = Breeze.last(10)
   end
 end

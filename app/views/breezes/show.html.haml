@@ -1,0 +1,37 @@
+.main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
+  -content_for :for_head do
+    /* general METAS
+    %title Zona Radical | Dicas de Snowboard: #{@breeze.breeze_category.name}
+    %meta{:name => "description", :content =>  @breeze.body.to_s}
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=>"og:description", :content =>  @breeze.body.to_s}
+    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@breeze.title}
+    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+breeze_path(@breeze).to_s}
+
+  .heading
+    %h2
+      %span{:itemprop=>"articleSection"}
+        =t('breezes')
+      \:
+      %span{:itemprop=>"about"}
+        #{@breeze.breeze_category.name}
+  %article
+    %h3{:itemprop=>"name"}
+      =@breeze.title
+    %p=@breeze.body
+    - if can? :breeze, :update
+      = link_to t('edit'), edit_breeze_path(@breeze)
+      |
+      \#{link_to 'Back', breezes_path}
+  .heading
+/ end main-content
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =#render 'shared/aside/aside_breeze_category', :breeze_category => @breeze.breeze_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear
