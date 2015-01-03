@@ -6,7 +6,7 @@
       - unless ResortCategory.all.empty?
         -ResortCategory.all.each do |resort_category|
           - if resort_category.ancestry_depth==0
-            =link_to(resort_category.name, main_app.tip_category_path(resort_category.id))
+            =link_to(resort_category.name, main_app.resort_category_path(resort_category.id))
             - if resort_category!=ResortCategory.all.last
               ,
   .clear
