@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :resorts, :resort_categories
   resources :tips, :tip_categories
   resources :breezes, :breeze_categories
+  resources :image_galleries, :media_image_categories
 
   ActiveAdmin.routes(self)
 

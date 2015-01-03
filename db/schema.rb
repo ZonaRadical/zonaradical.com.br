@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102230322) do
+ActiveRecord::Schema.define(version: 20150103213038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,24 @@ ActiveRecord::Schema.define(version: 20150102230322) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "image_galleries", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "media_image_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_image_categories", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ancestry"
+    t.string   "index"
+    t.integer  "ancestry_depth", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "resort_categories", force: true do |t|
     t.string  "name"

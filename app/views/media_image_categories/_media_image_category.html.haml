@@ -1,0 +1,9 @@
+%li.tip_category
+  .details
+    %p.name= tip_category.name
+    %p= truncate( tip_category.description, length: 200)
+  .clear
+  - if can? :tip_category, :update, :destroy
+    .control
+      = link_to t('edit'), edit_tip_category_path(tip_category)
+      = link_to 'Destroy', tip_category, method: :delete, data: { confirm: 'Are you sure?' }
