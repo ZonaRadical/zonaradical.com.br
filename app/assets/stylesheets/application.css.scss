@@ -382,7 +382,7 @@ header {
   {
     background: yellow;
   }
-
+/* admin menu */
   nav.admin {
     height: 30px;
     background: #458b92;
@@ -413,8 +413,8 @@ header {
             background: #ee9200;
           }
           &.submenu-item {
-            > a {
-              background: image_url("submenu-down.png") no-repeat 97% center;
+            > a { padding-right: 15px;
+                  background: image_url("submenu-down.png") no-repeat 97% center;
               &:hover {
                 background: image_url("submenu-down.png") no-repeat 97% center #ee9200;
               }

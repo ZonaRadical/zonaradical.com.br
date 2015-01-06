@@ -1,22 +1,25 @@
 %nav.admin
   %ul.menu
-    %li= link_to t('newBreeze'), main_app.new_breeze_path
     %li.submenu-item
-      = link_to t('breezzeCategories'), main_app.breeze_categories_path
+      =link_to t('Breezes'), main_app.breezes_path
       %ul.submenu
+        %li= link_to t('newBreeze'), main_app.new_breeze_path
+        %li= link_to t('breezzeCategories'), main_app.breeze_categories_path
         %li= link_to t('newBreezzeCategory'), main_app.new_breeze_category_path
-    %li= link_to t('newBreeze'), main_app.new_image_gallery_path
     %li.submenu-item
-      = link_to t('mediaCategories'), main_app.media_image_category_path
+      =link_to t('ImageGallery'), main_app.image_galleries_path
       %ul.submenu
+        %li= link_to t('newImageGallery'), main_app.new_image_gallery_path
+        %li=link_to t('mediaCategories'), main_app.media_image_categories_path
         %li= link_to t('newMediaCategory'), main_app.new_media_image_category_path
-    %li= link_to t('newResort'), main_app.new_resort_path
     %li.submenu-item
-      = link_to t('categoties'), main_app.resort_categories_path
+      = link_to t('newResort'), main_app.new_resort_path
       %ul.submenu
+        %li= link_to t('resortCategoties'), main_app.resort_categories_path
         %li= link_to t('newResortCategory'), main_app.new_resort_category_path
-    %li= link_to t('newTip'), main_app.new_tip_path
     %li.submenu-item
-      = link_to t('tipCategories'), main_app.tip_categories_path
+      = link_to t('newTip'), main_app.new_tip_path
       %ul.submenu
+        %li= link_to t('tipCategories'), main_app.tip_categories_path
         %li= link_to t('newTipCategory'), main_app.new_tip_category_path
+
