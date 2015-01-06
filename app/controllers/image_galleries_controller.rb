@@ -4,7 +4,7 @@ class ImageGalleriesController < ApplicationController
   # GET /image_gallerys
   # GET /image_gallerys.json
   def index
-    @image_gallerys = ImageGallery.page(params[:page])
+    @image_galleries = ImageGallery.page(params[:page])
   end
 
   # GET /image_gallerys/1

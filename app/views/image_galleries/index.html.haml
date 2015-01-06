@@ -1,27 +1,8 @@
 .main-content
   .heading
     %h2
-      =t('tips')
-      \:
-      - unless TipCategory.all.empty?
-        -TipCategory.all.each do |tip_category|
-          - if tip_category.ancestry_depth==0
-            =link_to(tip_category.name, main_app.tip_category_path(tip_category.id))
-            -if tip_category !=TipCategory.all.last
-              ,
-  .clear
-
+      =t('imageGalleries')
   %ul.stations-list
-    =render @tips
-    = will_paginate @tips,:previous_label => '<<',:next_label => '>>', :inner_window => 1
-  .clear
-
-
--content_for :aside do
-  %aside
-    =render 'shared/aside/aside_social_buttons'
-    =render 'shared/aside/aside_tip_category', :tip_category => nil
-    =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
-  .clear
+    =render @image_galleries
+    = will_paginate @image_galleries ,:previous_label => '<<',:next_label => '>>', :inner_window => 1
+.clear

@@ -23,3 +23,6 @@ Rails.application.config.assets.precompile += %w( tips.js )
 
 Rails.application.config.assets.precompile += %w( tip_categories.css )
 Rails.application.config.assets.precompile += %w( tip_categories.js )
+
+Rails.application.config.assets.precompile += %w( image_galleries.css )
+Rails.application.config.assets.precompile += %w( image_galleries.js )

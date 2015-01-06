@@ -37,6 +37,9 @@
     - if can? :image_gallery, :update
       = link_to t('edit'), edit_image_gallery_path(@image_gallery)
       |
+    - if can? :image_gallery, :destroy
+      = link_to 'Destroy', @image_gallery, method: :delete, data: { confirm: 'Are you sure?' }
+      |
       \#{link_to 'Back', image_galleries_path}
   .heading
 / end main-content
