@@ -4,9 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deployer@ec2-54-94-215-199.sa-east-1.compute.amazonaws.com}
-role :web, %w{deployer@ec2-54-94-215-199.sa-east-1.compute.amazonaws.com}
-role :db,  %w{deployer@ec2-54-94-215-199.sa-east-1.compute.amazonaws.com}
+role :app, %w{deployer@54.94.221.245}
+role :web, %w{deployer@54.94.221.245}
+role :db,  %w{deployer@54.94.221.245}
 
 set :rails_env, 'production'
 #set :branch, 'add-article'
