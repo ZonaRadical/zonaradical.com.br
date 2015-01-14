@@ -68,4 +68,5 @@ class ResortImageUploader < CarrierWave::Uploader::Base
     end
   end
 
+  
 end
