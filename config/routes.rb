@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :tips, :tip_categories
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
+  resources :videos, :video_categories
 
   ActiveAdmin.routes(self)
 

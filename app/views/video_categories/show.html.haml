@@ -1,0 +1,32 @@
+%p#notice= notice
+.main-content
+  .heading
+    %h2= t('videos') + ': ' + @video_category.name
+  .introtext= @video_category.description.html_safe unless @video_category.description.nil?
+  -if can? :update, @video_category
+    = link_to t('edit'), edit_video_category_path(@video_category)
+  .clear
+  %ul.stations-list
+    =render @videos
+    = will_paginate @videos,:previous_label => '<<',:next_label => '>>', :inner_window => 1
+  -if @video_category.children?
+    -@video_category.children.each do |video_category|
+      -unless video_category.videos.empty?
+        .heading
+          %h2= video_category.name + ' (' + video_category.videos.size.to_s + ')'
+        .introtext= video_category.description.html_safe unless video_category.description.nil?
+        -if can? :update, video_category
+          = link_to t('edit'), edit_video_category_path(video_category)
+        .clear
+        %ul.stations-list
+          =render video_category.videos.limit(3)
+        -if video_category.videos.size > 3
+          %p= link_to t('othervideos') + video_category.name, video_category_path(video_category)
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =#render 'shared/aside/aside_video_category', :video_category => @video_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_resort_gallery'
+    =render 'shared/aside/aside_advert'
+  .clear

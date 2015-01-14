@@ -1,0 +1,9 @@
+%li.video_category
+  .details
+    %p.name= video_category.name
+    %p= truncate( video_category.description.html_safe, length: 200)
+  .clear
+  - if can? :video_category, :update, :destroy
+    .control
+      = link_to t('edit'), edit_video_category_path(video_category)
+      = link_to 'Destroy', video_category, method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,21 @@
+= form_for(@video, :html => {:mulvideoart => true, :class => 'admin-form'}) do |f|
+  .actions
+    = f.submit
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :source
+    = f.select :source, enum_option_pairs(Video, :source)
+  .field
+    = f.label :source_link
+    = f.text_field :source_link
+    -unless :source_link.empty?
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :src => getEmbedLink(@video.source_link), :width => '560'}
+    -else
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :width => '560', :style => 'display:none'}
+  .field
+    = f.label :category
+    = f.select(:video_category_id, nested_dropdown(VideoCategory.all.arrange))
+  .actions
+    = f.submit

@@ -1,0 +1,35 @@
+.main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
+  -content_for :for_head do
+    /* general METAS
+    %title Zona Radical | Dicas de Snowboard: #{@video.video_category.name}
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@video.title}
+    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+video_path(@video).to_s}
+
+  .heading
+    %h2
+      %span{:itemprop=>"articleSection"}
+        =t('videos')
+      \:
+      %span{:itemprop=>"about"}
+        #{@video.video_category.name}
+  %article
+    %h3{:itemprop=>"name"}
+      =@video.title
+    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :src => getEmbedLink(@video.source_link), :width => '560'}
+    - if can? :video, :update
+      = link_to t('edit'), edit_video_path(@video)
+      |
+      \#{link_to 'Back', videos_path}
+  .heading
+/ end main-content
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =#render 'shared/aside/aside_video_category', :video_category => @video.video_category
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear

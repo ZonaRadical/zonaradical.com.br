@@ -1,0 +1,11 @@
+%li
+  =link_to image_tag(video.image_url(:big_thumb).to_s), video_path(video), :class => 'img-wrap'
+  .details
+    %p.name=link_to video.title, video_path(video)
+    %p=video.short_description
+    =link_to t('readMore'), video_path(video)
+  -if can? :video, :update
+    = link_to 'Edit', edit_video_path(video)
+  -if can? :video, :delete
+    = link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }
+  .clear

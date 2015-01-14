@@ -1,0 +1,8 @@
+.main-content
+  .heading
+  -if can? VideoCategory, :create
+    = link_to 'New video category', new_video_category_path
+  .clear
+  %ul.video_category_list
+    =nested_categories @video_categories.arrange
+.clear

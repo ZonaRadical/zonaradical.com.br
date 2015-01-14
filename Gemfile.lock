@@ -442,6 +442,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    simple_enum (2.1.1)
+      activesupport (>= 4.0.0)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -568,6 +570,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  simple_enum
   spork-rails
   spring-commands-rspec
   tinymce-rails
