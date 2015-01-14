@@ -22,4 +22,9 @@
       %ul.submenu
         %li= link_to t('tipCategories'), main_app.tip_categories_path
         %li= link_to t('newTipCategory'), main_app.new_tip_category_path
+    %li.submenu-item
+      = link_to t('newVideo'), main_app.new_video_path
+      %ul.submenu
+        %li= link_to t('videoCategories'), main_app.video_categories_path
+        %li= link_to t('newVideoCategory'), main_app.new_video_category_path
 
