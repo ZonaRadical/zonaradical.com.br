@@ -56,7 +56,13 @@ class ResortImageUploader < CarrierWave::Uploader::Base
   # end
   def create_thumb(width, height)
     manipulate! do |source|
-      source = source.resize_to_fit(width,height)
+      if source.columns > source.rows
+        # original is landscape
+        source=source.resize_to_fill(width, height)
+      else
+        # original is portrait
+        source=source.resize_to_fit(width, height)
+      end
       background = Magick::Image.new(width,height){self.background_color = 'white'}
       background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
     end
