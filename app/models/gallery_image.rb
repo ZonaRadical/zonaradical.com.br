@@ -8,7 +8,6 @@
 #   t.datetime :updated_at
 #   t.string   :name
 #   t.string   :url
-#   t.integer  :order
 # end
 
 class GalleryImage < ActiveRecord::Base
