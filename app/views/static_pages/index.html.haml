@@ -27,13 +27,6 @@
           =link_to "Feliz Natal. Feliz Ano Novo. Boas Pistas.", main_app.tips_url+"/18"
         %span.tag Instragram Top-10
       .slide
-        =link_to image_tag('newyear.jpg'), main_app.tips_url+"/14"
-        %p
-          Você está em duvida ainda aonde passar as ferias de Natal e Ano Novo?
-          misturando uma boa festa com experiencia inédita e, claro, snowboarding radical?
-          =link_to "Aki temos nossas dicas", main_app.tips_url+"/14"
-        %span.tag Skiando no Ano Novo
-      .slide
         = image_tag('slide-1.jpg')
         %p
           Snowboard é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
@@ -81,57 +74,57 @@
               =link_to breeze.updated_at.to_date.to_formatted_s(:long_ordinal), breeze.url, class: "date"
               %p=breeze.body
             .clear
-      .slide
-        .news-item
-          =link_to image_tag('news-5.jpg'), main_app.tips_url, class: "img-wrap"
-          .details
-            =link_to "05 de Dezembero, 2014", main_app.tips_url, class: "date"
-            %p
-              São 20 dicas já preparadas para vocês.
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
-          .details
-            %a.date{:href => "#"} 10 de Novembro, 2014
-            %p
-              Temos 25 estações! A lista está todo dia crescendo.
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-3.jpg')
-          .details
-            %a.date{:href => "#"} 10 de Julho, 2014
-            %p
-              Design está tudo feito. Ainda esperando os programadores... =(
-              Que vida difícil!
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-2.jpg')
-          .details
-            %a.date{:href => "#"} 10 de Junho, 2014
-            %p
-              Os domínios  registrados, até em Portugal...
-              Agora esperamos o designer e os programadores fazer o trabalho deles.
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
-          .details
-            %a.date{:href => "#"} 22 de maio, 2014
-            %p
-              Depois de mais algumas brejas e muita discussão  escolhemos o nome -
-              = succeed "!!!" do
-                %b Zona Radical
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('breja.jpg')
-          .details
-            %a.date{:href => "#"} 14 de maio, 2014
-            %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
-          .clear
+    .slide
+      .news-item
+        =link_to image_tag('news-5.jpg'), main_app.tips_url, class: "img-wrap"
+        .details
+          =link_to "05 de Dezembero, 2014", main_app.tips_url, class: "date"
+          %p
+            São 20 dicas já preparadas para vocês.
+        .clear
+    .slide
+      .news-item
+        %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
+        .details
+          %a.date{:href => "#"} 10 de Novembro, 2014
+          %p
+            Temos 25 estações! A lista está todo dia crescendo.
+        .clear
+    .slide
+      .news-item
+        %a.img-wrap{:href => "#"}= image_tag('news-3.jpg')
+        .details
+          %a.date{:href => "#"} 10 de Julho, 2014
+          %p
+            Design está tudo feito. Ainda esperando os programadores... =(
+            Que vida difícil!
+        .clear
+    .slide
+      .news-item
+        %a.img-wrap{:href => "#"}= image_tag('news-2.jpg')
+        .details
+          %a.date{:href => "#"} 10 de Junho, 2014
+          %p
+            Os domínios  registrados, até em Portugal...
+            Agora esperamos o designer e os programadores fazer o trabalho deles.
+        .clear
+    .slide
+      .news-item
+        %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
+        .details
+          %a.date{:href => "#"} 22 de maio, 2014
+          %p
+            Depois de mais algumas brejas e muita discussão  escolhemos o nome -
+            = succeed "!!!" do
+              %b Zona Radical
+        .clear
+    .slide
+      .news-item
+        %a.img-wrap{:href => "#"}= image_tag('breja.jpg')
+        .details
+          %a.date{:href => "#"} 14 de maio, 2014
+          %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
+        .clear
   .heading
     %h2 as últimas dicas
     %a.all{:href => "../tips"} Todas

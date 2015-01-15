@@ -31,11 +31,11 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   end
 
   version :slider do
-    process resize_to_fit(635,372)
+    process :create_thumb=>[635,372]
   end
 
   version :tip_slider do
-    process resize_to_fit(701,410)
+    process :create_thumb=>[701,410]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -44,6 +44,19 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def create_thumb(width, height)
+    manipulate! do |source|
+      if source.columns > source.rows
+        # original is landscape
+        source=source.resize_to_fit(width, height)
+      else
+        # original is portrait
+        source=source.resize_to_fit(width, height)
+      end
+      background = Magick::Image.new(width,height){self.background_color = 'white'}
+      background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
+    end
+  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename

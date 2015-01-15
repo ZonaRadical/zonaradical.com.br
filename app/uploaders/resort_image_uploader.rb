@@ -58,7 +58,7 @@ class ResortImageUploader < CarrierWave::Uploader::Base
     manipulate! do |source|
       if source.columns > source.rows
         # original is landscape
-        source=source.resize_to_fill(width, height)
+        source=source.resize_to_fit(width, height)
       else
         # original is portrait
         source=source.resize_to_fit(width, height)
@@ -67,7 +67,5 @@ class ResortImageUploader < CarrierWave::Uploader::Base
       background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
     end
   end
-  
-
 
 end
