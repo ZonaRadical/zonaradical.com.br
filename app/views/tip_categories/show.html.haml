@@ -1,6 +1,19 @@
 %p#notice= notice
-.main-content
-  .heading
+.main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
+  -content_for :for_head do
+    /* general METAS
+    %title Zona Radical | Dicas de Snowboard: #{@tip_category.name}
+    %meta{:name => "description", :content =>  @tip_category.description.to_s}
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=>"og:description", :content =>  @tip_category.description.to_s}
+    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@tip_category.name}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    /* @Todo Make proper images for all resort categories
+    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+    /* schema.org METAS
+    %meta{:itemprop=>"author", :content =>"Zona Radical"}
+  .heading{:itemprop=>"name"}
     %h2= t('tips') + ': ' + @tip_category.name
   .introtext= @tip_category.description.html_safe unless @tip_category.description.nil?
   -if can? :update, @tip_category
