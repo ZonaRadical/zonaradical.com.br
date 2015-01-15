@@ -6,15 +6,17 @@
     %meta{:name => "description", :content =>  @resort_category.description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=>"og:description", :content =>  @resort_category.description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical Estações: "+@resort_category.name}
+    %meta{:property=>"og:title", :content =>  t('resorts') + ': ' + @resort_category.name + " | Zona Radical"}
+    %meta{:property=>"og:description", :content =>  strip_tags(@resort_category.description.to_s)}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     /* @Todo Make proper images for all resort categories
     %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
     /* schema.org METAS
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
-  .heading{:itemprop=>"name"}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
+  .heading
     %h2= t('resorts') + ': ' + @resort_category.name
+    %meta{:itemprop=>"name", :content => t('resorts') + ': ' + @resort_category.name + " | Zona Radical"}
   .introtext{:itemprop=>"description"}
     = @resort_category.description.html_safe unless @resort_category.description.nil?
   -if can? :update, @resort_category

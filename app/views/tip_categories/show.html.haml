@@ -6,16 +6,19 @@
     %meta{:name => "description", :content =>  @tip_category.description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=>"og:description", :content =>  @tip_category.description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@tip_category.name}
+    %meta{:property=>"og:description", :content =>   strip_tags(@tip_category.description.to_s)}
+    %meta{:property=>"og:title", :content => t('tips') + ': ' + @tip_category.name + " | Zona Radical"}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     /* @Todo Make proper images for all resort categories
     %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
     /* schema.org METAS
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
   .heading{:itemprop=>"name"}
     %h2= t('tips') + ': ' + @tip_category.name
-  .introtext= @tip_category.description.html_safe unless @tip_category.description.nil?
+    %meta{:itemprop=>"name", :content => t('tips') + ': ' + @tip_category.name + " | Zona Radical"}
+  .introtext
+    = @tip_category.description.html_safe unless @tip_category.description.nil?
   -if can? :update, @tip_category
     = link_to t('edit'), edit_tip_category_path(@tip_category)
   .clear
