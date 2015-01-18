@@ -2,10 +2,11 @@
   -content_for :for_head do
     /* general METAS
     %title Zona Radical | Estações de Snowboard: #{@resort.name}
-    %meta{:name => "description", :content =>  @resort.level1_description.to_s}
+    %meta{:name => "description", :content =>  strip_tags(@resort.level1_description.to_s)[0..180]}
+    %meta{:name=>"keywords", :content=> @resort.name}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=> "og:description", :content =>   @resort.level1_description.to_s}
+    %meta{:property=> "og:description", :content =>    strip_tags(@resort.level1_description.to_s)[0..180]}
     %meta{:property=>"og:title", :content => "Zona Radical | Estações de Snowboard: "+@resort.name}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
     %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
