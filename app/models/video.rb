@@ -9,6 +9,8 @@
 # end
 
 class Video < ActiveRecord::Base
-  as_enum :source, youtube: 0, vimeo: 1
+  as_enum :source, youtube: 0 # , vimeo: 1
   belongs_to :video_category
+  validates :title, presence: true
+  validates :source_link, presence: true
 end
