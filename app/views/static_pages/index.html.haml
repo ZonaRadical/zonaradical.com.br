@@ -143,10 +143,10 @@
           .details
             =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
             %p
-              -if !tipsOrd.level1_description.nil?
-                =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
-              -else
+              -if tipsOrd.level1_description.empty?
                 =truncate_html(tipsOrd.short_description, length: 253, omission: '...')
+              -else
+                =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
               = link_to t('readMore'), tip_path(tipsOrd)
         .clear
 %aside
