@@ -1671,18 +1671,23 @@ ul.footer-menu li a {
 ul.footer-menu li a:hover {
   color:#9b9b9b;
 }
-
 footer .copyright {
   position:absolute;
   right:0;
   bottom:0;
-  width:237px;
+  /* width:237px; */
   height:40px;
   color:#fff;
   padding-left:10px;
+  padding-right:10px;
   line-height:44px;
   background:#ee9200;
 }
+
+footer .a {
+  color:#fff;
+}
+
 
 /* Modal Login */
 #signIn {display: none}
