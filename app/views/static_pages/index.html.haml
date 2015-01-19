@@ -21,24 +21,31 @@
     %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
     .index-slider
       .slide
+        = image_tag('slide-1.jpg')
+        %span.tag
+          %h1 Snowboard no Brasil com Zona Radical
+        %p
+          %strong Snowboard
+          é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
+          cheinha de neve com um “pedaço de madeira” preso nos pés?
+          Nós tentaremos neste site juntar o máximo das informações possíveis para você aprender o snowboard vivendo no Brasil, escolher os certos
+          %strong
+            =link_to "equipamentos de snowboarding", "../tip_categories/1", :title=>"As dicas de equipamento pela Zona Radical"
+          e viajar pelo mundo inteiro desfrutando as
+          %strong
+            =link_to "estações de ski", main_app.resorts_url, :title=>"As estações de ski pelo mundo inteiro"
+          ao máximo que este esporte radical pode te oferecer!
+
+      .slide
         =link_to image_tag('10-top-10-most-liked-instagram-images-2014.jpg'), main_app.tips_url+"/18"
         %p
           As melhores fotos de ano 2014, versão TansWorld.
           =link_to "Feliz Natal. Feliz Ano Novo. Boas Pistas.", main_app.tips_url+"/18"
         %span.tag Instragram Top-10
-      .slide
-        = image_tag('slide-1.jpg')
-        %p
-          Snowboard é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
-          cheinha de neve com um “pedaço de madeira” preso nos pés?
-          %br/
-          Nós tentaremos neste site juntar o máximo das informações possíveis para você aprender o snowboarding, escolher os
-          equipamentos certos e viajar pelo mundo inteiro desfrutando o máximo que o esporte radical pode te oferecer!
-        %span.tag Bem vindo a Zona Radical
   .gallery-field
     -unless @resort.nil?
-      .gallery-field-large{:title=> t('resorts')}
-        =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
+      .gallery-field-large
+        =link_to image_tag(@resort.image_url(:thumb).to_s, :title=>"As estações de ski pelo mundo inteiro"), resort_path(@resort)
         %p
           %b= @resort.name
           /* =truncate_html(@resort.level1_description, length: 47, omission: '...')
@@ -46,18 +53,18 @@
           \...
         %span.tag=t('resorts')
     -unless @tip.nil?
-      .gallery-field-small{:title=> t('tips')}
+      .gallery-field-small
         -if @tip.nil?
-          =link_to image_tag('gallery-2.jpg'), main_app.tips_url
+          =link_to image_tag('gallery-2.jpg', :title=>"As dicas de snowboard pela Zona Radical"), main_app.tips_url
           %p
             %b Muitas Dicas
         -else
-          =link_to image_tag(@tip.image_url(:thumb).to_s), tip_path(@tip)
+          =link_to image_tag(@tip.image_url(:thumb).to_s, :title=>"As dicas de snowboard pela Zona Radical"), tip_path(@tip)
           %p
             %strong
               =truncate_html(@tip.title, length: 20, omission: '...')
     .gallery-field-small.right
-      = image_tag('gallery-3.jpg')
+      = image_tag('gallery-3.jpg', :title=>"Já já adicionamos os trips de snowboard")
       %p Trips e ofertas
   .clear
 
