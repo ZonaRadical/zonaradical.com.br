@@ -28,7 +28,7 @@ class TipsController < ApplicationController
     respond_to do |format|
       if @tip.save
 
-        unless params[:gallery_images][:images].nil?
+        unless params[:gallery_images].nil? || params[:gallery_images][:images].nil?
           params[:gallery_images][:images].each do |i|
             @tip.gallery_images.create image: i
           end

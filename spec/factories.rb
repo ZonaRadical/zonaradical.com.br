@@ -33,14 +33,6 @@ FactoryGirl.define do
     description 'Some description for the country'
   end
 
-
-
-
-
-  #   t.datetime :created_at
-  #   t.datetime :updated_at
-  #   t.string   :map_url
-
   factory :resort do
     name   'MyString'
     image  File.open(Rails.root.join('app/assets/images/article-1.jpg'))
@@ -60,5 +52,19 @@ FactoryGirl.define do
     level3_description  'Level description 3'
   end
 
+  factory :tip_category do
+    name  'Tip Category Name'
+    description 'Some description for the Tip cat name'
+  end
+
+  factory :tip do
+    title 'Name'
+    image File.open(Rails.root.join('spec/fixtures/files/upload.jpg'))
+    tip_category
+    level1_description 'Description level 1'
+    level2_description 'Description level 2'
+    level3_description 'Description level 3'
+    short_description 'Short description'
+  end
 
 end
