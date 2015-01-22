@@ -2,9 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+#= require_tree ./editor
 #=require sliders/slick
 
 $ ->
+  $(".froala").editable
+    inlineMode: false
+    mediaManager:true
+
   $("#tabs").tabs()
 
 
