@@ -3,7 +3,7 @@
   -content_for :for_head do
     /* general METAS
     %title Zona Radical | Dicas de Snowboard: #{@tip_category.name}
-    %meta{:name => "description", :content =>  @tip_category.description.to_s}
+    %meta{:name => "description", :content =>  strip_tags(@tip_category.description.to_s)}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:description", :content =>   strip_tags(@tip_category.description.to_s)}

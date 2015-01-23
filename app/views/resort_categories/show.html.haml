@@ -3,7 +3,7 @@
   -content_for :for_head do
     /* general METAS
     %title Zona Radical | Estações de Snowboard: #{@resort_category.name}
-    %meta{:name => "description", :content =>  @resort_category.description.to_s}
+    %meta{:name => "description", :content =>  strip_tags(@resort_category.description.to_s)}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:title", :content =>  t('resorts') + ': ' + @resort_category.name + " | Zona Radical"}
