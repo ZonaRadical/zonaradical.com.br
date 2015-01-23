@@ -9,4 +9,8 @@
 class ImageGallery < ActiveRecord::Base
   has_many :gallery_images, as: :gallerable
   belongs_to :media_image_category
+
+  validates :title, presence: true
+  # @todo Add in the tests
+  # validates :gallery_images, presence: true
 end

@@ -23,10 +23,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resort_categories/5</loc>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>http://zonaradical.com.br/resort_categories/2</loc>
   <priority>0.80</priority>
 </url>
@@ -35,15 +31,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>http://zonaradical.com.br/resort_categories/5</loc>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>http://zonaradical.com.br/resort_categories/3</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resort_categories/8</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resort_categories/10</loc>
   <priority>0.80</priority>
 </url>
 <url>
@@ -55,19 +47,23 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resort_categories/7</loc>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>http://zonaradical.com.br/resort_categories/4</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips</loc>
+  <loc>http://zonaradical.com.br/resort_categories/8</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tip_categories/1</loc>
+  <loc>http://zonaradical.com.br/resort_categories/10</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resort_categories/7</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/tips</loc>
   <priority>0.80</priority>
 </url>
 <url>
@@ -83,6 +79,10 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>http://zonaradical.com.br/tip_categories/1</loc>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>http://zonaradical.com.br/vamo-junto.html</loc>
   <priority>0.80</priority>
 </url>
@@ -95,15 +95,19 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/14</loc>
+  <loc>http://zonaradical.com.br/tips/18</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/14</loc>
+  <loc>http://zonaradical.com.br/resorts/10</loc>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/8</loc>
+  <loc>http://zonaradical.com.br/tips/1</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/tips/15</loc>
   <priority>0.80</priority>
 </url>
 <url>
@@ -111,7 +115,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/11</loc>
+  <loc>http://zonaradical.com.br/pol_priv.html</loc>
   <priority>0.80</priority>
 </url>
 <url>
@@ -120,10 +124,6 @@
 </url>
 <url>
   <loc>http://zonaradical.com.br/users/confirmation/new</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/7</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -147,7 +147,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/10</loc>
+  <loc>http://zonaradical.com.br/resorts/38</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -171,11 +171,11 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/17</loc>
+  <loc>http://zonaradical.com.br/resorts/16</loc>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/16</loc>
+  <loc>http://zonaradical.com.br/resorts/17</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -195,6 +195,18 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>http://zonaradical.com.br/resorts/35</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/37</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/23</loc>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>http://zonaradical.com.br/resorts/27</loc>
   <priority>0.64</priority>
 </url>
@@ -211,19 +223,19 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/24</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/26</loc>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://zonaradical.com.br/resorts?page=2</loc>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/23</loc>
+  <loc>http://zonaradical.com.br/resorts/14</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/7</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/24</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -231,11 +243,11 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resort_categories/12</loc>
+  <loc>http://zonaradical.com.br/resorts/26</loc>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/35</loc>
+  <loc>http://zonaradical.com.br/resort_categories/12</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -243,7 +255,11 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/38</loc>
+  <loc>http://zonaradical.com.br/tips/4</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/tips/8</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -251,19 +267,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/4</loc>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://zonaradical.com.br/tips/6</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/tips/1</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/tips/3</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -271,7 +275,7 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/15</loc>
+  <loc>http://zonaradical.com.br/tips/3</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -280,6 +284,14 @@
 </url>
 <url>
   <loc>http://zonaradical.com.br/tips/7</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/tips/11</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/tips/28</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -311,6 +323,10 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>http://zonaradical.com.br/forum/venda/topics/shorte-prova-de-bala</loc>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>http://zonaradical.com.br/forum/categories/fala-com-a-zr</loc>
   <priority>0.64</priority>
 </url>
@@ -320,6 +336,10 @@
 </url>
 <url>
   <loc>http://zonaradical.com.br/forum/trabalha-conosco</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/forum/trabalha-conosco/topics/procuramos-jornalista-criador-de-conteudo</loc>
   <priority>0.64</priority>
 </url>
 <url>
@@ -339,15 +359,19 @@
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/37</loc>
-  <priority>0.51</priority>
-</url>
-<url>
   <loc>http://zonaradical.com.br/resorts?page=1</loc>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/forum/</loc>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/forum/venda/topics/shorte-prova-de-bala?page=1</loc>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/forum/trabalha-conosco/topics/procuramos-jornalista-criador-de-conteudo?page=1</loc>
   <priority>0.51</priority>
 </url>
 </urlset>

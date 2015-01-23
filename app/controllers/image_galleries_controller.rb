@@ -28,7 +28,7 @@ class ImageGalleriesController < ApplicationController
     respond_to do |format|
       if @image_gallery.save
 
-        unless params[:gallery_images][:images].nil?
+        unless params[:gallery_images].nil? || params[:gallery_images][:images].nil?
           params[:gallery_images][:images].each do |i|
             @image_gallery.gallery_images.create image: i
           end
@@ -97,7 +97,7 @@ class ImageGalleriesController < ApplicationController
   def destroy
     @image_gallery.destroy
     respond_to do |format|
-      format.html { redirect_to image_gallerys_url, notice: 'ImageGallery was successfully destroyed.' }
+      format.html { redirect_to image_galleries_url, notice: 'ImageGallery was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -27,13 +27,13 @@
 
   .field
     = f.label :level1_description
-    = f.text_area :level1_description, :class => 'tinymce', :rows => 40, :cols => 120
+    = f.text_area :level1_description, :class => 'froala', :rows => 40, :cols => 120
   .field
     = f.label :level2_description
-    = f.text_area :level2_description, :class => 'tinymce', :rows => 40, :cols => 120
+    = f.text_area :level2_description, :class => 'froala', :rows => 40, :cols => 120
   .field
     = f.label :level3_description
-    = f.text_area :level3_description, :class => 'tinymce', :rows => 40, :cols => 120
+    = f.text_area :level3_description, :class => 'froala', :rows => 40, :cols => 120
   %h3 Gallery
   %ul
   -unless @tip.gallery_images.all.count.zero?
@@ -50,6 +50,3 @@
     = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
   .actions
     = f.submit
-
-= tinymce_assets
-= tinymce
