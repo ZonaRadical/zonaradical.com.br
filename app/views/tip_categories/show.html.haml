@@ -15,7 +15,7 @@
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
   .heading{:itemprop=>"name"}
-    %h2= t('tips') + ': ' + @tip_category.name
+    %h1= t('tips') + ': ' + @tip_category.name
     %meta{:itemprop=>"name", :content => t('tips') + ': ' + @tip_category.name + " | Zona Radical"}
   .introtext
     = @tip_category.description.html_safe unless @tip_category.description.nil?
@@ -29,7 +29,7 @@
     -@tip_category.children.each do |tip_category|
       -unless tip_category.tips.empty?
         .heading
-          %h2= tip_category.name + ' (' + tip_category.tips.size.to_s + ')'
+          %h1= tip_category.name + ' (' + tip_category.tips.size.to_s + ')'
         .introtext= tip_category.description.html_safe unless tip_category.description.nil?
         -if can? :update, tip_category
           = link_to t('edit'), edit_tip_category_path(tip_category)

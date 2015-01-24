@@ -23,7 +23,7 @@
       .slide
         = image_tag('slide-1.jpg')
         %span.tag
-          %h1 Bem vindo a Snowboard na Zona Radical
+          %h2 Bem vindo a Snowboard na Zona Radical
         %p
           %strong Snowboard
           é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
@@ -67,7 +67,7 @@
 
 .main-content
   .heading
-    %h2 Últimas Notícias do Zona Radical
+    %h1 Últimas Notícias do Zona Radical
   .news-slider
     -unless @breezes.empty?
       -@breezes.each do |breeze|
@@ -130,7 +130,7 @@
           %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
         .clear
   .heading
-    %h2 as últimas dicas de snowboard
+    %h1 as últimas dicas de snowboard
     %a.all{:href => "../tips"} Todas
   -unless @tipsOrdered.nil?
     %ul.item-list

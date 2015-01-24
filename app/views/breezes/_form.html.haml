@@ -1,7 +1,7 @@
 = form_for(@breeze, :html => {:mulbreezeart => true, :class => 'admin-form'}) do |f|
   - if @breeze.errors.any?
     #error_explanation
-      %h2
+      %h1
         = pluralize(@breeze.errors.count, "error")
         prohibited this breeze from being saved:
       %ul

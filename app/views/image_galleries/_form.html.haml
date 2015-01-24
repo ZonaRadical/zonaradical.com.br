@@ -1,7 +1,7 @@
 = form_for(@image_gallery, :html => {:multipart => true, :class => 'admin-form'}) do |f|
   - if @image_gallery.errors.any?
     #error_explanation
-      %h2
+      %h1
         = pluralize(@image_gallery.errors.count, "error")
         prohibited this tip from being saved:
       %ul

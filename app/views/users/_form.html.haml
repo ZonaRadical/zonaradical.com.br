@@ -1,7 +1,7 @@
 = form_for(@user, :html => {:multipart => true, :class => 'admin-form'}) do |f|
   - if @user.errors.any?
     #error_explanation
-      %h2
+      %h1
         = pluralize(@user.errors.count, "error")
         prohibited this user from being saved:
       %ul

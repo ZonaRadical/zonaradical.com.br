@@ -1,7 +1,7 @@
 = form_for(@resort, :html => {:multipart => true, :class => 'admin-form'}) do |f|
   - if @resort.errors.any?
     #error_explanation
-      %h2
+      %h1
         = pluralize(@resort.errors.count, "error")
         prohibited this resort from being saved:
       %ul

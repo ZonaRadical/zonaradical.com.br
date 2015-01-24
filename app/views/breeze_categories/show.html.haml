@@ -1,7 +1,7 @@
 %p#notice= notice
 .main-content
   .heading
-    %h2= t('breezes') + ': ' + @breeze_category.name
+    %h1= t('breezes') + ': ' + @breeze_category.name
   .introtext= @breeze_category.description.html_safe unless @breeze_category.description.nil?
   -if can? :update, @breeze_category
     = link_to t('edit'), edit_breeze_category_path(@breeze_category)
@@ -13,7 +13,7 @@
     -@breeze_category.children.each do |breeze_category|
       -unless breeze_category.breezes.empty?
         .heading
-          %h2= breeze_category.name + ' (' + breeze_category.breezes.size.to_s + ')'
+          %h1= breeze_category.name + ' (' + breeze_category.breezes.size.to_s + ')'
         .introtext= breeze_category.description.html_safe unless breeze_category.description.nil?
         -if can? :update, breeze_category
           = link_to t('edit'), edit_breeze_category_path(breeze_category)

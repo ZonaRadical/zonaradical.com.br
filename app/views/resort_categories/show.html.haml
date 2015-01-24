@@ -15,7 +15,7 @@
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
   .heading
-    %h2= t('resorts') + ': ' + @resort_category.name
+    %h1= t('resorts') + ': ' + @resort_category.name
     %meta{:itemprop=>"name", :content => t('resorts') + ': ' + @resort_category.name + " | Zona Radical"}
   .introtext{:itemprop=>"description"}
     = @resort_category.description.html_safe unless @resort_category.description.nil?
@@ -29,7 +29,7 @@
     -@resort_category.children.each do |resort_category|
       -unless resort_category.resorts.empty?
         .heading
-          %h2= resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
+          %h1= resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
           = link_to t('allResorts') + resort_category.name, resort_category_path(resort_category), class: :all
         .introtext
           -if !resort_category.description.nil?

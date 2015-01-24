@@ -1,7 +1,7 @@
 = form_for @tip_category do |f|
   - if @tip_category.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@tip_category.errors.count, "error")} prohibited this tip_category from being saved:"
+      %h1= "#{pluralize(@tip_category.errors.count, "error")} prohibited this tip_category from being saved:"
       %ul
         - @tip_category.errors.full_messages.each do |msg|
           %li= msg
