@@ -47,7 +47,7 @@ pt-BR:
 
 
     # Resort Profile
-    resorts: 'Estações'
+    resorts: 'Estações de esqui'
     newResort: 'Nova Estação'
     airport: 'Aeroporto mais Próximo'
     altitude: 'Altitude de pico/base'
@@ -55,7 +55,7 @@ pt-BR:
     terrain: 'Terreno esquiável'
     lifts: 'Número de Teleféricos'
     slopes: 'Proporção de terreno'
-    ourtake: 'Opinhão da ZR'
+    ourtake: 'Opinhão do Zona Radical'
     linkToResortWeb: 'Link web da estação'
     linkToResortMap: 'Mapa das pistas'
     meters: 'metros'
@@ -70,7 +70,7 @@ pt-BR:
     allResorts: 'Todas estações de '
 
     # TIPS
-    tips: 'Dicas'
+    tips: 'Dicas de snowboard'
     otherTips: 'Outras dicas sobre '
     newTip: "Nova Dica"
 
