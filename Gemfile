@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
 
-  gem 'capistrano'
+  gem 'capistrano', '~> 3.3.5'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
