@@ -1,7 +1,7 @@
 = form_for(@tip, :html => {:multipart => true, :class => 'admin-form'}) do |f|
   - if @tip.errors.any?
     #error_explanation
-      %h2
+      %h1
         = pluralize(@tip.errors.count, "error")
         prohibited this tip from being saved:
       %ul

@@ -23,12 +23,12 @@
       .slide
         = image_tag('slide-1.jpg')
         %span.tag
-          Bem vindo a Snowboard na Zona Radical
+          %h2 Bem vindo a Snowboard na Zona Radical
         %p
           %strong Snowboard
           é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
           cheinha de neve com um “pedaço de madeira” preso nos pés?
-          Nós tentaremos neste site juntar o máximo das informações para você aprender o
+          Nós tentaremos no Zona Radical juntar o máximo das informações para você aprender o
           %strong snowboarding,
           escolher os equipamentos certos e viajar pelas
           %strong estações de ski
@@ -52,22 +52,22 @@
     -unless @tip.nil?
       .gallery-field-small{:title=> t('tips')}
         -if @tip.nil?
-          =link_to image_tag('gallery-2.jpg'), main_app.tips_url
+          =link_to image_tag('gallery-2.jpg', :alt=>"Dicas de snowboard"), main_app.tips_url
           %p
             %b Muitas Dicas
         -else
-          =link_to image_tag(@tip.image_url(:thumb).to_s), tip_path(@tip)
+          =link_to image_tag(@tip.image_url(:thumb).to_s, :alt=>"Dicas de snowboard"), tip_path(@tip)
           %p
             %strong
               =truncate_html(@tip.title, length: 20, omission: '...')
     .gallery-field-small.right
-      = image_tag('gallery-3.jpg')
+      = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
       %p Trips e ofertas
   .clear
 
 .main-content
   .heading
-    %h2 Últimas Notícias
+    %h1 Últimas Notícias do Zona Radical
   .news-slider
     -unless @breezes.empty?
       -@breezes.each do |breeze|
@@ -84,7 +84,7 @@
         .details
           =link_to "05 de Dezembero, 2014", main_app.tips_url, class: "date"
           %p
-            São 20 dicas já preparadas para vocês.
+            São 20 dicas de snowboard que a equipoe do Zona Radical preparou para vocês.
         .clear
     .slide
       .news-item
@@ -92,7 +92,7 @@
         .details
           %a.date{:href => "#"} 10 de Novembro, 2014
           %p
-            Temos 25 estações! A lista está todo dia crescendo.
+            Temos 25 estações de esqui! A lista está todo dia crescendo.
         .clear
     .slide
       .news-item
@@ -130,7 +130,7 @@
           %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
         .clear
   .heading
-    %h2 as últimas dicas
+    %h1 as últimas dicas de snowboard
     %a.all{:href => "../tips"} Todas
   -unless @tipsOrdered.nil?
     %ul.item-list

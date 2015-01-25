@@ -1,6 +1,20 @@
 .main-content
+  -content_for :for_head do
+    /* general METAS
+    %title Todas Estações de Snowboard | Zona Radical
+    %meta{:name => "description", :content =>  "As estações de snowboard de mundo inteiro: descrições, opinões, informações."}
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=>"og:title", :content =>  "Todas Estações de Snowboard | Zona Radical"}
+    %meta{:property=>"og:description", :content =>  "As estações de snowboard de mundo inteiro: descrições, opinões, informações."}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    /* @Todo Make proper images for all resort categories
+    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+    /* schema.org METAS
+    %meta{:itemprop=>"author", :content =>"Zona Radical"}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
   .heading
-    %h2
+    %h1
       =t('resorts')
       \:
       - unless ResortCategory.all.empty?

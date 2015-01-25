@@ -46,7 +46,7 @@ en:
   aboutProfile: 'About the profile'
 
   # Resort Profile
-  resorts: 'Resorts'
+  resorts: 'Ski Resorts'
   newResort: 'New resort'
   airport: 'Nearest Airport'
   altitude: 'Altitude top/bottmo'
@@ -54,7 +54,7 @@ en:
   terrain: 'Skiable Terrain'
   lifts: 'Number of Lifts'
   slopes: 'Percentage of slopes'
-  ourtake: 'Opinion of ZR'
+  ourtake: 'Opinion of Zona Radical'
   linkToResortWeb: 'Resorts web site'
   linkToResortMap: 'Slopes map'
   meters: 'meters'
@@ -83,11 +83,11 @@ en:
   # More about resorts
   edit: 'Edit'
   readMore: "read more"
-  allResorts: "All resorts of "
-  otherResorts: "Other resorts of "
+  allResorts: "All ski resorts of "
+  otherResorts: "Other ski resorts of "
 
   #Tips
-  tips: 'Tips'
-  otherTips: "Other tips from "
+  tips: 'Snowboard Tips'
+  otherTips: "Other snowboard tips from "
   removeImage: "remove image"
   newTip: "New Tip"

@@ -1,7 +1,7 @@
 = form_for @resort_category do |f|
   - if @resort_category.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@resort_category.errors.count, "error")} prohibited this resort_category from being saved:"
+      %h1= "#{pluralize(@resort_category.errors.count, "error")} prohibited this resort_category from being saved:"
       %ul
         - @resort_category.errors.full_messages.each do |msg|
           %li= msg

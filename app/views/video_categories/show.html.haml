@@ -1,7 +1,7 @@
 %p#notice= notice
 .main-content
   .heading
-    %h2= t('videos') + ': ' + @video_category.name
+    %h1= t('videos') + ': ' + @video_category.name
   .introtext= @video_category.description.html_safe unless @video_category.description.nil?
   -if can? :update, @video_category
     = link_to t('edit'), edit_video_category_path(@video_category)
@@ -13,7 +13,7 @@
     -@video_category.children.each do |video_category|
       -unless video_category.videos.empty?
         .heading
-          %h2= video_category.name + ' (' + video_category.videos.size.to_s + ')'
+          %h1= video_category.name + ' (' + video_category.videos.size.to_s + ')'
         .introtext= video_category.description.html_safe unless video_category.description.nil?
         -if can? :update, video_category
           = link_to t('edit'), edit_video_category_path(video_category)

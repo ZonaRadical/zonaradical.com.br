@@ -1,7 +1,7 @@
 = form_for @video_category do |f|
   - if @video_category.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@video_category.errors.count, "error")} prohibited this video_category from being saved:"
+      %h1= "#{pluralize(@video_category.errors.count, "error")} prohibited this video_category from being saved:"
       %ul
         - @video_category.errors.full_messages.each do |msg|
           %li= msg

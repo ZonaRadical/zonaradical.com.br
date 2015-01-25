@@ -2,8 +2,8 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical | Dicas de Snowboard: #{@tip_category.name}
-    %meta{:name => "description", :content =>  @tip_category.description.to_s}
+    %title #{@tip_category.name} | Dicas de Snowboard | Zona Radical
+    %meta{:name => "description", :content =>  strip_tags(@tip_category.description.to_s)}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:description", :content =>   strip_tags(@tip_category.description.to_s)}
@@ -15,7 +15,7 @@
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
   .heading{:itemprop=>"name"}
-    %h2= t('tips') + ': ' + @tip_category.name
+    %h1= t('tips') + ': ' + @tip_category.name
     %meta{:itemprop=>"name", :content => t('tips') + ': ' + @tip_category.name + " | Zona Radical"}
   .introtext
     = @tip_category.description.html_safe unless @tip_category.description.nil?
@@ -29,7 +29,7 @@
     -@tip_category.children.each do |tip_category|
       -unless tip_category.tips.empty?
         .heading
-          %h2= tip_category.name + ' (' + tip_category.tips.size.to_s + ')'
+          %h1= tip_category.name + ' (' + tip_category.tips.size.to_s + ')'
         .introtext= tip_category.description.html_safe unless tip_category.description.nil?
         -if can? :update, tip_category
           = link_to t('edit'), edit_tip_category_path(tip_category)

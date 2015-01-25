@@ -1,14 +1,14 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/SkiResort"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical | Estações de Snowboard: #{@resort.name}
+    %title #{@resort.name} | Estações de Snowboard e Esqui | Zona Radical
     %meta{:name => "description", :content =>  strip_tags(@resort.level1_description.to_s)}
 
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=> "og:description", :content =>   @resort.level1_description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical | Estações de Snowboard: "+@resort.name}
-    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
+    %meta{:property=>"og:title", :content => @resort.name+" | Estações de Snowboard e Esqui | Zona Radical "}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
     %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
     -unless @resort.gallery_images.all.count.zero?
       -@resort.gallery_images[0..3].each do |image|
@@ -24,17 +24,17 @@
         %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
     %meta{:itemprop=>"review", :content => @resort.level1_description}
     %meta{:itemprop=>"priceRange", :content => "average"}
-    %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"+resort_path(@resort).to_s}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
     %meta{:itemprop=>"address", :content => @resort.airport}
     %meta{:itemprop=>"isicV4", :content => "8329"}
-    %h2
+    %h1
       = t('resorts')
       \:
       %span{:itemprop=>"containedIn"}
         #{@resort.resort_category.name}
   .resort-card
     .leftcol
-      = image_tag @resort.image_url(:thumb).to_s, :class => :resortlogo
+      = image_tag(@resort.image_url(:thumb).to_s, class: "resortlogo", alt: @resort.name+"logo")
       %ul.details-list
         %li.contacts
           .contacts-list
