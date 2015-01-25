@@ -48,6 +48,7 @@ pt-BR:
 
     # Resort Profile
     resorts: 'Estações de esqui'
+    resortsShort: 'Estações'
     newResort: 'Nova Estação'
     airport: 'Aeroporto mais Próximo'
     altitude: 'Altitude de pico/base'
@@ -71,6 +72,7 @@ pt-BR:
 
     # TIPS
     tips: 'Dicas de snowboard'
+    tipsShort: 'Dicas'
     otherTips: 'Outras dicas sobre '
     newTip: "Nova Dica"
 

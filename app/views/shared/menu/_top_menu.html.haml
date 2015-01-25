@@ -1,12 +1,12 @@
 %ul.menu
   %li= link_to t('home'), main_app.root_path
   %li.submenu-item
-    =link_to t('resorts'),main_app.resorts_url
+    =link_to t('resortsShort'),main_app.resorts_url
     %ul.submenu
       =menu_resort_categories ResortCategory.all.arrange
 
   %li.submenu-item
-    =link_to t('tips'),main_app.tips_url
+    =link_to t('tipsShort'),main_app.tips_url
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 

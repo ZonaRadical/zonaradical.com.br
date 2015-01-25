@@ -1242,6 +1242,16 @@ article img {
     display: block;
     margin: 7px 0 10px 16px;
   }
+  &.inner-img-l.fr-fin {
+    float: left;
+    display: block;
+    margin: 7px 16px 10px 0;
+  }
+  &.inner-img-r.fr-fin {
+    float: right;
+    display: block;
+    margin: 7px 0 10px 16px;
+  }
 }
 
 ul.comments-list {
