@@ -18,14 +18,14 @@ describe 'Users', :type => :request do
     describe 'Edit own profile' do
       before { visit edit_user_path(@admin.id) }
 
-      it { should have_css('h1', :text => 'Editing profile') }
+      it { should have_css('h2', :text => 'Editing profile') }
       it { should have_content(I18n.t('assignedRoles')) }
     end
 
     describe 'Edit other profile' do
       before { visit edit_user_path(@user.id) }
 
-      it { should have_css('h1', :text => 'Editing profile') }
+      it { should have_css('h2', :text => 'Editing profile') }
       it { should have_content(I18n.t('assignedRoles')) }
     end
 
@@ -37,7 +37,7 @@ describe 'Users', :type => :request do
       describe 'Edit own profile' do
         before { visit edit_user_path(@user.id) }
 
-        it { should have_css('h1', :text => 'Editing profile') }
+        it { should have_css('h2', :text => 'Editing profile') }
         it { should_not have_content(I18n.t('assignedRoles')) }
       end
 

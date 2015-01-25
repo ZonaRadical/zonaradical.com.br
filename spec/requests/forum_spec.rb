@@ -14,7 +14,7 @@ describe 'Forum', :type => :request do
 
 
     it { should have_css('div#forums_container') }
-    it { should have_css('h1',:text => I18n.t('forem.forums.index.title')) }
+    it { should have_css('h2',:text => I18n.t('forem.forums.index.title')) }
     it { should_not have_link(I18n.t("area", :scope => 'forem.admin'),forem.admin_root_path) }
     it { should have_http_status(200) }
   end
@@ -30,7 +30,7 @@ describe 'Forum', :type => :request do
 
 
     it { should have_css('div#forums_container') }
-    it { should have_css('h1',:text => I18n.t('forem.forums.index.title')) }
+    it { should have_css('h2',:text => I18n.t('forem.forums.index.title')) }
     it { should have_link(I18n.t("area", :scope => 'forem.admin'),forem.admin_root_path) }
     it { should have_http_status(200) }
   end
