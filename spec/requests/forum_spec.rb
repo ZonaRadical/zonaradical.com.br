@@ -22,7 +22,6 @@ describe 'Forum', :type => :request do
   describe 'Logged in as admin' do
     before(:each) do
       @admin = FactoryGirl.create(:admin)
-      @admin.forem_admin = true
       @admin.save
       login_as @admin, :scope => :user
       visit forem_path
