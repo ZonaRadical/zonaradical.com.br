@@ -1,4 +1,7 @@
 <div class='forum'>
+  <%= content_for :for_head do %>
+      <title> <%= @forum.name.to_s %> | Forum Zona Radical</title>
+  <% end %>
   <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
   <!-- <%= forem_pages_widget(@topics) %> -->
