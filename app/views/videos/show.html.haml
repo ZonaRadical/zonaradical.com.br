@@ -1,11 +1,11 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical | Dicas de Snowboard: #{@video.video_category.name}
+    %title Videos de Snowboard: #{@video.video_category.name} | Zona Radical
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@video.title}
-    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+video_path(@video).to_s}
+    %meta{:property=>"og:title", :content => "Zona Radical Videos: "+@video.title}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
 
   .heading
     %h1
@@ -17,7 +17,7 @@
   %article
     %h3{:itemprop=>"name"}
       =@video.title
-    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :src => getEmbedLink(@video.source_link), :width => '560'}
+    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getEmbedLink(@video.source_link), :width => '701'}
     - if can? :video, :update
       = link_to t('edit'), edit_video_path(@video)
       |
