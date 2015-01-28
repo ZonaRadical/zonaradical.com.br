@@ -1,5 +1,9 @@
 %ul.menu
-  %li= link_to t('home'), main_app.root_path
+  %li.submenu-item
+    = link_to t('home'), main_app.root_path
+    %ul.submenu
+      =menu_video_categories VideoCategory.all.arrange
+
   %li.submenu-item
     =link_to t('resortsShort'),main_app.resorts_url
     %ul.submenu
