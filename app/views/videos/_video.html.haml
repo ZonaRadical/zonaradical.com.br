@@ -1,9 +1,7 @@
 %li
-  =link_to image_tag(video.image_url(:big_thumb).to_s), video_path(video), :class => 'img-wrap'
   .details
     %p.name=link_to video.title, video_path(video)
-    %p=video.short_description
-    =link_to t('readMore'), video_path(video)
+    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '200', :src => getEmbedLink(video.source_link), :width => '300'}
   -if can? :video, :update
     = link_to 'Edit', edit_video_path(video)
   -if can? :video, :delete
