@@ -10,7 +10,11 @@ module VideoCategoriesHelper
 
     end.join.html_safe
   end
-
+  def sub_menu_video_categories(video_categories)
+    video_categories.map do |video_categories, sub_video_category|
+      content_tag(:li,link_to(video_categories.name, main_app.video_categories_path(video_categories.id)))
+    end.join.html_safe
+  end
 end
 
 
