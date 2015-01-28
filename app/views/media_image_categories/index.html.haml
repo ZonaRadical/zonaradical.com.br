@@ -1,8 +1,8 @@
 .main-content
   .heading
-  -if can? TipCategory, :create
-    = link_to 'New Tip category', new_tip_category_path
+  -if can? MediaImageCategory, :create
+    = link_to 'New Media category', new_media_image_category_path
   .clear
-  %ul.tip_category_list
-    =nested_categories @tip_categories.arrange
+  %ul.media_image_category_list
+    =nested_categories @media_image_categories.arrange
 .clear

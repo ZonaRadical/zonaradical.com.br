@@ -1,9 +1,10 @@
-%li.tip_category
+%li.media_image_category
   .details
-    %p.name= tip_category.name
-    %p= truncate( tip_category.description, length: 200)
+    %p.name
+      = link_to media_image_category.name, media_image_category_path(media_image_category)
+    %p= truncate( media_image_category.description, length: 200)
   .clear
-  - if can? :tip_category, :update, :destroy
+  - if can? :media_image_category, :update, :destroy
     .control
-      = link_to t('edit'), edit_tip_category_path(tip_category)
-      = link_to 'Destroy', tip_category, method: :delete, data: { confirm: 'Are you sure?' }
+      = link_to t('edit'), edit_media_image_category_path(media_image_category)
+      = link_to 'Destroy', media_image_category, method: :delete, data: { confirm: 'Are you sure?' }
