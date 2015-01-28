@@ -2,7 +2,7 @@
   =link_to image_tag(breeze.image_url(:big_thumb).to_s), breeze_path(breeze), :class => 'img-wrap'
   .details
     %p.name=link_to breeze.title, breeze_path(breeze)
-    %p=breeze.short_description
+    %p=breeze.body
     =link_to t('readMore'), breeze_path(breeze)
   -if can? :breeze, :update
     = link_to 'Edit', edit_breeze_path(breeze)

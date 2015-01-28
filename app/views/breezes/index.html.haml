@@ -7,7 +7,7 @@
         -BreezeCategory.all.each do |breeze_category|
           - if breeze_category.ancestry_depth==0
             =link_to(breeze_category.name, main_app.breeze_category_path(breeze_category.id))
-            -if breeze_category !=breezeCategory.all.last
+            -if breeze_category !=BreezeCategory.all.last
               ,
   .clear
 

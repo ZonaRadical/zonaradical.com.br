@@ -37,7 +37,9 @@ class BreezeImageUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :create_thumb => [127, 86]
   end
-
+  version :big_thumb do
+    process :create_thumb => [227, 186]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
