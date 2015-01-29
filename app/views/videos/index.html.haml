@@ -1,21 +1,21 @@
 .main-content
   -content_for :for_head do
     /* general METAS
-    %title Videos de Snowboard | Zona Radical
+    %title Snowboard Videos | Zona Radical
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=>"og:title", :content => "Zona Radical Videos"}
+    %meta{:property=>"og:title", :content => "Zona Radical Snowboard Videos"}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
   .heading
     %h1
-      =t('videos')
-      \:
-      - unless VideoCategory.all.empty?
-        -VideoCategory.all.each do |video_category|
-          - if video_category.ancestry_depth==0
-            =link_to(video_category.name, main_app.video_category_path(video_category.id))
-            -if video_category !=VideoCategory.all.last
-              ,
+      Snowboard Videos
+      /* \:
+      /* - unless VideoCategory.all.empty?
+      /*  -VideoCategory.all.each do |video_category|
+      /*    - if video_category.ancestry_depth==0
+      /*      =link_to(video_category.name, main_app.video_category_path(video_category.id))
+      /*      -if video_category !=VideoCategory.all.last
+      /*        ,
   .clear
 
   %ul.stations-list
