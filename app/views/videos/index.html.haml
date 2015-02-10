@@ -17,6 +17,10 @@
       /*      -if video_category !=VideoCategory.all.last
       /*        ,
   .clear
+  %h2
+    Nos ajude a preencher a página!
+    Conhece um vídeo irado?
+    = mail_to('info@zonardical.com.br','Nos mande o link e adicionaremos!',:target=>"_newtab")
 
   %ul.stations-list
     =render @videos
