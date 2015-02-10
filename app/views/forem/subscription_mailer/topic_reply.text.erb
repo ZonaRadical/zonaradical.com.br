@@ -1,6 +1,6 @@
-<%= I18n.t('received_reply', :scope => 'forem.topic') %> You can view it here:
+<%= I18n.t('received_reply', :scope => 'forem.topic') %> pode ver-la aqui:
 
 <%= forem.forum_topic_url(@post.topic.forum_id, @post.topic) %>
 
-To unsubscribe from this topic, use the following link:
+Para sair deste tópico, use o seguinte link:
 <%= forem.unsubscribe_forum_topic_url(@post.topic.forum, @post.topic) %>

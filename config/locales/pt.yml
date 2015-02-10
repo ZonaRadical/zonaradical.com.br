@@ -29,6 +29,7 @@ pt-BR:
     signWith: "Sign in com"
     home: "Home"
     forum: 'Forum'
+    received_reply: 'Resposta recebida'
 
     # User Profile
     userProfile: 'Perfil de usuario'
