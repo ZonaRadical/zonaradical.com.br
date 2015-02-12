@@ -42,9 +42,9 @@
             %span.fb= link_to cut_phrase(@resort.fb,33), @resort.fb, :target => '_blank'
           .clear
     .rightcol
-      .title
-        %span.name{:itemprop=>"name"}
-          = @resort.name
+      .h2{:itemprop=>"name"}
+        /* %span.name
+        = @resort.name
       %ul.details-list
         %li.details
           .details-list
