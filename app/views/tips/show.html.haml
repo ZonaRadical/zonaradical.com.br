@@ -27,7 +27,7 @@
       %span{:itemprop=>"about"}
         #{@tip.tip_category.name}
   %article
-    %h3{:itemprop=>"name"}
+    %h2{:itemprop=>"name"}
       =@tip.title
     %i.extra-info
       =distance_of_time_in_words_to_now @tip.updated_at
@@ -47,7 +47,7 @@
           %li
             %a{:href => '#tab_level3'}
               %span Nivel 3
-      / end levels
+      / end levels buttons
       -if !@tip.level1_description.blank?
         %div#tab_level1
           =image_tag(@tip.image_url(:big_thumb).to_s, class: 'med-img', itemprop: "image")
