@@ -47,6 +47,7 @@ en:
 
   # Resort Profile
   resorts: 'Ski Resorts'
+  resortsShort: 'Resorts'
   newResort: 'New resort'
   airport: 'Nearest Airport'
   altitude: 'Altitude top/bottmo'
@@ -88,6 +89,7 @@ en:
 
   #Tips
   tips: 'Snowboard Tips'
+  tipsShort: 'Tips'
   otherTips: "Other snowboard tips from "
   removeImage: "remove image"
   newTip: "New Tip"

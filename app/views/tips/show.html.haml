@@ -1,12 +1,12 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical | Dicas de Snowboard: #{@tip.tip_category.name}
+    %title Dicas de Snowboard: #{@tip.title}
     %meta{:name => "description", :content =>  @tip.short_description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:description", :content =>  @tip.short_description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@tip.title}
+    %meta{:property=>"og:title", :content => "ZR Dicas: "+@tip.title}
     %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
     %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
     -unless @tip.gallery_images.all.count.zero?
@@ -19,7 +19,7 @@
     / @todo Adding (!) separate keywords set for every material
     / %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
-    %meta{itemprop: "image", :content=> @tip.image_url(:big_thumb).to_s}
+    %meta{:itemprop=>"image", :content=> @tip.image_url(:big_thumb).to_s}
     %h1
       %span{:itemprop=>"articleSection"}
         =t('tips')
@@ -27,7 +27,7 @@
       %span{:itemprop=>"about"}
         #{@tip.tip_category.name}
   %article
-    %h3{:itemprop=>"name"}
+    %h2{:itemprop=>"headline"}
       =@tip.title
     %i.extra-info
       =distance_of_time_in_words_to_now @tip.updated_at
@@ -47,7 +47,7 @@
           %li
             %a{:href => '#tab_level3'}
               %span Nivel 3
-      / end levels
+      / end levels buttons
       -if !@tip.level1_description.blank?
         %div#tab_level1
           =image_tag(@tip.image_url(:big_thumb).to_s, class: 'med-img', itemprop: "image")

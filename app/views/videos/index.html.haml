@@ -18,7 +18,13 @@
       /*        ,
   .clear
 
+
   %ul.stations-list
+    %li
+      Nos ajude a preencher a página!
+      Conhece um vídeo irado?
+      = mail_to('info@zonardical.com.br','Nos mande o link e adicionaremos!',:target=>"_newtab")
+      .clear
     =render @videos
     = will_paginate @videos,:previous_label => '<<',:next_label => '>>', :inner_window => 1
   .clear

@@ -1,7 +1,7 @@
 %li
-  .details
+  %div{:style=>"text-align: center"}
     %p.name=link_to video.title, video_path(video)
-    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '200', :src => getEmbedLink(video.source_link), :width => '300'}
+    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '250', :src => getEmbedLink(video.source_link), :width => '400'}
   -if can? :video, :update
     = link_to 'Edit', edit_video_path(video)
   -if can? :video, :delete
