@@ -17,6 +17,16 @@
   %li
     %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
   %li= link_to t('forum'), main_app.forem_path
+
+  %li.submenu-item
+    = link_to t('forum'), "../forum"
+    %ul.submenu
+      %li
+        = link_to "VIAGENS", "../forum/categories/babbling"
+        = link_to "E-SHOPPING", "../forum/categories/shopping"
+        = link_to "FALA COM ZR", "../forum/categories/fala-com-a-zr"
+      /* =menu_forum_categories(ForemForums.all.arrange)
+
   %li
     %a{:href => "http://zonaradical.com.br/galera.html"}
       Galera
