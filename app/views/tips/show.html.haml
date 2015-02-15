@@ -33,6 +33,7 @@
       =distance_of_time_in_words_to_now @tip.updated_at
       = t('ago')
       ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
+    .fb-share-button{"data-href"=> request.original_url.to_s, "data-layout"=>"button"}
     %div#tabs
       %ul.levels
         -if !@tip.level1_description.blank? and !@tip.level2_description.blank?
@@ -61,7 +62,7 @@
       -if !@tip.level3_description.blank?
         %div#tab_level3
           =@tip.level3_description.html_safe unless @tip.level3_description.blank?
-    
+    .fb-share-button{"data-href"=> "https://developers.facebook.com/docs/plugins/", "data-layout"=>"button"}
     -unless @tip.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @tip.gallery_images.all
     .clear

@@ -5,18 +5,17 @@
       =menu_video_categories VideoCategory.all.arrange
 
   %li.submenu-item
-    =link_to t('resortsShort'),main_app.resorts_url
+    =link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow'
     %ul.submenu
       =menu_resort_categories ResortCategory.all.arrange
 
   %li.submenu-item
-    =link_to t('tipsShort'),main_app.tips_url
+    =link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow'
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 
   %li
     %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
-  %li= link_to t('forum'), main_app.forem_path
 
   %li.submenu-item
     = link_to t('forum'), "../forum"
