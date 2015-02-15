@@ -1,3 +1,4 @@
+= raise 'test'
 = form_for(@user, :html => {:multipart => true, :class => 'admin-form'}) do |f|
   - if @user.errors.any?
     #error_explanation
@@ -29,6 +30,9 @@
       .field
         = f.label :login
         = f.text_field :login
+      .field
+        = f.label :email
+        = f.text_field :email, :disabled => true
       .field
         = f.label :sex
         = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))

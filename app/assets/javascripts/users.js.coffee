@@ -4,4 +4,5 @@
 
 $ ->
   $("#user_birthday").datepicker({ maxDate: "-1d" })
+  $("#tabs").tabs()
   return
