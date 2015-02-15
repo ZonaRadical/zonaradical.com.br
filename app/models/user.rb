@@ -58,7 +58,6 @@ class User < ActiveRecord::Base
 
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
-
     # If a signed_in_resource is provided it always overrides the existing user
     # to prevent the identity being locked with accidentally created accounts.
     # Note that this may leave zombie accounts (with no associated identity) which
@@ -77,8 +76,11 @@ class User < ActiveRecord::Base
 
       # Create the user if it's a new registration
       if user.nil?
+        sex = auth.extra.raw_info.gender == 'male' ? 'M' : 'F'
         user = User.new(
-            name: auth.extra.raw_info.name,
+            name: auth.extra.raw_info.first_name,
+            surname:auth.extra.raw_info.last_name,
+            sex: sex,
             #username: auth.info.nickname || auth.uid,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
