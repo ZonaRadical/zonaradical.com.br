@@ -137,7 +137,7 @@
           %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
         .clear
   .heading
-    %h1 as últimas dicas de snowboard
+    %h1 últimas dicas de snowboard
     %a.all{:href => "../tips"} Todas
   -unless @tipsOrdered.nil?
     %ul.item-list
@@ -152,7 +152,7 @@
               -else
                 =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
               = link_to t('readMore'), tip_path(tipsOrd)
-        .clear
+          .clear
 %aside
   =render 'shared/aside/aside_social_buttons'
   =render 'shared/aside/aside_advert'
