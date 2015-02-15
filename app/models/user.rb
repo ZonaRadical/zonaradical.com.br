@@ -16,7 +16,6 @@
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.string   :name
-#   t.boolean  :forem_admin,            default: false
 #   t.string   :forem_state,            default: :pending_review
 #   t.boolean  :forem_auto_subscribe,   default: false
 #   t.datetime :last_seen_at
@@ -30,6 +29,7 @@
 #   t.string   :web
 #   t.string   :fb
 #   t.text     :bio
+#   t.string   :fb_avatar
 # end
 #
 # add_index :users, [:email], name: :index_users_on_email, unique: true, using: :btree
@@ -63,7 +63,6 @@ class User < ActiveRecord::Base
     # Note that this may leave zombie accounts (with no associated identity) which
     # can be cleaned up at a later date.
     user = signed_in_resource ? signed_in_resource : identity.user
-
     # Create the user if needed
     if user.nil?
 
@@ -81,6 +80,8 @@ class User < ActiveRecord::Base
             name: auth.extra.raw_info.first_name,
             surname:auth.extra.raw_info.last_name,
             sex: sex,
+            fb: auth.extra.raw_info.link,
+            fb_avatar: auth.info.image,
             #username: auth.info.nickname || auth.uid,
             email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
