@@ -2,9 +2,9 @@
   %h1=t('resorts')
 %ul.categories
   %li
-    =link_to resorts_path  do
-      All
-      %span='(' + Resort.all.size.to_s + ')'
+    =link_to resorts_path, :rel => 'nofollow' do
+      All ( #{Resort.all.size.to_s} )
+
   -if !resort_category.nil?
     %li
       =aside_resort_categories resort_category

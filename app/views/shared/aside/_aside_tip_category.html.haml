@@ -2,7 +2,7 @@
   %h1= t('tips')
 %ul.categories
   %li
-    =link_to tips_path  do
+    =link_to tips_path, :rel => 'nofollow' do
       All
       %span='(' + Tip.all.size.to_s + ')'
   -if !tip_category.nil?
