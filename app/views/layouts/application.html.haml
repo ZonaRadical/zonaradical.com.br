@@ -39,7 +39,7 @@
       -if content_for? :aside
         %aside= content_for :aside
         .clear
-      .fb-share-button{"data-href"=> "https://developers.facebook.com/docs/plugins/", "data-layout"=>"button"}
+      .fb-share-button{"data-href"=> request.original_url.to_s, "data-layout"=>"button"}
       %p.inv
         %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
         Editor:
