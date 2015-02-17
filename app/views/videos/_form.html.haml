@@ -7,6 +7,9 @@
   .field
     = f.label :source
     = f.select :source, enum_option_pairs(Video, :source)
+    .field
+    = f.label :description
+    = f.text_field :description
   .field
     = f.label :source_link
     = f.text_field :source_link
