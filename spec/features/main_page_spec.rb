@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'main page' do
   context 'main menu' do
-    scenario 'dynamic display video categories', :focus do
+    scenario 'dynamic display video categories' do
       vcat_digiacomo = create(:video_category, name: 'Digiácomo Dias')
       vcat_digiacomo.children.create(name: 'Series')
       vcat_digiacomo.children.create(name: 'Event videos')
@@ -33,7 +33,19 @@ feature 'main page' do
       end
     end
 
-    scenario 'dynamic display forum categories', :pending do
+    scenario 'dynamic display forum categories' do
+      create(:forem_category, name: 'Travels')
+      create(:forem_category, name: 'E-shopping')
+      create(:forem_category, name: 'Talk with ZR')
+
+      visit root_path
+
+      within('li.submenu-item', text: 'Forum') do
+        Forem::Category.find_each do |f_category|
+          menu = find('li', text: f_category.name)
+          menu.find_link(f_category.name, href: forem.category_path(f_category))
+        end
+      end
     end
   end
 end
