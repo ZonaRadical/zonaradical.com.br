@@ -47,6 +47,8 @@ gem 'simple_enum'
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
+  gem 'guard-bundler'
+  gem 'guard-rails'
   gem 'guard-rspec'
 
   gem 'capistrano', '~> 3.3.5'
