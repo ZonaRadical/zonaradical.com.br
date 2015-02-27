@@ -18,7 +18,7 @@ gem 'cancan'
 gem 'truncate_html'
 
 gem 'carrierwave'
-gem 'rmagick', '2.13.2',require: false
+gem 'rmagick', '2.13.4',require: false
 gem 'fog'
 
 gem 'carmen-rails', '~> 1.0.0'
@@ -57,6 +57,9 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'populator'
   gem 'faker'
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended for cucumber
+  gem 'database_cleaner'
 end
 
 group :test do
