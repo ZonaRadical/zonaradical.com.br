@@ -28,13 +28,13 @@ RSpec.describe VideosController, :type => :controller do
       :description => 'Description level 1',
       :source_cd => 0,
       :source_link => 'http://youtu.be/watch?v=WUFeSr-an-o'
-    }
+      }
   }
 
   let(:invalid_attributes) {
     {
-        :name => 'Title',
-        :source_link => ''
+      :name => 'Title',
+      :source_link => ''
     }
   }
 
@@ -43,7 +43,7 @@ RSpec.describe VideosController, :type => :controller do
   # VideoCategoriesController. Be sure to keep this updated too.
   describe 'Admin' do
 
-  login_admin
+    login_admin
 
     describe "GET show" do
       it "assigns the requested video as @video" do
@@ -68,36 +68,41 @@ RSpec.describe VideosController, :type => :controller do
       end
     end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Video" do
+    describe "POST #create" do
+      context "with valid params" do
+        it "creates a new Video" do
           expect {
             post :create, {:video => valid_attributes}
           }.to change(Video, :count).by(1)
-      end
+        end
 
-      it "assigns a newly created video as @video" do
-        post :create, {:video => valid_attributes}
-        expect(assigns(:video)).to be_a(Video)
-        expect(assigns(:video)).to be_persisted
+        it "The last video is the Created Video" do
+          post :create, {:video => valid_attributes}
+          expect(Video.last).to have_attributes(title: "You Tube", description: "Description level 1", source_cd: 0, video_category_id: nil, source_link: "http://youtu.be/watch?v=WUFeSr-an-o")
+        end
+
+        it "assigns a newly created video as @video" do
+          post :create, {:video => valid_attributes}
+          expect(assigns(:video)).to be_a(Video)
+          expect(assigns(:video)).to be_persisted
+        end
+        it "redirects to the created video" do
+          post :create, {:video => valid_attributes}
+          expect(response).to redirect_to(Video.last)
+        end
       end
-      it "redirects to the created video" do
-        post :create, {:video => valid_attributes}
-        expect(response).to redirect_to(Video.last)
+      context "with invalid params" do
+        it "assigns a newly created but unsaved video as @video" do
+          post :create, {:video => invalid_attributes}
+          expect(assigns(:video)).to be_a_new(Video)
+        end
+
+        it "re-renders the 'new' template" do
+          post :create, {:video => invalid_attributes}
+          expect(response).to render_template("new")
+        end
       end
     end
-    context "with invalid params" do
-      it "assigns a newly created but unsaved video as @video" do
-        post :create, {:video => invalid_attributes}
-        expect(assigns(:video)).to be_a_new(Video)
-      end
-
-      it "re-renders the 'new' template" do
-        post :create, {:video => invalid_attributes}
-        expect(response).to render_template("new")
-      end
-    end
-  end
 
     describe "PUT update" do
       describe "with valid params" do
@@ -118,7 +123,7 @@ RSpec.describe VideosController, :type => :controller do
             :lifts  => 5,
             :slopes => '11/31/61',
             :map_url => 'http://new-videomap.url'
-          }
+            }
         }
 
         it "updates the requested video" do
@@ -169,7 +174,7 @@ RSpec.describe VideosController, :type => :controller do
         let(:new_attributes) {
           { :name => 'New Name',
             :email => 'new_email@mail.ru',
-          }
+            }
         }
 
         it "redirect with no access" do
