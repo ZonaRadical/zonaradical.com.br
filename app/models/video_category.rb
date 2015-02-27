@@ -6,6 +6,7 @@
 #   t.integer  :ancestry_depth, default: 0
 #   t.datetime :created_at
 #   t.datetime :updated_at
+#   t.string   :image
 # end
 
 class VideoCategory < ActiveRecord::Base
@@ -13,4 +14,6 @@ class VideoCategory < ActiveRecord::Base
   has_many :videos
 
   validates :name, presence: true
+  mount_uploader :image, CategoryImageUploader
+
 end
