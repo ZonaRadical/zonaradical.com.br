@@ -14,9 +14,17 @@
     = f.label :source_link
     = f.text_field :source_link
     -if @video.source_link.nil? || :source_link.empty?
+
       %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :width => '560', :style => 'display:none'}
+
+      %iframe.vimeo{:allowfullscreen => '', :frameborder => '0', :height => '315', :width => '560', :style => 'display:none'}
+
     -else
-      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :src => getEmbedLink(@video.source_link), :width => '560'}
+
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '315', :src => getYoutubeEmbedLink(@video.source_link), :width => '560'}
+
+      %iframe.vimeo{:allowfullscreen => "", :frameborder => "0", :height => "281", :mozallowfullscreen => "", :src => getVimeoEmbedLink(@video.source_link), :width => "500"}
+
   .field
     = f.label :category
     = f.select(:video_category_id, nested_dropdown(VideoCategory.all.arrange))
