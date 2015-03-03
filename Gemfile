@@ -40,7 +40,6 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
-gem 'shoulda-matchers', require: false
 gem 'simple_enum'
 
 
@@ -48,7 +47,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'
-
+  gem 'shoulda-matchers', require: false
   gem 'capistrano', '~> 3.3.5'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'

@@ -18,17 +18,14 @@ getVimeoId = (url)->
 updateVideo = (url)->
   if url.indexOf("youtube") > -1
     youTubeId = getYoutubeId(url)
-    vimeoId = getVimeoId(url)
     if youTubeId != -1
       $(".youtube").attr("src", "http://www.youtube.com/embed/" + youTubeId + "?rel=0&autoplay=0").show()
-      $(".vimeo").hide()
     else
       $(".youtube").hide()
     return
   else
+    vimeoId = getVimeoId(url)
     $(".vimeo").attr("src", "//player.vimeo.com/video/" + vimeoId).show()
-    $(".youtube").hide()
-
 
 $("#video_source").change ->
   $(".youtube").hide()
