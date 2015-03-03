@@ -1,7 +1,10 @@
 %li
   %div{:style=>"text-align: center"}
     %p.name=link_to video.title, video_path(video)
-    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '250', :src => getEmbedLink(video.source_link), :width => '400'}
+    - if video.source_link.include?("youtube")
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getYoutubeEmbedLink(video.source_link), :width => '701'}
+    - else video.source_link.include?("vimeo")
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getVimeoEmbedLink(video.source_link), :width => '701'}
   -if can? :video, :update
     = link_to 'Edit', edit_video_path(video)
   -if can? :video, :delete
