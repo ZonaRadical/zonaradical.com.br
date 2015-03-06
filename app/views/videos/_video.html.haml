@@ -1,7 +1,7 @@
 %li
   .video-thumbnail[video]
     %p.video-thumbnail--name=link_to video.title, video_path(video)
-    .video-thumbnail--image= thumbnail(video)
+    .video-thumbnail--image= link_to thumbnail(video.source_link), video_path(video)
   -if can? :video, :update
     = link_to 'Edit', edit_video_path(video)
   -if can? :video, :delete
