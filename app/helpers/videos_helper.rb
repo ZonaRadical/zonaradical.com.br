@@ -10,10 +10,13 @@ module VideosHelper
     src
   end
 
-  def thumbnail(url, options = {})
+  def thumbnail(video, options = {})
     size = options[:size] ||= :high
-    id = extract_youtube_id(url)
-    image_tag("https://i.ytimg.com/vi/#{id}/#{YOUTUBE_FILES[size]}.jpg", class: 'youtube')
+    id = extract_youtube_id(video.source_link)
+    link_to(
+      image_tag("https://i.ytimg.com/vi/#{id}/#{YOUTUBE_FILES[size]}.jpg"),
+      video_path(video)
+    )
   end
 
   private
