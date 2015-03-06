@@ -18,7 +18,7 @@ gem 'cancan'
 gem 'truncate_html'
 
 gem 'carrierwave'
-gem 'rmagick', '2.13.2',require: false
+gem 'rmagick', '2.13.4',require: false
 gem 'fog'
 
 gem 'carmen-rails', '~> 1.0.0'
@@ -40,7 +40,6 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
-
 gem 'simple_enum'
 
 
@@ -48,7 +47,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'
-
+  gem 'shoulda-matchers', require: false
   gem 'capistrano', '~> 3.3.5'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
@@ -57,6 +56,9 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'populator'
   gem 'faker'
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended for cucumber
+  gem 'database_cleaner'
 end
 
 group :test do

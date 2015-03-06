@@ -24,7 +24,9 @@ RSpec.describe ResortCategoriesController, :type => :controller do
   # ResortCategory. As you add validations to ResortCategory, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {:name => 'Some Category', :description => 'A lot of text' }
+    {:name => 'Some Category', :description => 'A lot of text',
+     :image => File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
+     }
   }
 
   let(:invalid_attributes) {
@@ -37,7 +39,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
   # ResortCategoriesController. Be sure to keep this updated too.
   describe 'Admin' do
 
-  login_admin
+    login_admin
 
 
     describe "GET index" do
@@ -210,7 +212,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
           expect {
             post :create, {:resort_category => valid_attributes}
           }.to change(ResortCategory, :count).by(0)
-          end
+        end
 
         it "redirects to the site root with flash-alert" do
           post :create, {:resort_category => valid_attributes}

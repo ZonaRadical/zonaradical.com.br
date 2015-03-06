@@ -14,5 +14,11 @@
   .field
     = f.label :description
     = f.text_area :description,:class => 'froala', :rows => 40, :cols => 120
+  .field
+    = image_tag @media_image_category.image_url(:thumb_1024_512).to_s
+    = f.label :image
+    = f.file_field :image
+    = f.check_box :remove_image
+
   .actions
     = f.submit 'Save'
