@@ -8,7 +8,6 @@ role :app, %w{deployer@develop.zonaradical.com.br}
 role :web, %w{deployer@develop.zonaradical.com.br}
 role :db,  %w{deployer@develop.zonaradical.com.br}
 
-set :rails_env, 'production'
 set :branch, 'develop'
 
 # Extended Server Syntax
