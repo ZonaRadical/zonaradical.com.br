@@ -69,6 +69,8 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'i18n-tasks'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 
