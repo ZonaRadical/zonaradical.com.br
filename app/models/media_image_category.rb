@@ -6,10 +6,14 @@
 #   t.integer  :ancestry_depth, default: 0
 #   t.datetime :created_at
 #   t.datetime :updated_at
+#   t.string   :image
 # end
 
 class MediaImageCategory < ActiveRecord::Base
   has_ancestry( :cache_depth => true )
 
+  validates :name, presence: true
   has_many :image_galleries
+  mount_uploader :image, CategoryImageUploader
+
 end

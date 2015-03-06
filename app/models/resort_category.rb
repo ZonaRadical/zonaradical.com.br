@@ -4,6 +4,7 @@
 #   t.string  :ancestry
 #   t.string  :index
 #   t.integer :ancestry_depth, default: 0
+#   t.string  :image
 # end
 
 class ResortCategory < ActiveRecord::Base
@@ -11,4 +12,6 @@ class ResortCategory < ActiveRecord::Base
 
   has_many :resorts
   validates :name, presence: true
+  mount_uploader :image, CategoryImageUploader
+
 end

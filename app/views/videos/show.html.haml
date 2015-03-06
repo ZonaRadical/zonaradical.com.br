@@ -17,7 +17,10 @@
   %article
     %h3{:itemprop=>"name"}
       =@video.title
-    %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getEmbedLink(@video.source_link), :width => '701'}
+    - if @video.source_link.include?("youtube")
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getYoutubeEmbedLink(@video.source_link), :width => '701'}
+    - else @video.source_link.include?("vimeo")
+      %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getVimeoEmbedLink(@video.source_link), :width => '701'}
     - if can? :video, :update
       = link_to t('edit'), edit_video_path(@video)
       |
