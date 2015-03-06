@@ -153,6 +153,18 @@ GEM
       execjs
     coffee-script-source (1.9.0)
     colorize (0.7.5)
+    cucumber (1.3.19)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 2.12)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-rails (1.4.2)
+      capybara (>= 1.1.2, < 3)
+      cucumber (>= 1.3.8, < 2)
+      mime-types (>= 1.16, < 3)
+      nokogiri (~> 1.5)
+      rails (>= 3, < 5)
     daemons (1.1.9)
     database_cleaner (1.4.0)
     debug_inspector (0.0.2)
@@ -268,6 +280,8 @@ GEM
     friendly_id (5.0.5)
       activerecord (>= 4.0.0)
     gemoji (2.1.0)
+    gherkin (2.12.2)
+      multi_json (~> 1.3)
     globalize (4.0.3)
       activemodel (>= 4.0.0, < 5)
       activerecord (>= 4.0.0, < 5)
@@ -312,6 +326,10 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
     i18n-tasks (0.7.12)
       activesupport
@@ -364,6 +382,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
+    multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nenv (0.2.0)
@@ -437,7 +456,7 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rmagick (2.13.2)
+    rmagick (2.13.4)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -482,6 +501,8 @@ GEM
       websocket (~> 1.0)
     sexp_processor (4.4.5)
     shellany (0.0.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     simple_enum (2.1.1)
       activesupport (>= 4.0.0)
     simple_form (3.0.3)
@@ -540,6 +561,12 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    vimeo (1.5.4)
+      httparty (>= 0.4.5)
+      httpclient (>= 2.1.5.2)
+      json (>= 1.1.9)
+      multipart-post (>= 1.0.1)
+      oauth (>= 0.4.3)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.2.1)
@@ -570,6 +597,7 @@ DEPENDENCIES
   carmen-rails (~> 1.0.0)
   carrierwave
   coffee-rails (~> 4.0.0)
+  cucumber-rails
   database_cleaner
   devise
   factory_girl_rails
@@ -598,16 +626,18 @@ DEPENDENCIES
   pry-rails
   rails (= 4.1.1)
   ransack!
-  rmagick (= 2.13.2)
+  rmagick (= 2.13.4)
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  shoulda-matchers
   simple_enum
   spring
   spring-commands-rspec
   truncate_html
   uglifier (>= 1.3.0)
   unicorn
+  vimeo
   will_paginate (~> 3.0.5)
   wysiwyg-rails
