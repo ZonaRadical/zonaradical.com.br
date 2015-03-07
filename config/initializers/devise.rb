@@ -234,7 +234,11 @@ Devise.setup do |config|
   if Rails.env == 'production'
     config.omniauth :facebook, "1410728445875629", "c9fd6d8e9daeab47b7510eed96dbde33"
     config.omniauth :twitter, "om7HYHTOBUu4hBm8jXDKso3Am", "VI6PZYOwLybjhuquWHRhhkItRjFzInsBecT4y0XA5HTD3maKTW"
+  elsif Rails.env == 'develop'
+    config.omniauth :facebook, "1559787487636390", "dbc50eb19415a5163e6a36fddd8f880b"
+    config.omniauth :twitter, "test_key", "test_secret"
   else
+    # FB test app for domen zonaradical.dev 
     config.omniauth :facebook, "1547396675542138", "bb8c9367984d8b748063c3fa1a938a91"
     config.omniauth :twitter, "test_key", "test_secret"
   end
