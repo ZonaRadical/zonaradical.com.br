@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150215183712) do
+ActiveRecord::Schema.define(version: 20150220175724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150215183712) do
     t.integer  "ancestry_depth", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "breezes", force: true do |t|
@@ -187,6 +188,7 @@ ActiveRecord::Schema.define(version: 20150215183712) do
     t.integer  "ancestry_depth", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "resort_categories", force: true do |t|
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 20150215183712) do
     t.string  "ancestry"
     t.string  "index"
     t.integer "ancestry_depth", default: 0
+    t.string  "image"
   end
 
   create_table "resorts", force: true do |t|
@@ -236,6 +239,7 @@ ActiveRecord::Schema.define(version: 20150215183712) do
     t.integer  "ancestry_depth", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "tips", force: true do |t|
@@ -295,6 +299,7 @@ ActiveRecord::Schema.define(version: 20150215183712) do
     t.integer  "ancestry_depth", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "videos", force: true do |t|

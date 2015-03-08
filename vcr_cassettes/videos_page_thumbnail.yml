@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://vimeo.com/api/v2/video/9168398.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Mar 2015 17:27:34 GMT
+      Server:
+      - nginx
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Ratelimit-Limit:
+      - '3600'
+      X-Ratelimit-Remaining:
+      - '3595'
+      X-Ratelimit-Reset:
+      - '1425665000'
+      Content-Disposition:
+      - attachment; filename=vimeo.json
+      Cache-Control:
+      - max-age=60
+      Expires:
+      - Fri, 06 Mar 2015 17:28:34 GMT
+      Last-Modified:
+      - Fri, 06 Mar 2015 17:09:30 GMT
+      Etag:
+      - '"e41a3511961088dc5fb6bbb1f4cb5901"'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Ua-Compatible:
+      - IE=edge
+      Content-Security-Policy-Report-Only:
+      - 'default-src https: data: ''unsafe-inline'' ''unsafe-eval''; report-uri /_csp'
+      Content-Length:
+      - '516'
+      Accept-Ranges:
+      - bytes
+      Via:
+      - 1.1 varnish
+      Age:
+      - '0'
+      X-Served-By:
+      - cache-atl6220-ATL
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1425662854.465282,VS0,VE45
+      Vary:
+      - User-Agent,Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '[{"id":9168398,"title":"When Dogs Snowboard","description":"No description
+        necessary.<br \/>\n<br \/>\nSong: \"See Spot\" by Midfall Drive. www.myspace.com\/midfalldrive","url":"https:\/\/vimeo.com\/9168398","upload_date":"2010-02-02
+        18:50:41","mobile_url":"https:\/\/vimeo.com\/9168398","thumbnail_small":"https:\/\/i.vimeocdn.com\/video\/44706303_100x75.jpg","thumbnail_medium":"https:\/\/i.vimeocdn.com\/video\/44706303_200x150.jpg","thumbnail_large":"https:\/\/i.vimeocdn.com\/video\/44706303_640.jpg","user_id":2258424,"user_name":"Mountain
+        High Resort","user_url":"https:\/\/vimeo.com\/mthigh","user_portrait_small":"https:\/\/i.vimeocdn.com\/portrait\/3004258_30x30.jpg","user_portrait_medium":"https:\/\/i.vimeocdn.com\/portrait\/3004258_75x75.jpg","user_portrait_large":"https:\/\/i.vimeocdn.com\/portrait\/3004258_100x100.jpg","user_portrait_huge":"https:\/\/i.vimeocdn.com\/portrait\/3004258_300x300.jpg","stats_number_of_likes":386,"stats_number_of_plays":209623,"stats_number_of_comments":21,"duration":128,"width":640,"height":360,"tags":"mountain
+        high resort, wrightwood, ca, usa, snowboarding, dogs, alpine snow skiing","embed_privacy":"anywhere"}]'
+    http_version: 
+  recorded_at: Fri, 06 Mar 2015 17:27:34 GMT
+recorded_with: VCR 2.9.3

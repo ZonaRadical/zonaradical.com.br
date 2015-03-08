@@ -63,8 +63,8 @@ class BreezeCategoriesController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def breeze_category_params
-      params.require(:breeze_category).permit(:name, :parent_id, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def breeze_category_params
+    params.require(:breeze_category).permit(:name, :parent_id, :description, :image)
+  end
 end
