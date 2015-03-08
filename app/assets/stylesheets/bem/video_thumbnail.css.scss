@@ -1,0 +1,17 @@
+.video-thumbnail {
+  text-align: center;
+}
+
+.video-thumbnail--name {
+  font-family: 'HelveticaNeueBold', Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.video-thumbnail--image {
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

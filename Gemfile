@@ -18,7 +18,7 @@ gem 'cancan'
 gem 'truncate_html'
 
 gem 'carrierwave'
-gem 'rmagick', '2.13.4',require: false
+gem 'rmagick', '2.13.2',require: false
 gem 'fog'
 
 gem 'carmen-rails', '~> 1.0.0'
@@ -40,14 +40,17 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
+
 gem 'simple_enum'
 
 
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
+  gem 'guard-bundler'
+  gem 'guard-rails'
   gem 'guard-rspec'
-  gem 'shoulda-matchers', require: false
+
   gem 'capistrano', '~> 3.3.5'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
@@ -56,9 +59,6 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'populator'
   gem 'faker'
-  gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended for cucumber
-  gem 'database_cleaner'
 end
 
 group :test do
@@ -66,7 +66,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'i18n-tasks'
-  gem "spork-rails"
+  gem 'launchy'
 end
 
 
@@ -96,7 +96,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-#gem 'spring',        group: :development
+gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
