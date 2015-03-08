@@ -73,3 +73,15 @@ $(".flash").fadeIn ->
     return
   ), "5000"
   return
+
+((d, s, id) ->
+  js = undefined
+  fjs = d.getElementsByTagName(s)[0]
+  if d.getElementById(id)
+    return
+  js = d.createElement(s)
+  js.id = id
+  js.src = '//connect.facebook.net/en_US/all.js#xfbml=1'
+  fjs.parentNode.insertBefore js, fjs
+  return
+) document, 'script', 'facebook-jssdk'
