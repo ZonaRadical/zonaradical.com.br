@@ -21,6 +21,8 @@
       %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getYoutubeEmbedLink(@video.source_link), :width => '701'}
     - else @video.source_link.include?("vimeo")
       %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getVimeoEmbedLink(@video.source_link), :width => '701'}
+    %p
+      #{@video.description}
     - if can? :video, :update
       = link_to t('edit'), edit_video_path(@video)
       |
