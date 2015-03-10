@@ -16,6 +16,8 @@ public/assets/*
 
 database.yml
 secrets.yml
+public/robots.txt
+
 /db/scheme.rb
 
 /Procfile

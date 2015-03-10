@@ -7,7 +7,7 @@
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:description", :content =>  @tip.short_description.to_s}
     %meta{:property=>"og:title", :content => "ZR Dicas: "+@tip.title}
-    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+tip_path(@tip).to_s}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
     %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
     -unless @tip.gallery_images.all.count.zero?
       -@tip.gallery_images[0..3].each do |image|
@@ -33,7 +33,7 @@
       =distance_of_time_in_words_to_now @tip.updated_at
       = t('ago')
       ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
-    .fb-share-button{"data-href"=> request.original_url.to_s, "data-layout"=>"button"}
+      .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
     %div#tabs
       %ul.levels
         -if !@tip.level1_description.blank? and !@tip.level2_description.blank?
@@ -62,7 +62,6 @@
       -if !@tip.level3_description.blank?
         %div#tab_level3
           =@tip.level3_description.html_safe unless @tip.level3_description.blank?
-    .fb-share-button{"data-href"=> "https://developers.facebook.com/docs/plugins/", "data-layout"=>"button"}
     -unless @tip.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @tip.gallery_images.all
     .clear
