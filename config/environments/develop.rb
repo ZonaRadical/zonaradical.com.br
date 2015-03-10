@@ -87,12 +87,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_options = {
-      from: "noreply@develop.zonaradical.com.br"
+      from: "noreply@zonaradical.com.br"
   }
   config.action_mailer.smtp_settings = {
       :address => "smtp.yandex.ru",
       :port => 587,
-      :domain => "develop.zonaradical.com.br",
+      :domain => "zonaradical.com.br",
       :authentication => :login,
       :user_name => "noreply@zonaradical.com.br",
       :password => "noreplyZR"
