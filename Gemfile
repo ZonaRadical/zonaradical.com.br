@@ -67,6 +67,10 @@ group :test do
   gem 'factory_girl_rails'
   gem 'i18n-tasks'
   gem 'launchy'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 
