@@ -42,6 +42,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
 gem 'simple_enum'
+gem 'vimeo'
 
 
 group :development, :test do
