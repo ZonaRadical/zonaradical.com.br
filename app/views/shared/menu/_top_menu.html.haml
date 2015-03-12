@@ -1,16 +1,16 @@
 %ul.menu
   %li.submenu-item
-    = active_link_to t('home'), main_app.root_path, active: :exclusive
+    = active_link_to t('home'), main_app.root_path, active: [['static_pages', 'video_categories'], ['index', 'show']]
     %ul.submenu
       =menu_video_categories VideoCategory.all.arrange
 
   %li.submenu-item
-    = active_link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow'
+    = active_link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow', active: [['resorts', 'resort_categories'], []]
     %ul.submenu
       =menu_resort_categories ResortCategory.all.arrange
 
   %li.submenu-item
-    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow'
+    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['tips', 'tip_categories'], []]
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 
