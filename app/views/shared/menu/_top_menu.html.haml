@@ -1,16 +1,16 @@
 %ul.menu
   %li.submenu-item
-    = link_to t('home'), main_app.root_path
+    = active_link_to t('home'), main_app.root_path, active: :exclusive
     %ul.submenu
       =menu_video_categories VideoCategory.all.arrange
 
   %li.submenu-item
-    =link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow'
+    = active_link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow'
     %ul.submenu
       =menu_resort_categories ResortCategory.all.arrange
 
   %li.submenu-item
-    =link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow'
+    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow'
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 
@@ -18,7 +18,7 @@
     %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
 
   %li.submenu-item
-    = link_to t('forum'), forem.root_url
+    = active_link_to t('forum'), forem.root_url
     %ul.submenu
       = menu_forem_categories(Forem::Category.all)
 

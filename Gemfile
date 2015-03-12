@@ -42,6 +42,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
 gem 'simple_enum'
+gem 'active_link_to', github: 'cerdiogenes/active_link_to'
 
 
 group :development, :test do

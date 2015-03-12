@@ -17,6 +17,13 @@ GIT
       polyamorous (~> 1.1)
 
 GIT
+  remote: git://github.com/cerdiogenes/active_link_to.git
+  revision: 74124727b3978658712fe505656d0e9f5a30c586
+  specs:
+    active_link_to (1.0.2)
+      actionpack
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: 2fd42a3502fea1e2b9d523aff5acaf2a1576d19f
   specs:
@@ -567,6 +574,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to!
   active_record-annotate (~> 0.4)
   activeadmin!
   ancestry

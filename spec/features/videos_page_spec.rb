@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'videos page' do
-  scenario 'show thumbnail of the videos', focus: true do
+  scenario 'show thumbnail of the videos' do
     vc = VideoCategory.create(name: 'Misturados', description: 'Vídeos diversos.')
     yt_video = vc.videos.create(title: 'DOMINGO NO PARQUE 2015, PARTE 1', source_link: 'https://www.youtube.com/watch?v=cUj2lCGwOhs')
     vimeo_video = vc.videos.create(title: 'QUANDOS OS CÃES PRATICAM SNOWBOARD', source_link: 'https://vimeo.com/9168398')
