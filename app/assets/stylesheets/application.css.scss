@@ -301,6 +301,9 @@ header {
           &.submenu-item {
             > a {
               background: image_url("submenu-down.png") no-repeat 97% center;
+              &.active {
+                background: image_url("submenu-down.png") no-repeat 97% center #ee9200;
+              }
               &:hover {
                 background: image_url("submenu-down.png") no-repeat 97% center #ee9200;
               }
