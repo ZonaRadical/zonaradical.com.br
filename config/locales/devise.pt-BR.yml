@@ -19,11 +19,11 @@ pt-BR:
       unconfirmed: "Você precisa confirmar sua conta antes de prosseguir."
     mailer:
       confirmation_instructions:
-        subject: "Instruções para confirmação"
+        subject: "Zona Radical: Instruções para confirmação"
       reset_password_instructions:
-        subject: "Instruções para reiniciar sua senha"
+        subject: "Zona Radical: Instruções para alterar sua senha"
       unlock_instructions:
-        subject: "Instruções para destravar sua senha"
+        subject: "Zona Radical: Instruções para destravar sua senha"
     omniauth_callbacks:
       failure: "Não pudemos autenticá-lo em %{kind} por causa de \"%{reason}\"."
       success: "Autenticado com sucesso na conta %{kind}."
