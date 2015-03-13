@@ -95,7 +95,15 @@ h3 {
   text-transform: uppercase;
   margin-bottom: 17px;
 }
-
+/* h5 is the same as h1 to be used on the aside */
+h5 {
+  font: normal normal 17px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
+  color: #686868;
+  text-transform: uppercase;
+  display: inline-block;
+  border-bottom: 4px solid #f78e00;
+  padding-bottom: 6px;
+}
 h6 {
   font: normal normal 17px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
   color: #686868;
