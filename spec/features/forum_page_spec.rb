@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Forum page', :focus do
+feature 'Forum page' do
   before :each do
     create(:video_category, name: 'Digiácomo Dias')
   end

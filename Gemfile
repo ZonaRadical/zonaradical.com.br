@@ -42,6 +42,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 
 gem 'simple_enum'
+gem 'active_link_to', github: 'cerdiogenes/active_link_to'
 
 
 group :development, :test do
@@ -67,6 +68,10 @@ group :test do
   gem 'factory_girl_rails'
   gem 'i18n-tasks'
   gem 'launchy'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 
