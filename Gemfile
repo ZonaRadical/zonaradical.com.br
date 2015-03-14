@@ -43,6 +43,7 @@ gem 'formtastic', github: 'justinfrench/formtastic'
 
 gem 'simple_enum'
 gem 'active_link_to', github: 'cerdiogenes/active_link_to'
+gem 'vimeo'
 
 
 group :development, :test do
