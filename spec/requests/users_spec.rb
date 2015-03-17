@@ -48,4 +48,11 @@ describe 'Users', :type => :request do
     end
 
   end
+
+  describe 'Non existent user' do
+    before { visit user_path(99) }
+    
+    it { should have_http_status(404) }
+    it { should have_content "The page you were looking for doesn't exist." }
+  end
 end

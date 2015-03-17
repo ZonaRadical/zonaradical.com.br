@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
 
   def forem_user
     current_user
@@ -31,5 +33,16 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
+  end
+
+  private
+
+  def record_not_found
+    render file: 'public/404.html', status: 404
+  end
+
+  def set_last_seen_at
+    current_user.update_attribute(:last_seen_at, Time.now)
+    session[:last_seen_at] = Time.now
   end
 end
