@@ -16,7 +16,7 @@
           %b
             = t('lastSignInAt')
             \:
-          = distance_of_time_in_words_to_now @user.last_seen_at
+          = user_last_seen_at
     %ul.details-list
       -unless @user.birthday.nil?
         %li
