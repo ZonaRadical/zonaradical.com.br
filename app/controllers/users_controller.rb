@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
   before_action :finish_signup
-  before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
 
   def index
     @users = User.all
@@ -58,10 +57,5 @@ class UsersController < ApplicationController
                     :city, :web, :fb, :bio, :role_ids => [] ] # extend with your own params
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
-  end
-
-  def set_last_seen_at
-    current_user.update_attribute(:last_seen_at, Time.now)
-    session[:last_seen_at] = Time.now
   end
 end
