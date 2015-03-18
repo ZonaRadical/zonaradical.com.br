@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'users_controller/finish_signup'
+  
+  get '/discourse/sso', to: 'discourse#sso'
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
   scope '/manage' do
