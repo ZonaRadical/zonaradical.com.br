@@ -1,0 +1,10 @@
+.heading
+  %h1= t('athletes')
+%p
+  -@users.each do |site_user|
+    %b=site_user.name
+    =site_user.email
+    -if can? :update, site_user
+      .buttons
+        %a.button{:href => edit_user_path(site_user)}= t('editProfile')
+      .clear

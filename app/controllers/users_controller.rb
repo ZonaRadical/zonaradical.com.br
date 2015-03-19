@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def athletes
+    @users = User.athletes
+  end
+
   private
 
   def user_params
