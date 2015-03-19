@@ -1,5 +1,5 @@
 .main-content
-  =render 'profile'
+  = render 'profile', profile: @user
 -content_for :aside do
   %aside
     -if can? :update, @user
