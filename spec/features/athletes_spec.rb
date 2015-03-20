@@ -49,8 +49,17 @@ feature 'athletes' do
     athletes_menu = galera_zr_menu.find('ul.submenu').find('li', text: 'Athletes')
     athletes_menu.click_link('Athletes')
 
-    expect(page).to have_content('Duda duda@mail.com')
-    expect(page).to have_content('João joao@mail.com')
-    expect(page).to have_content('Zeferino zeferino@mail.com')
+    within('.profile-card:nth-of-type(2)') do
+      expect(page).to have_content('Duda')
+      expect(page).to have_content('Contacts : duda@mail.com')
+    end
+    within('.profile-card:nth-of-type(3)') do
+      expect(page).to have_content('João')
+      expect(page).to have_content('Contacts : joao@mail.com')
+    end
+    within('.profile-card:nth-of-type(4)') do
+      expect(page).to have_content('Zeferino')
+      expect(page).to have_content('Contacts : zeferino@mail.com')
+    end
   end
 end
