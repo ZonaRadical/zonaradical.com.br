@@ -4,6 +4,7 @@
     %title Videos de Snowboard #{@video.video_category.name} | Zona Radical
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"video"}
+    %meta{:name => "description", :content => @video.description.to_s}
     %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
     - if @video.source_link.include?("youtube")
       %meta{:property=>"og:video", :content => getYoutubeEmbedLink(@video.source_link)}
@@ -12,7 +13,7 @@
     %meta{:property=>"og:video:width", :content => '701'}
     %meta{:property=>"og:video:height", :content => '394'}
     %meta{:property=>"og:image", :content =>thumbnail_url(@video.source_link).to_s}
-    %meta{:property=>"og:description", :content => @video.description}
+    %meta{:property=>"og:description", :content => @video.description.to_s}
     %meta{:property=>"og:url", :content =>request.original_url.to_s}
 
   .heading
@@ -29,7 +30,7 @@
       %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getYoutubeEmbedLink(@video.source_link), :width => '701'}
     - else @video.source_link.include?("vimeo")
       %iframe.youtube{:allowfullscreen => '', :frameborder => '0', :height => '394', :src => getVimeoEmbedLink(@video.source_link), :width => '701'}
-    %p
+    %p{:itemprop=>"description"}
       #{@video.description}
       .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
     - if can? :video, :update

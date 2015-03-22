@@ -6,7 +6,7 @@ module VideosHelper
 
   def getVimeoEmbedLink url
     video_id = extract_vimeo_id(url)
-    src = "//player.vimeo.com/video/#{video_id}"
+    src = "http://player.vimeo.com/video/#{video_id}"
     src
   end
 
@@ -33,7 +33,7 @@ module VideosHelper
   private
 
   def youtube_thumbnail(url, options = {})
-    size = options[:size] ||= :high
+    size = options[:size] ||= :maxres
     id = extract_youtube_id(url)
     image_tag("https://i.ytimg.com/vi/#{id}/#{YOUTUBE_FILES[size]}.jpg")
   end
