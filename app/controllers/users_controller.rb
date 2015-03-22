@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def finish_signup
     if request.patch? && params[:user] #&& params[:user][:email]
       if params[:id].to_i == current_user.id
+        update_gallery_images(current_user)
         if current_user.update(user_params)
           current_user.skip_reconfirmation!
           sign_in(current_user, :bypass => true)
@@ -56,7 +57,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    accessible = [ :name, :email, :avatar, :remove_avatar,
+    accessible = [ :name, :email, :avatar, :remove_avatar, :image, :remove_image,
                     :sex, :surname, :login, :birthday, :country,
                     :city, :web, :fb, :bio, :role_ids => [] ] # extend with your own params
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
