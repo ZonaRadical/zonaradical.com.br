@@ -45,6 +45,8 @@ gem 'simple_enum'
 gem 'active_link_to', github: 'cerdiogenes/active_link_to'
 gem 'vimeo'
 
+gem 'discourse_api'
+
 
 group :development, :test do
   gem 'spring-commands-rspec'
