@@ -50,4 +50,7 @@ class Ability
     can :manage, [Resort, ResortCategory]
   end
 
+  def athlete
+  end
+
 end

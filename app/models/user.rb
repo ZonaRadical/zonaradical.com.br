@@ -99,6 +99,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.athletes
+    joins(:roles).where(roles: { name: 'athlete' }).order(name: :asc)
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end

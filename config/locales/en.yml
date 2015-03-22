@@ -29,6 +29,7 @@ en:
   signWith: "Sign in with"
   home: "Home"
   forum: 'Forum'
+  athletes: 'Athletes'
 
   # User Profile
   userProfile: 'User profile'
