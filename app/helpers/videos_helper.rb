@@ -6,7 +6,7 @@ module VideosHelper
 
   def getVimeoEmbedLink url
     video_id = extract_vimeo_id(url)
-    src = "http://player.vimeo.com/video/#{video_id}"
+    src = "//player.vimeo.com/video/#{video_id}"
     src
   end
 

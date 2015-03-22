@@ -9,7 +9,7 @@
     - if @video.source_link.include?("youtube")
       %meta{:property=>"og:video", :content => getYoutubeEmbedLink(@video.source_link)}
     - elsif @video.source_link.include?("vimeo")
-      %meta{:property=>"og:video", :content => getVimeoEmbedLink(@video.source_link)}
+      %meta{:property=>"og:video", :content => "http:"+getVimeoEmbedLink(@video.source_link)}
     %meta{:property=>"og:video:width", :content => '701'}
     %meta{:property=>"og:video:height", :content => '394'}
     %meta{:property=>"og:image", :content =>thumbnail_url(@video.source_link).to_s}
