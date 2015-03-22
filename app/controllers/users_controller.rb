@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include Gallerable
   load_and_authorize_resource
   before_action :finish_signup
 

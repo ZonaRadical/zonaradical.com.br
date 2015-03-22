@@ -1,4 +1,5 @@
 class TipsController < ApplicationController
+  include ImageGallery
   load_and_authorize_resource
 
   # GET /tips
