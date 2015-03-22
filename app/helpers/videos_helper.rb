@@ -17,6 +17,18 @@ module VideosHelper
       vimeo_thumbnail(url, options)
     end
   end
+  def thumbnail_url(url, options = {})
+    if url =~ /youtube/
+      size = options[:size] ||= :high
+      id = extract_youtube_id(url)
+      "https://i.ytimg.com/vi/#{id}/#{YOUTUBE_FILES[size]}.jpg"
+    else
+      size = options[:size] ||= :large
+      id = extract_vimeo_id(url)
+      video_info=Vimeo::Simple::Video.info(id)
+      video_info[0][VIMEO_FILES[size]]
+    end
+  end
 
   private
 
