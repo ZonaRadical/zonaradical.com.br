@@ -17,6 +17,7 @@ module VideosHelper
       vimeo_thumbnail(url, options)
     end
   end
+
   def thumbnail_url(url, options = {})
     if url =~ /youtube/
       size = options[:size] ||= :high
@@ -33,7 +34,7 @@ module VideosHelper
   private
 
   def youtube_thumbnail(url, options = {})
-    size = options[:size] ||= :maxres
+    size = options[:size] ||= :high
     id = extract_youtube_id(url)
     image_tag("https://i.ytimg.com/vi/#{id}/#{YOUTUBE_FILES[size]}.jpg")
   end
