@@ -3,9 +3,17 @@
     /* general METAS
     %title Videos de Snowboard #{@video.video_category.name} | Zona Radical
     /* facebook METAS
-    %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=>"og:title", :content => "Zona Radical Videos: "+@video.title}
-    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    %meta{:property=>"og:type", :content =>"video"}
+    %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
+    - if @video.source_link.include?("youtube")
+      %meta{:property=>"og:video", :content => getYoutubeEmbedLink(@video.source_link)}
+    - elsif @video.source_link.include?("vimeo")
+      %meta{:property=>"og:video", :content => getVimeoEmbedLink(@video.source_link)}
+    %meta{:property=>"og:video:width", :content => '701'}
+    %meta{:property=>"og:video:height", :content => '394'}
+    %meta{:property=>"og:image", :content =>thumbnail(@video.source_link)}
+    %meta{:property=>"og:description", :content =>@video.description}
+    %meta{:property=>"og:url", :content =>request.original_url.to_s}
 
   .heading
     %h1

@@ -1,6 +1,6 @@
 .advert-block
-  %h1 Eventos
-  /= image_tag("/images/advert-img.jpg")
+  .heading
+    %h5 Eventos
   -if rand(10)<7
     = link_to image_tag("/images/advert-img1.jpg"), "https://www.facebook.com/events/1542297512690147/", :target=> "blank"
   -else

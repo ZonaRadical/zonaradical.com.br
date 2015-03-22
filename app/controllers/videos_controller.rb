@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.page(params[:page])
+    @videos = Video.page(params[:page]).reverse
   end
 
   # GET /videos/1

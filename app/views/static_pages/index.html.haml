@@ -54,7 +54,8 @@
           /* =truncate_html(@resort.level1_description, length: 47, omission: '...')
           =strip_tags(@resort.level1_description)[0..47].html_safe
           \...
-        %span.tag=t('resorts')
+        %span.tag
+          Conhece mais uma estação
     -unless @tip.nil?
       .gallery-field-small{:title=> t('tips')}
         -if @tip.nil?
@@ -72,9 +73,9 @@
   .clear
 
 .main-content
-  .heading
+  -# .heading
     %h1 Últimas Notícias do Zona Radical
-  .news-slider
+  -# .news-slider
     -unless @breezes.empty?
       -@breezes.each do |breeze|
         .slide
