@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def finish_signup
     if request.patch? && params[:user] #&& params[:user][:email]
       if params[:id].to_i == current_user.id
-        update_gallery_images(current_user)
+        update_gallery_images(current_user) if view_context.can_add_gallery?(User.find(params[:id]))
         if current_user.update(user_params)
           current_user.skip_reconfirmation!
           sign_in(current_user, :bypass => true)

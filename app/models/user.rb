@@ -121,4 +121,8 @@ class User < ActiveRecord::Base
   def forem_admin?
     self.roles.find_by_name(:admin).is_a?(Role)
   end
+
+  def has_role?(role_sym)
+    roles.any? { |r| r.name.underscore.to_sym == role_sym }
+  end
 end

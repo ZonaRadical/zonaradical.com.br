@@ -57,20 +57,21 @@
         = f.label :bio
         = f.text_area :bio
 
-      %h3 Gallery
-      %ul
-      -unless @user.gallery_images.all.count.zero?
-        -@user.gallery_images.all.each do |image|
-          %li
-            = image_tag image.image_url(:thumb).to_s
-            = text_field_tag "gallery_images[name][#{image.id}]", image.name, {placeholder: 'name'}
-            = text_field_tag "gallery_images[url][#{image.id}]", image.url, {placeholder: 'url'}
-            = text_area_tag "gallery_images[description][#{image.id}]", image.description, size: '30x5'
-            = check_box_tag "gallery_images[remove_image][#{image.id}]"
-            = text_field_tag "gallery_images[order][#{image.id}]", image.order, {placeholder: 'order',size: 4}
-      .field
-        = f.label :add_gallery_images
-        = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
+      -if can_add_gallery?
+        %h3 Gallery
+        %ul
+        -unless @user.gallery_images.all.count.zero?
+          -@user.gallery_images.all.each do |image|
+            %li
+              = image_tag image.image_url(:thumb).to_s
+              = text_field_tag "gallery_images[name][#{image.id}]", image.name, {placeholder: 'name'}
+              = text_field_tag "gallery_images[url][#{image.id}]", image.url, {placeholder: 'url'}
+              = text_area_tag "gallery_images[description][#{image.id}]", image.description, size: '30x5'
+              = check_box_tag "gallery_images[remove_image][#{image.id}]"
+              = text_field_tag "gallery_images[order][#{image.id}]", image.order, {placeholder: 'order',size: 4}
+        .field
+          = f.label :add_gallery_images
+          = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
     %div#tab_avatar
       .field
         = image_tag @user.avatar_url if @user.avatar?
