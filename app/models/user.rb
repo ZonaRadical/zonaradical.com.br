@@ -30,6 +30,7 @@
 #   t.string   :fb
 #   t.text     :bio
 #   t.string   :fb_avatar
+#   t.string   :image
 # end
 #
 # add_index :users, [:email], name: :index_users_on_email, unique: true, using: :btree
@@ -45,8 +46,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
+  has_many :gallery_images, as: :gallerable
 
   mount_uploader :avatar, AvatarImageUploader
+  mount_uploader :image, TipImageUploader
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates_uniqueness_of :login, :allow_nil => true, :allow_blank => true
