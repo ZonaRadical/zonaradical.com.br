@@ -27,7 +27,8 @@ RSpec.describe ImageGalleriesController, :type => :controller do
     {
         :title => 'Title',
         :description => 'Some description',
-        :media_image_category_id => 1
+        :image_gallerable_id => 1,
+        :image_gallerable_type => 'MediaImageCategory'
     }
   }
 

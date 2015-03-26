@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322122456) do
+ActiveRecord::Schema.define(version: 20150326155352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,10 +175,13 @@ ActiveRecord::Schema.define(version: 20150322122456) do
   create_table "image_galleries", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "media_image_category_id"
+    t.integer  "image_gallerable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_gallerable_type"
   end
+
+  add_index "image_galleries", ["image_gallerable_id", "image_gallerable_type"], name: "index_image_gallerable_polymorphic", using: :btree
 
   create_table "media_image_categories", force: true do |t|
     t.string   "name"
