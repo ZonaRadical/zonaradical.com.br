@@ -29,11 +29,7 @@ class TipsController < ApplicationController
     respond_to do |format|
       if @tip.save
 
-        unless params[:gallery_images].nil? || params[:gallery_images][:images].nil?
-          params[:gallery_images][:images].each do |i|
-            @tip.gallery_images.create image: i
-          end
-        end
+        create_gallery_images(@tip)
 
         format.html { redirect_to @tip, notice: 'Tip was successfully created.' }
         format.json { render :show, status: :created, location: @tip }

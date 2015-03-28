@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
-  has_many :gallery_images, as: :gallerable
+  has_many :image_galleries, as: :image_gallerable
 
   mount_uploader :avatar, AvatarImageUploader
   mount_uploader :image, TipImageUploader

@@ -1,10 +1,12 @@
 class ImageGalleriesController < ApplicationController
+  include Gallerable
   load_and_authorize_resource
+  before_action :load_user, unless: -> { params[:user_id].nil? }
 
   # GET /image_gallerys
   # GET /image_gallerys.json
   def index
-    @image_galleries = ImageGallery.page(params[:page])
+    load_image_galleries
   end
 
   # GET /image_gallerys/1
@@ -24,17 +26,11 @@ class ImageGalleriesController < ApplicationController
   # POST /image_gallerys
   # POST /image_gallerys.json
   def create
-    @image_gallery = ImageGallery.new(image_gallery_params)
+    build_image_gallery
     respond_to do |format|
       if @image_gallery.save
-
-        unless params[:gallery_images].nil? || params[:gallery_images][:images].nil?
-          params[:gallery_images][:images].each do |i|
-            @image_gallery.gallery_images.create image: i
-          end
-        end
-
-        format.html { redirect_to @image_gallery, notice: 'ImageGallery was successfully created.' }
+        create_gallery_images(@image_gallery)
+        format.html { redirect_to [@user, @image_gallery], notice: 'ImageGallery was successfully created.' }
         format.json { render :show, status: :created, location: @image_gallery }
       else
         format.html { render :new }
@@ -48,39 +44,7 @@ class ImageGalleriesController < ApplicationController
   def update
     respond_to do |format|
 
-      unless params[:gallery_images].nil?
-        unless params[:gallery_images][:images].nil?
-          params[:gallery_images][:images].each do |i|
-            @image_gallery.gallery_images.create image: i
-          end
-        end
-        unless params[:gallery_images][:description].nil?
-          params[:gallery_images][:description].each do |k, d|
-            GalleryImage.find(k).update(description: d)
-          end
-        end
-        unless params[:gallery_images][:order].nil?
-          params[:gallery_images][:order].each do |k, d|
-            GalleryImage.find(k).update(order: d)
-          end
-        end
-        unless params[:gallery_images][:name].nil?
-          params[:gallery_images][:name].each do |k, d|
-            GalleryImage.find(k).update(name: d)
-          end
-        end
-        unless params[:gallery_images][:url].nil?
-          params[:gallery_images][:url].each do |k, d|
-            GalleryImage.find(k).update(url: d)
-          end
-        end
-
-        unless params[:gallery_images][:remove_image].nil?
-          params[:gallery_images][:remove_image].each do |k, d|
-            GalleryImage.destroy(k)
-          end
-        end
-      end
+      update_gallery_images(@image_gallery)
 
       if @image_gallery.update(image_gallery_params)
         format.html { redirect_to @image_gallery, notice: 'ImageGallery was successfully updated.' }
@@ -103,9 +67,27 @@ class ImageGalleriesController < ApplicationController
   end
 
   private
+
+  def load_image_galleries
+    @image_galleries = image_gallery_scope.page(params[:page]).to_a
+  end
+
+  def build_image_gallery
+    @image_gallery = image_gallery_scope.build
+    @image_gallery.attributes = image_gallery_params
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def image_gallery_params
     params.require(:image_gallery).permit(:title, :description,
-                                :media_image_category_id)
+                                :image_gallerable_id)
+  end
+
+  def image_gallery_scope
+    @user.present? ? @user.image_galleries : ImageGallery.all
+  end
+
+  def load_user
+    @user = User.find(params[:user_id])
   end
 end

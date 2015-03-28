@@ -70,8 +70,8 @@
     %p.bio
       %b Biografia:
       =profile.bio
-  -unless profile.gallery_images.all.count.zero?
-    =render 'shared/sliders/tip', images: profile.gallery_images.all
+  -unless profile.image_galleries.all.count.zero?
+    = render profile.image_galleries
   -if 2<0
     .buttons
       %a.button{:href => "#"} Posts do Fórum
