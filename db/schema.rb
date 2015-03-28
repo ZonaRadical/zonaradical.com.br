@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220175724) do
+ActiveRecord::Schema.define(version: 20150328140906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accomadations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -175,10 +181,13 @@ ActiveRecord::Schema.define(version: 20150220175724) do
   create_table "image_galleries", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "media_image_category_id"
+    t.integer  "image_gallerable_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_gallerable_type"
   end
+
+  add_index "image_galleries", ["image_gallerable_id", "image_gallerable_type"], name: "index_image_gallerable_polymorphic", using: :btree
 
   create_table "media_image_categories", force: true do |t|
     t.string   "name"
@@ -254,6 +263,56 @@ ActiveRecord::Schema.define(version: 20150220175724) do
     t.text     "level3_description"
   end
 
+  create_table "tour_resort_assignments", force: true do |t|
+    t.integer "tour_id"
+    t.integer "resort_id"
+  end
+
+  add_index "tour_resort_assignments", ["resort_id"], name: "index_tour_resort_assignments_on_resort_id", using: :btree
+  add_index "tour_resort_assignments", ["tour_id"], name: "index_tour_resort_assignments_on_tour_id", using: :btree
+
+  create_table "tour_styles", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tour_user_assignments", force: true do |t|
+    t.integer "tour_id"
+    t.integer "user_id"
+  end
+
+  add_index "tour_user_assignments", ["tour_id"], name: "index_tour_user_assignments_on_tour_id", using: :btree
+  add_index "tour_user_assignments", ["user_id"], name: "index_tour_user_assignments_on_user_id", using: :btree
+
+  create_table "tour_user_participant_assignments", force: true do |t|
+    t.integer "tour_id"
+    t.integer "user_id"
+  end
+
+  add_index "tour_user_participant_assignments", ["tour_id"], name: "index_tour_user_participant_assignments_on_tour_id", using: :btree
+  add_index "tour_user_participant_assignments", ["user_id"], name: "index_tour_user_participant_assignments_on_user_id", using: :btree
+
+  create_table "tours", force: true do |t|
+    t.integer  "tour_style_id"
+    t.integer  "accomadation_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "whats_included"
+    t.integer  "duration"
+    t.date     "check_in"
+    t.date     "switch_off"
+    t.string   "img"
+    t.decimal  "price",           precision: 5, scale: 0
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tours", ["accomadation_id"], name: "index_tours_on_accomadation_id", using: :btree
+  add_index "tours", ["tour_style_id"], name: "index_tours_on_tour_style_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",               null: false
     t.string   "encrypted_password",     default: "",               null: false
@@ -286,6 +345,7 @@ ActiveRecord::Schema.define(version: 20150220175724) do
     t.string   "fb"
     t.text     "bio"
     t.string   "fb_avatar"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
