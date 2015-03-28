@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user galleries', :focus do
+feature 'user galleries' do
   BASE_PATH = "#{Rails.root}/spec/fixtures/files/user_gallery"
 
   scenario "athlete add images to it's profiles" do

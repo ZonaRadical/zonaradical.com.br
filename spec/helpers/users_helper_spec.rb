@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe UsersHelper do
-  describe "#can_add_gallery", :focus do
+  describe "#can_add_gallery" do
     before :each do
       @admin = create(:admin)
       @editor = create(:editor)
