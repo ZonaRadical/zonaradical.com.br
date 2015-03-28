@@ -30,6 +30,7 @@
 #   t.string   :fb
 #   t.text     :bio
 #   t.string   :fb_avatar
+#   t.string   :image
 # end
 #
 # add_index :users, [:email], name: :index_users_on_email, unique: true, using: :btree
