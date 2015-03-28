@@ -12,6 +12,15 @@ class Ability
     can :manage, User do |user|
       user && user == @user
     end
+    
+    # registered users
+    if @user.persisted?
+      can :create, Tour
+    end
+
+    can :update, Tour do |tour|
+      tour.owners.include?(@user)
+    end
 
     if @user.roles.size == 0
       can :read, :all #for guest without roles
@@ -48,6 +57,9 @@ class Ability
 
   def editor
     can :manage, [Resort, ResortCategory]
+  end
+
+  def athlete    
   end
 
 end
