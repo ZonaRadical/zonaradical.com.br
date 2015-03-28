@@ -1,0 +1,11 @@
+* Code that change models must be removed from controller, for example, the
+  create action of ImageGalleriesController contains the following code:
+  
+    unless params[:gallery_images].nil? || params[:gallery_images][:images].nil?
+      params[:gallery_images][:images].each do |i|
+        @image_gallery.gallery_images.create image: i
+      end
+    end
+  
+  This is something that the model can take care. This also apply to code in
+  tips_controller
