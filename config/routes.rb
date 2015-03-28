@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
+  resources :tours
 
   ActiveAdmin.routes(self)
 

@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Tour style:
+  = @tour.tour_style
+%p
+  %b Accomadation:
+  = @tour.accomadation
+%p
+  %b Title:
+  = @tour.title
+%p
+  %b Description:
+  = @tour.description
+%p
+  %b Whats included:
+  = @tour.whats_included
+%p
+  %b Duration:
+  = @tour.duration
+%p
+  %b Check in:
+  = @tour.check_in
+%p
+  %b Switch off:
+  = @tour.switch_off
+%p
+  %b Img:
+  = @tour.img
+%p
+  %b Price:
+  = @tour.price
+%p
+  %b Published:
+  = @tour.published
+
+= link_to 'Edit', edit_tour_path(@tour)
+\|
+= link_to 'Back', tours_path

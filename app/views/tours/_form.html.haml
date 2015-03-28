@@ -1,0 +1,43 @@
+= form_for @tour do |f|
+  - if @tour.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tour.errors.count, "error")} prohibited this tour from being saved:"
+      %ul
+        - @tour.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :tour_style
+    = f.text_field :tour_style
+  .field
+    = f.label :accomadation
+    = f.text_field :accomadation
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :whats_included
+    = f.text_field :whats_included
+  .field
+    = f.label :duration
+    = f.number_field :duration
+  .field
+    = f.label :check_in
+    = f.date_select :check_in
+  .field
+    = f.label :switch_off
+    = f.date_select :switch_off
+  .field
+    = f.label :img
+    = f.text_field :img
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :published
+    = f.check_box :published
+  .actions
+    = f.submit 'Save'
