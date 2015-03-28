@@ -1,6 +1,14 @@
 module Gallerable
   extend ActiveSupport::Concern
 
+  def create_gallery_images(model)
+    unless params[:gallery_images].nil? || params[:gallery_images][:images].nil?
+      params[:gallery_images][:images].each do |i|
+        model.gallery_images.create image: i
+      end
+    end
+  end
+
   def update_gallery_images(model)
     unless params[:gallery_images].nil?
       unless params[:gallery_images][:images].nil?

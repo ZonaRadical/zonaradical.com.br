@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
   scope '/manage' do
-    resources :users
+    resources :users do
+      resources :image_galleries
+    end
   end
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup

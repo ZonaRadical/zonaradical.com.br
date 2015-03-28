@@ -1,7 +1,7 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical | Dicas de Snowboard: #{@image_gallery.media_image_category.name}
+    %title Zona Radical | Dicas de Snowboard: #{@image_gallery.image_gallerable.name}
     %meta{:name => "description", :content =>  @image_gallery.description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"gallery"}
@@ -23,7 +23,7 @@
         =t('image_gallerys')
       \:
       %span{:itemprop=>"about"}
-        #{@image_gallery.media_image_category.name}
+        #{@image_gallery.image_gallerable.name}
   %article
     %h3{:itemprop=>"name"}
       =@image_gallery.title
@@ -34,13 +34,13 @@
     -unless @image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @image_gallery.gallery_images.all
     .clear
-    - if can? :image_gallery, :update
+    - if can? :update, @image_gallery
       = link_to t('edit'), edit_image_gallery_path(@image_gallery)
       |
-    - if can? :image_gallery, :destroy
+    - if can? :destroy, @image_gallery
       = link_to 'Destroy', @image_gallery, method: :delete, data: { confirm: 'Are you sure?' }
       |
-      \#{link_to 'Back', image_galleries_path}
+      \#{link_to 'Back', polymorphic_url([@user, ImageGallery.new])}
   .heading
 / end main-content
 
