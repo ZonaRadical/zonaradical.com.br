@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
   resources :tours do
-    resources :owners, module: 'tours'
+    scope module: 'tours' do
+      resources :owners, :participants
+    end
   end
 
   ActiveAdmin.routes(self)
