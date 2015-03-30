@@ -1,75 +1,64 @@
 class ToursController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource through: :current_user
 
-  # GET /tours
-  # GET /tours.json
   def index
-    @tours = Tour.all
+    load_tours
   end
 
-  # GET /tours/1
-  # GET /tours/1.json
-  def show
-  end
-
-  # GET /tours/new
   def new
-    @tour = Tour.new
+    build_tour
   end
 
-  # GET /tours/1/edit
   def edit
+    load_tour
+    build_tour
   end
 
-  # POST /tours
-  # POST /tours.json
   def create
-    @tour = Tour.new(tour_params)
-
-    respond_to do |format|
-      if @tour.save
-        format.html { redirect_to @tour, notice: 'Tour was successfully created.' }
-        format.json { render :show, status: :created, location: @tour }
-      else
-        format.html { render :new }
-        format.json { render json: @tour.errors, status: :unprocessable_entity }
-      end
-    end
+    build_tour
+    save_tour or render 'new'
   end
 
-  # PATCH/PUT /tours/1
-  # PATCH/PUT /tours/1.json
   def update
-    respond_to do |format|
-      if @tour.update(tour_params)
-        format.html { redirect_to @tour, notice: 'Tour was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tour }
-      else
-        format.html { render :edit }
-        format.json { render json: @tour.errors, status: :unprocessable_entity }
-      end
-    end
+    load_tour
+    build_tour
+    save_tour or render 'edit'
   end
 
-  # DELETE /tours/1
-  # DELETE /tours/1.json
   def destroy
+    load_tour
     @tour.destroy
-    respond_to do |format|
-      format.html { redirect_to tours_url, notice: 'Tour was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to tours_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tour
-      @tour = Tour.find(params[:id])
+    def load_tours
+      @tours ||= tour_scope.to_a
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def load_tour
+      @tour ||= tour_scope.find(params[:id])
+    end
+
+    def build_tour
+      @tour ||= tour_scope.build
+      @tour.attributes = tour_params
+      @tour.owners << current_user unless @tour.owners.include?(current_user)
+    end
+
+    def save_tour
+      redirect_to @tour, notice: 'Tour was successfully created.' if @tour.save
+    end
+
     def tour_params
-      params.require(:tour).permit(:tour_style_id, :accomadation_id, :title, :description, :whats_included, :duration, :check_in, :switch_off, :img, :price, :published)
+      tour_params = params[:tour]
+      tour_params ? tour_params.permit(
+        :tour_style_id, :accomadation_id, :title, :description, :whats_included,
+        :duration, :check_in, :switch_off, :img, :price, :published
+      ) : {}
+    end
+
+    def tour_scope
+      current_user.tours
     end
 end

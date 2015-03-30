@@ -46,6 +46,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
+  has_and_belongs_to_many :tours, join_table: 'tour_user_assignments'
 
   mount_uploader :avatar, AvatarImageUploader
 
