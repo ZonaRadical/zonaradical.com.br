@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
-  resources :tours
+  resources :tours do
+    resources :owners, module: 'tours'
+  end
 
   ActiveAdmin.routes(self)
 

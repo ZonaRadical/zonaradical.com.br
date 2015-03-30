@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Tour:
+  = @owner.tour
+%p
+  %b User:
+  = @owner.user
+
+= link_to 'Edit', edit_tour_owner_path(@tour, @owner)
+\|
+= link_to 'Back', tour_owners_path

@@ -19,10 +19,12 @@ RSpec.describe User, :type => :model do
       it { should_not be_able_to(:update, Tour.new) }
       
       context 'tour owner' do
-        let(:tour) { create(:tour, owners: [user]) }
+        let(:tour) { create(:tour_with_owners, users: [user]) }
         let(:other_tour) { create(:tour) }
         it { should be_able_to(:update, tour) }
         it { should_not be_able_to(:update, other_tour) }
+        it { should be_able_to(:manage, tour.owners.build) }
+        it { should_not be_able_to(:manage, other_tour.owners.build) }
       end
     end
   end

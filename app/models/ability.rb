@@ -19,11 +19,17 @@ class Ability
     end
 
     can :update, Tour do |tour|
-      tour.owners.include?(@user)
+      tour.owners.collect { |owner| owner.user }.include?(@user)
     end
 
+    can :manage, Tour::Owner do |tour_owner|
+      tour_owner.tour.owners.collect { |owner| owner.user }.include?(@user)
+    end
+
+    can :read, :all
+
+    #for guest without roles
     if @user.roles.size == 0
-      can :read, :all #for guest without roles
       cannot :index, ResortCategory
       cannot :read, ActiveAdmin
     end

@@ -20,5 +20,11 @@
 class Tour < ActiveRecord::Base
   belongs_to :tour_style
   belongs_to :accomadation
-  has_and_belongs_to_many :owners, class_name: 'User', join_table: 'tour_user_assignments'
+  has_many :owners
+
+  private
+
+  def self.use_relative_model_naming?
+    true
+  end
 end
