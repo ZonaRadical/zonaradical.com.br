@@ -17,6 +17,7 @@ RSpec.describe User, :type => :model do
       it { should be_able_to(:read, :all) }
       it { should be_able_to(:create, Tour) }
       it { should_not be_able_to(:update, Tour.new) }
+      it { should be_able_to(:create, Tour.new.participants.build) }
       
       context 'tour owner' do
         let(:tour) { create(:tour_with_owners, users: [user]) }

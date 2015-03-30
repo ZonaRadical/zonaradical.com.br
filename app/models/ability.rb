@@ -26,6 +26,8 @@ class Ability
       tour_owner.tour.owners.collect { |owner| owner.user }.include?(@user)
     end
 
+    can :create, Tour::Participant
+
     can :read, :all
 
     #for guest without roles

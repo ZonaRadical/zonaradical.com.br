@@ -21,6 +21,7 @@ class Tour < ActiveRecord::Base
   belongs_to :tour_style
   belongs_to :accomadation
   has_many :owners
+  has_many :participants
 
   private
 
