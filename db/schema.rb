@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328140906) do
+ActiveRecord::Schema.define(version: 20150331234504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accomadations", force: true do |t|
+  create_table "accommodations", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -296,7 +296,7 @@ ActiveRecord::Schema.define(version: 20150328140906) do
 
   create_table "tours", force: true do |t|
     t.integer  "tour_style_id"
-    t.integer  "accomadation_id"
+    t.integer  "accommodation_id"
     t.string   "title"
     t.string   "description"
     t.string   "whats_included"
@@ -304,13 +304,13 @@ ActiveRecord::Schema.define(version: 20150328140906) do
     t.date     "check_in"
     t.date     "switch_off"
     t.string   "img"
-    t.decimal  "price",           precision: 5, scale: 0
+    t.decimal  "price",            precision: 5, scale: 0
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tours", ["accomadation_id"], name: "index_tours_on_accomadation_id", using: :btree
+  add_index "tours", ["accommodation_id"], name: "index_tours_on_accommodation_id", using: :btree
   add_index "tours", ["tour_style_id"], name: "index_tours_on_tour_style_id", using: :btree
 
   create_table "users", force: true do |t|
