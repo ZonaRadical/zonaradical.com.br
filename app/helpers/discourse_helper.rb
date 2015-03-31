@@ -70,7 +70,7 @@ module DiscourseHelper
 
 
     def sign(payload)
-      OpenSSL::HMAC.hexdigest("sha256", sso_secret, payload.to_s)
+      OpenSSL::HMAC.hexdigest("sha256", sso_secret, payload)
     end
 
 
