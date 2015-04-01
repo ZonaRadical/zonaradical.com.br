@@ -43,7 +43,7 @@ class ToursController < ApplicationController
     def build_tour
       @tour ||= tour_scope.build
       @tour.attributes = tour_params
-      @tour.owners << current_user unless @tour.owners.include?(current_user)
+      @tour.owners.build(user: current_user) unless @tour.owners.collect { |owner| owner.user }.include?(current_user)
     end
 
     def save_tour
