@@ -2,10 +2,10 @@
 
 %p
   %b Tour:
-  = @owner.tour
+  = @owner.tour.title
 %p
   %b User:
-  = @owner.user
+  = @owner.user.name
 
 = link_to 'Edit', edit_tour_owner_path(@tour, @owner)
 \|
