@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  load_and_authorize_resource through: :current_user
+  load_and_authorize_resource
 
   def index
     load_tours
