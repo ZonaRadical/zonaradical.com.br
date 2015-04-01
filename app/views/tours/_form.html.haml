@@ -7,11 +7,11 @@
           %li= msg
 
   .field
-    = f.label :tour_style
-    = f.text_field :tour_style
+    = f.label :tour_style_id, t('tourStyle')
+    = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
   .field
-    = f.label :accomadation
-    = f.text_field :accomadation
+    = f.label :accommodation_id, t('accommodation')
+    = f.collection_select(:accommodation_id, Accommodation.all, :id, :name, {:prompt => t('selectAccommodation')})
   .field
     = f.label :title
     = f.text_field :title

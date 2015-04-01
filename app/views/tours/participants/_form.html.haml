@@ -6,11 +6,7 @@
         - @participant.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :tour_id
-    = f.text_field :tour_id
-  .field
-    = f.label :user_id
-    = f.text_field :user_id
+  = f.hidden_field :tour_id
+  = f.hidden_field :user_id, value: current_user.id
   .actions
     = f.submit 'Save'

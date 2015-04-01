@@ -12,8 +12,8 @@
   %tbody
     - @participants.each do |participant|
       %tr
-        %td= participant.tour
-        %td= participant.user
+        %td= participant.tour.title
+        %td= participant.user.name
         %td= link_to 'Show', [@tour, participant]
         %td= link_to 'Edit', edit_tour_participant_path(@tour, participant)
         %td= link_to 'Destroy', [@tour, participant], :method => :delete, :data => { :confirm => 'Are you sure?' }
