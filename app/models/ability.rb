@@ -16,17 +16,17 @@ class Ability
     # registered users
     if @user.persisted?
       can :create, Tour
-    end
+      
+      can :update, Tour do |tour|
+        tour.owners.collect { |owner| owner.user }.include?(@user)
+      end
 
-    can :update, Tour do |tour|
-      tour.owners.collect { |owner| owner.user }.include?(@user)
-    end
+      can :manage, Tour::Owner do |tour_owner|
+        tour_owner.tour.owners.collect { |owner| owner.user }.include?(@user)
+      end
 
-    can :manage, Tour::Owner do |tour_owner|
-      tour_owner.tour.owners.collect { |owner| owner.user }.include?(@user)
+      can :create, Tour::Participant
     end
-
-    can :create, Tour::Participant
 
     can :read, :all
 
