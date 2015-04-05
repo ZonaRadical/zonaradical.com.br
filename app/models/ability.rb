@@ -13,8 +13,10 @@ class Ability
       user && user == @user
     end
 
+    can :read, :all # everyone can read everything
+    
+    #for guest without roles
     if @user.roles.size == 0
-      can :read, :all #for guest without roles
       cannot :index, ResortCategory
       cannot :read, ActiveAdmin
     end
@@ -50,6 +52,10 @@ class Ability
     can :manage, [Resort, ResortCategory]
   end
   def athlete
+  end
+
+  def athlete
+    can :manage, ImageGallery
   end
 
 end

@@ -5,4 +5,6 @@
   %ul.stations-list
     =render @image_galleries
     = will_paginate @image_galleries ,:previous_label => '<<',:next_label => '>>', :inner_window => 1
+  - if can_add_gallery?
+    = link_to t('newImageGallery'), new_user_image_gallery_path(@user), class: 'button'
 .clear

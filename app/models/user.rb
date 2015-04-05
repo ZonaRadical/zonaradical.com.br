@@ -30,6 +30,7 @@
 #   t.string   :fb
 #   t.text     :bio
 #   t.string   :fb_avatar
+#   t.string   :image
 # end
 #
 # add_index :users, [:email], name: :index_users_on_email, unique: true, using: :btree
@@ -45,8 +46,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
+  has_many :image_galleries, as: :image_gallerable
 
   mount_uploader :avatar, AvatarImageUploader
+  mount_uploader :image, TipImageUploader
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates_uniqueness_of :login, :allow_nil => true, :allow_blank => true
@@ -99,6 +102,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.athletes
+    joins(:roles).where(roles: { name: 'athlete' }).order(name: :asc)
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
@@ -113,5 +120,9 @@ class User < ActiveRecord::Base
 
   def forem_admin?
     self.roles.find_by_name(:admin).is_a?(Role)
+  end
+
+  def has_role?(role_sym)
+    roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 end

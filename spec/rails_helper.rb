@@ -44,6 +44,9 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  config.before(:each) { GC.disable }
+  config.after(:each) { GC.enable }
+
   config.include Capybara::DSL
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller

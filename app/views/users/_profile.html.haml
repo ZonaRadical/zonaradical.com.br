@@ -2,13 +2,13 @@
   %h1= t('userProfile')
 .profile-card
   .leftcol
-    = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
+    = image_tag(profile.avatar_url, class: 'userpic', alt: profile.name )
   .rightcol
     .title
-      %span.name= @user.name.to_s + ' ' + @user.surname.to_s
-      -if !@user.login.blank?
-        =' aka ' + @user.login.to_s
-      - if @user.online?
+      %span.name= profile.name.to_s + ' ' + profile.surname.to_s
+      -if !profile.login.blank?
+        =' aka ' + profile.login.to_s
+      - if profile.online?
         %span.online online
       - else
         %span.offline offline
@@ -16,38 +16,38 @@
           %b
             = t('lastSignInAt')
             \:
-          = user_last_seen_at
+          = user_last_seen_at(profile)
     %ul.details-list
-      -unless @user.birthday.nil?
+      -unless profile.birthday.nil?
         %li
           %b
             = t('age')
             \:
-          = age @user.birthday
-      -unless @user.sex.nil?
+          = age profile.birthday
+      -unless profile.sex.nil?
         %li
           %b
             = t('sex')
             \:
-          =@user.sex.to_s
-      -unless @user.birthday.blank?
+          =profile.sex.to_s
+      -unless profile.birthday.blank?
         %li
           %b
             = t('birthday')
             \:
-          =@user.birthday.to_formatted_s(:long)
-      -unless @user.country.blank?
+          =profile.birthday.to_formatted_s(:long)
+      -unless profile.country.blank?
         %li
           %b
             = t('country')
             \:
-          =Carmen::Country.coded(@user.country).name
-      -unless @user.city.blank?
+          =Carmen::Country.coded(profile.country).name
+      -unless profile.city.blank?
         %li
           %b
             = t('city')
             \:
-          =@user.city
+          =profile.city
       %li
         %b
           = t('interests')
@@ -58,18 +58,20 @@
           = t('contacts')
           \:
         .contacts-list
-          - if @user.email
-            %span.email=mail_to @user.email, @user.email, :target => "_blank"
-          - if @user.web
-            %span.web=link_to @user.web, @user.web, :target => "_blank"
-          - if @user.fb
-            %span.fb=link_to @user.fb, @user.fb, :target => "_blank"
+          - if profile.email
+            %span.email=mail_to profile.email, profile.email, :target => "_blank"
+          - if profile.web
+            %span.web=link_to profile.web, profile.web, :target => "_blank"
+          - if profile.fb
+            %span.fb=link_to profile.fb, profile.fb, :target => "_blank"
         .clear
   .clear
-  -unless @user.bio.blank?
+  -unless profile.bio.blank?
     %p.bio
       %b Biografia:
-      =@user.bio
+      =profile.bio
+  -unless profile.image_galleries.all.count.zero?
+    = render profile.image_galleries
   -if 2<0
     .buttons
       %a.button{:href => "#"} Posts do Fórum

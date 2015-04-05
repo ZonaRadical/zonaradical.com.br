@@ -1,5 +1,5 @@
 .main-content
-  =render 'profile'
+  = render 'profile', profile: @user
 -content_for :aside do
   %aside
     -if can? :update, @user
@@ -7,6 +7,7 @@
         %h1= t('personalMenu')
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
+        %a.button{:href => user_image_galleries_path(@user)}= t('imageGalleries')
       .clear
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_fb_like_box'

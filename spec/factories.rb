@@ -24,6 +24,12 @@ FactoryGirl.define do
       email 'editor@mail.com'
       after(:create){|u| u.roles << create(:role, name: 'editor')}
     end
+
+    factory :athlete do
+      name 'Athlete'
+      email 'athlete@mail.com'
+      after(:create) { |u| u.roles << create(:role, name: 'athlete') }
+    end
   end
 
 

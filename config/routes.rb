@@ -16,15 +16,21 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'users_controller/finish_signup'
+  
+  get '/discourse/sso', to: 'discourse#sso'
+  get '/discourse/after_sign_in', to: 'discourse#after_sign_in'
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
   scope '/manage' do
-    resources :users
+    resources :users do
+      resources :image_galleries
+    end
   end
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   match '/user' => 'users#profile', via: [:get], :as => :profile
+  match '/athletes' => 'users#athletes', via: [:get], :as => :athletes
 
   mount Forem::Engine, :at => '/forum', :as => 'forem'
 

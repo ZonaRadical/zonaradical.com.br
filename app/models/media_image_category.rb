@@ -13,7 +13,7 @@ class MediaImageCategory < ActiveRecord::Base
   has_ancestry( :cache_depth => true )
 
   validates :name, presence: true
-  has_many :image_galleries
+  has_many :image_galleries, as: :image_gallerable
   mount_uploader :image, CategoryImageUploader
 
 end

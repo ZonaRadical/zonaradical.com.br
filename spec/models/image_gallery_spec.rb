@@ -7,7 +7,7 @@ RSpec.describe ImageGallery, :type => :model do
   end
 
   it { should have_many(:gallery_images) }
-  it { should belong_to(:media_image_category) }
+  it { should belong_to(:image_gallerable) }
   it { should validate_presence_of(:title) }
 
 end
