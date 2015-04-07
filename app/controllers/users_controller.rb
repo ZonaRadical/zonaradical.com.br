@@ -53,6 +53,12 @@ class UsersController < ApplicationController
     @users = User.athletes
   end
 
+  def full_sign_out
+    discourse_sign_out
+    sign_out
+    redirect_to root_path
+  end
+
   private
 
   def user_params
@@ -61,5 +67,13 @@ class UsersController < ApplicationController
                     :city, :web, :fb, :bio, :role_ids => [] ] # extend with your own params
     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
+  end
+
+  def discourse_sign_out
+    client = DiscourseApi::Client.new(Rails.application.secrets.discourse_url)
+    client.api_key = Rails.application.secrets.discourse_api_key
+    client.api_username = Rails.application.secrets.dicsourse_api_username
+    user = client.user(current_user.surname.downcase)
+    client.log_out(user['id'])
   end
 end

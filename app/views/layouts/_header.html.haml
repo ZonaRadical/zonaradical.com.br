@@ -8,7 +8,7 @@
           %span
             = t('hello')
             , #{link_to current_user.name, main_app.profile_path} /
-          = link_to t('signOut'), main_app.destroy_user_session_path, :class => 'exit-link', :method => :delete
+          = link_to t('signOut'), main_app.full_sign_out_path, :class => 'exit-link', :method => :get
       - else
         .non-registered
           - if controller_name != 'sessions'
