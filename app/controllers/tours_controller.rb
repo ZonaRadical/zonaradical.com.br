@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+  include Gallerable
   load_and_authorize_resource
 
   def index
@@ -16,12 +17,14 @@ class ToursController < ApplicationController
 
   def create
     build_tour
-    save_tour or render 'new'
+    save_tour or (render 'new' and return)
+    create_gallery_images(@tour)
   end
 
   def update
     load_tour
     build_tour
+    update_gallery_images(@tour)
     save_tour or render 'edit'
   end
 

@@ -22,6 +22,7 @@ class Tour < ActiveRecord::Base
   belongs_to :accommodation
   has_many :owners
   has_many :participants
+  has_many :gallery_images, as: :gallerable
 
   private
 
