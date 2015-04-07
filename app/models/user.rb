@@ -116,4 +116,8 @@ class User < ActiveRecord::Base
   def forem_admin?
     self.roles.find_by_name(:admin).is_a?(Role)
   end
+
+  def admin?
+    roles.include?(Role.find_by_name(:admin))
+  end
 end
