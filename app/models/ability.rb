@@ -17,7 +17,7 @@ class Ability
     if @user.persisted?
       can :create, Tour
       
-      can :update, Tour do |tour|
+      can :manage, Tour do |tour|
         tour.owners.collect { |owner| owner.user }.include?(@user)
       end
 

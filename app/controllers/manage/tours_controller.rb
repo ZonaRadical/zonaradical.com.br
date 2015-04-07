@@ -31,7 +31,7 @@ class Manage::ToursController < ApplicationController
   def destroy
     load_tour
     @tour.destroy
-    redirect_to tours_path
+    redirect_to manage_tours_path
   end
 
   private
