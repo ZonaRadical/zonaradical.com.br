@@ -23,8 +23,9 @@
       = menu_forem_categories(Forem::Category.all)
 
   %li.submenu-item
-    %a{:href => "http://zonaradical.com.br/galera.html"}
+    %a{:href => "#"}
       Galera
-      %span ZR
+      %span Snow
     %ul.submenu
       %li= link_to t('athletes'), main_app.athletes_path
+      %li= link_to "Zona Radical", "http://zonaradical.com.br/galera.html"
