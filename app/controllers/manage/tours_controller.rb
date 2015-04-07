@@ -1,4 +1,4 @@
-class ToursController < ApplicationController
+class Manage::ToursController < ApplicationController
   include Gallerable
   load_and_authorize_resource
 
@@ -50,7 +50,7 @@ class ToursController < ApplicationController
     end
 
     def save_tour
-      redirect_to @tour, notice: 'Tour was successfully created.' if @tour.save
+      redirect_to [:manage, @tour], notice: 'Tour was successfully created.' if @tour.save
     end
 
     def tour_params

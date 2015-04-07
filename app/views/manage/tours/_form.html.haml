@@ -1,4 +1,4 @@
-= form_for @tour do |f|
+= form_for [:manage, @tour] do |f|
   - if @tour.errors.any?
     #error_explanation
       %h2= "#{pluralize(@tour.errors.count, "error")} prohibited this tour from being saved:"

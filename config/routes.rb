@@ -28,6 +28,9 @@ Rails.application.routes.draw do
       resources :image_galleries
     end
   end
+  namespace :manage do
+    resources :tours
+  end
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
