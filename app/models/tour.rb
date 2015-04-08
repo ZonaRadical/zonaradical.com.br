@@ -24,6 +24,10 @@ class Tour < ActiveRecord::Base
   has_many :participants
   has_many :gallery_images, as: :gallerable
 
+  def self.published
+    where(published: true)
+  end
+
   private
 
   def self.use_relative_model_naming?

@@ -1,0 +1,35 @@
+%h1 Listing tours
+
+%table
+  %thead
+    %tr
+      %th Tour style
+      %th Accommodation
+      %th Title
+      %th Description
+      %th Whats included
+      %th Duration
+      %th Check in
+      %th Switch off
+      %th Image
+      %th Price
+      %th Published
+      %th
+      
+  %tbody
+    - @tours.each do |tour|
+      %tr
+        %td= tour.tour_style
+        %td= tour.accommodation
+        %td= tour.title
+        %td= tour.description
+        %td= tour.whats_included
+        %td= tour.duration
+        %td= tour.check_in
+        %td= tour.switch_off
+        %td= tour.image
+        %td= tour.price
+        %td= tour.published
+        %td= link_to 'Show', [:manage, tour]
+
+%br
