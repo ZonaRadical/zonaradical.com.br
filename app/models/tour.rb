@@ -24,6 +24,10 @@ class Tour < ActiveRecord::Base
   has_many :participants
   has_many :gallery_images, as: :gallerable
 
+  before_save do
+    self.switch_off = check_in
+  end
+
   def self.published
     where(published: true)
   end
