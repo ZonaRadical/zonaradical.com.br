@@ -7,9 +7,9 @@
 #   t.integer  :duration
 #   t.date     :check_in
 #   t.date     :switch_off
-#   t.string   :img
+#   t.string   :image
 #   t.decimal  :price,            precision: 5, scale: 0
-#   t.boolean  :published
+#   t.boolean  :published,                                default: true
 #   t.datetime :created_at
 #   t.datetime :updated_at
 # end

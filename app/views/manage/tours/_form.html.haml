@@ -30,9 +30,10 @@
   .field
     = f.label :price
     = f.text_field :price
-  .field
-    = f.label :published
-    = f.check_box :published
+  - if current_user.admin?
+    .field
+      = f.label :published
+      = f.check_box :published
   %h3 Gallery
   %ul
   -unless @tour.gallery_images.all.count.zero?

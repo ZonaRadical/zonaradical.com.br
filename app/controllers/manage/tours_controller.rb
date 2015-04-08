@@ -54,11 +54,12 @@ class Manage::ToursController < ApplicationController
     end
 
     def tour_params
+      permitted_params = [:tour_style_id, :accomadation_id, :title,
+        :description, :whats_included, :duration, :check_in, :switch_off, :img,
+        :price]
+      permitted_params << :published if current_user.admin?
       tour_params = params[:tour]
-      tour_params ? tour_params.permit(
-        :tour_style_id, :accomadation_id, :title, :description, :whats_included,
-        :duration, :check_in, :switch_off, :img, :price, :published
-      ) : {}
+      tour_params ? tour_params.permit(permitted_params) : {}
     end
 
     def tour_scope
