@@ -67,9 +67,9 @@ $(document).ready ->
 # });
 #
 #
-$(".flash").fadeIn ->
+$(".flash").not(".flash-notification").fadeIn ->
   setTimeout (->
-    $(".flash").fadeOut()
+    $(".flash").not(".flash-notification").fadeOut()
     return
   ), "5000"
   return
