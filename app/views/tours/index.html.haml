@@ -13,6 +13,7 @@
       %th Price
       %th Published
       %th
+      %th
       
   %tbody
     - @tours.each do |tour|
@@ -27,5 +28,10 @@
         %td= tour.price
         %td= tour.published
         %td= link_to 'Show', [:manage, tour]
+        %td
+          = form_for [tour, Tour::Participant.new] do |f|
+            = f.hidden_field :tour_id, value: tour.id
+            = f.hidden_field :user_id, value: current_user.id
+            = f.submit t('participate')
 
 %br

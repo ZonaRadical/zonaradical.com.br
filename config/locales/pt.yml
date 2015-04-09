@@ -77,6 +77,9 @@ pt-BR:
     otherTips: 'Outras dicas sobre '
     newTip: "Nova Dica"
 
+    # Tour
+    participate: 'Participar'
+
     # date time translation
     date:
       abbr_day_names:
