@@ -12,8 +12,7 @@ class Tour::Participant < ActiveRecord::Base
 
   belongs_to :tour
   belongs_to :user
+  enum status: [:pending, :approved, :refused]
 
   validates :user_id, uniqueness: { scope: :tour_id }
-
-  enum status: [:pending, :approved, :refused]
 end

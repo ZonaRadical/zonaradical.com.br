@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  acts_as_messageable
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
   has_and_belongs_to_many :tours, join_table: 'tour_user_assignments'
@@ -119,5 +120,9 @@ class User < ActiveRecord::Base
 
   def admin?
     roles.include?(Role.find_by_name(:admin))
+  end
+
+  def mailboxer_email(object)
+    email
   end
 end
