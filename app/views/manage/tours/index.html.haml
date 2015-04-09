@@ -15,6 +15,7 @@
       %th
       %th
       %th
+      %th
       
   %tbody
     - @tours.each do |tour|
@@ -30,6 +31,7 @@
         %td= tour.published
         %td= link_to 'Show', [:manage, tour]
         %td= link_to 'Edit', edit_manage_tour_path(tour)
+        %td= link_to t('participants'), manage_tour_participants_path(tour)
         %td= link_to 'Destroy', [:manage, tour], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

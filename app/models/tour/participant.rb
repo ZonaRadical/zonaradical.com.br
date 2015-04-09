@@ -15,4 +15,22 @@ class Tour::Participant < ActiveRecord::Base
   enum status: [:pending, :approved, :refused]
 
   validates :user_id, uniqueness: { scope: :tour_id }
+
+  delegate :url_helpers, to: 'Rails.application.routes'
+  delegate :helpers, to: 'ActionController::Base'
+
+  def approve
+    user.notify('Solicitação aprovada', "Sua participação na tour '#{tour.title}' foi aprovada.") if approved!
+  end
+
+  def refuse
+    user.notify('Solicitação recusada', "Sua participação na tour '#{tour.title}' foi recusada.") if refused!
+  end
+
+  after_create do
+    url = url_helpers.manage_tour_participants_url(tour)
+    tour.owners.first.user.notify("Solicitação para participação em tour",
+      "O usuário '#{user.name}' gostaria de participar da tour '#{tour.title}'.
+       Para avaliar este pedido acesse #{helpers.link_to url, url}.")
+  end
 end

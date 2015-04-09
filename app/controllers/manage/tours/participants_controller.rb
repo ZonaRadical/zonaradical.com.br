@@ -1,9 +1,21 @@
-class Tours::ParticipantsController < ApplicationController
+class Manage::Tours::ParticipantsController < ApplicationController
   load_and_authorize_resource :tour, through: :current_user
   load_and_authorize_resource :participant, through: :tour, class: Tour::Participant
 
   def index
     load_participants
+  end
+
+  def approve
+    load_participant
+    @participant.approve
+    redirect_to manage_tour_participants_path(@tour)
+  end
+
+  def refuse
+    load_participant
+    @participant.refuse
+    redirect_to manage_tour_participants_path(@tour)
   end
 
   def show
@@ -43,7 +55,8 @@ class Tours::ParticipantsController < ApplicationController
   end
 
   def load_participant
-    @participant ||= participant_scope.find(params[:id])
+    id = params[:id] || params[:participant_id]
+    @participant ||= participant_scope.find(id)
   end
 
   def build_participant

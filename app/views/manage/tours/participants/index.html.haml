@@ -1,23 +1,25 @@
 %h1 Listing tour_participants
 
+%p
+  %b Tour:
+  = @tour.title
+
 %table
   %thead
     %tr
-      %th Tour
-      %th User
-      %th
+      %th Usuário
+      %th Status
       %th
       %th
       
   %tbody
     - @participants.each do |participant|
       %tr
-        %td= participant.tour.title
         %td= participant.user.name
-        %td= link_to 'Show', [@tour, participant]
-        %td= link_to 'Edit', edit_tour_participant_path(@tour, participant)
-        %td= link_to 'Destroy', [@tour, participant], :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= t(participant.status)
+        %td= link_to t('approve'), manage_tour_participant_approve_path(@tour, participant)
+        %td= link_to t('refuse'), manage_tour_participant_refuse_path(@tour, participant)
 
 %br
 
-= link_to 'New Participant', new_tour_participant_path
+= link_to 'Tours', manage_tours_path

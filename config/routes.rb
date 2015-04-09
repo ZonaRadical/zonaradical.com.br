@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :videos, :video_categories
   resources :tours do
     scope module: 'tours' do
-      resources :owners, :participants
+      resources :participants
     end
   end
 
@@ -26,10 +26,18 @@ Rails.application.routes.draw do
   scope '/manage' do
     resources :users do
       resources :image_galleries
+      resources :notifications
     end
   end
   namespace :manage do
-    resources :tours
+    resources :tours do
+      scope module: 'tours' do
+        resources :owners
+        resources :participants do
+          get :approve, :refuse
+        end
+      end
+    end
   end
 
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup

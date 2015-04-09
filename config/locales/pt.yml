@@ -79,6 +79,14 @@ pt-BR:
 
     # Tour
     participate: 'Participar'
+    participants: 'Participantes'
+
+    # Tour Participants
+    pending: 'Pendente'
+    approved: 'Aprovado'
+    refused: 'Recusado'
+    approve: 'Aprovar'
+    refuse: 'Recusar'
 
     # date time translation
     date:
