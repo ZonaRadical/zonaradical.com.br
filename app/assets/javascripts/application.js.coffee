@@ -15,6 +15,8 @@
 #= require jquery-ui
 #= require jquery_ujs
 #= require forem
+#= require select2
+#= require select2_locale_pt-BR
 
 # Запускаем когда страница готова | trigger when page is ready
 $(document).ready ->

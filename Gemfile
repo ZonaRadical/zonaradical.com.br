@@ -45,7 +45,7 @@ gem 'simple_enum'
 gem 'active_link_to', github: 'cerdiogenes/active_link_to'
 gem 'vimeo'
 gem 'mailboxer'
-
+gem 'select2-rails'
 
 group :development, :test do
   gem 'spring-commands-rspec'
