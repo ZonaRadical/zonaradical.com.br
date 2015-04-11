@@ -28,6 +28,8 @@ class Tour < ActiveRecord::Base
   has_many :participants
   has_many :countries
   has_many :resort_categories, through: :countries
+  has_many :tour_resorts
+  has_many :resorts, through: :tour_resorts
   has_many :gallery_images, as: :gallerable
 
   validates :check_in_y, :check_in_m, presence: true

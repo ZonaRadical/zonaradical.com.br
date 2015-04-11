@@ -34,8 +34,12 @@
       = f.label :published
       = f.check_box :published
   %h3 Destination
-  = f.label :resort_category_ids
-  = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
+  .field
+    = f.label :resort_category_ids
+    = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
+  .field
+    = f.label :resort_ids
+    = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px'
   %h3 Gallery
   %ul
   -unless @tour.gallery_images.all.count.zero?
