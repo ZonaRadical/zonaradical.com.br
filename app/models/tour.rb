@@ -26,6 +26,8 @@ class Tour < ActiveRecord::Base
   belongs_to :accommodation
   has_many :owners
   has_many :participants
+  has_many :countries
+  has_many :resort_categories, through: :countries
   has_many :gallery_images, as: :gallerable
 
   validates :check_in_y, :check_in_m, presence: true

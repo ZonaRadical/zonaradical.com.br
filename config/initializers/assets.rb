@@ -32,3 +32,5 @@ Rails.application.config.assets.precompile += %w( videos.js )
 
 Rails.application.config.assets.precompile += %w( tours.css )
 Rails.application.config.assets.precompile += %w( tours.js )
+
+Rails.application.config.assets.precompile += %w( manage/tours.js )
