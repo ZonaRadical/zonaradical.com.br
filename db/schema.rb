@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409120717) do
+ActiveRecord::Schema.define(version: 20150411000019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -315,6 +315,14 @@ ActiveRecord::Schema.define(version: 20150409120717) do
     t.text     "level2_description"
     t.text     "level3_description"
   end
+
+  create_table "tour_country_assignments", force: true do |t|
+    t.integer "tour_id"
+    t.integer "resort_category_id"
+  end
+
+  add_index "tour_country_assignments", ["resort_category_id"], name: "index_tour_country_assignments_on_resort_category_id", using: :btree
+  add_index "tour_country_assignments", ["tour_id"], name: "index_tour_country_assignments_on_tour_id", using: :btree
 
   create_table "tour_resort_assignments", force: true do |t|
     t.integer "tour_id"
