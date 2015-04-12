@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      tour: Tour
+    attributes:
+      tour:
+        resort_category_ids: País(es)
+        resort_ids: Resort(s)
