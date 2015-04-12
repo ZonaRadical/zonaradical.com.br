@@ -6,3 +6,7 @@ pt-BR:
       tour:
         resort_category_ids: País(es)
         resort_ids: Resort(s)
+    errors:
+      models:
+        tour:
+          missing_country: 'Você deve selecionar pelo menos um país.'

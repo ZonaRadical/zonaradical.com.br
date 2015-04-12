@@ -32,8 +32,10 @@ class Tour < ActiveRecord::Base
   has_many :resorts, through: :tour_resorts
   has_many :gallery_images, as: :gallerable
 
+  validates :tour_style, :title, :description, presence: true
   validates :check_in_y, :check_in_m, presence: true
   validates :check_in_y, :check_in_m, numericality: { only_integer: true, greater_than: 0 }
+  validate :country_presence
 
   before_save do
     self.switch_off_d = check_in_d
@@ -57,5 +59,9 @@ class Tour < ActiveRecord::Base
 
   def self.use_relative_model_naming?
     true
+  end
+
+  def country_presence
+    errors.add(:base, :missing_country) if self.countries.empty?
   end
 end
