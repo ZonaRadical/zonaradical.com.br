@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
+  resources :accommodations, :tour_styles
   resources :tours do
     scope module: 'tours' do
       resources :participants

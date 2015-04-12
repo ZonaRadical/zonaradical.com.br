@@ -34,3 +34,6 @@ Rails.application.config.assets.precompile += %w( tours.css )
 Rails.application.config.assets.precompile += %w( tours.js )
 
 Rails.application.config.assets.precompile += %w( manage/tours.js )
+
+Rails.application.config.assets.precompile += %w( tour_styles.css )
+Rails.application.config.assets.precompile += %w( tour_styles.js )
