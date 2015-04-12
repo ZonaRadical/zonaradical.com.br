@@ -5,7 +5,6 @@ $ ->
     options = []
     for country in $('#tour_resort_category_ids').select2('data')
       options.push($(resorts).filter("optgroup[label=#{country.text}]"))
-    console.log options
     $('#tour_resort_ids').html(options)
     
   $('select[multiple=multiple]').select2()
