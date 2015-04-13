@@ -56,6 +56,10 @@ class Tour < ActiveRecord::Base
     where(published: true)
   end
 
+  def approved_participants
+    participants.where(status: Tour::Participant.statuses[:approved])
+  end
+
   private
 
   def self.use_relative_model_naming?
