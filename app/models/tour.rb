@@ -25,6 +25,7 @@ class Tour < ActiveRecord::Base
   belongs_to :tour_style
   belongs_to :accommodation
   has_many :owners
+  has_many :user_owners, through: :owners, source: :user
   has_many :participants
   has_many :countries
   has_many :resort_categories, through: :countries
