@@ -25,8 +25,8 @@ class Ability
         tour_owner.tour.owners.collect { |owner| owner.user }.include?(@user)
       end
 
-      can :manage, Tour::Participant do |tour|
-        tour.user_owners.include?(@user)
+      can :manage, Tour::Participant do |tour_participant|
+        tour_participant.tour.user_owners.include?(@user)
       end
 
       can :create, Tour::Participant
