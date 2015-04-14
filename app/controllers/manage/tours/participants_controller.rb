@@ -45,7 +45,7 @@ class Manage::Tours::ParticipantsController < ApplicationController
   def destroy
     load_participant
     @participant.destroy
-    redirect_to tour_participants_url
+    redirect_to manage_tour_participants_url
   end
 
   private

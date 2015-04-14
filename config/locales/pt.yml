@@ -30,6 +30,7 @@ pt-BR:
     home: "Home"
     forum: 'Forum'
     received_reply: 'Resposta recebida'
+    confirm_destroy: 'Você tem certeza?'
 
     # User Profile
     userProfile: 'Perfil de usuario'
