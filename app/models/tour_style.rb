@@ -6,4 +6,7 @@
 # end
 
 class TourStyle < ActiveRecord::Base
+  def to_s
+    name
+  end
 end
