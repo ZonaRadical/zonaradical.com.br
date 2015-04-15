@@ -32,5 +32,5 @@
         %td= tour.owners.collect { |o| o.user.name }.join(', ')
         %td= tour.approved_participants.collect { |p| p.user.name }.join(', ')
         %td= link_to 'Show', [:manage, tour]
-        %td= participate_button(tour)
+        %td= participation_status(tour)
 %br

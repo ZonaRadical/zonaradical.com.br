@@ -27,6 +27,7 @@ class Tour < ActiveRecord::Base
   has_many :owners
   has_many :user_owners, through: :owners, source: :user
   has_many :participants
+  has_many :user_participants, through: :participants, source: :user
   has_many :countries
   has_many :resort_categories, through: :countries
   has_many :tour_resorts
