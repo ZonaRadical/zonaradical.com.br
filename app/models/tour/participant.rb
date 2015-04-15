@@ -26,11 +26,4 @@ class Tour::Participant < ActiveRecord::Base
   def refuse
     user.notify('Solicitação recusada', "Sua participação na tour '#{tour.title}' foi recusada.") if refused!
   end
-
-  after_create do
-    url = url_helpers.manage_tour_participants_url(tour)
-    tour.owners.first.user.notify("Solicitação para participação em tour",
-      "O usuário '#{user.name}' gostaria de participar da tour '#{tour.title}'.
-       Para avaliar este pedido acesse #{helpers.link_to url, url}.")
-  end
 end

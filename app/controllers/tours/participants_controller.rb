@@ -15,7 +15,13 @@ class Tours::ParticipantsController < ApplicationController
   end
 
   def save_participant
-    redirect_to tours_path, notice: 'Seu pedido foi enviado, em breve você receberá uma resposta.' if @participant.save
+    if @participant.save
+      url = manage_tour_participants_url(@tour)
+      @tour.owners.first.user.notify("Solicitação para participação em tour",
+        "O usuário '#{current_user.name}' gostaria de participar da tour '#{@tour.title}'.
+         Para avaliar este pedido acesse #{view_context.link_to url, url}.")
+      redirect_to tours_path, notice: 'Seu pedido foi enviado, em breve você receberá uma resposta.'
+    end
   end
 
   def participant_params
