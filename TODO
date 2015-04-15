@@ -1,0 +1,3 @@
+* When a tour participant get's approved/refused, the owner notification is
+  marked as read. The actual implemenation is fragile, since it's rely on the
+  notification text, and must be made more robust.
