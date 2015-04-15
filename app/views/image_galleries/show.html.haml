@@ -1,36 +1,18 @@
-.main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
-  -content_for :for_head do
-    /* general METAS
-    %title Zona Radical | Dicas de Snowboard: #{@image_gallery.image_gallerable.name}
-    %meta{:name => "description", :content =>  @image_gallery.description.to_s}
-    /* facebook METAS
-    %meta{:property=>"og:type", :content =>"gallery"}
-    %meta{:property=>"og:description", :content =>  @image_gallery.description.to_s}
-    %meta{:property=>"og:title", :content => "Zona Radical Dicas: "+@image_gallery.title}
-    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"+ image_gallery_path(@image_gallery).to_s}
-    -unless @image_gallery.gallery_images.all.count.zero?
-      -@image_gallery.gallery_images[0..3].each do |image|
-        %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
-    /* schema.org METAS
-    %meta{:itemprop=>"author", :content =>"Zona Radical"}
+.main-content
   .heading
-    %meta{:itemprop=>"description", :content => @image_gallery.description.to_s}
-    / @todo Adding (!) separate keywords set for every material
-    / %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
-    %meta{:itemprop=>"url", :content => "http://zonaradical.com.br" + image_gallery_path(@image_gallery).to_s}
     %h1
-      %span{:itemprop=>"articleSection"}
-        =t('image_gallerys')
-      \:
-      %span{:itemprop=>"about"}
-        #{@image_gallery.image_gallerable.name}
+      =t('image_galleries')+":"
+      #{@image_gallery.image_gallerable.name}
   %article
-    %h3{:itemprop=>"name"}
+    %h3
       =@image_gallery.title
     %i.extra-info
       =distance_of_time_in_words_to_now @image_gallery.updated_at
       = t('ago')
       ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
+    -unless @image_gallery.description.blank?
+      %p.galdes
+        =@image_gallery.description
     -unless @image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @image_gallery.gallery_images.all
     .clear
@@ -42,7 +24,8 @@
       |
       \#{link_to 'Back', polymorphic_url([@user, ImageGallery.new])}
   .heading
-/ end main-content
+  %b{:style=>"font-size: 16px;" }
+    = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name, :back
 
 -content_for :aside do
   %aside
@@ -50,5 +33,4 @@
     =#render 'shared/aside/aside_media_image_category', :media_image_category => @image_gallery.media_image_category
     =render 'shared/aside/aside_fb_like_box'
     =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
   .clear

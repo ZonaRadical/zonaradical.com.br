@@ -786,6 +786,12 @@ img {
     display: block;
     border: 1px solid #c5c4c4;
   }
+  &.galsample {
+    width: 150px;
+    display: block;
+    border: 1px solid #c5c4c4;
+    margin-left: 16px;
+  }
 }
 
 ul.galera-list {
@@ -848,7 +854,7 @@ ul.galera-list {
 
 .profile-card {
   position: relative;
-  margin-bottom: 200px;
+  margin-bottom: 20px;
   padding-top: 3px;
   .leftcol {
     width: 141px;
@@ -907,6 +913,13 @@ ul.stars {
     .activity {
       color: #646464;
     }
+  }
+}
+
+.profile-card {
+  .galcol {
+    width: 300px;
+    float: left;
   }
 }
 
@@ -1000,6 +1013,9 @@ ul.details-list {
     float: left;
     margin-right: 27px;
   }
+    .nona{
+      background: rgba(36, 23, 0, 0.27);
+    }
   &.right {
     position: absolute;
     right: 0;
@@ -1204,8 +1220,28 @@ article {
     display: block;
     margin-bottom: 17px;
   }
+  p.galdes{
+    margin-bottom: 15px;
+  }
 }
 
+gallery {
+    margin-bottom: 40px;
+  h3 {
+    margin-top: 13px;
+    margin-bottom: 3px;
+  }
+  i.extra-info {
+    color: #9a9999;
+    font-size: 14px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 3px;
+  }
+  img {
+    border: 1px solid #c5c4c4;
+  }
+}
 ul.levels {
   margin: 0 0 11px;
   list-style: none;

@@ -7,10 +7,9 @@
         %h1= t('personalMenu')
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
-        %a.button{:href => user_image_galleries_path(@user)}= t('imageGalleries')
+        = image_gallery_button
       .clear
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_fb_like_box'
     =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
   .clear
