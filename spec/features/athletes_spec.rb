@@ -51,15 +51,15 @@ feature 'athletes' do
 
     within('.profile-card:nth-of-type(2)') do
       expect(page).to have_content('Duda')
-      expect(page).to have_content('Contacts : duda@mail.com')
+      #expect(page).to have_content('Contacts : duda@mail.com')
     end
     within('.profile-card:nth-of-type(3)') do
       expect(page).to have_content('João')
-      expect(page).to have_content('Contacts : joao@mail.com')
+      #expect(page).to have_content('Contacts : joao@mail.com')
     end
     within('.profile-card:nth-of-type(4)') do
       expect(page).to have_content('Zeferino')
-      expect(page).to have_content('Contacts : zeferino@mail.com')
+      #expect(page).to have_content('Contacts : zeferino@mail.com')
     end
   end
 end
