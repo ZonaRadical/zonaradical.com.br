@@ -1,0 +1,34 @@
+%p#notice= notice
+
+%p
+  %b Tour style:
+  = @tour.tour_style
+%p
+  %b Accommodation:
+  = @tour.accommodation
+%p
+  %b Title:
+  = @tour.title
+%p
+  %b Description:
+  = @tour.description
+%p
+  %b Duration:
+  = @tour.duration
+%p
+  %b Check in:
+  = @tour.check_in
+%p
+  %b Image:
+  = @tour.image
+%p
+  %b Price:
+  = @tour.price
+%p
+  %b Published:
+  = @tour.published
+
+- if can? :manage, @tour
+  = link_to 'Edit', edit_manage_tour_path(@tour)
+  \|
+= link_to 'Back', tours_path
