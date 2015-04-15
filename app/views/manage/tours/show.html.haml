@@ -25,6 +25,7 @@
   %b Published:
   = @tour.published
 
-= link_to 'Edit', edit_manage_tour_path(@tour)
-\|
+- if can? :manage, @tour
+  = link_to 'Edit', edit_manage_tour_path(@tour)
+  \|
 = link_to 'Back', manage_tours_path
