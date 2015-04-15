@@ -55,7 +55,7 @@
         = f.text_field :fb
       .field
         = f.label :bio
-        = f.text_area :bio
+        = f.text_area(:bio, size: "100x20")
     %div#tab_avatar
       .field
         = image_tag @user.avatar_url if @user.avatar?
