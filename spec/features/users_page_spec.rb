@@ -15,7 +15,7 @@ feature 'users page' do
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: 'foobar'
     click_button 'Sign in'
-    click_link 'Sign Out'
+    #click_link 'Sign Out'
 
     visit user_path(@user)
     expect(page).to_not have_content('Last visit : Never')
