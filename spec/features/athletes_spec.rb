@@ -45,7 +45,7 @@ feature 'athletes' do
     create(:athlete, name: 'Duda', email: 'duda@mail.com')
     
     visit root_path
-    galera_zr_menu = find('li.submenu-item', text: 'Galera ZR')
+    galera_zr_menu = find('li.submenu-item', text: 'Galera Snow')
     athletes_menu = galera_zr_menu.find('ul.submenu').find('li', text: 'Athletes')
     athletes_menu.click_link('Athletes')
 
