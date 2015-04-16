@@ -8,6 +8,7 @@
     %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
     - if @video.source_link.include?("youtube")
       %meta{:property=>"og:video:url", :content => getYoutubeEmbedLink(@video.source_link)}
+      %meta{:property=>"og:video:secure_url", :content => getYoutubeEmbedLink(@video.source_link).gsub('http','https')}
       /* %meta{:property=>"og:video", :content => @video.source_link}
     - elsif @video.source_link.include?("vimeo")
       %meta{:property=>"og:video", :content => "http:"+getVimeoEmbedLink(@video.source_link)}
