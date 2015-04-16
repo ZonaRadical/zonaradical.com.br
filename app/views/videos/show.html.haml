@@ -17,9 +17,11 @@
       /* %meta{:property=>"og:video", :content => @video.source_link}
     %meta{:property=>"og:video:width", :content => '701'}
     %meta{:property=>"og:video:height", :content => '394'}
+    %meta{:property=>"og:video:type", :content => 'application/x-shockwave-flash'}
     %meta{:property=>"og:image", :content =>thumbnail_url(@video.source_link).to_s}
     %meta{:property=>"og:description", :content => @video.description.to_s}
-    /*%meta{:property=>"og:url", :content =>request.original_url.to_s}
+    %meta{:property=>"og:url", :content =>'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
+    /*request.original_url.to_s
 
   .heading
     %h1
