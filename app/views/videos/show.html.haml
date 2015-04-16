@@ -7,7 +7,8 @@
     %meta{:name => "description", :content => @video.description.to_s}
     %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
     %meta{:property=>"og:description", :content => @video.description.to_s}
-    %meta{:property=>"og:url", :content =>'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    /* 'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
     - if @video.source_link.include?("youtube")
       /* %meta{:property=>"og:video:url", :content => getYoutubeEmbedLink(@video.source_link)}
       %meta{:property=>"og:video:url", :content => 'http://www.youtube.com/watch?v=lB8o_OWNCxw'}
@@ -20,7 +21,7 @@
     %meta{:property=>"og:video:type", :content => 'text/html'}
     %meta{:property=>"og:video:width", :content => '701'}
     %meta{:property=>"og:video:height", :content => '394'}
-      /* second
+    /* second
     %meta{:property=>"og:video:url", :content => 'http://www.youtube.com/v/lB8o_OWNCxw?version=3&amp;autohide=1'}
     %meta{:property=>"og:video:secure_url", :content => 'https://www.youtube.com/v/lB8o_OWNCxw?version=3&amp;autohide=1'}
     %meta{:property=>"og:video:type", :content => 'application/x-shockwave-flash'}
