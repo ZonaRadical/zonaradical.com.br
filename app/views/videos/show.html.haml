@@ -6,17 +6,18 @@
     %meta{:property=>"og:type", :content =>"video"}
     %meta{:name => "description", :content => @video.description.to_s}
     %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
+    %meta{:property=>"og:description", :content => @video.description.to_s}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     - if @video.source_link.include?("youtube")
       %meta{:property=>"og:video:url", :content => getYoutubeEmbedLink(@video.source_link)}
       %meta{:property=>"og:video:secure_url", :content => getYoutubeEmbedLink(@video.source_link).gsub('http','https')}
     - elsif @video.source_link.include?("vimeo")
-      %meta{:property=>"og:video", :content => "https:"+getVimeoEmbedLink(@video.source_link)}
+      %meta{:property=>"og:video", :content => "http:"+getVimeoEmbedLink(@video.source_link)}
     %meta{:property=>"og:video:type", :content => 'application/x-shockwave-flash'}
     %meta{:property=>"og:video:width", :content => '701'}
     %meta{:property=>"og:video:height", :content => '394'}
     %meta{:property=>"og:image", :content =>thumbnail_url(@video.source_link).to_s}
-    %meta{:property=>"og:description", :content => @video.description.to_s}
+
   .heading
     %h1
       %span{:itemprop=>"articleSection"}
