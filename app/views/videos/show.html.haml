@@ -8,7 +8,7 @@
     %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
     %meta{:property=>"og:image", :content =>thumbnail_url(@video.source_link).to_s}
     %meta{:property=>"og:description", :content => @video.description.to_s}
-        /* 'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
+    /* 'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
     %meta{:property=>"og:type", :content =>"video"}
     - if @video.source_link.include?("youtube")
       /* %meta{:property=>"og:video:url", :content => getYoutubeEmbedLink(@video.source_link)}
