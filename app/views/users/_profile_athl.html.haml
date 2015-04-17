@@ -1,4 +1,4 @@
-.profile-card
+.profile-athl-card
   .leftcol
     = link_to image_tag(profile.avatar_url, class: 'userpic', alt: profile.name ), user_url(profile)
   .rightcol
@@ -39,18 +39,14 @@
           - if profile.fb
             %span.fb=link_to profile.fb, profile.fb, :target => "_blank"
         .clear
-      -unless profile.bio.blank?
-        %p.bio
-          %b Biografia:
-          =truncate_html(profile.bio, length: 150, omission: '...')
   .galcol
     -unless profile.image_galleries.all.count.zero?
-      Numero das galerias de foto:
+      Galerias de foto:
       =profile.image_galleries.all.count
       =link_to image_tag(profile.image_galleries.sample.gallery_images.sample.image_url(:slider), class: 'galsample', :title=>"Foro de "+profile.name.to_s + " " + profile.surname.to_s), user_url(profile)
-    -if 2<0
-      .buttons
-        %a.button{:href => "#"} Posts do Fórum
-        %a.button{:href => "#"} Posts do Vamo Junto
-      .clear
   .clear
+.clear
+%p.bio
+  -unless profile.bio.blank?
+    %b Biografia:
+  =truncate_html(profile.bio, length: 150, omission: '...')

@@ -790,7 +790,7 @@ img {
     width: 150px;
     display: block;
     border: 1px solid #c5c4c4;
-    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 
@@ -916,10 +916,49 @@ ul.stars {
   }
 }
 
-.profile-card {
-  .galcol {
-    width: 300px;
+.profile-athl-card {
+  position: relative;
+  margin-bottom: 2px;
+  padding-top: 3px;
+  .leftcol {
+    width: 141px;
     float: left;
+    margin-right: 16px;
+  }
+  .reputation {
+    margin-bottom: 10px;
+  }
+  .rightcol {
+    width: 374px;
+    float: left;
+  }
+  .title {
+    .name {
+      text-transform: uppercase;
+      font: normal normal 18px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
+      color: #646464;
+      margin-right: 10px;
+    }
+    .online {
+      display: inline-block;
+      height: 21px;
+      padding: 0 3px;
+      background: #2ba106;
+      color: #fff;
+      line-height: 21px;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+    .activity {
+      color: #646464;
+    }
+  }
+  .galcol {
+    width: 166px;
+    float: left;
+  }
+  p.gal-descr{
+
   }
 }
 
