@@ -3,20 +3,20 @@
     /* general METAS
     %title Videos de Snowboard #{@video.video_category.name} | Zona Radical
     /* facebook METAS
-    %meta{:property=>"og:type", :content =>"video"}
+    %meta{:property=>"og:type", :content =>"website"}
     %meta{:name => "description", :content => @video.description.to_s}
     %meta{:property=>"og:title", :content => "ZR Videos: "+@video.title}
     %meta{:property=>"og:description", :content => @video.description.to_s}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     /* 'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
-    - if @video.source_link.include?("youtube")
-      %meta{:property=>"og:video:url", :content => getYoutubeEmbedLink(@video.source_link)}
-      %meta{:property=>"og:video:secure_url", :content => getYoutubeEmbedLink(@video.source_link).gsub('http','https')}
-      /* %meta{:property=>"og:video:url", :content => 'http://www.youtube.com/watch?v=lB8o_OWNCxw'}
-      /* %meta{:property=>"og:video:secure_url", :content => 'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
-      /* %meta{:property=>"og:video", :content => @video.source_link}
-    - elsif @video.source_link.include?("vimeo")
-      %meta{:property=>"og:video", :content => "http:"+getVimeoEmbedLink(@video.source_link)}
+    /*- if @video.source_link.include?("youtube")
+    /*meta{:property=>"og:video:url", :content => getYoutubeEmbedLink(@video.source_link)}
+    /*%meta{:property=>"og:video:secure_url", :content => getYoutubeEmbedLink(@video.source_link).gsub('http','https')}
+    /* %meta{:property=>"og:video:url", :content => 'http://www.youtube.com/watch?v=lB8o_OWNCxw'}
+    /* %meta{:property=>"og:video:secure_url", :content => 'https://www.youtube.com/watch?v=lB8o_OWNCxw'}
+    /* %meta{:property=>"og:video", :content => @video.source_link}
+    /*- elsif @video.source_link.include?("vimeo")
+    /*  %meta{:property=>"og:video", :content => "http:"+getVimeoEmbedLink(@video.source_link)}
     /* %meta{:property=>"og:video", :content => @video.source_link}
     /* %meta{:property=>"og:video:type", :content => 'text/html'}
     /* %meta{:property=>"og:video:width", :content => '701'}
@@ -24,9 +24,9 @@
     /* second
     /* %meta{:property=>"og:video:url", :content => 'http://www.youtube.com/v/lB8o_OWNCxw?version=3&amp;autohide=1'}
     /* %meta{:property=>"og:video:secure_url", :content => 'https://www.youtube.com/v/lB8o_OWNCxw?version=3&amp;autohide=1'}
-    %meta{:property=>"og:video:type", :content => 'application/x-shockwave-flash'}
-    %meta{:property=>"og:video:width", :content => '701'}
-    %meta{:property=>"og:video:height", :content => '394'}
+    /*%meta{:property=>"og:video:type", :content => 'application/x-shockwave-flash'}
+    /*  %meta{:property=>"og:video:width", :content => '701'}
+    /*  %meta{:property=>"og:video:height", :content => '394'}
     %meta{:property=>"og:image", :content =>thumbnail_url(@video.source_link).to_s}
   /*request.original_url.to_s
 
