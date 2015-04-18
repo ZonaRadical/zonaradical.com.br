@@ -1027,8 +1027,15 @@ ul.details-list {
   }
 }
 
-.profile-card p.bio {
+p.bio {
   margin-bottom: 24px;
+  a.read-more {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    padding-right: 30px;
+    background: image_url("read-more.png") no-repeat right center;
+  }
 }
 
 

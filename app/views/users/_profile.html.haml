@@ -12,11 +12,11 @@
         %span.online online
       - else
         %span.offline offline
-        %span.activity
-          %b
-            = t('lastSignInAt')
-            \:
-          = user_last_seen_at(profile)
+        /%span.activity
+        /  %b
+        /    = t('lastSignInAt')
+        /    \:
+        /  = user_last_seen_at(profile)
     %ul.details-list
       -unless profile.birthday.nil?
         %li

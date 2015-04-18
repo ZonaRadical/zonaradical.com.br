@@ -11,11 +11,11 @@
         %span.online online
       - else
         %span.offline offline
-        %span.activity
-          %b
-            = t('lastSignInAt')
-            \:
-          = user_last_seen_at(profile)
+        /%span.activity
+        /  %b
+        /    = t('lastSignInAt')
+        /    \:
+        /  = user_last_seen_at(profile)
     %ul.details-list
       -unless profile.birthday.nil?
         %li
@@ -43,10 +43,12 @@
     -unless profile.image_galleries.all.count.zero?
       Galerias de foto:
       =profile.image_galleries.all.count
-      =link_to image_tag(profile.image_galleries.sample.gallery_images.sample.image_url(:slider), class: 'galsample', :title=>"Foro de "+profile.name.to_s + " " + profile.surname.to_s), user_url(profile)
+      =link_to image_tag(profile.image_galleries.sample.gallery_images.sample.image_url(:slider), class: 'galsample', :title=>"Foto des "+profile.name.to_s + " " + profile.surname.to_s), user_url(profile)
   .clear
 .clear
 %p.bio
   -unless profile.bio.blank?
     %b Biografia:
-  =truncate_html(profile.bio, length: 150, omission: '...')
+    =truncate_html(profile.bio, length: 150, omission: '  ')
+    =link_to "Leia mais", user_url(profile), class: 'read-more'
+

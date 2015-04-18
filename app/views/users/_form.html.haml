@@ -7,8 +7,10 @@
       %ul
         - @user.errors.full_messages.each do |message|
           %li= message
-  .actions
-    = f.submit
+  .heading
+    %h1 User Profile Form
+    .actions{:style => "float: right;"}
+      = f.submit
   %div#tabs
     %ul.levels
       %li
@@ -42,10 +44,10 @@
         = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))
       .field
         = f.label :birthday
-        = f.date_select :birthday, :start_year=>1950, :end_year => 2010
+        = f.date_select :birthday, { :order => [:day, :month, :year], :start_year=>1950, :end_year => 2000}
       .field
         = f.label :country
-        = f.country_select :country
+        = f.country_select :country, ['Brazil']
       .field
         = f.label :city
         = f.text_field :city

@@ -1,12 +1,16 @@
+-content_for :for_head do
+  /* general METAS
+  %title All users of Zona Radical
 .heading
   %h1 All Users
-%p
-  -@users.each do |site_user|
+-@users.each do |site_user|
+  %p{:style=>"margin-top: 10px;"}
     %b=site_user.surname
     ,
     =site_user.name
     %i=site_user.email
+  .buttons
     -if can? :update, site_user
-      .buttons
-        %a.button{:href => edit_user_path(site_user)}= t('editProfile')
-      .clear
+      %a.button{:href => edit_user_path(site_user), :target => "_blank"}= t('editProfile')
+    %a.button{:href => user_path(site_user),:target => "_blank"}= t('showProfile')
+  .clear
