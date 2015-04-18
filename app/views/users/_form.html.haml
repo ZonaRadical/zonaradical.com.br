@@ -7,6 +7,8 @@
       %ul
         - @user.errors.full_messages.each do |message|
           %li= message
+  .actions
+    = f.submit
   %div#tabs
     %ul.levels
       %li

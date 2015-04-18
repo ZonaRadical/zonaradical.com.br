@@ -2,8 +2,10 @@
   %h1 All Users
 %p
   -@users.each do |site_user|
-    %b=site_user.name
-    =site_user.email
+    %b=site_user.surname
+    ,
+    =site_user.name
+    %i=site_user.email
     -if can? :update, site_user
       .buttons
         %a.button{:href => edit_user_path(site_user)}= t('editProfile')
