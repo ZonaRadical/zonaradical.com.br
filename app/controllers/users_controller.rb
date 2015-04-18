@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :finish_signup
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 15)
   end
 
   def finish_signup
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def athletes
-    @users = User.athletes
+    @users = User.athletes.paginate(:page => params[:page], :per_page => 15)
   end
 
   def full_sign_out

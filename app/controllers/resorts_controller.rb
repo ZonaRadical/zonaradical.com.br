@@ -4,7 +4,7 @@ class ResortsController < ApplicationController
   # GET /resorts
   # GET /resorts.json
   def index
-    @resorts = Resort.page(params[:page])
+    @resorts = Resort.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /resorts/1
