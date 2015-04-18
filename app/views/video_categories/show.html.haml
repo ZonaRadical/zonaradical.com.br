@@ -1,7 +1,8 @@
 %p#notice= notice
 .main-content
   .heading
-    %h1= t('videos') + ': ' + @video_category.name
+    %h1
+      =@video_category.name
   .introtext= @video_category.description.html_safe unless @video_category.description.nil?
   -if can? :update, @video_category
     = link_to t('edit'), edit_video_category_path(@video_category)

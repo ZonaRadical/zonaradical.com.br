@@ -32,9 +32,9 @@
 
   .heading
     %h1
-      %span{:itemprop=>"articleSection"}
-        =t('videos')
-      \:
+      /%span{:itemprop=>"articleSection"}
+      / =t('videos')
+      /\:
       %span{:itemprop=>"about"}
         #{@video.video_category.name}
   %article
