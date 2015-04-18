@@ -9,7 +9,7 @@
   .clear
   %ul.stations-list
     =render @videos
-    = will_paginate @videos,:previous_label => '<<',:next_label => '>>', :inner_window => 1
+    /= will_paginate @videos,:previous_label => '<<',:next_label => '>>', :inner_window => 1
   -if @video_category.children?
     -@video_category.children.each do |video_category|
       -unless video_category.videos.empty?

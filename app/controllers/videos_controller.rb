@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.page(params[:page]).reverse
+    @videos = Video.all.sort_by { |a| [ a.created_at ] }.reverse
   end
 
   # GET /videos/1

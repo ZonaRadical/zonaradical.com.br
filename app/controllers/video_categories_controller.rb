@@ -10,7 +10,8 @@ class VideoCategoriesController < ApplicationController
   # GET /video_categories/1
   # GET /video_categories/1.json
   def show
-    @videos = @video_category.videos.page(params[:page])
+    @videos = @video_category.videos.sort_by { |a| [ a.created_at ] }.reverse
+    #.page(params[:page])
   end
 
   # GET /video_categories/new
