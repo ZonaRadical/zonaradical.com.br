@@ -49,15 +49,15 @@ feature 'athletes' do
     athletes_menu = galera_zr_menu.find('ul.submenu').find('li', text: 'Athletes')
     athletes_menu.click_link('Athletes')
 
-    within('.profile-card:nth-of-type(2)') do
+    within('.profile-athl-card:nth-of-type(2)') do
       expect(page).to have_content('Duda')
       #expect(page).to have_content('Contacts : duda@mail.com')
     end
-    within('.profile-card:nth-of-type(3)') do
+    within('.profile-athl-card:nth-of-type(3)') do
       expect(page).to have_content('João')
       #expect(page).to have_content('Contacts : joao@mail.com')
     end
-    within('.profile-card:nth-of-type(4)') do
+    within('.profile-athl-card:nth-of-type(4)') do
       expect(page).to have_content('Zeferino')
       #expect(page).to have_content('Contacts : zeferino@mail.com')
     end
