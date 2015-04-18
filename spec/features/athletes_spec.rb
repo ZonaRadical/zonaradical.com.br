@@ -17,7 +17,7 @@ feature 'athletes' do
       athlete_li = find('li', text: 'athlete')
       athlete_li.find('input').set(true)
     end
-    click_button 'Update User'
+    first(:button, 'Update User').click
     within('#tab_roles') do
       athlete_li = find('li', text: 'athlete')
       expect(athlete_li.find('input')).to be_checked
@@ -31,7 +31,7 @@ feature 'athletes' do
       athlete_li = find('li', text: 'athlete')
       athlete_li.find('input').set(true)
     end
-    click_button 'Update User'
+    first(:button, 'Update User').click
     within('#tab_roles') do
       athlete_li = find('li', text: 'athlete')
       expect(athlete_li.find('input')).to be_checked
