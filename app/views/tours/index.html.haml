@@ -1,34 +1,146 @@
-%h1 Listing tours
+.main-content
+  -content_for :for_head do
+    /* general METAS
+    %title Vamo junto | Zona Radical
+    %meta{:name => "description", :content =>  "é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
+    %meta{:viewport => "width=1220, maximum-scale=2.0"}
+  .heading
+    %h2
+      <strong>Vamo junto</strong> com Zona Radical Snowboard
+      = link_to '+ Adicionar um anúncio', '#', class: 'all add-link'
+  %p.search-intro 
+    Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
+    é um sistema para você poder encontrar o perfeito parceiro para sua viagem -
+    tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
+    postar anúncios procurando parceiros, e também procurar companhia entre quem já postou.
+  %p Ja-ja você poderá pesquisar os anúncios escolhendo abaixo os parâmetros de viagem.
+  
+  .search-filter
+    .select-wrap
+      %input{:name => "", :type => "hidden", :value => ""}/
+      .select
+        %span.name Destino
+        %a.arrow{:href => "#"}
+      %ul.option-list
+        %li.default{"data-value" => "0"} Tanto faz
+        %li{"data-value" => "1"} Argentina
+        %li{"data-value" => "1"} Chile
+        %li{"data-value" => "2"} EUA
+    .select-wrap
+      %input{:name => "", :type => "hidden", :value => ""}/
+      .select
+        %span.name Periodo
+        %a.arrow{:href => "#"}
+      %ul.option-list
+        %li.default{"data-value" => "0"} Todos
+        %li{"data-value" => "1"} Junho'14
+        %li{"data-value" => "1"} Julho'14
+        %li{"data-value" => "2"} Agosto'14
+        %li{"data-value" => "2"} Setembro'14
+        %li{"data-value" => "2"} Outubro'14
+    .select-wrap
+      %input{:name => "", :type => "hidden", :value => ""}/
+      .select
+        %span.name Alvo
+        %a.arrow{:href => "#"}
+      %ul.option-list
+        %li.default{"data-value" => "0"} Tanto faz
+        %li{"data-value" => "1"} Esporte puro
+        %li{"data-value" => "1"} Turismo puro
+        %li{"data-value" => "2"} Tudo Misto
+    .select-wrap
+      %input{:name => "", :type => "hidden", :value => ""}/
+      .select
+        %span.name Hospedagem
+        %a.arrow{:href => "#"}
+      %ul.option-list
+        %li.default{"data-value" => "0"} Todos tipos
+        %li{"data-value" => "1"} Hotel
+        %li{"data-value" => "1"} Hostel
+        %li{"data-value" => "2"} Apartamento
+        %li{"data-value" => "2"} Casa / cabanha
+    .select-wrap
+      %input{:name => "", :type => "hidden", :value => ""}/
+      .select
+        %span.name Custos
+        %a.arrow{:href => "#"}
+      %ul.option-list
+        %li.default{"data-value" => "0"} Qq
+        %li{"data-value" => "1"} menos de r$ 100 por dia
+        %li{"data-value" => "2"} r$ 100 - r$ 200
+        %li{"data-value" => "2"} mais de r$ 200 por dia
+    .select-wrap
+      %input{:name => "", :type => "hidden", :value => ""}/
+      .select
+        %span.name Faixa etaria preferida
+        %a.arrow{:href => "#"}
+      %ul.option-list
+        %li.default{"data-value" => "0"} Tanto faz
+        %li{"data-value" => "1"} menos de 18
+        %li{"data-value" => "2"} 18-25
+        %li{"data-value" => "2"} 25-99
+    .clear
+  / end search-filter
+  .search-field.large
+    %input{:placeholder => "Pesquisa", :type => "text"}/
+    %a{:href => "#"}
+  .heading
+    %h2 Todos os anúncios
+    %a.all.my-ads{:href => "#"} Os meus anúncios
+  %ol.announcement-list
+    %li
+      %p.title Resorts que você não vai encontrar nos guias
+      %i.date
+        03 de janeiro de 2015 - 10 de janeiro de 2015
+        %b França
+      %p
+        Empresaria de 32 anos, dos jovens, à procura de companheiros de viagem nos resorts de esqui na França.
+        Apenas por razões de economia, tudo está pronto e pré-pago. ...
+      %a.read-more{:href => "#"} Leia mais
+    %li
+      %p.title Estou à procura de companheiro de viagem para a Áustria
+      %i.date
+        10 de janeiro de 2015 - 17 de janeiro de 2015
+        %b Áustria Saalbach - Hinterglemm
+      %p Indo para a Áustria em Hinterglemm (ou Saalbach) imediatamente após NY férias. Nível iniciante de equitação. Precisa ser determinado com ingressos já e de distância. ...
+      %a.read-more{:href => "#"} Leia mais
+    %li
+      %p.title Acampamento sertão em Adil-suu, inverno continua
+      %i.date
+        03 de abril de 2014 - 13 de junho de 2014
+        %b Rússia
+      %p Aqueles que querem renovar, francamente, pouca neve temporada natal, nós convidamos você a Adil-suu na primavera e no sertão de verão. Terceiro turno começará em abril e continuará como...
+      %a.read-more{:href => "#"} Leia mais
+    %li
+      %p.title Novembro de 2014. Aberta temporada 2015 na Suíça
+      %i.date
+        1 de novembro de 2014 - 08 de novembro de 2014
+        %b St. Moritz Suíça
+      %p Só que agora a partir de dezembro de 2013, mas já estamos planejando o ano de 2015. Convidá-lo a participar de um grupo de esquiadores na data de 1 a 8 novembro ...
+      %a.read-more{:href => "#"} Leia mais
+  / end announcement-list
+  %ul.pagination
+    %li
+      %a.prev{:href => "#"}
+    %li
+      %a.active{:href => "#"} 1
+    %li
+      %a{:href => "#"} 2
+    %li
+      %a{:href => "#"} 3
+    %li
+      %a{:href => "#"} 4
+    %li
+      %a.next{:href => "#"} >>
+  / end pagination
 
-%table
-  %thead
-    %tr
-      %th Tour style
-      %th Accommodation
-      %th Title
-      %th Description
-      %th Duration
-      %th Check in
-      %th Price
-      %th Published
-      %th Creator
-      %th Participants
-      %th
-      %th
-      
-  %tbody
-    - @tours.each do |tour|
-      %tr
-        %td= tour.tour_style
-        %td= tour.accommodation
-        %td= tour.title
-        %td= tour.description
-        %td= tour.duration
-        %td= tour.check_in
-        %td= tour.price
-        %td= tour.published
-        %td= tour.owners.collect { |o| o.user.name }.join(', ')
-        %td= tour.approved_participants.collect { |p| p.user.name }.join(', ')
-        %td= link_to 'Show', tour
-        %td= participation_status(tour)
-%br
+  .clear
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_tip_category', :tip_category => nil
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_resort_gallery'
+    .clear
