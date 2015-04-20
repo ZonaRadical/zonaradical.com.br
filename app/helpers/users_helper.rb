@@ -4,7 +4,7 @@ module UsersHelper
 	end
 
   def can_add_gallery?(user = @user)
-    user == current_user and (user.has_role?(:admin) or user.has_role?(:athlete))
+    (user == current_user and user.has_role?(:athlete)) or (current_user.has_role?(:admin))
   end
 
   def image_gallery_button
