@@ -5,12 +5,7 @@ feature 'users page' do
     @user = create(:user)
   end
 
-  scenario 'never seen user' do
-    visit user_path(@user)
-    expect(page).to have_content('Last visit : Never')
-  end
-
-  scenario 'user already seen' do
+  scenario 'user seen profile' do
     visit root_path
     fill_in 'user_email', with: @user.email
     fill_in 'user_password', with: 'foobar'
@@ -18,7 +13,6 @@ feature 'users page' do
     #click_link 'Sign Out'
 
     visit user_path(@user)
-    expect(page).to_not have_content('Last visit : Never')
-    expect(page).to have_content('Last visit : less than a minute')
+    expect(page).to have_content('User profile ' + @user.name)
   end
 end
