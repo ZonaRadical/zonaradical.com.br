@@ -15,6 +15,9 @@
       %li
         %a{:href => '#tab_avatar'}
           %span Avatar
+      %li
+        %a{:href => '#tab_password'}
+          %span Password
       -if can? :manage, :all
         %li
           %a{:href => '#tab_roles'}
@@ -63,6 +66,16 @@
         = f.file_field :avatar
         = f.check_box :remove_avatar
         = t('removeImage')
+    %div#tab_password
+      .field
+        = f.label :old_password
+        = f.password_field :old_password, autocomplete: "off"
+      .field
+        = f.label :new_password
+        = f.password_field :new_password, autocomplete: "off"
+      .field
+        = f.label :new_password_confirmation
+        = f.password_field :new_password_confirmation, autocomplete: "off"
     -if can? :manage, :all
       %div#tab_roles
         %h3= t('assignedRoles')
