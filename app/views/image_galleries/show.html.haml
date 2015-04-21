@@ -1,8 +1,7 @@
 .main-content
   .heading
     %h1
-      =t('image_gallerys')
-      \:
+      =t('image_galleries')+":"
       #{@image_gallery.image_gallerable.name}
   %article
     %h3
@@ -11,6 +10,9 @@
       =distance_of_time_in_words_to_now @image_gallery.updated_at
       = t('ago')
       ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
+    -unless @image_gallery.description.blank?
+      %p.galdes
+        =@image_gallery.description
     -unless @image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @image_gallery.gallery_images.all
     .clear
@@ -22,7 +24,8 @@
       |
       \#{link_to 'Back', polymorphic_url([@user, ImageGallery.new])}
   .heading
-/ end main-content
+  %b{:style=>"font-size: 16px;" }
+    = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name, :back
 
 -content_for :aside do
   %aside
@@ -30,5 +33,4 @@
     =#render 'shared/aside/aside_media_image_category', :media_image_category => @image_gallery.media_image_category
     =render 'shared/aside/aside_fb_like_box'
     =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
   .clear

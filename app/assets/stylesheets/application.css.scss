@@ -1220,8 +1220,28 @@ article {
     display: block;
     margin-bottom: 17px;
   }
+  p.galdes{
+    margin-bottom: 15px;
+  }
 }
 
+gallery {
+    margin-bottom: 40px;
+  h3 {
+    margin-top: 13px;
+    margin-bottom: 3px;
+  }
+  i.extra-info {
+    color: #9a9999;
+    font-size: 14px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 3px;
+  }
+  img {
+    border: 1px solid #c5c4c4;
+  }
+}
 ul.levels {
   margin: 0 0 11px;
   list-style: none;
