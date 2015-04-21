@@ -85,36 +85,14 @@
     %h2 Todos os anúncios
     = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads'
   %ol.announcement-list
-    %li
-      %p.title Resorts que você não vai encontrar nos guias
-      %i.date
-        03 de janeiro de 2015 - 10 de janeiro de 2015
-        %b França
-      %p
-        Empresaria de 32 anos, dos jovens, à procura de companheiros de viagem nos resorts de esqui na França.
-        Apenas por razões de economia, tudo está pronto e pré-pago. ...
-      %a.read-more{:href => "#"} Leia mais
-    %li
-      %p.title Estou à procura de companheiro de viagem para a Áustria
-      %i.date
-        10 de janeiro de 2015 - 17 de janeiro de 2015
-        %b Áustria Saalbach - Hinterglemm
-      %p Indo para a Áustria em Hinterglemm (ou Saalbach) imediatamente após NY férias. Nível iniciante de equitação. Precisa ser determinado com ingressos já e de distância. ...
-      %a.read-more{:href => "#"} Leia mais
-    %li
-      %p.title Acampamento sertão em Adil-suu, inverno continua
-      %i.date
-        03 de abril de 2014 - 13 de junho de 2014
-        %b Rússia
-      %p Aqueles que querem renovar, francamente, pouca neve temporada natal, nós convidamos você a Adil-suu na primavera e no sertão de verão. Terceiro turno começará em abril e continuará como...
-      %a.read-more{:href => "#"} Leia mais
-    %li
-      %p.title Novembro de 2014. Aberta temporada 2015 na Suíça
-      %i.date
-        1 de novembro de 2014 - 08 de novembro de 2014
-        %b St. Moritz Suíça
-      %p Só que agora a partir de dezembro de 2013, mas já estamos planejando o ano de 2015. Convidá-lo a participar de um grupo de esquiadores na data de 1 a 8 novembro ...
-      %a.read-more{:href => "#"} Leia mais
+    - @tours.sort_by(&:check_in).each do |tour|
+      %li
+        %p.title= tour.title
+        %i.date
+          = tour.check_in
+          %b= tour.resort_categories.collect(&:name).join(', ')
+        %p= truncate_html(tour.description.html_safe, length: 100)
+        = link_to 'Leia mais', '#', class: 'read-more'
   / end announcement-list
   %ul.pagination
     %li
