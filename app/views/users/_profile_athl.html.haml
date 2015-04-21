@@ -49,6 +49,7 @@
 %p.bio
   -unless profile.bio.blank?
     %b Biografia:
-    =truncate_html(profile.bio, length: 150, omission: '  ')
-    =link_to "Leia mais", user_url(profile), class: 'read-more'
+    =truncate_html(profile.bio, length: 250, omission: '  ')
+    -if profile.bio.length > 250
+      =link_to "Leia mais", user_url(profile), class: 'read-more'
 

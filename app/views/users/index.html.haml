@@ -5,9 +5,9 @@
   %h1 All Users
 -@users.each do |site_user|
   %p{:style=>"margin-top: 10px;"}
-    %b=site_user.surname
-    ,
-    =site_user.name
+    %b
+      =site_user.name
+      =site_user.surname
     %i=site_user.email
   .buttons
     -if can? :update, site_user
