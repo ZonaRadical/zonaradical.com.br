@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :finish_signup
+  before_action :finish_signup, except: [:update_password]
 
   def index
     @users = User.all
@@ -41,6 +41,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_password
+    @user = User.find(current_user.id)
+    if @user.update_with_password(user_params)
+      # Sign in the user by passing validation in case their password changed
+      sign_in @user, :bypass => true
+      redirect_to current_user, notice: 'Passowrd was successuflly updated.'
+    else
+      render "edit"
+    end
+  end
+
   def show
   end
 
@@ -59,7 +70,7 @@ class UsersController < ApplicationController
     accessible = [ :name, :email, :avatar, :remove_avatar, :image, :remove_image,
                     :sex, :surname, :login, :birthday, :country,
                     :city, :web, :fb, :bio, :role_ids => [] ] # extend with your own params
-    accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
+    accessible << [ :current_password, :password, :password_confirmation ] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
   end
 end
