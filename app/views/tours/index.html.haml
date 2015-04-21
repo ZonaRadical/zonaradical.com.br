@@ -86,7 +86,7 @@
     %a{:href => "#"}
   .heading
     %h2 Todos os anúncios
-    %a.all.my-ads{:href => "#"} Os meus anúncios
+    = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads'
   %ol.announcement-list
     %li
       %p.title Resorts que você não vai encontrar nos guias
