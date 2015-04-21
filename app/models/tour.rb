@@ -45,6 +45,10 @@ class Tour < ActiveRecord::Base
     self.switch_off_y = check_in_y
   end
 
+  def check_in_date
+    check_in_d.nil? ? Date.new(check_in_y, check_in_m) : Date.new(check_in_y, check_in_m, check_in_d)
+  end
+
   def check_in
     if check_in_d.nil?
       Date.new(check_in_y, check_in_m).strftime('%m/%Y')

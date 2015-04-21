@@ -85,7 +85,7 @@
     %h2 Todos os anúncios
     = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads'
   %ol.announcement-list
-    - @tours.sort_by(&:check_in).each do |tour|
+    - @tours.sort_by(&:check_in_date).each do |tour|
       %li
         %p.title= tour.title
         %i.date
