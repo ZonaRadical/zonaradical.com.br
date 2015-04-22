@@ -54,15 +54,15 @@
           - tour_accommodations.each do |accommodation|
             %li{data: { value: accommodation.id }}= accommodation.name
       .select-wrap
-        %input{:name => "", :type => "hidden", :value => ""}/
+        = f.hidden_field :cost
         .select
           %span.name Custos
           %a.arrow{:href => "#"}
         %ul.option-list
           %li.default{"data-value" => "0"} Qq
-          %li{"data-value" => "1"} menos de r$ 100 por dia
-          %li{"data-value" => "2"} r$ 100 - r$ 200
-          %li{"data-value" => "2"} mais de r$ 200 por dia
+          %li{"data-value" => "0..99"} menos de r$ 100 por dia
+          %li{"data-value" => "100..200"} r$ 100 - r$ 200
+          %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
       .select-wrap
         %input{:name => "", :type => "hidden", :value => ""}/
         .select
