@@ -24,7 +24,7 @@
           %a.arrow{:href => "#"}
         %ul.option-list
           %li.default{"data-value" => "0"} Tanto faz
-          - ResortCategory.find(1).children.each do |resort_category|
+          - tour_resort_categories.each do |resort_category|
             %li{data: { value: resort_category.id }}= resort_category.name
       .select-wrap
         = f.hidden_field :period

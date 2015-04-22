@@ -17,6 +17,10 @@ module ToursHelper
     end
   end
 
+  def tour_resort_categories
+    Tour.published.collect(&:resort_categories).flatten.uniq.reject { |item| item.blank? }
+  end
+
   def tour_dates
     Tour.published.collect { |t| Date.new(t.check_in_y, t.check_in_m) }.uniq.sort
   end
@@ -26,10 +30,10 @@ module ToursHelper
   end
 
   def tour_accommodations
-    Tour.published.collect(&:accommodation).uniq.reject { |a| a.blank? }
+    Tour.published.collect(&:accommodation).uniq.reject { |item| item.blank? }
   end
 
   def tour_resorts
-    Tour.published.collect(&:resorts).flatten.uniq.reject { |r| r.blank? }
+    Tour.published.collect(&:resorts).flatten.uniq.reject { |item| item.blank? }
   end
 end
