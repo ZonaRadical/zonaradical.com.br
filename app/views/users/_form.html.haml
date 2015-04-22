@@ -1,29 +1,30 @@
-= form_for(@user, :html => {:multipart => true, :class => 'admin-form'}) do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h1
-        = pluralize(@user.errors.count, "error")
-        prohibited this user from being saved:
-      %ul
-        - @user.errors.full_messages.each do |message|
-          %li= message
-  .heading
-    %h1 User Profile Form
-    .actions{:style => "float: right;"}
-      = f.submit
-  %div#tabs
-    %ul.levels
+- if @user.errors.any?
+  #error_explanation
+    %h1
+      = pluralize(@user.errors.count, "error")
+      prohibited this user from being saved:
+    %ul
+      - @user.errors.full_messages.each do |message|
+        %li= message
+%div#tabs
+  %ul.levels
+    %li
+      %a{:href => '#tab_main'}
+        %span Main info
+    %li
+      %a{:href => '#tab_avatar'}
+        %span Avatar
+    -if can? :manage, :all
       %li
-        %a{:href => '#tab_main'}
-          %span Main info
-      %li
-        %a{:href => '#tab_avatar'}
-          %span Avatar
-      -if can? :manage, :all
-        %li
-          %a{:href => '#tab_roles'}
-            %span Roles
+        %a{:href => '#tab_roles'}
+          %span Roles
+    %li
+      %a{:href => '#tab_security'}
+        %span Security
+  = form_for(@user, :html => {:multipart => true, :class => 'admin-form'}) do |f|
     %div#tab_main
+      .actions{:style => "float: right;"}
+        = f.submit
       .field
         = f.label :name
         = f.text_field :name
@@ -44,10 +45,10 @@
         = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))
       .field
         = f.label :birthday
-        = f.date_select :birthday, { :order => [:day, :month, :year], :start_year=>1950, :end_year => 2000}
+        = f.date_select :birthday, :start_year=>1950, :end_year => 2010
       .field
         = f.label :country
-        = f.country_select :country, ['Brazil']
+        = f.country_select :country
       .field
         = f.label :city
         = f.text_field :city
@@ -60,6 +61,8 @@
       .field
         = f.label :bio
         = f.text_area(:bio, size: "100x20")
+      .actions
+        = f.submit
     %div#tab_avatar
       .field
         = image_tag @user.avatar_url if @user.avatar?
@@ -67,6 +70,8 @@
         = f.file_field :avatar
         = f.check_box :remove_avatar
         = t('removeImage')
+      .actions
+        = f.submit
     -if can? :manage, :all
       %div#tab_roles
         %h3= t('assignedRoles')
@@ -76,5 +81,19 @@
               = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
               = role.name
           = hidden_field_tag 'user[role_ids][]', ''
-  .actions
-    = f.submit
+        .actions
+          = f.submit
+  = form_for(@user, :url => { :action => "update_password" }, :html => {:class => 'admin-form'}) do |f|
+    %div#tab_security
+      .field
+        = f.label :current_password
+        = f.password_field :current_password, autocomplete: "off"
+      .field
+        = f.label :password
+        = f.password_field :password, autocomplete: "off"
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: "off"
+      .actions
+        = f.submit 'Salvar Senha'
+        %small Apertando este botão salvará apenas a senha.

@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   scope '/manage' do
     resources :users do
       resources :image_galleries
+      collection do
+        patch 'update_password'
+      end
     end
   end
 
