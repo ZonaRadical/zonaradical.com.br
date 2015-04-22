@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   def full_sign_out
     discourse_sign_out
     sign_out
-    #redirect_to root_path
+    redirect_to root_path
   end
 
   private

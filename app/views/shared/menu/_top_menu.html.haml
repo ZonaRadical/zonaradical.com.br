@@ -17,10 +17,11 @@
   %li
     %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
 
-  %li.submenu-item
-    = active_link_to t('forum'), forem.root_url
-    %ul.submenu
-      = menu_forem_categories(Forem::Category.all)
+  %li
+    - if @current_user.nil?
+      %a{:href => Rails.application.secrets.discourse_url} Forum
+    - else
+      %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
   %li.submenu-item
     %a{:href => "#"}
       Galera
