@@ -49,17 +49,17 @@
             %a{:href => '#tab_level3'}
               %span Nivel 3
       / end levels buttons
-      -if !@tip.level1_description.blank?
+      -if !@tip.level1_description.to_s.blank?
         %div#tab_level1
           =image_tag(@tip.image_url(:big_thumb).to_s, class: 'med-img', itemprop: "image")
           %div{:itemprop=>"articleBody"}
             =@tip.level1_description.html_safe unless @tip.level1_description.blank?
 
-      -if !@tip.level2_description.blank?
+      -if !@tip.level2_description.to_s.blank?
         %div#tab_level2
           =@tip.level2_description.html_safe unless @tip.level2_description.blank?
 
-      -if !@tip.level3_description.blank?
+      -if !@tip.level3_description.to_s.blank?
         %div#tab_level3
           =@tip.level3_description.html_safe unless @tip.level3_description.blank?
     -unless @tip.gallery_images.all.count.zero?
