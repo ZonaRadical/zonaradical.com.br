@@ -9,6 +9,11 @@
       =site_user.name
       =site_user.surname
     %i=site_user.email
+    %span.activity
+      %b
+        = t('lastSignInAt')
+        \:
+      = user_last_seen_at(site_user)
   .buttons
     -if can? :update, site_user
       %a.button{:href => edit_user_path(site_user), :target => "_blank"}= t('editProfile')

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :finish_signup
 
   def index
-    @users = User.all.sort_by { |a| [ a.name.downcase, a.surname.downcase ] }
+    @users = User.all.sort_by { |a| [ a.name.to_s.downcase, a.surname.to_s.downcase ] }
     #.paginate(:page => params[:page], :per_page => 15)
   end
 
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def full_sign_out
     discourse_sign_out
     sign_out
-    redirect_to root_path
+    #redirect_to root_path
   end
 
   private
