@@ -32,20 +32,5 @@ feature 'main page' do
         menu.find_link('Ekaterina Ilyukhina', href: video_category_path(vcat_ekaterina))
       end
     end
-
-    scenario 'dynamic display forum categories' do
-      create(:forem_category, name: 'Travels')
-      create(:forem_category, name: 'E-shopping')
-      create(:forem_category, name: 'Talk with ZR')
-
-      visit root_path
-
-      within('li.submenu-item', text: 'Forum') do
-        Forem::Category.find_each do |f_category|
-          menu = find('li', text: f_category.name)
-          menu.find_link(f_category.name, href: forem.category_path(f_category))
-        end
-      end
-    end
   end
 end
