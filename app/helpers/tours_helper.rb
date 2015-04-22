@@ -24,4 +24,8 @@ module ToursHelper
   def tour_styles
     Tour.published.collect(&:tour_style).uniq
   end
+
+  def tour_accommodations
+    Tour.published.collect(&:accommodation).uniq.reject { |a| a.blank? }
+  end
 end

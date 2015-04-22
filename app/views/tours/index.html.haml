@@ -45,16 +45,14 @@
           - tour_styles.each do |tour_style|
             %li{data: { value: tour_style.id }}= tour_style.name
       .select-wrap
-        %input{:name => "", :type => "hidden", :value => ""}/
+        = f.hidden_field :accommodation
         .select
           %span.name Hospedagem
           %a.arrow{:href => "#"}
         %ul.option-list
           %li.default{"data-value" => "0"} Todos tipos
-          %li{"data-value" => "1"} Hotel
-          %li{"data-value" => "1"} Hostel
-          %li{"data-value" => "2"} Apartamento
-          %li{"data-value" => "2"} Casa / cabanha
+          - tour_accommodations.each do |accommodation|
+            %li{data: { value: accommodation.id }}= accommodation.name
       .select-wrap
         %input{:name => "", :type => "hidden", :value => ""}/
         .select
