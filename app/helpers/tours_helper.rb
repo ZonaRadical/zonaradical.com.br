@@ -16,4 +16,8 @@ module ToursHelper
       end if current_user and not tour.user_owners.include?(current_user)
     end
   end
+
+  def tour_dates
+    Tour.published.collect { |t| Date.new(t.check_in_y, t.check_in_m) }.uniq.sort
+  end
 end

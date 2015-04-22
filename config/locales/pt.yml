@@ -81,6 +81,7 @@ pt-BR:
     # Tour
     participate: 'Participar'
     participants: 'Participantes'
+    applyFilters: 'Aplicar filtros'
 
     # Tour Participants
     pending: 'Pendente'

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :videos, :video_categories
   resources :accommodations, :tour_styles
   resources :tours do
+    get 'search', on: :collection
     scope module: 'tours' do
       resources :participants
     end
