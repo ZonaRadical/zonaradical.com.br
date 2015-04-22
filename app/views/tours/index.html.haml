@@ -36,15 +36,14 @@
           - tour_dates.each do |date|
             %li{date: { value: date.strftime("%m/%Y") }}= date.strftime("%B'%y")
       .select-wrap
-        %input{:name => "", :type => "hidden", :value => ""}/
+        = f.hidden_field :tour_style
         .select
           %span.name Alvo
           %a.arrow{:href => "#"}
         %ul.option-list
           %li.default{"data-value" => "0"} Tanto faz
-          %li{"data-value" => "1"} Esporte puro
-          %li{"data-value" => "1"} Turismo puro
-          %li{"data-value" => "2"} Tudo Misto
+          - tour_styles.each do |tour_style|
+            %li{data: { value: tour_style.id }}= tour_style.name
       .select-wrap
         %input{:name => "", :type => "hidden", :value => ""}/
         .select

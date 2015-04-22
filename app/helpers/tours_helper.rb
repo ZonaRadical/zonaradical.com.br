@@ -20,4 +20,8 @@ module ToursHelper
   def tour_dates
     Tour.published.collect { |t| Date.new(t.check_in_y, t.check_in_m) }.uniq.sort
   end
+
+  def tour_styles
+    Tour.published.collect(&:tour_style).uniq
+  end
 end
