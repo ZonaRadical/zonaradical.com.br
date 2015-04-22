@@ -114,14 +114,6 @@ class User < ActiveRecord::Base
     self.last_seen_at.to_i - self.current_sign_in_at.to_i > 0
   end
 
-  def forem_name
-    name
-  end
-
-  def forem_admin?
-    self.roles.find_by_name(:admin).is_a?(Role)
-  end
-
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
