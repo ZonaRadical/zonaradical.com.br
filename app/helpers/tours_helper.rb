@@ -28,4 +28,8 @@ module ToursHelper
   def tour_accommodations
     Tour.published.collect(&:accommodation).uniq.reject { |a| a.blank? }
   end
+
+  def tour_resorts
+    Tour.published.collect(&:resorts).flatten.uniq.reject { |r| r.blank? }
+  end
 end

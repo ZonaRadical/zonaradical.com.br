@@ -73,6 +73,15 @@
           %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
           %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
           %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
+      .select-wrap
+        = f.hidden_field :resorts
+        .select
+          %span.name Estação
+          %a.arrow{:href => "#"}
+        %ul.option-list
+          %li.default{"data-value" => "0"} Tanto faz
+          - tour_resorts.each do |resort|
+            %li{data: { value: resort.id } }= resort.name
       .clear
     / end search-filter
     = f.submit t('applyFilters')
