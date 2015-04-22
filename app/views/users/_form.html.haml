@@ -23,6 +23,8 @@
         %span Security
   = form_for(@user, :html => {:multipart => true, :class => 'admin-form'}) do |f|
     %div#tab_main
+      .actions{:style => "float: right;"}
+        = f.submit
       .field
         = f.label :name
         = f.text_field :name
@@ -58,7 +60,7 @@
         = f.text_field :fb
       .field
         = f.label :bio
-        = f.text_area :bio
+        = f.text_area(:bio, size: "100x20")
       .actions
         = f.submit
     %div#tab_avatar
@@ -93,5 +95,5 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation, autocomplete: "off"
       .actions
-        = f.submit 'Change password'
-        %small apertando este botão salvará apenas a senha
+        = f.submit 'Salvar Senha'
+        %small Apertando este botão salvará apenas a senha.
