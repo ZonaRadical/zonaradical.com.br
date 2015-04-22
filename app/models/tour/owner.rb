@@ -11,4 +11,8 @@ class Tour::Owner < ActiveRecord::Base
 
   belongs_to :tour
   belongs_to :user
+
+  def self.first_owners_by_tour
+    Tour::Owner.where(id: Tour::Owner.group(:tour_id).minimum(:id).values)
+  end
 end
