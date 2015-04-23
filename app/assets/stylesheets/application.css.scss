@@ -1789,6 +1789,11 @@ footer .copyright {
 /* Modal Login */
 #signIn {display: none}
 
+.ui-dialog, .ui-dialog label {
+  background: #333;
+  color: #fff;
+}
+
 /* LOCALES */
 p.translation_missing {
   color:#008000;
