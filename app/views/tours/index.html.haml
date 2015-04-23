@@ -34,7 +34,7 @@
         %ul.option-list
           %li.default{"data-value" => "0"} Todos
           - tour_dates.each do |date|
-            %li{date: { value: date.strftime("%m/%Y") }}= date.strftime("%B'%y")
+            %li{data: { value: date.strftime("%m/%Y") }}= date.strftime("%B'%y")
       .select-wrap
         = f.hidden_field :tour_style
         .select
