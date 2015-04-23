@@ -65,25 +65,20 @@ class Tour < ActiveRecord::Base
     where(published: true)
   end
 
-  def self.search(options = {})
-    # Search destinies
-    # Tour.includes(:resort_categories).where(resort_categories: { id: [3, 4] })
-    # Search resorts
-    # Tour.includes(:resorts).where(resorts: { id: [3, 4, 5] }).count
-    # Periodo
-    # Tour.where(check_in_m: 5, check_in_y: 2015)
-    # Hospedagem
-    # Tour.where(accommodation_id: 1)
-    # Custos
-    # Tour.where(price: 200..Float::INFINITY).first.id
-    # Tour.where(price: 100..200).first.id
-    # Tour.where(price: 100..200).first.id
-    # Faixa etária
-    # User.where(birthday: 99.years.ago.to_date..25.years.ago.to_date)
-    # User.where(birthday: 25.years.ago.to_date..18.years.ago.to_date)
-    # User.where(birthday: 18.years.ago.to_date..Date.today)
-    # Tour.includes(:user_owners).where(tour_user_assignments: { id: Tour::Owner.first_owners_by_tour }).where(users: { birthday: 99.years.ago.to_date..25.years.ago.to_date })
-    Tour.where()
+  def self.filter(options = {})
+    tours = self
+    tours = tours.includes(:resort_categories).where(resort_categories: { id: options['resort_categories'] }) if options['resort_categories']
+    tours = tours.where(check_in_m: options['check_in_m'], check_in_y: options['check_in_y']) if options['check_in_m'] and options['check_in_y']
+    tours = tours.where(tour_style: options['tour_style']) if options['tour_style']
+    tours = tours.where(accommodation: options['accommodation']) if options['accommodation']
+    tours = tours.where(price: options['cost']) if options['cost']
+    if options['age_group']
+      tours = tours.includes(:user_owners)
+        .where(tour_user_assignments: { id: Tour::Owner.first_owners_by_tour })
+        .where(users: { birthday: options['age_group'] })
+    end
+    tours.includes(:resorts).where(resorts: { id: options['resorts'] }) if options['resorts']
+    tours
   end
 
   private

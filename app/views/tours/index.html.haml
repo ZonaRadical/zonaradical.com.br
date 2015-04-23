@@ -88,16 +88,19 @@
   .heading
     %h2 Todos os anúncios
     = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads'
-  %ol.announcement-list
-    - @tours.sort_by(&:check_in_date).each do |tour|
-      %li
-        %p.title= tour.title
-        %i.date
-          = tour.check_in
-          %b= tour.resort_categories.collect(&:name).join(', ')
-        %p= truncate_html(tour.description.html_safe, length: 100)
-        = link_to 'Leia mais', '#', class: 'read-more'
-  / end announcement-list
+  - if @tours.empty?
+    Não existem tours ou nenhuma foi encontrada com os filtros especificados.
+  - else
+    %ol.announcement-list
+      - @tours.sort_by(&:check_in_date).each do |tour|
+        %li
+          %p.title= tour.title
+          %i.date
+            = tour.check_in
+            %b= tour.resort_categories.collect(&:name).join(', ')
+          %p= truncate_html(tour.description.html_safe, length: 100)
+          = link_to 'Leia mais', '#', class: 'read-more'
+    / end announcement-list
   %ul.pagination
     %li
       %a.prev{:href => "#"}
