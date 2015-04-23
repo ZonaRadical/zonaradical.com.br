@@ -14,7 +14,6 @@
 #= require jquery
 #= require jquery-ui
 #= require jquery_ujs
-#= require forem
 
 # Запускаем когда страница готова | trigger when page is ready
 $(document).ready ->

@@ -27,7 +27,11 @@
             %li= link_to t('tips'),main_app.tips_url, :rel => 'nofollow'
             %li
               %a{:href => "http://zonaradical.com.br/vamo-junto.html"} VAMO JUNTO
-            %li= link_to t('forum'), main_app.forem_path
+            %li
+              - if @current_user.nil?
+                %a{:href => Rails.application.secrets.discourse_url} Forum
+              - else
+                %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
             %li
               %a{:href => "http://zonaradical.com.br/galera.html"} Galera ZR
       %li

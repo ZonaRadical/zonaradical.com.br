@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   scope '/manage' do
     resources :users do
       resources :image_galleries
+      collection do
+        patch 'update_password'
+      end
     end
   end
 
@@ -32,8 +35,6 @@ Rails.application.routes.draw do
   match '/user' => 'users#profile', via: [:get], :as => :profile
   match '/user/full_sign_out' => 'users#full_sign_out', via: [:get], :as => :full_sign_out
   match '/athletes' => 'users#athletes', via: [:get], :as => :athletes
-
-  mount Forem::Engine, :at => '/forum', :as => 'forem'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
