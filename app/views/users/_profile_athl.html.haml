@@ -35,9 +35,9 @@
           \:
         .contacts-list
           - if profile.web
-            %span.web=link_to profile.web, profile.web, :target => "_blank"
+            %span.web=link_to cut_phrase(profile.web,45), profile.web, :target => "_blank"
           - if profile.fb
-            %span.fb=link_to profile.fb, profile.fb, :target => "_blank"
+            %span.fb=link_to cut_phrase(profile.fb,45), profile.fb, :target => "_blank"
         .clear
   .galcol
     -unless profile.image_galleries.all.count.zero?
