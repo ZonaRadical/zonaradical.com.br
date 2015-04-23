@@ -56,9 +56,9 @@
           - if profile.email
             %span.email=mail_to profile.email, profile.email, :target => "_blank"
           - if profile.web
-            %span.web=link_to profile.web, profile.web, :target => "_blank"
+            %span.web=link_to cut_phrase(profile.web,45), profile.web, :target => "_blank"
           - if profile.fb
-            %span.fb=link_to profile.fb, profile.fb, :target => "_blank"
+            %span.fb=link_to cut_phrase(profile.fb,45), profile.fb, :target => "_blank"
         .clear
   .clear
   -unless profile.bio.blank?
