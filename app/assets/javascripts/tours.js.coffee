@@ -37,3 +37,8 @@ $ ->
     if e.keyCode == 27
       $('.select-wrap .option-list').slideUp 300
     return
+  $('.select-wrap').each ->
+    value = $(this).find('input[type=hidden]').val()
+    if value != ""
+      $(this).find(".option-list li[data-value='#{value}']").click()
+    return
