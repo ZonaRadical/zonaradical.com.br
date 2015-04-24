@@ -25,7 +25,7 @@
       \#{link_to 'Back', polymorphic_url([@user, ImageGallery.new])}
   .heading
   %b{:style=>"font-size: 16px;" }
-    = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name, :back
+    = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, :back
 
 -content_for :aside do
   %aside
