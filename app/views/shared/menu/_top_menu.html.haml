@@ -18,10 +18,11 @@
     %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
 
   %li
-    - if @current_user.nil?
-      %a{:href => Rails.application.secrets.discourse_url} Forum
-    - else
-      %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
+    - if Rails.application.secrets.discourse_url
+      - if @current_user.nil?
+        %a{:href => Rails.application.secrets.discourse_url} Forum
+      - else
+        %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
   %li.submenu-item
     %a{:href => "#"}
       Galera
