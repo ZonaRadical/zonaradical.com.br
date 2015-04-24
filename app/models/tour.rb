@@ -66,7 +66,7 @@ class Tour < ActiveRecord::Base
   end
 
   def self.filter(options = {})
-    tours = self
+    tours = where(nil)
     tours = tours.includes(:resort_categories).where(resort_categories: { id: options['resort_categories'] }) if options['resort_categories']
     tours = tours.where(check_in_m: options['check_in_m'], check_in_y: options['check_in_y']) if options['check_in_m'] and options['check_in_y']
     tours = tours.where(tour_style: options['tour_style']) if options['tour_style']

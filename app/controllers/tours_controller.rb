@@ -23,7 +23,7 @@ class ToursController < ApplicationController
   end
 
   def load_filtered_tours
-    filter_options = search_params.delete_if { |k,v| v == "0" }
+    filter_options = search_params.delete_if { |k,v| v == "" }
 
     if filter_options['period']
       check_in_m, check_in_y = filter_options['period'].split('/')

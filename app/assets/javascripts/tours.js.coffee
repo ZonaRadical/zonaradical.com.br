@@ -6,9 +6,6 @@ $ ->
     mediaManager:true
 
   # SELECT stylization 
-  $('.select-wrap').each ->
-    $(this).find('input[type=hidden]').val $(this).find('.option-list li.default').attr('data-value')
-    return
   $('.select').click ->
     select_wrap = $(this).closest('.select-wrap')
     option_list = select_wrap.find('.option-list')

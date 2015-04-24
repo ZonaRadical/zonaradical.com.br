@@ -36,4 +36,8 @@ module ToursHelper
   def tour_resorts
     Tour.published.collect(&:resorts).flatten.uniq.reject { |item| item.blank? }
   end
+
+  def search_value_for(symbol)
+    params[:search].try(:[], symbol)
+  end
 end
