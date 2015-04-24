@@ -1,31 +1,46 @@
-%p#notice= notice
+.main-content
+  .heading
+    %h1
+      Tours:
+      =@tour.title
 
-%p
-  %b Tour style:
-  = @tour.tour_style
-%p
-  %b Accommodation:
-  = @tour.accommodation
-%p
-  %b Title:
-  = @tour.title
-%p
-  %b Description:
-  = @tour.description
-%p
-  %b Duration:
-  = @tour.duration
-%p
-  %b Check in:
-  = @tour.check_in
-%p
-  %b Price:
-  = @tour.price
-%p
-  %b Published:
-  = @tour.published
+  %p#notice= notice
 
-- if can? :manage, @tour
-  = link_to 'Edit', edit_manage_tour_path(@tour)
-  \|
-= link_to 'Back', manage_tours_path
+  %p
+    %b Tour style:
+    = @tour.tour_style
+  %p
+    %b Accommodation:
+    = @tour.accommodation
+  %p
+    %b Description:
+    = @tour.description
+  %p
+    %b Duration:
+    = @tour.duration
+    dias
+  %p
+    %b Check in:
+    = @tour.check_in
+  %p
+    %b Preco aproximado por dia:
+    = @tour.price
+    reais
+
+  -if !@tour.published
+    %p
+      %b Este trip nao foi publicado, por favor entre em contato com o Moderador, info(a)zonaradical.com.br
+
+  - if can? :manage, @tour
+    = link_to 'Edit', edit_manage_tour_path(@tour)
+    \|
+  = link_to 'Back', manage_tours_path
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      /=render 'shared/aside/aside_tip_category', :tip_category => nil
+      /=render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+      /=render 'shared/aside/aside_resort_gallery'
+    .clear

@@ -5,16 +5,15 @@
     %meta{:name => "description", :content =>  "é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
     %meta{:viewport => "width=1220, maximum-scale=2.0"}
   .heading
-    %h2
-      <strong>Vamo junto</strong> com Zona Radical Snowboard
-      = link_to '+ Adicionar um anúncio', new_manage_tour_path, class: 'all add-link'
+    %h1
+      Encontra seu parceiro perfeito de Snowboard
+    = link_to '+ Adicionar um anúncio', new_manage_tour_path, class: 'all add-link'
   %p.search-intro 
     Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
     é um sistema para você poder encontrar o perfeito parceiro para sua viagem -
     tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
     postar anúncios procurando parceiros, e também procurar companhia entre quem já postou.
-  %p Ja-ja você poderá pesquisar os anúncios escolhendo abaixo os parâmetros de viagem.
-  
+
   = form_for :search, url: search_tours_path, method: :get do |f|
     .search-filter
       .select-wrap
@@ -25,6 +24,14 @@
         %ul.option-list
           - tour_resort_categories.each do |resort_category|
             %li{data: { value: resort_category.id }}= resort_category.name
+      .select-wrap
+        = f.hidden_field :resorts, value: search_value_for(:resorts)
+        .select
+          %span.name Estação
+          %a.arrow{:href => "#"}
+        %ul.option-list
+          - tour_resorts.each do |resort|
+            %li{data: { value: resort.id } }= resort.name
       .select-wrap
         = f.hidden_field :period, value: search_value_for(:period)
         .select
@@ -67,20 +74,13 @@
           %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
           %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
           %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
-      .select-wrap
-        = f.hidden_field :resorts, value: search_value_for(:resorts)
-        .select
-          %span.name Estação
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          - tour_resorts.each do |resort|
-            %li{data: { value: resort.id } }= resort.name
       .clear
     / end search-filter
     = f.submit t('applyFilters')
+  / :style=>"float: right;"
   .heading
-    %h2 Todos os anúncios
-    = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads'
+    %h1 Todos os anúncios
+    = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
   - if @tours.empty?
     Não existem tours ou nenhuma foi encontrada com os filtros especificados.
   - else
@@ -94,27 +94,12 @@
           %p= truncate_html(tour.description.html_safe, length: 100)
           = link_to 'Leia mais', '#', class: 'read-more'
     / end announcement-list
-  %ul.pagination
-    %li
-      %a.prev{:href => "#"}
-    %li
-      %a.active{:href => "#"} 1
-    %li
-      %a{:href => "#"} 2
-    %li
-      %a{:href => "#"} 3
-    %li
-      %a{:href => "#"} 4
-    %li
-      %a.next{:href => "#"} >>
-  / end pagination
-
   .clear
 
   -content_for :aside do
     %aside
       =render 'shared/aside/aside_social_buttons'
-      =render 'shared/aside/aside_tip_category', :tip_category => nil
+      /=render 'shared/aside/aside_tip_category', :tip_category => nil
       =render 'shared/aside/aside_fb_like_box'
       =render 'shared/aside/aside_advert'
       =render 'shared/aside/aside_resort_gallery'
