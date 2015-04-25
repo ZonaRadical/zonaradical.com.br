@@ -53,6 +53,6 @@ class ToursController < ApplicationController
   end
 
   def tour_scope
-    Tour.published
+    Tour.published.switched_on.order(:check_in)
   end
 end

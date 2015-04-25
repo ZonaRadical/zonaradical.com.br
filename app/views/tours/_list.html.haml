@@ -1,0 +1,17 @@
+%ol.announcement-list
+  - @tours.each do |tour|
+    %li
+      %p.title= link_to tour.title, tour_path(tour)
+      %i.date
+        = tour.check_in
+        %b= tour.resort_categories.collect(&:name).join(', ')
+      %p= truncate_html(tour.description.html_safe, length: 100)
+      = link_to 'Leia mais', tour_path(tour), class: 'read-more'
+      - if can? :manage, tour
+        %br
+        = link_to t('edit'), edit_manage_tour_path(tour)
+        |
+        = link_to t('participants'), manage_tour_participants_path(tour)
+        |
+        = link_to t('destroy'), manage_tour_path(tour), method: :delete, data: { confirm: t('confirm_destroy') }
+/ end announcement-list

@@ -16,6 +16,8 @@
 #   t.integer  :switch_off_d
 #   t.integer  :switch_off_m
 #   t.integer  :switch_off_y
+#   t.date     :check_in
+#   t.date     :switch_off
 # end
 #
 # add_index :tours, [:accommodation_id], name: :index_tours_on_accommodation_id, using: :btree
@@ -43,18 +45,9 @@ class Tour < ActiveRecord::Base
     self.switch_off_d = check_in_d
     self.switch_off_m = check_in_m
     self.switch_off_y = check_in_y
-  end
 
-  def check_in_date
-    check_in_d.nil? ? Date.new(check_in_y, check_in_m) : Date.new(check_in_y, check_in_m, check_in_d)
-  end
-
-  def check_in
-    if check_in_d.nil?
-      Date.new(check_in_y, check_in_m).strftime('%m/%Y')
-    else
-      Date.new(check_in_y, check_in_m, check_in_d).strftime('%d/%m/%Y')
-    end
+    self.check_in = check_in_d.nil? ? Date.new(check_in_y, check_in_m) : Date.new(check_in_y, check_in_m, check_in_d)
+    self.switch_off = switch_off_d.nil? ? Date.new(switch_off_y, switch_off_m) : Date.new(switch_off_y, switch_off_m, switch_off_d)
   end
 
   def approved_participants
@@ -63,6 +56,10 @@ class Tour < ActiveRecord::Base
 
   def self.published
     where(published: true)
+  end
+
+  def self.switched_on
+    where("switch_off >= ?", Date.today)
   end
 
   def self.filter(options = {})
