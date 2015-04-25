@@ -34,8 +34,8 @@ class CategoryImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb_1024_512 do
-    process :create_thumb => [1024, 512]
+  version :thumb_1200_630 do
+    process :create_thumb => [1200, 630]
   end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
