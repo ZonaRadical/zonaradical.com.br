@@ -4,14 +4,18 @@ $ ->
   update_visible_resorts = ->
     resort_category_id = $('input#search_resort_categories').val()
     input_search_resorts = $('input#search_resorts')
-    resort_option_list = input_search_resorts.siblings('.option-list')
-    resort_option_list.find('li').removeClass('hide')
-    resort_option_list_visible = resort_option_list.find("li[data-category-id='#{resort_category_id}']")
-    resort_option_list.find('li').not(resort_option_list_visible).addClass('hide')
-    current_resort = input_search_resorts.siblings('div.select').find('span').html()
-    if resort_option_list.find("li:contains(#{current_resort})").hasClass('hide')
-      $('input#search_resorts').val('')
-      $('input#search_resorts').siblings('div.select').find('span').html('Estação')
+    if resort_category_id != ''
+      resort_option_list = input_search_resorts.siblings('.option-list')
+      resort_option_list.find('li').removeClass('hide')
+      resort_option_list_visible = resort_option_list.find("li[data-category-id='#{resort_category_id}']")
+      resort_option_list.find('li').not(resort_option_list_visible).not('.default').addClass('hide')
+      current_resort = input_search_resorts.siblings('div.select').find('span').html()
+      if resort_option_list.find("li:contains(#{current_resort})").hasClass('hide')
+        $('input#search_resorts').val('')
+        $('input#search_resorts').siblings('div.select').find('span').html('Estação')
+    else
+      resort_option_list = input_search_resorts.siblings('.option-list')
+      resort_option_list.find('li').removeClass('hide')
 
 
   $(".froala").editable
