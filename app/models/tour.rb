@@ -2,7 +2,7 @@
 #   t.integer  :tour_style_id
 #   t.integer  :accommodation_id
 #   t.string   :title
-#   t.string   :description
+#   t.text     :description
 #   t.string   :whats_included
 #   t.integer  :duration
 #   t.string   :image

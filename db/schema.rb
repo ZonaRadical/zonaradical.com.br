@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411000019) do
+ActiveRecord::Schema.define(version: 20150425004010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -360,7 +360,7 @@ ActiveRecord::Schema.define(version: 20150411000019) do
     t.integer  "tour_style_id"
     t.integer  "accommodation_id"
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "whats_included"
     t.integer  "duration"
     t.string   "image"
