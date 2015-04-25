@@ -64,7 +64,7 @@
   -unless profile.bio.blank?
     %p.bio
       %b Biografia:
-      =profile.bio
+      =profile.bio.html_safe
   -unless profile.image_galleries.all.count.zero?
     = render profile.image_galleries
   -if 2<0

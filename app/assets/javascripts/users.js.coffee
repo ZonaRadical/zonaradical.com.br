@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 #=require sliders/slick
+#= require_tree ./editor
 
 $ ->
   $("#user_birthday").datepicker({ maxDate: "-1d" })
@@ -13,4 +14,8 @@ $ ->
     infinite: true
     speed: 500
     autoplay: false
+
+  $(".froala").editable
+    inlineMode: false
+    mediaManager:true
   return
