@@ -87,12 +87,12 @@
     %ol.announcement-list
       - @tours.sort_by(&:check_in_date).each do |tour|
         %li
-          %p.title= tour.title
+          %p.title= link_to tour.title, tour_path(tour)
           %i.date
             = tour.check_in
             %b= tour.resort_categories.collect(&:name).join(', ')
           %p= truncate_html(tour.description.html_safe, length: 100)
-          = link_to 'Leia mais', '#', class: 'read-more'
+          = link_to 'Leia mais', tour_path(tour), class: 'read-more'
     / end announcement-list
   = will_paginate @tours
 
