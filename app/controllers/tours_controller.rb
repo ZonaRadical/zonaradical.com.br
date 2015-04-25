@@ -15,7 +15,7 @@ class ToursController < ApplicationController
   private
 
   def load_tours
-    @tours ||= tour_scope.paginate(page: params[:page]).to_a
+    @tours ||= tour_scope.switched_on.paginate(page: params[:page]).to_a
   end
 
   def load_tour
@@ -49,10 +49,10 @@ class ToursController < ApplicationController
 
   def search_params
     params.require(:search).permit(:resort_categories, :period, :tour_style,
-      :accommodation, :cost, :age_group, :resorts)
+      :accommodation, :cost, :age_group, :resorts, :show_passed)
   end
 
   def tour_scope
-    Tour.published.switched_on.order(:check_in)
+    Tour.published.order(:check_in)
   end
 end

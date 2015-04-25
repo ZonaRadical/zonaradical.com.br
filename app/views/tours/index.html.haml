@@ -84,6 +84,8 @@
             %li{data: { value: resort.id, category_id: resort.resort_category_id } }= resort.name
       .clear
     / end search-filter
+    = f.label :show_passed
+    = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
     = f.submit t('applyFilters')
   .heading
     %h2 Todos os anúncios

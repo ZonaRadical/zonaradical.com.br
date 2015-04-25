@@ -74,7 +74,8 @@ class Tour < ActiveRecord::Base
         .where(tour_user_assignments: { id: Tour::Owner.first_owners_by_tour })
         .where(users: { birthday: options['age_group'] })
     end
-    tours.includes(:resorts).where(resorts: { id: options['resorts'] }) if options['resorts']
+    tours = tours.includes(:resorts).where(resorts: { id: options['resorts'] }) if options['resorts']
+    tours = tours.switched_on if options['show_passed'] == "0"
     tours
   end
 
