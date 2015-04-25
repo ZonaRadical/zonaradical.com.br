@@ -1,6 +1,19 @@
 #= require_tree ./editor
 
 $ ->
+  update_visible_resorts = ->
+    resort_category_id = $('input#search_resort_categories').val()
+    input_search_resorts = $('input#search_resorts')
+    resort_option_list = input_search_resorts.siblings('.option-list')
+    resort_option_list.find('li').removeClass('hide')
+    resort_option_list_visible = resort_option_list.find("li[data-category-id='#{resort_category_id}']")
+    resort_option_list.find('li').not(resort_option_list_visible).addClass('hide')
+    current_resort = input_search_resorts.siblings('div.select').find('span').html()
+    if resort_option_list.find("li:contains(#{current_resort})").hasClass('hide')
+      $('input#search_resorts').val('')
+      $('input#search_resorts').siblings('div.select').find('span').html('Estação')
+
+
   $(".froala").editable
     inlineMode: false
     mediaManager:true
@@ -27,6 +40,7 @@ $ ->
     title.html option
     $(this).closest('.option-list').slideUp 300
     $(this).closest('.select-wrap').find('.arrow').removeClass 'active'
+    update_visible_resorts() if $(this).closest('.select-wrap').find('input#search_resort_categories').length != 0
     return
   $(document).click (e) ->
     if $('.select-wrap .option-list:visible').length and !$(e.target).closest('.select-wrap').length

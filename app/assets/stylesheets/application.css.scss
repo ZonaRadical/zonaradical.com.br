@@ -1500,6 +1500,9 @@ p.search-intro {
     &.default {
       display: none;
     }
+    &.hide {
+      display: none;
+    }
   }
 }
 
