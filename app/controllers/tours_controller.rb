@@ -15,7 +15,7 @@ class ToursController < ApplicationController
   private
 
   def load_tours
-    @tours ||= tour_scope.to_a
+    @tours ||= tour_scope.paginate(page: params[:page]).to_a
   end
 
   def load_tour
@@ -44,7 +44,7 @@ class ToursController < ApplicationController
       filter_options['age_group'] = age_group
     end
 
-    @tours ||= tour_scope.filter(filter_options).to_a
+    @tours ||= tour_scope.filter(filter_options).paginate(page: params[:page]).to_a
   end
 
   def search_params

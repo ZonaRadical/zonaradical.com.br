@@ -94,20 +94,7 @@
           %p= truncate_html(tour.description.html_safe, length: 100)
           = link_to 'Leia mais', '#', class: 'read-more'
     / end announcement-list
-  %ul.pagination
-    %li
-      %a.prev{:href => "#"}
-    %li
-      %a.active{:href => "#"} 1
-    %li
-      %a{:href => "#"} 2
-    %li
-      %a{:href => "#"} 3
-    %li
-      %a{:href => "#"} 4
-    %li
-      %a.next{:href => "#"} >>
-  / end pagination
+  = will_paginate @tours
 
   .clear
 
