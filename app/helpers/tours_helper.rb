@@ -1,14 +1,16 @@
 module ToursHelper
-  def participation_status(tour)
+  def participation_status(tour, options = {})
+    participate_button = options[:participate_button] || false
+
     if tour.user_participants.include?(current_user)
       if tour.participants.where(user: current_user).first.approved?
-        content_tag(:p, t('youAreIn'), class: 'green')
+        fa_icon('check-circle', text: t('youAreIn'), class: 'green')
       elsif tour.participants.where(user: current_user).first.refused?
-        content_tag(:p, t('participationRefused'))
+        fa_icon('times-circle', text: t('participationRefused'), class: 'red')
       else
-        content_tag(:p, t('participateRequestSent'))
+        fa_icon('question-circle', text: t('participateRequestSent'), class: 'yellow')
       end
-    else
+    elsif participate_button
       form_for [tour, Tour::Participant.new] do |f|
         concat(f.hidden_field :tour_id, value: tour.id)
         concat(f.hidden_field :user_id, value: current_user.id)

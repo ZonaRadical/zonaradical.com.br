@@ -25,7 +25,7 @@
   %b Published:
   = @tour.published
 
-= participation_status(@tour)
+= participation_status(@tour, participate_button: true)
 
 - if can? :manage, @tour
   = link_to 'Edit', edit_manage_tour_path(@tour)

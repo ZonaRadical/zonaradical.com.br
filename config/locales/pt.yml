@@ -82,6 +82,9 @@ pt-BR:
     participate: 'Participar'
     participants: 'Participantes'
     applyFilters: 'Aplicar filtros'
+    youAreIn: 'Você está dentro'
+    participationRefused: 'Participação recusada'
+    participationRequestSent: 'Aguardando avaliação'
 
     # Tour Participants
     pending: 'Pendente'

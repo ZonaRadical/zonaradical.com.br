@@ -1,7 +1,9 @@
 %ol.announcement-list
   - @tours.each do |tour|
     %li
-      %p.title= link_to tour.title, tour_path(tour)
+      %p.title
+        = link_to tour.title, tour_path(tour)
+        = participation_status(tour)
       %i.date
         = check_in_formatted(tour)
         %b= tour.resort_categories.collect(&:name).join(', ')
