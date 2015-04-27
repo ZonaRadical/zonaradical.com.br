@@ -40,4 +40,12 @@ module ToursHelper
   def search_value_for(symbol)
     params[:search].try(:[], symbol)
   end
+
+  def check_in_formatted(tour)
+    if tour.check_in_d.nil?
+      tour.check_in.strftime('%m/%Y')
+    else
+      tour.check_in.strftime('%d/%m/%Y')
+    end
+  end
 end
