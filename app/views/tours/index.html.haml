@@ -93,7 +93,7 @@
   - if @tours.empty?
     Não existem tours ou nenhuma foi encontrada com os filtros especificados.
   - else
-    = render 'list'
+    = render 'list', tour_path_method: "tour_path"
 
   .clear
 

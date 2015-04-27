@@ -2,13 +2,13 @@
   - @tours.each do |tour|
     %li
       %p.title
-        = link_to tour.title, tour_path(tour)
+        = link_to tour.title, send(tour_path_method, tour)
         = participation_status(tour)
       %i.date
         = check_in_formatted(tour)
         %b= tour.resort_categories.collect(&:name).join(', ')
       %p= truncate_html(tour.description.html_safe, length: 100)
-      = link_to 'Leia mais', tour_path(tour), class: 'read-more'
+      = link_to 'Leia mais', send(tour_path_method, tour), class: 'read-more'
       - if can? :manage, tour
         %br
         = link_to t('edit'), edit_manage_tour_path(tour)

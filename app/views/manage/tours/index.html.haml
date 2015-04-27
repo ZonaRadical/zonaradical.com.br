@@ -1,7 +1,7 @@
 .main-content
   %h1 Listing tours
   
-  = render 'tours/list'
+  = render 'tours/list', tour_path_method: "manage_tour_path"
 
   = link_to 'New Tour', new_manage_tour_path
 

@@ -1,0 +1,26 @@
+%p
+  %b Tour style:
+  = @tour.tour_style
+%p
+  %b Accommodation:
+  = @tour.accommodation
+%p
+  %b Title:
+  = @tour.title
+%p
+  %b Description:
+  = @tour.description
+%p
+  %b Duration:
+  = @tour.duration
+%p
+  %b Check in:
+  = check_in_formatted(@tour)
+%p
+  %b Price:
+  = @tour.price
+%p
+  %b Published:
+  = @tour.published
+
+= participation_status(@tour, participate_button: true)
