@@ -37,7 +37,7 @@ class Manage::ToursController < ApplicationController
 
   private
     def load_tours
-      @tours ||= tour_scope.to_a
+      @tours ||= tour_scope.paginate(page: params[:page]).to_a
     end
 
     def load_tour

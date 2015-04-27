@@ -17,3 +17,4 @@
         |
         = link_to t('destroy'), manage_tour_path(tour), method: :delete, data: { confirm: t('confirm_destroy') }
 / end announcement-list
+= will_paginate @tours

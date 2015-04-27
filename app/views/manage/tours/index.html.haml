@@ -1,41 +1,17 @@
-%h1 Listing tours
+.main-content
+  %h1 Listing tours
+  
+  = render 'tours/list'
 
-%table
-  %thead
-    %tr
-      %th Tour style
-      %th Accommodation
-      %th Title
-      %th Description
-      %th Duration
-      %th Check in
-      %th Price
-      %th Published
-      %th Creator
-      %th Participants
-      %th
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @tours.each do |tour|
-      %tr
-        %td= tour.tour_style
-        %td= tour.accommodation
-        %td= tour.title
-        %td= tour.description
-        %td= tour.duration
-        %td= tour.check_in
-        %td= tour.price
-        %td= tour.published
-        %td= tour.owners.collect { |o| o.user.name }.join(', ')
-        %td= tour.approved_participants.collect { |p| p.user.name }.join(', ')
-        %td= link_to 'Show', [:manage, tour]
-        %td= link_to 'Edit', edit_manage_tour_path(tour)
-        %td= link_to t('participants'), manage_tour_participants_path(tour)
-        %td= link_to 'Destroy', [:manage, tour], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = link_to 'New Tour', new_manage_tour_path
 
-%br
+  .clear
 
-= link_to 'New Tour', new_manage_tour_path
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_tip_category', :tip_category => nil
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_resort_gallery'
+    .clear
