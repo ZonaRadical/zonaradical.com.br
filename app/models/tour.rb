@@ -62,6 +62,14 @@ class Tour < ActiveRecord::Base
     where("switch_off >= ?", Date.today)
   end
 
+  def self.involved(user)
+    Tour.includes([:user_owners, :user_participants])
+      .where("tour_user_assignments.user_id = :user_id
+        OR tour_user_participant_assignments.user_id = :user_id",
+        user_id: user.id)
+      .references([:user_owners, :user_participants])
+  end
+
   def self.filter(options = {})
     tours = where(nil)
     tours = tours.includes(:resort_categories).where(resort_categories: { id: options['resort_categories'] }) if options['resort_categories']

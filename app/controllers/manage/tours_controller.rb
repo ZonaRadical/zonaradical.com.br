@@ -64,6 +64,6 @@ class Manage::ToursController < ApplicationController
     end
 
     def tour_scope
-      current_user.admin? ? Tour.all : current_user.tours
+      current_user.admin? ? Tour.all : Tour.involved(current_user)
     end
 end

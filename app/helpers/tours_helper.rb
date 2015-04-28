@@ -8,7 +8,7 @@ module ToursHelper
       elsif tour.participants.where(user: current_user).first.refused?
         fa_icon('times-circle', text: t('participationRefused'), class: 'red')
       else
-        fa_icon('question-circle', text: t('participateRequestSent'), class: 'yellow')
+        fa_icon('question-circle', text: t('participationRequestSent'), class: 'yellow')
       end
     elsif participate_button
       form_for [tour, Tour::Participant.new] do |f|
