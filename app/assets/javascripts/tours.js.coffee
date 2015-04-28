@@ -1,4 +1,5 @@
 #= require_tree ./editor
+#= require sliders/slick
 
 $ ->
   update_visible_resorts = ->
@@ -21,6 +22,14 @@ $ ->
   $(".froala").editable
     inlineMode: false
     mediaManager:true
+
+  # .index-slider Slick
+  $(".tip-slider").slick
+    dots: false
+    arrows: true
+    infinite: true
+    speed: 500
+    autoplay: false
 
   # SELECT stylization 
   $('.select').click ->

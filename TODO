@@ -6,3 +6,6 @@
   considered equal 1. For now, to be able to sort, I'm creating this date as a
   virtual attribute called check_in in the application. For performance reasons
   this must be changed to be dealt in the database scope.
+
+* Image gallery must be refactored to avoid duplication and also remove tip
+  references, since it's being rendered in others contexts too.

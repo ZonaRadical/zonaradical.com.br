@@ -1,3 +1,5 @@
+#= require sliders/slick
+
 $ ->
   resorts = $('#tour_resort_ids').html()
 
@@ -14,3 +16,11 @@ $ ->
     populate_resorts()
 
   populate_resorts()
+
+  # .index-slider Slick
+  $(".tip-slider").slick
+    dots: false
+    arrows: true
+    infinite: true
+    speed: 500
+    autoplay: false

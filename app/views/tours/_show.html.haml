@@ -23,4 +23,7 @@
   %b Published:
   = @tour.published
 
+-unless @tour.gallery_images.all.count.zero?
+  = render 'shared/sliders/tip', images: @tour.gallery_images.all
+
 = participation_status(@tour, participate_button: true)

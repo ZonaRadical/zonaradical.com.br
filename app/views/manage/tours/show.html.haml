@@ -1,8 +1,25 @@
-%p#notice= notice
+.main-content
+  %article
+    = render 'tours/show'
 
-= render 'tours/show'
+    .clear
 
-- if can? :manage, @tour
-  = link_to 'Edit', edit_manage_tour_path(@tour)
-  \|
-= link_to 'Back', manage_tours_path
+  - if can? :manage, @tour
+    = link_to 'Edit', edit_manage_tour_path(@tour)
+    \|
+  = link_to 'Back', manage_tours_path
+
+-content_for :aside do
+  %aside
+    -if can? :update, current_user
+      .heading
+        %h1= t('personalMenu')
+      .buttons
+        %a.button{:href => edit_user_path(current_user)}= t('editProfile')
+        %a.button{:href => user_image_galleries_path(current_user)}= t('imageGalleries')
+        %a.button{:href => manage_tours_path}= t('tours')
+      .clear
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'

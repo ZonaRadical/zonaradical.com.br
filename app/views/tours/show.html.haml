@@ -1,8 +1,19 @@
-%p#notice= notice
+.main-content
+  %article
+    = render 'show'
 
-= render 'show'
+    .clear
+    
+    - if can? :manage, @tour
+      = link_to 'Edit', edit_manage_tour_path(@tour)
+      \|
+    = link_to 'Back', tours_path
 
-- if can? :manage, @tour
-  = link_to 'Edit', edit_manage_tour_path(@tour)
-  \|
-= link_to 'Back', tours_path
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_tip_category', :tip_category => nil
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear
