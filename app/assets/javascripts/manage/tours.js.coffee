@@ -1,3 +1,4 @@
+#= require_tree ./../editor
 #= require sliders/slick
 
 $ ->
@@ -24,3 +25,7 @@ $ ->
     infinite: true
     speed: 500
     autoplay: false
+
+  $(".froala").editable
+    inlineMode: false
+    mediaManager:true
