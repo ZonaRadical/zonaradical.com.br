@@ -23,6 +23,14 @@
   %b Published:
   = @tour.published
 
+%p
+  %b County(ies):
+  = tour_countries(@tour)
+
+%p
+  %b Resort(s):
+  = tour_resort(@tour)
+
 -unless @tour.gallery_images.all.count.zero?
   = render 'shared/sliders/tip', images: @tour.gallery_images.all
 

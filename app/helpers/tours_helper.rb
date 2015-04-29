@@ -50,4 +50,12 @@ module ToursHelper
       tour.check_in.strftime('%d/%m/%Y')
     end
   end
+
+  def tour_countries(tour)
+    tour.resort_categories.collect(&:name).join(', ')
+  end
+
+  def tour_resort(tour)
+    tour.resorts.collect(&:name).join(', ')
+  end
 end
