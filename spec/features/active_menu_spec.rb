@@ -46,7 +46,6 @@ feature 'active menu' do
     # end
     # expect(page).to have_selector('a.active', text: 'Vamo junto')
     # expect(page).to have_selector('a.active', count: 1)
-
     
     # within 'ul.menu' do
     #   click_link 'Galera ZR'
