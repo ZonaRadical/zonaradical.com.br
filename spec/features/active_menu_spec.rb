@@ -5,7 +5,6 @@ feature 'active menu' do
     create(:video_category, name: 'Digiácomo Dias')
     create(:resort_category, name: 'North')
     create(:tip_category, name: 'Id Odit Molestiae')
-    create(:forem_category, name: 'Travels')
 
     visit root_path
     
@@ -47,17 +46,6 @@ feature 'active menu' do
     # end
     # expect(page).to have_selector('a.active', text: 'Vamo junto')
     # expect(page).to have_selector('a.active', count: 1)
-    
-    within 'ul.menu' do click_link 'Forum' end
-    within 'ul.menu' do
-      expect(page).to have_selector('a.active', text: 'Forum')
-      expect(page).to have_selector('a.active', count: 1)
-    end
-    within 'ul.menu' do click_link 'Travels' end
-    within 'ul.menu' do
-      expect(page).to have_selector('a.active', text: 'Forum')
-      expect(page).to have_selector('a.active', count: 1)
-    end
     
     # within 'ul.menu' do
     #   click_link 'Galera ZR'
