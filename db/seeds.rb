@@ -8,5 +8,6 @@
 
 
 # добавляем роли
-Role.create(:name => 'admin')
-Role.create(:name => 'editor')
+Role.find_or_create_by(:name => 'admin')
+Role.find_or_create_by(:name => 'editor')
+Role.find_or_create_by(:name => 'agency')

@@ -74,4 +74,8 @@ class Ability
   def athlete    
   end
 
+  def agency
+    # TODO
+  end
+
 end
