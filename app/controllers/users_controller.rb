@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def agencies
+    @users = User.agencies
+  end
+
   private
 
   def user_params

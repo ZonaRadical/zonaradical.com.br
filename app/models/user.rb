@@ -102,6 +102,10 @@ class User < ActiveRecord::Base
     user
   end
 
+  def self.agencies
+    includes(:roles).where(roles: { name: 'agency' })
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end

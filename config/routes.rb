@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   match '/profile/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   match '/user' => 'users#profile', via: [:get], :as => :profile
+  match '/agencies' => 'users#agencies', via: [:get], :as => :agencies
 
   mount Forem::Engine, :at => '/forum', :as => 'forem'
 

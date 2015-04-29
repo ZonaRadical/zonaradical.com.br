@@ -9,3 +9,6 @@
 
 * Image gallery must be refactored to avoid duplication and also remove tip
   references, since it's being rendered in others contexts too.
+
+* _profile_agency.html.haml is with the image gallery code commented, because
+  this functionality isn't presented in feature/tour branch.
