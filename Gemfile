@@ -27,7 +27,7 @@ gem 'globalize', '~> 4.0.2'
 #gem 'acts_as_tree'
 gem 'ancestry'
 
-#gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'will_paginate', '~> 3.0.5'
 
 gem 'wysiwyg-rails'
