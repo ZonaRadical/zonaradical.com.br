@@ -15,7 +15,7 @@
       =menu_tip_categories TipCategory.all.arrange
 
   %li.submenu-item
-    = active_link_to t('vamoJunto'), main_app.tours_path
+    = active_link_to t('vamoJunto'), main_app.tours_path, active: /(^\/tours)||(^\/agencies)/
     %ul.submenu
       %li= active_link_to t('agencies'), main_app.agencies_path
 
