@@ -42,6 +42,12 @@ module Gallerable
           GalleryImage.destroy(k)
         end
       end
+
+      unless params[:gallery_images][:update_images].nil?
+        params[:gallery_images][:update_images].each do |k, d|
+          model.gallery_images.find(k).update image: d
+        end
+      end
     end
   end
 end
