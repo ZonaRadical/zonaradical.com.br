@@ -94,6 +94,8 @@ pt-BR:
     duration: 'Duração'
     price: 'Preço por dia'
     check_in: 'Dia de entrada'
+    destroy: 'Destruir'
+    newTour: 'Criar Trip'
 
     # Tour Participants
     pending: 'Pendente'

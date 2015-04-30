@@ -1,9 +1,13 @@
 %ol.announcement-list
   - @tours.each do |tour|
     %li
+      %p{:style=>"float: right;"}
+        - if can? :manage, tour and !current_user.admin?
+          Seu trip
+        - else
+          = participation_status(tour)
       %p.title
         = link_to tour.title, send(tour_path_method, tour)
-        = participation_status(tour)
       %i.date
         = check_in_formatted(tour)
         %b= tour.resort_categories.collect(&:name).join(', ')

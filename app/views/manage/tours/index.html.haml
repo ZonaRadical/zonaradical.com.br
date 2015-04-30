@@ -1,9 +1,10 @@
 .main-content
-  %h1 Listing tours
-  
+  .heading
+    %h1 A lista dos seus Trips
+
   = render 'tours/list', tour_path_method: "manage_tour_path"
 
-  = link_to 'New Tour', new_manage_tour_path
+  = link_to t('newTour'), new_manage_tour_path
 
   .clear
 
