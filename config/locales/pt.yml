@@ -85,6 +85,15 @@ pt-BR:
     youAreIn: 'Você está dentro'
     participationRefused: 'Participação recusada'
     participationRequestSent: 'Aguardando avaliação'
+    title: 'Titulo de Trip'
+    tourStyle:  'Estilo de Trip'
+    selectTourStyle: 'Escolha estilo'
+    accommodation: 'Tipo de Moradia'
+    selectAccommodation: 'Escolha estilo de Moradia'
+    description: 'Descrição'
+    duration: 'Duração'
+    price: 'Preço por dia'
+    check_in: 'Dia de entrada'
 
     # Tour Participants
     pending: 'Pendente'
