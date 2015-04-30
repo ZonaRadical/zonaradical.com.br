@@ -1,3 +1,3 @@
-.flash.flash-notification.flash-notice[notification]
+.flash.flash-notification.flash-notice[notification]{ data: { seconds_to_fade: 60 }}
   = link_to fa_icon('close'), user_notification_path(current_user, notification), method: :delete, remote: true, class: 'mark_as_read'
   = notification.body.html_safe

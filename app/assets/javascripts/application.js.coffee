@@ -69,11 +69,13 @@ $(document).ready ->
 # });
 #
 #
-$(".flash").not(".flash-notification").fadeIn ->
+$(".flash").fadeIn ->
+  secondsToFade = $(this).data('seconds-to-fade') || 5
+  _that = this
   setTimeout (->
-    $(".flash").not(".flash-notification").fadeOut()
+    $(_that).fadeOut()
     return
-  ), "5000"
+  ), (secondsToFade * 1000)
   return
 
 ((d, s, id) ->
