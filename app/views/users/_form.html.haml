@@ -60,7 +60,7 @@
         = f.text_field :fb
       .field
         = f.label :bio
-        = f.text_area(:bio, size: "100x20")
+        = f.text_area :bio, class: 'froala', size: "100x20"
       .actions
         = f.submit
     %div#tab_avatar
