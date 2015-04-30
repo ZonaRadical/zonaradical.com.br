@@ -12,10 +12,19 @@ class ToursController < ApplicationController
     render 'index'
   end
 
+  def offers
+    load_offers
+  end
+
   private
 
   def load_tours
     @tours ||= tour_scope.switched_on.paginate(page: params[:page]).to_a
+  end
+
+  def load_offers
+    @tours ||= tour_scope.owned_by(User.agencies).paginate(page: params[:page])
+      .to_a
   end
 
   def load_tour

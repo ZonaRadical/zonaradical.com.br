@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :accommodations, :tour_styles
   resources :tours do
     get 'search', on: :collection
+    get 'offers', on: :collection
     scope module: 'tours' do
       resources :participants
     end

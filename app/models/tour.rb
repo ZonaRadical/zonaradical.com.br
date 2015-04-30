@@ -63,11 +63,17 @@ class Tour < ActiveRecord::Base
   end
 
   def self.involved(user)
-    Tour.includes([:user_owners, :user_participants])
+    includes([:user_owners, :user_participants])
       .where("tour_user_assignments.user_id = :user_id
         OR tour_user_participant_assignments.user_id = :user_id",
         user_id: user.id)
       .references([:user_owners, :user_participants])
+  end
+
+  def self.owned_by(users)
+    includes(:user_owners).where(
+      tour_user_assignments: { user_id: users.collect(&:id) }
+    )
   end
 
   def self.filter(options = {})
