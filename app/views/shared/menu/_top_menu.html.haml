@@ -14,11 +14,13 @@
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 
+  %li= active_link_to t('vamoJunto'), main_app.tours_path
+
   %li.submenu-item
-    = active_link_to t('vamoJunto'), main_app.tours_path, active: /(^\/tours)|(^\/agencies)/
+    = link_to 'Tours', '#'
     %ul.submenu
       %li= link_to t('agencies'), main_app.agencies_path
-      %li= link_to t('offers'), main_app.offers_tours_path
+      %li= link_to t('offers'), main_app.offers_path
 
   %li.submenu-item
     = active_link_to t('forum'), forem.root_url
