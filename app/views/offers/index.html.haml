@@ -98,7 +98,10 @@
     = link_to t('cleanFilters'), main_app.offers_path, class: 'button'
   / :style=>"float: right;"
   .heading
-    %h1 Todos os pacotes
+    - if action_name == 'search'
+      %h1 Pacotes filtrados
+    - else
+      %h1 Todos os pacotes
     = link_to 'Os meus pacotes', manage_offers_path, class: 'all my-ads', target: '_blank'
   - if @offers.empty?
     Não existem pacotes ou nenhum foi encontrada com os filtros especificados.
