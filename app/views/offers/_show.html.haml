@@ -1,6 +1,6 @@
 %p
   %b Offer style:
-  = @offer.offer_style
+  = @offer.tour_style
 %p
   %b Accommodation:
   = @offer.accommodation
@@ -9,7 +9,7 @@
   = @offer.title
 %p
   %b Description:
-  = @offer.description
+  = @offer.description.html_safe
 %p
   %b Duration:
   = @offer.duration
@@ -34,4 +34,4 @@
 -unless @offer.gallery_images.all.count.zero?
   = render 'shared/sliders/tip', images: @offer.gallery_images.all
 
-= participation_status(@offer, participate_button: true)
+= offer_participation_status(@offer, participate_button: true)

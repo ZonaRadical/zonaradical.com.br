@@ -77,6 +77,15 @@ class Ability
 
   def agency
     can :manage, Offer
+
+    can :manage, Offer::Owner do |offer_owner|
+        offer_owner.offer.owners.collect { |owner| owner.user }.include?(@user)
+      end
+
+      can :manage, Offer::Participant do |offer_participant|
+        offer_participant.offer.user_owners.include?(@user)
+      end
+
     cannot :manage, Tour
   end
 

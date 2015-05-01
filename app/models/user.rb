@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
   has_and_belongs_to_many :tours, join_table: 'tour_user_assignments'
+  has_and_belongs_to_many :offers, join_table: 'offer_user_assignments'
 
   mount_uploader :avatar, AvatarImageUploader
 

@@ -1,5 +1,5 @@
 module OffersHelper
-  def participation_status(offer, options = {})
+  def offer_participation_status(offer, options = {})
     participate_button = options[:participate_button] || false
 
     if offer.user_participants.include?(current_user)

@@ -1,10 +1,10 @@
-# create_table :tour_user_assignments, force: true do |t|
-#   t.integer :tour_id
+# create_table :offer_user_assignments, force: true do |t|
+#   t.integer :offer_id
 #   t.integer :user_id
 # end
 #
-# add_index :tour_user_assignments, [:tour_id], name: :index_tour_user_assignments_on_tour_id, using: :btree
-# add_index :tour_user_assignments, [:user_id], name: :index_tour_user_assignments_on_user_id, using: :btree
+# add_index :offer_user_assignments, [:offer_id], name: :index_offer_user_assignments_on_offer_id, using: :btree
+# add_index :offer_user_assignments, [:user_id], name: :index_offer_user_assignments_on_user_id, using: :btree
 
 class Offer::Owner < ActiveRecord::Base
   self.table_name = 'offer_user_assignments'

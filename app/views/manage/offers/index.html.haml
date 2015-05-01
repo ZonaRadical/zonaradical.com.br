@@ -1,0 +1,17 @@
+.main-content
+  %h1 Listing offers
+  
+  = render 'offers/list', offer_path_method: "manage_offer_path"
+
+  = link_to 'New offer', new_manage_offer_path
+
+  .clear
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_tip_category', :tip_category => nil
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_resort_gallery'
+    .clear

@@ -32,8 +32,8 @@ class Offer < ActiveRecord::Base
   has_many :user_participants, through: :participants, source: :user
   has_many :countries
   has_many :resort_categories, through: :countries
-  has_many :tour_resorts
-  has_many :resorts, through: :tour_resorts
+  has_many :offer_resorts
+  has_many :resorts, through: :offer_resorts
   has_many :gallery_images, as: :gallerable
 
   validates :tour_style, :title, :description, presence: true
@@ -51,7 +51,7 @@ class Offer < ActiveRecord::Base
   end
 
   def approved_participants
-    participants.where(status: Tour::Participant.statuses[:approved])
+    participants.where(status: Offer::Participant.statuses[:approved])
   end
 
   def self.published

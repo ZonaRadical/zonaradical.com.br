@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501180311) do
+ActiveRecord::Schema.define(version: 20150501201121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20150501180311) do
   create_table "offer_user_participant_assignments", force: true do |t|
     t.integer "offer_id"
     t.integer "user_id"
+    t.integer "status",   default: 0
   end
 
   add_index "offer_user_participant_assignments", ["offer_id"], name: "index_offer_user_participant_assignments_on_offer_id", using: :btree
