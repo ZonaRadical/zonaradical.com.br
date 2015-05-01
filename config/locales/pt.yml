@@ -86,6 +86,9 @@ pt-BR:
     participationRefused: 'Participação recusada'
     participationRequestSent: 'Aguardando avaliação'
 
+    # Offer
+    createOffer: 'Criar pacote'
+
     # Tour Participants
     pending: 'Pendente'
     approved: 'Aprovado'

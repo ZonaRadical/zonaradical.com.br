@@ -75,7 +75,7 @@ class Ability
   end
 
   def agency
-    # TODO
+    can :manage, Offer
   end
 
 end

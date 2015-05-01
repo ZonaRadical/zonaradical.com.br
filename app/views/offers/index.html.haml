@@ -6,8 +6,9 @@
     %meta{:viewport => "width=1220, maximum-scale=2.0"}
   .heading
     %h1
-      Encontra seu parceiro perfeito de Snowboard
-    = link_to '+ Adicionar um anúncio', new_manage_offer_path, class: 'all add-link'
+      Offers
+    - if can? :create, Offer
+      = link_to "+ #{t('createOffer')}", new_manage_offer_path, class: 'all add-link'
   %p.search-intro 
     Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
     é um sistema para você poder encontrar o perfeito parceiro para sua viagem -
@@ -96,10 +97,10 @@
     = f.submit t('applyFilters')
   / :style=>"float: right;"
   .heading
-    %h1 Todos os anúncios
-    = link_to 'Os meus anúncios', manage_offers_path, class: 'all my-ads', target: '_blank'
+    %h1 Todos os pacotes
+    = link_to 'Os meus pacotes', manage_offers_path, class: 'all my-ads', target: '_blank'
   - if @offers.empty?
-    Não existem offers ou nenhuma foi encontrada com os filtros especificados.
+    Não existem pacotes ou nenhum foi encontrada com os filtros especificados.
   - else
     = render 'list', offer_path_method: "offer_path"
   .clear
