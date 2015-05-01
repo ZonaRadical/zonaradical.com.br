@@ -95,6 +95,7 @@
     = f.label :show_passed
     = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
     = f.submit t('applyFilters')
+    = link_to t('cleanFilters'), main_app.offers_path, class: 'button'
   / :style=>"float: right;"
   .heading
     %h1 Todos os pacotes
