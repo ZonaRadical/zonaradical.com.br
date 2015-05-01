@@ -94,7 +94,7 @@
     / end search-filter
     = f.label :show_passed
     = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
-    = f.submit t('applyFilters')
+    = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
     = link_to t('cleanFilters'), main_app.offers_path, class: 'button'
   / :style=>"float: right;"
   .heading
