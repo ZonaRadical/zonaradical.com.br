@@ -21,6 +21,18 @@
     %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
     .index-slider
       .slide
+        = link_to image_tag('/images/parkday.jpg'), "https://www.facebook.com/media/set/?set=a.1443366775964237.1073741830.1433724256928489", :target =>"blank"
+        %span.tag
+          Park Day Brasil
+        %p
+          O primeiro campeonato de snowboard com neve de verdade no Brasil rolou com muito sucesso em
+          =link_to "Snowland", main_app.resorts_url+"/9"
+          \. Parabéns
+          =link_to "Isis Dassow", main_app.users_url+"/18"
+          e
+          =link_to "Amaury Rousa", main_app.users_url+"/20"
+          \.
+      .slide
         = image_tag('slide-1.jpg')
         %span.tag
           Bem vindo a Snowboard na Zona Radical
