@@ -1,0 +1,37 @@
+%p
+  %b Offer style:
+  = @offer.offer_style
+%p
+  %b Accommodation:
+  = @offer.accommodation
+%p
+  %b Title:
+  = @offer.title
+%p
+  %b Description:
+  = @offer.description
+%p
+  %b Duration:
+  = @offer.duration
+%p
+  %b Check in:
+  = check_in_formatted(@offer)
+%p
+  %b Price:
+  = @offer.price
+%p
+  %b Published:
+  = @offer.published
+
+%p
+  %b County(ies):
+  = offer_countries(@offer)
+
+%p
+  %b Resort(s):
+  = offer_resort(@offer)
+
+-unless @offer.gallery_images.all.count.zero?
+  = render 'shared/sliders/tip', images: @offer.gallery_images.all
+
+= participation_status(@offer, participate_button: true)

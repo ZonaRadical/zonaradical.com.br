@@ -1,0 +1,24 @@
+.main-content
+  .heading
+    %h1
+      Offer:
+      = @offer.title
+
+  %article
+    = render 'show'
+
+    .clear
+    
+    - if can? :manage, @offer
+      = link_to 'Edit', edit_manage_offer_path(@offer)
+      \|
+    = link_to 'Back', offers_path
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_tip_category', :tip_category => nil
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_resort_gallery'
+  .clear
