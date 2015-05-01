@@ -13,7 +13,7 @@
     - @tour_styles.each do |tour_style|
       %tr
         %td= tour_style.name
-        %td= tour_style.description.html_safe
+        %td= tour_style.description
         %td= link_to 'Show', tour_style
         %td= link_to 'Edit', edit_tour_style_path(tour_style)
         %td= link_to 'Destroy', tour_style, :method => :delete, :data => { :confirm => 'Are you sure?' }

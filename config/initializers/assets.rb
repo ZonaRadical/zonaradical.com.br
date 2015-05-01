@@ -39,7 +39,4 @@ Rails.application.config.assets.precompile += %w( manage/tours.js )
 Rails.application.config.assets.precompile += %w( manage/offers.css )
 Rails.application.config.assets.precompile += %w( manage/offers.js )
 
-Rails.application.config.assets.precompile += %w( tour_styles.css )
-Rails.application.config.assets.precompile += %w( tour_styles.js )
-
 Rails.application.config.assets.precompile += %w( accommodations.js )
