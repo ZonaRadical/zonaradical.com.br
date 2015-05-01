@@ -6,7 +6,8 @@ class Ability
     #
 
     @user = user || User.new # for guest
-    @user.roles.each { |role| send(role.name.downcase) }
+
+    can :read, :all
 
     # Access to edit own profile
     can :manage, User do |user|
@@ -32,14 +33,14 @@ class Ability
       can :create, Tour::Participant
     end
 
-    can :read, :all
+    @user.roles.each { |role| send(role.name.downcase) }
+
 
     #for guest without roles
     if @user.roles.size == 0
       cannot :index, ResortCategory
       cannot :read, ActiveAdmin
     end
-
 
 
     #
@@ -76,6 +77,7 @@ class Ability
 
   def agency
     can :manage, Offer
+    cannot :manage, Tour
   end
 
 end
