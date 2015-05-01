@@ -1,5 +1,8 @@
 .heading
   %h1= t('userProfile')
+  /*- if !current_user.athlete?
+  .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
+
 .profile-card
   .leftcol
     = image_tag(profile.avatar_url, class: 'userpic', alt: profile.name )

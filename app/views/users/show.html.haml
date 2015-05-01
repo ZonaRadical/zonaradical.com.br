@@ -1,3 +1,21 @@
+-content_for :for_head do
+  -if @user.roles.include?("athlete")
+    %title #{@user.name.to_s} #{@user.surname.to_s} | Atletas do Brasil
+    %meta{:property=>"og:title", :content => @user.name.to_s+" "+ @user.surname.to_s+" | Atletas do Brasil"}
+  - else
+    %title #{@user.name.to_s} #{@user.surname.to_s} | Snowboarders do Brasil
+    %meta{:property=>"og:title", :content => @user.name.to_s+" "+ @user.surname.to_s+" | Snowboarders do Brasil"}
+  %meta{:name => "description",
+      :content => "Perfil perzonalizado de "+@user.name.to_s+" "+@user.surname.to_s+": biografia, contatos, galeria das fotos."}
+  /* facebook METAS
+  %meta{:property=> "og:description", :content => "Perfil perzonalizado do "+@user.name.to_s+" "+@user.surname.to_s+": biografia, contatos, galeria das fotos: "+@user.bio.to_s[0..30]}
+  %meta{:property=>"og:url", :content => request.original_url.to_s}
+  %meta{:property=> "og:image", :content=> "http://zonaradical.com.br"+@user.avatar_url}
+  -unless @user.image_galleries.all.count.zero?
+    - @user.image_galleries.each do |galler|
+      - galler.gallery_images.each do |img|
+        %meta{:property=> "og:image", :content=> "http://zonaradical.com.br"+img.image_url(:slider).to_s}
+  %meta{:property=>"og:type", :content =>"website"}
 .main-content
   = render 'profile', profile: @user
 -content_for :aside do
