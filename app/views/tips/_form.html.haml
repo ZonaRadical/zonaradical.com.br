@@ -34,6 +34,6 @@
   .field
     = f.label :level3_description
     = f.text_area :level3_description, :class => 'froala', :rows => 40, :cols => 120
-  = render 'shared/image_gallery_form', f: f, media: @tip
+  = render 'shared/image_gallery_form_tips', f: f, media: @tip
   .actions
     = f.submit
