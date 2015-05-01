@@ -5,10 +5,16 @@ Rails.application.routes.draw do
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
   resources :accommodations, :tour_styles
-  resources :tours do
+  resources :tours, :offers do
     get 'search', on: :collection
-    get 'offers', on: :collection
+  end
+  resources :tours do
     scope module: 'tours' do
+      resources :participants
+    end
+  end
+  resources :offers do
+    scope module: 'offers' do
       resources :participants
     end
   end
@@ -35,6 +41,14 @@ Rails.application.routes.draw do
   namespace :manage do
     resources :tours do
       scope module: 'tours' do
+        resources :owners
+        resources :participants do
+          get :approve, :refuse
+        end
+      end
+    end
+    resources :offers do
+      scope module: 'offers' do
         resources :owners
         resources :participants do
           get :approve, :refuse

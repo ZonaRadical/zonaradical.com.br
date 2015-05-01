@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429222533) do
+ActiveRecord::Schema.define(version: 20150501180311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -253,6 +253,63 @@ ActiveRecord::Schema.define(version: 20150429222533) do
     t.datetime "updated_at"
     t.string   "image"
   end
+
+  create_table "offer_country_assignments", force: true do |t|
+    t.integer "offer_id"
+    t.integer "resort_category_id"
+  end
+
+  add_index "offer_country_assignments", ["offer_id"], name: "index_offer_country_assignments_on_offer_id", using: :btree
+  add_index "offer_country_assignments", ["resort_category_id"], name: "index_offer_country_assignments_on_resort_category_id", using: :btree
+
+  create_table "offer_resort_assignments", force: true do |t|
+    t.integer "offer_id"
+    t.integer "resort_id"
+  end
+
+  add_index "offer_resort_assignments", ["offer_id"], name: "index_offer_resort_assignments_on_offer_id", using: :btree
+  add_index "offer_resort_assignments", ["resort_id"], name: "index_offer_resort_assignments_on_resort_id", using: :btree
+
+  create_table "offer_user_assignments", force: true do |t|
+    t.integer "offer_id"
+    t.integer "user_id"
+  end
+
+  add_index "offer_user_assignments", ["offer_id"], name: "index_offer_user_assignments_on_offer_id", using: :btree
+  add_index "offer_user_assignments", ["user_id"], name: "index_offer_user_assignments_on_user_id", using: :btree
+
+  create_table "offer_user_participant_assignments", force: true do |t|
+    t.integer "offer_id"
+    t.integer "user_id"
+  end
+
+  add_index "offer_user_participant_assignments", ["offer_id"], name: "index_offer_user_participant_assignments_on_offer_id", using: :btree
+  add_index "offer_user_participant_assignments", ["user_id"], name: "index_offer_user_participant_assignments_on_user_id", using: :btree
+
+  create_table "offers", force: true do |t|
+    t.integer  "tour_style_id"
+    t.integer  "accommodation_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "whats_included"
+    t.integer  "duration"
+    t.integer  "check_in_d"
+    t.integer  "check_in_m"
+    t.integer  "check_in_y"
+    t.integer  "switch_off_d"
+    t.integer  "switch_off_m"
+    t.integer  "switch_off_y"
+    t.date     "check_in"
+    t.date     "switch_off"
+    t.string   "image"
+    t.decimal  "price",            precision: 5, scale: 0
+    t.boolean  "published",                                default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "offers", ["accommodation_id"], name: "index_offers_on_accommodation_id", using: :btree
+  add_index "offers", ["tour_style_id"], name: "index_offers_on_tour_style_id", using: :btree
 
   create_table "resort_categories", force: true do |t|
     t.string  "name"
