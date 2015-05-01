@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @tour_owner
+= link_to 'Show', [:manage, @tour, @owner]
 \|
-= link_to 'Back', tour_owners_path
+= link_to 'Back', manage_tour_owners_path

@@ -1,4 +1,4 @@
-class Tours::OwnersController < ApplicationController
+class Manage::Tours::OwnersController < ApplicationController
   load_and_authorize_resource :tour, through: :current_user
   load_and_authorize_resource :owner, through: :tour, class: Tour::Owner
 
@@ -33,7 +33,7 @@ class Tours::OwnersController < ApplicationController
   def destroy
     load_owner
     @owner.destroy
-    redirect_to tour_owners_url
+    redirect_to manage_tour_owners_url
   end
 
   private
@@ -52,7 +52,7 @@ class Tours::OwnersController < ApplicationController
   end
 
   def save_owner
-    redirect_to [@tour, @owner] if @owner.save
+    redirect_to [:manage, @tour, @owner] if @owner.save
   end
 
   def owner_params
