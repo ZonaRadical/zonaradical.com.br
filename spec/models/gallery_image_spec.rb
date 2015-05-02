@@ -6,5 +6,5 @@ RSpec.describe GalleryImage, :type => :model do
     expect(GalleryImage.new).to be_an_instance_of(GalleryImage)
   end
 
-  it { should respond_to(:galerable) }
+  it { should respond_to(:gallerable) }
 end
