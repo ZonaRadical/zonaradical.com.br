@@ -82,13 +82,19 @@
           %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
           %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
           %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
+      .select-extra
+        %label.nrml{ :for => "show_passed",:style=>"margin-top: 0px;" }
+          Mostrar Trips passados
+          = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
+      .select-extra
+        - if action_name == 'search'
+          = link_to t('cleanFilters'), main_app.tours_path, class: 'button', style: "display: block; margin-left: auto; margin-right: auto;"
+
       .clear
       / end search-filter
-    = f.label :show_passed, 'Mostrar Trips passados'
-    = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
+
+
     = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
-    - if action_name == 'search'
-      = link_to t('cleanFilters'), main_app.tours_path, class: 'button'
   / :style=>"float: right;"
   .heading
     - if action_name == 'search'
