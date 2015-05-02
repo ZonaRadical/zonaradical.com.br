@@ -63,6 +63,8 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'populator'
   gem 'faker'
+
+  gem 'pry-rails'
 end
 
 group :test do
@@ -79,7 +81,6 @@ end
 
 
 group :development do
-  gem 'pry-rails'
   gem 'active_record-annotate', '~> 0.4'
   gem 'better_errors'
   gem 'binding_of_caller'
