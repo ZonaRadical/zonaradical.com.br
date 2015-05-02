@@ -8,7 +8,8 @@
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
         %a.button{:href => user_image_galleries_path(@user)}= t('imageGalleries')
-        %a.button{:href => manage_tours_path}= t('tours')
+        -if can? Tour, :manage
+          %a.button{:href => manage_tours_path}= t('tours')
       .clear
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_fb_like_box'

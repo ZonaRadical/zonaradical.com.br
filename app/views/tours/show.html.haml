@@ -1,8 +1,28 @@
 .main-content
+  -content_for :for_head do
+    /* general METAS
+    %title #{@tour.title} | Vamo Junto com Zona Radical
+    %meta{:name => "description", :content =>  strip_tags(@tour.description.to_s)}
+
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=> "og:description", :content =>   strip_tags(@tour.description.to_s)}
+    %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    /* %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
+    -unless @tour.gallery_images.all.count.zero?
+      -@tour.gallery_images[0..3].each do |image|
+        %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
+    /* schema.org METAS
+    /* %meta{:itemprop=>"location", :content => @resort.resort_category.name.to_s}
+    -unless @tour.gallery_images.all.count.zero?
+      -@tour.gallery_images[0..3].each do |image|
+        %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
   .heading
     %h1
-      Tour:
-      = @tour.title
+      =@tour.title
+    .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
 
   %article
     = render 'show'
