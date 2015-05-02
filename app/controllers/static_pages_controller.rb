@@ -7,5 +7,6 @@ class StaticPagesController < ApplicationController
     @tip = Tip.order('RANDOM()').first
     @tipsOrdered = Tip.order(created_at: :desc)[0..2]
     @breezes = Breeze.last(10)
+    @gallery_image = GalleryImage.order(:created_at).last
   end
 end

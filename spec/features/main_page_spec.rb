@@ -47,5 +47,16 @@ feature 'main page' do
         end
       end
     end
+
+    scenario 'display last gallery image' do
+      tip = create(:tip)
+      visit root_path
+
+      within('div.gallery-field') do
+        expect(page).to have_selector("img[src='#{tip.gallery_images.last.image_url}']")
+        expect(page).to have_content(tip.title)
+        expect(page).to have_content(tip.gallery_images.last.name)
+      end
+    end
   end
 end

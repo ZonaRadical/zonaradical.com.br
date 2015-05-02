@@ -66,9 +66,13 @@
           %p
             %strong
               =truncate_html(@tip.title, length: 20, omission: '...')
-    .gallery-field-small.right
-      = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
-      %p Trips e ofertas
+    -unless @gallery_image.nil?
+      .gallery-field-small.right
+        = image_tag(@gallery_image.image_url)
+        %p
+          = @gallery_image.name
+          = @gallery_image.gallerable.try (:title)
+          = @gallery_image.gallerable.try (:name)
   .clear
 
 .main-content
