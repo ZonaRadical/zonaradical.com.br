@@ -47,7 +47,7 @@
   .clear
 .clear
 %p.bio
-  -unless profile.bio.blank?
+  -unless profile.bio.to_s.blank?
     %b Biografia:
     /* =truncate_html(profile.bio, length: 250, omission: '  ')
     =strip_tags(profile.bio).gsub!("&nbsp;", "").html_safe[0..250]
