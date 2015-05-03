@@ -9,7 +9,8 @@
     %meta{:property=> "og:description", :content =>   strip_tags(@tour.description.to_s)}
     %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
     %meta{:property=>"og:url", :content => main_app.tours_url+"/"+@tour.id.to_s}
-    /* %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
+    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
+
     -unless @tour.gallery_images.all.count.zero?
       -@tour.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}

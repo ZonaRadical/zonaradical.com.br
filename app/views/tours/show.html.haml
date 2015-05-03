@@ -9,7 +9,7 @@
     %meta{:property=> "og:description", :content =>   strip_tags(@tour.description.to_s)}
     %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
-    /* %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
+    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
     -unless @tour.gallery_images.all.count.zero?
       -@tour.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
@@ -28,17 +28,16 @@
     = render 'show'
 
     .clear
-    
-    - if can? :manage, @tour
-      = link_to 'Edit', edit_manage_tour_path(@tour)
-      \|
-    = link_to 'Back', tours_path
+    .heading
+    .buttons
+      - if can? :manage, @tour
+        = link_to 'Edit', edit_manage_tour_path(@tour), class: "button"
+        = link_to t('newTour'), new_manage_tour_path, class: "button"
+      = link_to 'Todos Trips', tours_path, class: "button"
 
 -content_for :aside do
   %aside
     =render 'shared/aside/aside_social_buttons'
-    =render 'shared/aside/aside_tip_category', :tip_category => nil
-    =render 'shared/aside/aside_fb_like_box'
     =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_resort_gallery'
+    =render 'shared/aside/aside_fb_like_box'
   .clear
