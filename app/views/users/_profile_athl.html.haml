@@ -50,7 +50,7 @@
   -unless profile.bio.to_s.blank?
     %b Biografia:
     /* =truncate_html(profile.bio, length: 250, omission: '  ')
-    =strip_tags(profile.bio).gsub!("&nbsp;", "").to_s.html_safe[0..250]
+    =strip_tags(profile.bio).gsub("&nbsp;", "").to_s.html_safe[0..250]
 
     -if profile.bio.length > 250
       =link_to "Leia mais", user_url(profile), class: 'read-more'
