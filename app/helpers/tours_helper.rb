@@ -55,7 +55,7 @@ module ToursHelper
     tour.resort_categories.collect(&:name).join(', ')
   end
 
-  def tour_resort(tour)
+  def tour_resort_names(tour)
     tour.resorts.collect(&:name).join(', ')
   end
 end

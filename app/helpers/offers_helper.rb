@@ -51,7 +51,7 @@ module OffersHelper
     offer.resort_categories.collect(&:name).join(', ')
   end
 
-  def offer_resort(offer)
+  def offer_resorts_names(offer)
     offer.resorts.collect(&:name).join(', ')
   end
 end

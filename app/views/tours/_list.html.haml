@@ -12,7 +12,7 @@
         = check_in_formatted(tour)
         %b
           = tour.resort_categories.collect(&:name).join(', ')
-        = tour_resort(tour)
+        = tour_resorts_names(tour)
       %p= truncate_html(tour.description.html_safe, length: 100)
       = link_to 'Leia mais', send(tour_path_method, tour), class: 'read-more'
       - if can? :manage, tour

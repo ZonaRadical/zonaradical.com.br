@@ -30,7 +30,7 @@
 
 %p
   %b Resort(s):
-  = tour_resort(@tour)
+  = tour_resorts_names(@tour)
   - @tour.resorts.each do |resort|
     = resort_logo_img(resort)
 
