@@ -1,3 +1,4 @@
+%p= avatar_img(@offer.user_owners.first)
 %p
   %b Offer style:
   = @offer.tour_style
@@ -30,6 +31,8 @@
 %p
   %b Resort(s):
   = offer_resort(@offer)
+  - @offer.resorts.each do |resort|
+    = resort_logo_img(resort)
 
 -unless @offer.gallery_images.all.count.zero?
   = render 'shared/sliders/tip', images: @offer.gallery_images.all

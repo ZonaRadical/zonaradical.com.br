@@ -2,7 +2,7 @@
   %h1= t('userProfile')
 .profile-card
   .leftcol
-    = image_tag(@user.avatar_url, class: 'userpic', alt: @user.name )
+    = avatar_img(@user)
   .rightcol
     .title
       %span.name= @user.name.to_s + ' ' + @user.surname.to_s

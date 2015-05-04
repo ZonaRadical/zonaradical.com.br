@@ -34,7 +34,7 @@
         #{@resort.resort_category.name}
   .resort-card
     .leftcol
-      = image_tag(@resort.image_url(:thumb).to_s, class: "resortlogo", alt: @resort.name+"logo")
+      = resort_logo_img(@resort)
       %ul.details-list
         %li.contacts
           .contacts-list
