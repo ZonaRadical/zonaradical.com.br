@@ -53,6 +53,7 @@ feature 'main page' do
       visit root_path
 
       within('div.gallery-field') do
+        expect(page).to have_link('', href: "/tips/#{tip.id}")
         expect(page).to have_selector("img[src='#{tip.gallery_images.last.image_url}']")
         expect(page).to have_content(tip.title)
         expect(page).to have_content(tip.gallery_images.last.name)

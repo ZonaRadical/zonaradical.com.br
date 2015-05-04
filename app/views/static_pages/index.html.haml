@@ -68,7 +68,7 @@
               =truncate_html(@tip.title, length: 20, omission: '...')
     -unless @gallery_image.nil?
       .gallery-field-small.right
-        = image_tag(@gallery_image.image_url)
+        = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
         %p
           = @gallery_image.name
           = @gallery_image.gallerable.try (:title)
