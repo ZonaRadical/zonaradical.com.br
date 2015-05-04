@@ -1,14 +1,21 @@
 .main-content
   -content_for :for_head do
     /* general METAS
-    %title Vamo junto | Zona Radical
-    %meta{:name => "description", :content =>  "é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
+    %title Vamo Junto | Zona Radical
+    %meta{:name => "description", :content =>  "Isso é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
     %meta{:viewport => "width=1220, maximum-scale=2.0"}
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=> "og:description", :content =>   "Isso é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
+    %meta{:property=>"og:title", :content => "Vamo Junto | Zona Radical" }
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
   .heading
     %h1
       Encontra seu parceiro perfeito de Snowboard
+    /* -if can? Tour, :manage
     = link_to '+ Adicionar um anúncio', new_manage_tour_path, class: 'all add-link'
-  %p.search-intro 
+  .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
+  %p.search-intro{:style=>"width: 650px;"}
     Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
     é um sistema para você poder encontrar o perfeito parceiro para sua viagem -
     tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
@@ -81,18 +88,26 @@
           %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
           %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
           %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
+      .select-extra
+        %label.nrml{ :for => "show_passed",:style=>"margin-top: 0px;" }
+          Mostrar Trips passados
+          = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
+      .select-extra
+        - if action_name == 'search'
+          = link_to t('cleanFilters'), main_app.tours_path, class: 'button', style: "display: block; margin-left: auto; margin-right: auto;"
+
       .clear
       / end search-filter
-    = f.label :show_passed, 'Mostrar Trips passados'
-    = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
+
+
     = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
-    = link_to t('cleanFilters'), main_app.tours_path, class: 'button'
   / :style=>"float: right;"
   .heading
     - if action_name == 'search'
       %h1 Anúncios filtrados
     - else
       %h1 Todos os anúncios
+    /*-if can? Tour, :manage
     = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
   - if @tours.empty?
     Não existem tours ou nenhuma foi encontrada com os filtros especificados.

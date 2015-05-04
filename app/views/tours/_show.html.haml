@@ -1,35 +1,33 @@
 %p= avatar_img(@tour.user_owners.first)
 %p
-  %b Tour style:
-  = @tour.tour_style
-%p
-  %b Accommodation:
-  = @tour.accommodation
-%p
-  %b Title:
+  %b Titulo do Trip:
   = @tour.title
 %p
-  %b Description:
+  %b Estilo do Trip
+  = @tour.tour_style
+%p
+  %b Tipo de moradia
+  = @tour.accommodation
+%p
+  %b=t('description')
   = @tour.description.html_safe
 %p
-  %b Duration:
+  %b=t('duration')
   = @tour.duration
+  dias.
 %p
-  %b Check in:
+  %b=t('check_in')
   = check_in_formatted(@tour)
 %p
-  %b Price:
+  %b=t('price')
   = @tour.price
-%p
-  %b Published:
-  = @tour.published
 
 %p
-  %b County(ies):
+  %b=t('countries')
   = tour_countries(@tour)
 
 %p
-  %b Resort(s):
+  %b=t('resorts')
   = tour_resorts_names(@tour)
   - @tour.resorts.each do |resort|
     = resort_logo_img(resort)
