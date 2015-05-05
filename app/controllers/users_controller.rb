@@ -71,6 +71,10 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def agencies
+    @users = User.agencies
+  end
+
   private
 
   def user_params

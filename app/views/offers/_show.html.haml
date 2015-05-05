@@ -1,0 +1,40 @@
+%p= avatar_img(@offer.user_owners.first)
+%p
+  %b Offer style:
+  = @offer.tour_style
+%p
+  %b Accommodation:
+  = @offer.accommodation
+%p
+  %b Title:
+  = @offer.title
+%p
+  %b Description:
+  = @offer.description.html_safe
+%p
+  %b Duration:
+  = @offer.duration
+%p
+  %b Check in:
+  = check_in_formatted(@offer)
+%p
+  %b Price:
+  = @offer.price
+%p
+  %b Published:
+  = @offer.published
+
+%p
+  %b County(ies):
+  = offer_countries(@offer)
+
+%p
+  %b Resort(s):
+  = offer_resorts_names(@offer)
+  - @offer.resorts.each do |resort|
+    = resort_logo_img(resort)
+
+-unless @offer.gallery_images.all.count.zero?
+  = render 'shared/sliders/tip', images: @offer.gallery_images.all
+
+= offer_participation_status(@offer, participate_button: true)

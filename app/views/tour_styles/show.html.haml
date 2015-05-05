@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tour_style.name
+%p
+  %b Description:
+  = @tour_style.description
+
+= link_to 'Edit', edit_tour_style_path(@tour_style)
+\|
+= link_to 'Back', tour_styles_path

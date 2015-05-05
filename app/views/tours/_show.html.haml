@@ -1,0 +1,38 @@
+%p= avatar_img(@tour.user_owners.first)
+%p
+  %b Titulo do Trip:
+  = @tour.title
+%p
+  %b Estilo do Trip
+  = @tour.tour_style
+%p
+  %b Tipo de moradia
+  = @tour.accommodation
+%p
+  %b=t('description')
+  = @tour.description.html_safe
+%p
+  %b=t('duration')
+  = @tour.duration
+  dias.
+%p
+  %b=t('check_in')
+  = check_in_formatted(@tour)
+%p
+  %b=t('price')
+  = @tour.price
+
+%p
+  %b=t('countries')
+  = tour_countries(@tour)
+
+%p
+  %b=t('resorts')
+  = tour_resorts_names(@tour)
+  - @tour.resorts.each do |resort|
+    = resort_logo_img(resort)
+
+-unless @tour.gallery_images.all.count.zero?
+  = render 'shared/sliders/tip', images: @tour.gallery_images.all
+
+= participation_status(@tour, participate_button: true)

@@ -44,9 +44,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  acts_as_messageable
   has_many :role_assignments
   has_many :roles, :through => :role_assignments
   has_many :image_galleries, as: :image_gallerable
+  has_and_belongs_to_many :tours, join_table: 'tour_user_assignments'
+  has_and_belongs_to_many :offers, join_table: 'offer_user_assignments'
 
   mount_uploader :avatar, AvatarImageUploader
   mount_uploader :image, TipImageUploader
@@ -106,6 +109,10 @@ class User < ActiveRecord::Base
     joins(:roles).where(roles: { name: 'athlete' }).order(name: :asc)
   end
 
+  def self.agencies
+    includes(:roles).where(roles: { name: 'agency' })
+  end
+
   def email_verified?
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
@@ -116,5 +123,17 @@ class User < ActiveRecord::Base
 
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
+  end
+
+  def admin?
+    roles.include?(Role.find_by_name(:admin))
+  end
+
+  def mailboxer_email(object)
+    email
+  end
+
+  def notifications
+    mailbox.notifications
   end
 end

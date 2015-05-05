@@ -1,0 +1,47 @@
+.main-content
+  -content_for :for_head do
+    /* general METAS
+    %title #{@tour.title} | Vamo Junto com Zona Radical
+    %meta{:name => "description", :content =>  strip_tags(@tour.description.to_s)}
+    %link{href: main_app.tours_url+"/"+@tour.id.to_s, rel: "canonical"}
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=> "og:description", :content =>   strip_tags(@tour.description.to_s)}
+    %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
+    %meta{:property=>"og:url", :content => main_app.tours_url+"/"+@tour.id.to_s}
+    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
+
+    -unless @tour.gallery_images.all.count.zero?
+      -@tour.gallery_images[0..3].each do |image|
+        %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
+    /* schema.org METAS
+    /* %meta{:itemprop=>"location", :content => @resort.resort_category.name.to_s}
+    -unless @tour.gallery_images.all.count.zero?
+      -@tour.gallery_images[0..3].each do |image|
+        %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
+    %meta{:itemprop=>"url", :content => main_app.tours_url+"/"+@tour.id.to_s}
+
+  .heading
+    %h1
+      =@tour.title
+    .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
+  = render 'tours/show'
+
+  -if !@tour.published
+    %p
+      %b Este trip nao foi publicado, por favor entre em contato com o Moderador, info(a)zonaradical.com.br
+
+  .clear
+
+  - if can? :manage, @tour
+    = link_to 'Edit', edit_manage_tour_path(@tour)
+    \|
+  = link_to 'Back', manage_tours_path
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      /* =render 'shared/aside/aside_tip_category', :tip_category => nil
+      /* =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+    .clear

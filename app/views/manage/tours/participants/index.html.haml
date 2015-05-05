@@ -1,0 +1,60 @@
+.main-content
+  -content_for :for_head do
+    /* general METAS
+    %title Participantes do trip #{@tour.title} | Vamo Junto
+    %meta{:name => "description", :content =>  "A lista completa dos participantes do trip #{@tour.title}"}
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=> "og:description", :content =>   "A lista completa dos participantes do trip #{@tour.title}"}
+    %meta{:property=>"og:title", :content => "Participantes do trip #{@tour.title} | Vamo Junto"}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    /* %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
+
+  .heading
+    %h1 Participantes do trip "#{@tour.title}"
+
+  %table{style: "width: 100%; text-align: left;"}
+    %thead
+      %tr
+        %th Usuário
+        %th Status
+        %th Ações
+        %th
+        %th
+
+    %tbody
+      - @participants.each do |participant|
+        %tr
+          %td
+            = participant.user.name
+            = participant.user.surname
+          %td
+            = t(participant.status)
+          - if !participant.approved?
+            %td
+              = link_to t('approve'), manage_tour_participant_approve_path(@tour, participant)
+          %td
+            - if !participant.refused?
+              = link_to t('refuse'), manage_tour_participant_refuse_path(@tour, participant)
+          %td
+            = link_to t('destroy'), manage_tour_participant_path(@tour, participant), method: :delete, data: { confirm: t('confirm_destroy') }
+
+  %br
+  %i
+    Aprovar = aprovar a solicitação.
+    %br
+    Recusar = revocar o pedido, sem destruindo-lo.
+    Deletar = deletar a solicitação completamente.
+  %br
+  %br
+  .buttons
+    = link_to "Trip #{@tour.title}", tour_path(@tour), class: "button"
+    = link_to 'Todos Seus Trips', manage_tours_path, class: "button"
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_resort_gallery'
+    .clear

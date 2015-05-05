@@ -30,6 +30,7 @@ pt-BR:
     home: "Home"
     forum: 'Forum'
     received_reply: 'Resposta recebida'
+    confirm_destroy: 'Você tem certeza?'
 
     # User Profile
     userProfile: 'Perfil de usuario'
@@ -77,6 +78,35 @@ pt-BR:
     tipsShort: 'Dicas'
     otherTips: 'Outras dicas sobre '
     newTip: "Nova Dica"
+
+    # Tour
+    participate: 'Participar'
+    participants: 'Participantes'
+    applyFilters: 'Aplicar filtros'
+    youAreIn: 'Você está dentro'
+    participationRefused: 'Participação recusada'
+    participationRequestSent: 'Aguardando avaliação'
+    title: 'Titulo de Trip'
+    tourStyle:  'Estilo de Trip'
+    selectTourStyle: 'Escolha estilo'
+    accommodation: 'Tipo de Moradia'
+    selectAccommodation: 'Escolha estilo de Moradia'
+    description: 'Descrição'
+    duration: 'Duração'
+    price: 'Preço por dia'
+    check_in: 'Dia de entrada'
+    destroy: 'Destruir'
+    newTour: 'Criar Trip'
+
+    # Offer
+    createOffer: 'Criar pacote'
+
+    # Tour Participants
+    pending: 'Pendente'
+    approved: 'Aprovado'
+    refused: 'Recusado'
+    approve: 'Aprovar'
+    refuse: 'Recusar'
 
     # date time translation
     date:

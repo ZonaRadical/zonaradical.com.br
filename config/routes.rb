@@ -4,6 +4,20 @@ Rails.application.routes.draw do
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
+  resources :accommodations, :tour_styles
+  resources :tours, :offers do
+    get 'search', on: :collection
+  end
+  resources :tours do
+    scope module: 'tours' do
+      resources :participants
+    end
+  end
+  resources :offers do
+    scope module: 'offers' do
+      resources :participants
+    end
+  end
 
   ActiveAdmin.routes(self)
 
@@ -24,8 +38,25 @@ Rails.application.routes.draw do
   scope '/manage' do
     resources :users do
       resources :image_galleries
-      collection do
-        patch 'update_password'
+      resources :notifications
+      patch 'update_password', on: :collection
+    end
+  end
+  namespace :manage do
+    resources :tours do
+      scope module: 'tours' do
+        resources :owners
+        resources :participants do
+          get :approve, :refuse
+        end
+      end
+    end
+    resources :offers do
+      scope module: 'offers' do
+        resources :owners
+        resources :participants do
+          get :approve, :refuse
+        end
       end
     end
   end
@@ -35,6 +66,9 @@ Rails.application.routes.draw do
   match '/user' => 'users#profile', via: [:get], :as => :profile
   match '/user/full_sign_out' => 'users#full_sign_out', via: [:get], :as => :full_sign_out
   match '/athletes' => 'users#athletes', via: [:get], :as => :athletes
+  match '/agencies' => 'users#agencies', via: [:get], :as => :agencies
+
+  mount Forem::Engine, :at => '/forum', :as => 'forem'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,21 +6,41 @@ class Ability
     #
 
     @user = user || User.new # for guest
-    @user.roles.each { |role| send(role.name.downcase) }
+
+    can :read, :all # everyone can read everything
 
     # Access to edit own profile
     can :manage, User do |user|
       user && user == @user
     end
-
-    can :read, :all # everyone can read everything
     
+    # registered users
+    if @user.persisted?
+      can :create, Tour
+      
+      can :manage, Tour do |tour|
+        tour.owners.collect { |owner| owner.user }.include?(@user)
+      end
+
+      can :manage, Tour::Owner do |tour_owner|
+        tour_owner.tour.owners.collect { |owner| owner.user }.include?(@user)
+      end
+
+      can :manage, Tour::Participant do |tour_participant|
+        tour_participant.tour.user_owners.include?(@user)
+      end
+
+      can :create, Tour::Participant
+    end
+
+    @user.roles.each { |role| send(role.name.downcase) }
+
+
     #for guest without roles
     if @user.roles.size == 0
       cannot :index, ResortCategory
       cannot :read, ActiveAdmin
     end
-
 
 
     #
@@ -51,11 +71,23 @@ class Ability
   def editor
     can :manage, [Resort, ResortCategory]
   end
-  def athlete
-  end
 
   def athlete
     can :manage, ImageGallery
+  end
+
+  def agency
+    can :manage, Offer
+
+    can :manage, Offer::Owner do |offer_owner|
+        offer_owner.offer.owners.collect { |owner| owner.user }.include?(@user)
+      end
+
+      can :manage, Offer::Participant do |offer_participant|
+        offer_participant.offer.user_owners.include?(@user)
+      end
+
+    cannot :manage, Tour
   end
 
 end
