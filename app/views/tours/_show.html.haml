@@ -41,3 +41,13 @@
   = render 'shared/sliders/tip', images: @tour.gallery_images.all
 
 = participation_status(@tour, participate_button: true)
+
+- if current_user
+  .clear
+  .heading
+    %h2 Deixe um comentário
+  = form_for [@tour, Comment.new] do |f|
+    .field
+      = f.text_area :content, cols: 30, rows: 10
+    .actions
+      = f.submit 'Enviar'

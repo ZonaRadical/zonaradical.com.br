@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :tours do
+    resources :comments
     scope module: 'tours' do
       resources :participants
     end
