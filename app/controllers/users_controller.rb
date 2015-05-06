@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   def discourse_sign_out
     client = DiscourseApi::Client.new(Rails.application.secrets.discourse_url)
     client.api_key = Rails.application.secrets.discourse_api_key
-    client.api_username = Rails.application.secrets.dicsourse_api_username
+    client.api_username = Rails.application.secrets.discourse_api_username
     user = client.user(current_user.surname)
     client.log_out(user['id'])
   end
