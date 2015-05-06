@@ -6,8 +6,8 @@
 #   t.string   :whats_included
 #   t.integer  :duration
 #   t.string   :image
-#   t.decimal  :price,            precision: 5, scale: 0
-#   t.boolean  :published,                                default: true
+#   t.decimal  :price,              precision: 5, scale: 0
+#   t.boolean  :published,                                  default: true
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.integer  :check_in_d
@@ -18,6 +18,7 @@
 #   t.integer  :switch_off_y
 #   t.date     :check_in
 #   t.date     :switch_off
+#   t.integer  :discourse_topic_id
 # end
 #
 # add_index :tours, [:accommodation_id], name: :index_tours_on_accommodation_id, using: :btree
