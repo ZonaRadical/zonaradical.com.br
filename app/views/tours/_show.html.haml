@@ -1,4 +1,9 @@
-%p= avatar_img(@tour.user_owners.first)
+%p
+  = avatar_img(@tour.user_owners.first)
+  = @tour.user_owners.first.name
+  = @tour.user_owners.first.surname
+  = @tour.user_owners.first.email
+  = @tour.user_owners.first.id
 %p
   %b Titulo do Trip:
   = @tour.title
