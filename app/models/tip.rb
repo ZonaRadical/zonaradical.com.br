@@ -8,6 +8,7 @@
 #   t.string   :short_description
 #   t.text     :level2_description
 #   t.text     :level3_description
+#   t.string   :slug
 # end
 
 class Tip < ActiveRecord::Base

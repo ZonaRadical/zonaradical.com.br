@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507141822) do
+ActiveRecord::Schema.define(version: 20150507143226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -289,6 +289,7 @@ ActiveRecord::Schema.define(version: 20150507141822) do
     t.string   "short_description"
     t.text     "level2_description"
     t.text     "level3_description"
+    t.string   "slug"
   end
 
   create_table "tour_country_assignments", force: true do |t|
