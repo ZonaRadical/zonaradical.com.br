@@ -35,6 +35,8 @@ gem 'font-awesome-rails'
 
 gem 'i18n'
 
+gem 'friendly_id'
+
 # Active Admin
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
