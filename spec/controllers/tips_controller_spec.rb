@@ -55,10 +55,22 @@ RSpec.describe TipsController, :type => :controller do
   login_admin
 
     describe "GET show" do
-      it "assigns the requested tip as @tip" do
-        tip = Tip.create! valid_attributes
-        get :show, {:id => tip.to_param}
+      let(:tip) { Tip.create! valid_attributes }
+
+      after(:each) do
         expect(assigns(:tip)).to eq(tip)
+      end
+
+      context 'when param is the id' do
+        it "assigns the requested tip as @tip" do
+          get :show, { id: tip.to_param }
+        end
+      end
+
+      context 'when param is the slug' do
+        it 'assigns the requested tip as @tip' do
+          get :show, { id: tip.slug }
+        end
       end
     end
 
