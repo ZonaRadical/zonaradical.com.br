@@ -16,14 +16,8 @@
     -unless @image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @image_gallery.gallery_images.all
     .clear
-    - if can? :update, @image_gallery
-      = link_to t('edit'), edit_image_gallery_path(@image_gallery)
-      |
-    - if can? :destroy, @image_gallery
-      = link_to 'Destroy', @image_gallery, method: :delete, data: { confirm: 'Are you sure?' }
-      |
-      \#{link_to 'Back', polymorphic_url([@user, ImageGallery.new])}
-  .heading
+    = render 'image_gallery_actions', image_gallery: @image_gallery
+.heading
   %b{:style=>"font-size: 16px;" }
     = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, :back
 
