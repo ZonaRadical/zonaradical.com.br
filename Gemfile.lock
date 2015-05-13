@@ -96,6 +96,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.7)
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
@@ -607,6 +609,7 @@ DEPENDENCIES
   active_link_to!
   active_record-annotate (~> 0.4)
   activeadmin!
+  acts-as-taggable-on
   ancestry
   better_errors
   binding_of_caller
