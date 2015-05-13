@@ -889,7 +889,7 @@ ul.galera-list {
 
 .tour-card {
   position: relative;
-  margin-bottom: 200px;
+  margin-bottom: 20px;
   padding-top: 3px;
   .leftcol {
     width: 190px;
@@ -903,18 +903,18 @@ ul.galera-list {
     margin-bottom: 10px;
   }
   .rightcol {
-    width: 301px;
+    width: 331px;
     float: left;
   }
   .parti-col {
-    width: 190px;
+    width: 160px;
     float: left;
     .ava-col{
       width: 40px;
       float: left;
     }
     .name-col{
-      width: 130px;
+      width: 100px;
       float: left;
       padding: 10px;
     }
@@ -1138,10 +1138,10 @@ ul.details-list {
       background: image_url("case-icon.png") no-repeat left center;
     }
     &.style {
-      background: image_url("case-icon.png") no-repeat left center;
+      background: image_url("style-icon.png") no-repeat left center;
     }
     &.accom {
-      background: image_url("case-icon.png") no-repeat left center;
+      background: image_url("accom-icon.png") no-repeat left center;
     }
     &.price {
       background: image_url("price-icon.png") no-repeat left center;
@@ -1813,7 +1813,9 @@ ol.announcement-list {
 
 
 .small{
-font-size: 12px;
+  font-size: 12px;
+  color: #a8a7a7;
+  line-height: 1;
 }
 
 
