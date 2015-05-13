@@ -24,7 +24,9 @@
   .field
     = f.label :short_description
     = f.text_field :short_description
-
+  .field
+    = f.label :tag_list
+    = f.text_field :tag_list, { placeholder: 'Separated by commas'}
   .field
     = f.label :level1_description
     = f.text_area :level1_description, :class => 'froala', :rows => 40, :cols => 120

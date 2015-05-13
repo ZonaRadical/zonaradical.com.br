@@ -23,29 +23,31 @@ RSpec.describe TipsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # TipCategory. As you add validations to TipCategory, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes){
-    { :title => 'Name',
-      :image => File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
-      :tip_category_id => 1,
-      :level1_description => 'Description level 1',
-      :level2_description => 'Description level 2',
-      :level3_description => 'Description level 3',
-      :short_description => 'Short description',
-    }
-  }
-
-  let(:gallery_images){
+  let(:valid_attributes) do
     {
-        :images => [
+      title: 'Name',
+      image: File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
+      tip_category_id: 1,
+      level1_description: 'Description level 1',
+      level2_description: 'Description level 2',
+      level3_description: 'Description level 3',
+      short_description: 'Short description',
+      tag_list: 'Short description'
+    }
+  end
+
+  let(:gallery_images) do
+    {
+        images: [
             File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
             File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
         ]
     }
-  }
+  end
 
-  let(:invalid_attributes) {
-    { :title => '' }
-  }
+  let(:invalid_attributes) do
+    { title: '' }
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

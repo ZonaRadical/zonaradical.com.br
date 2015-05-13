@@ -73,6 +73,6 @@ class TipsController < ApplicationController
     params.require(:tip).permit(:title, :image, :remove_image,
                                 :tip_category_id, :level1_description,
                                 :level2_description, :level3_description,
-                                :short_description)
+                                :short_description, :tag_list)
   end
 end
