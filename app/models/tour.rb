@@ -25,6 +25,12 @@
 # add_index :tours, [:tour_style_id], name: :index_tours_on_tour_style_id, using: :btree
 
 class Tour < ActiveRecord::Base
+  act_as_discoursable(
+    title:        -> (tour) { tour.title },
+    description:  -> (tour) { tour.description },
+    category:     -> (tour) { tour.resort_categories.first.name.downcase },
+    username:     -> (tour) { tour.owners.first.user.surname }
+  )
   belongs_to :tour_style
   belongs_to :accommodation
   has_many :owners
