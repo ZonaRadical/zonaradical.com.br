@@ -58,4 +58,9 @@ module ToursHelper
   def tour_resorts_names(tour)
     tour.resorts.collect(&:name).join(', ')
   end
+
+  def tour_logo_img(tour)
+    image_tag(tour.resorts.first.image_url(:thumb).to_s, class: "tourlogo", alt: tour.title+" logo")
+  end
+
 end
