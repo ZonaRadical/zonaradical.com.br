@@ -27,7 +27,20 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process :resize_to_fill => [141, 141]
+  version :ava do
+    process :resize_to_fill => [141, 141]
+  end
+
+  version :thumb do
+    process :create_thumb => [286, 162]
+  end
+  def create_thumb(width, height)
+    manipulate! do |source|
+      source = source.resize_to_fit(width,height)
+      background = Magick::Image.new(width,height){self.background_color = 'white'}
+      background.composite(source,Magick::CenterGravity,Magick::SrcInCompositeOp)
+    end
+  end
   #
   # def scale(width, height)
   #   # do something
