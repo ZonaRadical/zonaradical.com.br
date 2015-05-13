@@ -11,6 +11,7 @@
 # end
 
 class Tip < ActiveRecord::Base
+  acts_as_taggable
 
   validates :title, presence: true
   validates :tip_category_id, presence: true
