@@ -1,3 +1,56 @@
+.tour-card
+  .leftcol
+    = tour_logo_img(@tour)
+    %ul.details-list
+      %li.contacts
+        .contacts-list
+          %span.map{:title=> t('countries')}
+            = tour_countries(@tour)
+            = tour_resorts_names(@tour)
+  .rightcol
+    .h2{:itemprop=>"name"}
+      /* %span.name
+
+      %b= @tour.title
+    %ul.details-list
+      %li.details
+        .details-list
+          %span.date{:title=> t('check_in')}
+            = check_in_formatted(@tour)
+          -unless @tour.duration.nil?
+            %span.days{:title=> t('duration')}
+              = @tour.duration
+              dias
+          -unless @tour.price.nil?
+            %span.price{:title=> t('price')}
+              R$
+              = @tour.price
+              por dia
+          %span.style{:title=> t('tourStyle')}
+            = @tour.tour_style
+          %span.accom{:title=> t('accommodation')}
+            = @tour.accommodation
+        .clear
+  .h2{:itemprop=>"name"}
+    Participantes
+  .parti-col
+    .ava-col
+      = avatar_img_sm(@tour.user_owners.first)
+    .name-col
+      = @tour.user_owners.first.name
+  .clear
+  -unless @tour.description.nil?
+    %p.descr
+      %b
+        =t('description')
+        \:
+      = @tour.description.html_safe
+  %div{:style=>"text-align: center"}
+  -unless @tour.gallery_images.all.count.zero?
+    = render 'shared/sliders/tip', images: @tour.gallery_images.all
+
+
+
 %p
   = avatar_img(@tour.user_owners.first)
   = @tour.user_owners.first.name
@@ -5,21 +58,8 @@
   = @tour.user_owners.first.email
   = @tour.user_owners.first.id
 %p
-  %b Titulo do Trip:
-  = @tour.title
-%p
-  %b Estilo do Trip
-  = @tour.tour_style
-%p
-  %b Tipo de moradia
-  = @tour.accommodation
-%p
   %b=t('description')
   = @tour.description.html_safe
-%p
-  %b=t('duration')
-  = @tour.duration
-  dias.
 %p
   %b=t('check_in')
   = check_in_formatted(@tour)
