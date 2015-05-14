@@ -28,5 +28,6 @@ module Zoneradical
     # config.i18n.default_locale = :de
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.action_mailer.default_url_options = { :host => 'localhost' }
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
