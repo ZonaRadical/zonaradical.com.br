@@ -60,7 +60,11 @@ module ToursHelper
   end
 
   def tour_logo_img(tour)
-    image_tag(tour.resorts.first.image_url(:thumb).to_s, class: "tourlogo", alt: tour.title+" logo")
+	if !tour.resorts.first.nil?
+		image_tag(tour.resorts.first.image_url(:thumb).to_s, class: "tourlogo", alt: tour.title+" logo")
+	else
+		image_tag("images/bai.jpg", class: "tourlogo")
+	end
   end
 
 end
