@@ -17,14 +17,14 @@
       =render 'shared/sliders/tip', images: @image_gallery.gallery_images.all
     .clear
     = render 'image_gallery_actions', image_gallery: @image_gallery
-.heading
-  %b{:style=>"font-size: 16px;" }
-    = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, :back
+  .heading
+    %b{:style=>"font-size: 16px;" }
+      = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, @image_gallery.image_gallerable
 
--content_for :aside do
-  %aside
-    =render 'shared/aside/aside_social_buttons'
-    =#render 'shared/aside/aside_media_image_category', :media_image_category => @image_gallery.media_image_category
-    =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_advert'
-  .clear
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =#render 'shared/aside/aside_media_image_category', :media_image_category => @image_gallery.media_image_category
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+    .clear
