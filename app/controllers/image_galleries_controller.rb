@@ -47,7 +47,7 @@ class ImageGalleriesController < ApplicationController
       update_gallery_images(@image_gallery)
 
       if @image_gallery.update(image_gallery_params)
-        format.html { redirect_to @image_gallery, notice: 'ImageGallery was successfully updated.' }
+        format.html { redirect_to [@user, @image_gallery], notice: 'ImageGallery was successfully updated.' }
         format.json { render :show, status: :ok, location: @image_gallery }
       else
         format.html { render :edit }
