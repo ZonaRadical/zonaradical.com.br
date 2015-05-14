@@ -13,6 +13,9 @@
     = f.label :title
     = f.text_field :title
   - if @user.nil?
+    - #TODO: this is not setting the media_category properly
+    / There are no plans to use media_category, so this can be removed, but for
+    / now I'm leaving the trash for alter cleanup.
     .field
       = f.label :category
       = f.select(:image_gallerable_id, nested_dropdown(MediaImageCategory.all.arrange))

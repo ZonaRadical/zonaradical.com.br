@@ -39,4 +39,5 @@ Rails.application.configure do
   config.i18n.fallbacks = true
   config.i18n.default_locale = 'en'
 
+  config.active_record.maintain_test_schema = false
 end

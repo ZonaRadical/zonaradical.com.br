@@ -16,21 +16,15 @@
     -unless @image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: @image_gallery.gallery_images.all
     .clear
-    - if can? :update, @image_gallery
-      = link_to t('edit'), edit_image_gallery_path(@image_gallery)
-      |
-    - if can? :destroy, @image_gallery
-      = link_to 'Destroy', @image_gallery, method: :delete, data: { confirm: 'Are you sure?' }
-      |
-      \#{link_to 'Back', polymorphic_url([@user, ImageGallery.new])}
+    = render 'image_gallery_actions', image_gallery: @image_gallery
   .heading
-  %b{:style=>"font-size: 16px;" }
-    = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, :back
+    %b{:style=>"font-size: 16px;" }
+      = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, @image_gallery.image_gallerable
 
--content_for :aside do
-  %aside
-    =render 'shared/aside/aside_social_buttons'
-    =#render 'shared/aside/aside_media_image_category', :media_image_category => @image_gallery.media_image_category
-    =render 'shared/aside/aside_fb_like_box'
-    =render 'shared/aside/aside_advert'
-  .clear
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =#render 'shared/aside/aside_media_image_category', :media_image_category => @image_gallery.media_image_category
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_advert'
+    .clear
