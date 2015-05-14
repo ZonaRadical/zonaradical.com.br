@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       scope module: 'tours' do
         resources :owners
         resources :participants do
-          get :approve, :refuse
+          get :approve, :refuse, on: :member
         end
       end
     end
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
       scope module: 'offers' do
         resources :owners
         resources :participants do
-          get :approve, :refuse
+          get :approve, :refuse, on: :member
         end
       end
     end
