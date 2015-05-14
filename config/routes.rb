@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'search', on: :collection
   end
   resources :tours do
+    resources :comments
     scope module: 'tours' do
       resources :participants
     end
@@ -47,7 +48,7 @@ Rails.application.routes.draw do
       scope module: 'tours' do
         resources :owners
         resources :participants do
-          get :approve, :refuse
+          get :approve, :refuse, on: :member
         end
       end
     end
@@ -55,7 +56,7 @@ Rails.application.routes.draw do
       scope module: 'offers' do
         resources :owners
         resources :participants do
-          get :approve, :refuse
+          get :approve, :refuse, on: :member
         end
       end
     end

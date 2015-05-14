@@ -6,8 +6,8 @@
 #   t.string   :whats_included
 #   t.integer  :duration
 #   t.string   :image
-#   t.decimal  :price,            precision: 5, scale: 0
-#   t.boolean  :published,                                default: true
+#   t.decimal  :price,              precision: 5, scale: 0
+#   t.boolean  :published,                                  default: true
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.integer  :check_in_d
@@ -18,12 +18,19 @@
 #   t.integer  :switch_off_y
 #   t.date     :check_in
 #   t.date     :switch_off
+#   t.integer  :discourse_topic_id
 # end
 #
 # add_index :tours, [:accommodation_id], name: :index_tours_on_accommodation_id, using: :btree
 # add_index :tours, [:tour_style_id], name: :index_tours_on_tour_style_id, using: :btree
 
 class Tour < ActiveRecord::Base
+  act_as_discoursable(
+    title:        -> (tour) { tour.title },
+    description:  -> (tour) { tour.description },
+    category:     -> (tour) { tour.resort_categories.first.name.downcase },
+    username:     -> (tour) { tour.owners.first.user.surname }
+  )
   belongs_to :tour_style
   belongs_to :accommodation
   has_many :owners
