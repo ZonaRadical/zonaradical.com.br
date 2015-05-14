@@ -65,9 +65,6 @@
 /*  - @tour.resorts.each do |resort|
 /*    = resort_logo_img(resort)
 
--unless @tour.gallery_images.all.count.zero?
-  = render 'shared/sliders/tip', images: @tour.gallery_images.all
-
 = participation_status(@tour, participate_button: true)
 
 - if current_user
