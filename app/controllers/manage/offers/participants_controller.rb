@@ -1,5 +1,5 @@
 class Manage::Offers::ParticipantsController < ApplicationController
-  load_and_authorize_resource :offer, through: :current_user
+  load_and_authorize_resource :offer
   load_and_authorize_resource :participant, through: :offer, class: Offer::Participant
   after_filter :clear_owner_notification, only: [:approve, :refuse]
 
