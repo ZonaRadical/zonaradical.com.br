@@ -20,8 +20,8 @@
         - if participant.approved?
           %td= link_to t('destroy'), manage_offer_participant_path(@offer, participant), method: :delete, data: { confirm: t('confirm_destroy') }
         - else
-          %td= link_to t('approve'), manage_offer_participant_approve_path(@offer, participant)
-        %td= link_to t('refuse'), manage_offer_participant_refuse_path(@offer, participant)
+          %td= link_to t('approve'), approve_manage_offer_participant_path(@offer, participant)
+        %td= link_to t('refuse'), refuse_manage_offer_participant_path(@offer, participant)
 
 %br
 

@@ -1,43 +1,81 @@
-%p
-  = avatar_img(@tour.user_owners.first)
-  = @tour.user_owners.first.name
-  = @tour.user_owners.first.surname
-  = @tour.user_owners.first.email
-  = @tour.user_owners.first.id
-%p
-  %b Titulo do Trip:
-  = @tour.title
-%p
-  %b Estilo do Trip
-  = @tour.tour_style
-%p
-  %b Tipo de moradia
-  = @tour.accommodation
-%p
-  %b=t('description')
-  = @tour.description.html_safe
-%p
-  %b=t('duration')
-  = @tour.duration
-  dias.
-%p
-  %b=t('check_in')
-  = check_in_formatted(@tour)
-%p
-  %b=t('price')
-  = @tour.price
+.tour-card
+  .leftcol
+    = tour_logo_img(@tour)
+    %ul.details-list
+      %li.contacts
+        .contacts-list
+          %span.map{:title=> t('countries')}
+            = tour_countries(@tour)
+  .rightcol
+    .h2
+      /* %span.name
+      %b{:title=>"Estacoes"}
+        = tour_resorts_names(@tour)
+    %ul.details-list
+      %li.details
+        .details-list
+          %span.date{:title=> t('check_in')}
+            = check_in_formatted(@tour)
+          -unless @tour.duration.nil?
+            %span.days{:title=> t('duration')}
+              = @tour.duration
+              dias
+          -unless @tour.price.nil?
+            %span.price{:title=> t('price')}
+              R$
+              = @tour.price
+              por dia
+          %span.style{:title=> t('tourStyle')}
+            = @tour.tour_style
+          %span.accom{:title=> t('accommodation')}
+            = @tour.accommodation
+        .clear
+  .h2{:itemprop=>"name"}
+    Criador(es)
+  .parti-col
+    - @tour.user_owners.each do |onwr|
+      .ava-col
+        = avatar_img_sm(onwr)
+      .name-col
+        = onwr.name
+  .clear
+  -unless @tour.description.nil?
+    %p.descr
+      %b
+        =t('description')
+        \:
+      = @tour.description.html_safe
+  %p.small
+    %b
+      Estilos de trip:
+    -TourStyle.all.each do |t_style|
+      = t_style.name
+      ="("+t_style.description.to_s+")."
+    %b
+      Tipos de moradia:
+    -Accommodation.all.each do |acco|
+      = acco.name
+      ="("+ acco.description.to_s+")."
+  %div{:style=>"text-align: center"}
+  -unless @tour.gallery_images.all.count.zero?
+    = render 'shared/sliders/tip', images: @tour.gallery_images.all
 
-%p
-  %b=t('countries')
-  = tour_countries(@tour)
 
-%p
-  %b=t('resorts')
-  = tour_resorts_names(@tour)
-  - @tour.resorts.each do |resort|
-    = resort_logo_img(resort)
+
+/*  - @tour.resorts.each do |resort|
+/*    = resort_logo_img(resort)
 
 -unless @tour.gallery_images.all.count.zero?
   = render 'shared/sliders/tip', images: @tour.gallery_images.all
 
 = participation_status(@tour, participate_button: true)
+
+- if current_user
+  .clear
+  .heading
+    %h2 Deixe um comentário
+  = form_for [@tour, Comment.new] do |f|
+    .field
+      = f.text_area :content, cols: 30, rows: 10
+    .actions
+      = f.submit 'Enviar'
