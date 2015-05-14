@@ -8,5 +8,5 @@
       ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
     -unless image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: image_gallery.gallery_images.all
-  = render 'image_gallery_actions', image_gallery: image_gallery
+  = render 'image_galleries/image_gallery_actions', image_gallery: image_gallery
 .clear
