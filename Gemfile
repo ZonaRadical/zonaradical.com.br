@@ -49,6 +49,7 @@ gem 'discourse_api'
 
 gem 'mailboxer'
 gem 'select2-rails'
+gem 'pagedown-rails', '~> 1.1.3'
 
 group :development, :test do
   gem 'spring-commands-rspec'

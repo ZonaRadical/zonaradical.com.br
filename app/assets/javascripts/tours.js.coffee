@@ -1,5 +1,8 @@
 #= require_tree ./editor
 #= require sliders/slick
+#= require markdown.converter
+#= require markdown.sanitizer
+#= require markdown.editor
 
 $ ->
   update_visible_resorts = ->
@@ -69,3 +72,7 @@ $ ->
     if value != ""
       $(this).find(".option-list li[data-value='#{value}']").click()
     return
+
+  converter = Markdown.getSanitizingConverter()
+  editor = new Markdown.Editor(converter)
+  editor.run()

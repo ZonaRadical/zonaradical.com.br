@@ -47,7 +47,8 @@
   .heading
     %h2 Deixe um comentário
   = form_for [@tour, Comment.new] do |f|
-    .field
-      = f.text_area :content, cols: 30, rows: 10
+    .wmd-panel
+      #wmd-button-bar
+      = f.text_area :content, class: 'wmd-input'
     .actions
       = f.submit 'Enviar'
