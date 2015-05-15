@@ -32,8 +32,18 @@
     .buttons
       - if can? :manage, @tour
         = link_to 'Edit', edit_manage_tour_path(@tour), class: "button"
-        = link_to t('newTour'), new_manage_tour_path, class: "button"
+      = link_to t('newTour'), new_manage_tour_path, class: "button"
       = link_to 'Todos Trips', tours_path, class: "button"
+
+    - if current_user
+      .clear
+      .heading{:style=>"margin-bottom: 0px;"}
+        %h2 Deixe um comentário
+      = form_for [@tour, Comment.new] do |f|
+        .field
+          = f.text_area :content, cols: 100, rows: 6
+        .actions
+          = f.submit 'Enviar'
 
 -content_for :aside do
   %aside

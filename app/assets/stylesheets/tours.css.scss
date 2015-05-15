@@ -108,9 +108,16 @@ span.counter{
 }
 
 h2 {
+  font: normal normal 16px / 19px "HelveticaNeueMedium", Arial, Helvetica, sans-serif;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  margin-top: 33px;
+}
+h3 {
   font: normal normal 20px / 22px "HelveticaNeueMedium", Arial, Helvetica, sans-serif;
   color: #666;
   text-transform: uppercase;
-  margin-bottom: 17px;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+  margin-top: 10px;
 }

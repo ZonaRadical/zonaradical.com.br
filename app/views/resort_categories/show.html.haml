@@ -17,6 +17,7 @@
   .heading
     %h1= t('resorts') + ': ' + @resort_category.name
     %meta{:itemprop=>"name", :content => t('resorts') + ': ' + @resort_category.name + " | Zona Radical"}
+    .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
   .introtext{:itemprop=>"description"}
     = @resort_category.description.html_safe unless @resort_category.description.nil?
   -if can? :update, @resort_category

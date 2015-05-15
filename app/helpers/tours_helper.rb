@@ -63,7 +63,7 @@ module ToursHelper
 	if !tour.resorts.first.nil?
 		image_tag(tour.resorts.first.image_url(:thumb).to_s, class: "tourlogo", alt: tour.title+" logo")
 	else
-		image_tag("images/bari.jpg", class: "tourlogo")
+		image_tag("thumb_default_tour.jpg", class: "tourlogo")
 	end
   end
 
