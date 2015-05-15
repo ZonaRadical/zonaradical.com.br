@@ -22,6 +22,11 @@ class TipsController < ApplicationController
   def edit
   end
 
+  def slug
+    @tip = Tip.new title: params[:title]
+    render json: { slug: @tip.slug_preview }
+  end
+
   # POST /tips
   # POST /tips.json
   def create
@@ -73,6 +78,6 @@ class TipsController < ApplicationController
     params.require(:tip).permit(:title, :image, :remove_image,
                                 :tip_category_id, :level1_description,
                                 :level2_description, :level3_description,
-                                :short_description)
+                                :short_description, :slug)
   end
 end

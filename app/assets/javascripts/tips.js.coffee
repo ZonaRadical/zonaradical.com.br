@@ -21,5 +21,17 @@ $ ->
     speed: 500
     autoplay: false
 
+  $("#tip_title").focusout ->
+    element = $(this)
+    value = element.val()
+
+    if (value != '')
+      $.ajax
+       url: element.data('url')
+       data: { title: value }
+       success: (data) ->
+         $('#tip_slug').val(data.slug)
+    else
+      $('#tip_slug').val('')
 
   return
