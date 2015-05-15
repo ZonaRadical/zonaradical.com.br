@@ -108,6 +108,10 @@ pt-BR:
     approve: 'Aprovar'
     refuse: 'Recusar'
 
+    will_paginate:
+      previous_label: '<<'
+      next_label: '>>'
+
     # date time translation
     date:
       abbr_day_names:

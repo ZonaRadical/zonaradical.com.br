@@ -28,7 +28,7 @@ module DiscourseZr
         topic = discourse_client.topic(self.discourse_topic_id)
         comments = topic['post_stream']['posts']
         comments.shift # discard first post (tour description)
-        comments
+        comments.reverse # from last to first post
       end
 
       private

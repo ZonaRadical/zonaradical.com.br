@@ -39,7 +39,8 @@
     .heading
       %h1 Comentários
     %ul.comments-list
-      - @tour.discourse_comments.each do |comment|
+      - comments = @tour.discourse_comments.paginate(page: params[:comments_page], per_page: 2)
+      - comments.each do |comment|
         - user = User.find_by_surname(comment['username'])
         %li
           %a.img-wrap{:href => "#"}
@@ -50,6 +51,7 @@
               %i Responder
             %div= comment['cooked'].html_safe
           .clear
+    = will_paginate(comments, param_name: :comments_page)
 
     - if current_user
       .clear
