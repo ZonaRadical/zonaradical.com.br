@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :resorts, :resort_categories
+
+  get 'tips/slug', to: 'tips#slug'
   resources :tips, :tip_categories
+
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
@@ -30,7 +33,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'users_controller/finish_signup'
-  
+
   get '/discourse/sso', to: 'discourse#sso'
   get '/discourse/after_sign_in', to: 'discourse#after_sign_in'
 
