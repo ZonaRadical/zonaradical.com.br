@@ -10,4 +10,12 @@ RSpec.describe Tip, type: :model do
       expect(tip.slug).to eq 'a-simple-title'
     end
   end
+
+  describe '#slug_preview' do
+    let(:tip_slug) { build(:tip, title: 'test slug preview')}
+
+    it 'gets slug preview' do
+      expect(tip_slug.slug_preview).to eq 'test-slug-preview'
+    end
+  end
 end

@@ -22,4 +22,8 @@ class Tip < ActiveRecord::Base
   has_many :gallery_images, as: :gallerable
 
   mount_uploader :image, TipImageUploader
+
+  def slug_preview
+    set_slug
+  end
 end
