@@ -26,7 +26,7 @@
 
   %article
     = render 'show'
-
+    
     .clear
     .heading
     .buttons
@@ -34,6 +34,38 @@
         = link_to 'Edit', edit_manage_tour_path(@tour), class: "button"
         = link_to t('newTour'), new_manage_tour_path, class: "button"
       = link_to 'Todos Trips', tours_path, class: "button"
+
+    .clear
+    .heading
+      %h1 Comentários
+    %ul.comments-list
+      - @tour.discourse_comments.each do |comment|
+        - user = User.find_by_surname(comment['username'])
+        %li
+          %a.img-wrap{:href => "#"}
+            %img.userpic{:alt => "", :src => "#{user.avatar_url}"}/
+          .details
+            %p.title
+              %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+              %i Responder
+            %div= comment['cooked'].html_safe
+          .clear
+
+    - if current_user
+      .clear
+      .heading
+        %h1 Deixe um comentário
+      = form_for [@tour, Comment.new] do |f|
+        .wmd-panel
+          #wmd-button-bar
+          = f.text_area :content, class: 'wmd-input'
+        .actions
+          = f.submit 'Enviar'
+    - else
+      %p== Faça #{link_to 'login', new_user_session_path} para poder comentar.
+
+    = @tour.discourse_comments
+
 
 -content_for :aside do
   %aside

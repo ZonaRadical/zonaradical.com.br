@@ -5,6 +5,13 @@
 *= require markdown
 */
 
+ul.comments-list li img.emoji {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  border: none;
+}
+
 .slider-field {
   width: 701px;
   height: 410px;
