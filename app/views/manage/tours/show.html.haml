@@ -24,7 +24,7 @@
   .heading
     %h1
       =@tour.title
-    .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
+    = render 'fb_like'
   = render 'tours/show'
 
   -if !@tour.published
@@ -45,3 +45,9 @@
       /* =render 'shared/aside/aside_fb_like_box'
       =render 'shared/aside/aside_advert'
     .clear
+
+- if @tour.updated_at > 15.seconds.ago
+  #shareTour{:title => t('share')}
+    %p Deseja compartilhar seu trip?
+    = render 'fb_like'
+    .modal-footer

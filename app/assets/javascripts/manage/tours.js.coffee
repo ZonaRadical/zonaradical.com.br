@@ -30,3 +30,8 @@ $ ->
     inlineMode: false
     mediaManager:true
     key: 'WlxvxhzxtB-16D-13lD3aliC8du=='
+
+  $("#shareTour").dialog
+    autoOpen: true
+    modal: true    mediaManager:true
+    
