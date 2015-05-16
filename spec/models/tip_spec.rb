@@ -4,6 +4,7 @@ RSpec.describe Tip, type: :model do
   let(:tip) { create(:tip, title: 'A simple title') }
 
   it { expect(subject).to validate_presence_of(:title) }
+  it { expect(subject).to validate_presence_of(:slug) }
 
   context 'when create a new tip' do
     it 'generates a slug based on the title' do
