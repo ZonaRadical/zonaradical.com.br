@@ -29,3 +29,7 @@ $ ->
   $(".froala").editable
     inlineMode: false
     mediaManager:true
+
+  $("#shareTour").dialog
+    autoOpen: true
+    modal: true
