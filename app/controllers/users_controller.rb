@@ -65,6 +65,10 @@ class UsersController < ApplicationController
     @users = User.athletes.paginate(:page => params[:page], :per_page => 15)
   end
 
+  def organizations
+    @users = User.organizations
+  end
+
   def full_sign_out
     discourse_sign_out
     sign_out

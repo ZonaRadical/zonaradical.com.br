@@ -37,7 +37,8 @@
 
     .clear
     .heading
-      %h1 Comentários
+      %h1{:style=>"margin-top: 40px;"}
+        Comentários
     %ul.comments-list
       - all_comments = @tour.discourse_comments
       - comments = @tour.discourse_comments.paginate(page: params[:comments_page], per_page: 2)

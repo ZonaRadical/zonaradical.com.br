@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   match '/user/full_sign_out' => 'users#full_sign_out', via: [:get], :as => :full_sign_out
   match '/athletes' => 'users#athletes', via: [:get], :as => :athletes
   match '/agencies' => 'users#agencies', via: [:get], :as => :agencies
+  match '/organizations' => 'users#organizations', via: [:get], :as => :organizations
 
   mount Forem::Engine, :at => '/forum', :as => 'forem'
 

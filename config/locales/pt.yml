@@ -97,6 +97,7 @@ pt-BR:
     check_in: 'Dia de entrada'
     destroy: 'Destruir'
     newTour: 'Criar Trip'
+    cleanFilters: 'Limpar filtros'
 
     # Offer
     createOffer: 'Criar pacote'
@@ -112,6 +113,10 @@ pt-BR:
     will_paginate:
       previous_label: '<<'
       next_label: '>>'
+
+    # Organizations
+    organizations: 'Organizações'
+
 
     # date time translation
     date:
