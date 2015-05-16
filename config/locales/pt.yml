@@ -114,6 +114,10 @@ pt-BR:
       previous_label: '<<'
       next_label: '>>'
 
+    # Organizations
+    organizations: 'Organizações'
+
+
     # date time translation
     date:
       abbr_day_names:
