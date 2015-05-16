@@ -8,7 +8,7 @@
     %meta{:property=> "og:description", :content =>   "Isso é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
     %meta{:property=>"og:title", :content => "Vamo Junto | Zona Radical" }
     %meta{:property=>"og:url", :content => request.original_url.to_s}
-    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
+    %meta{:property=> "og:image", :content=> "https://zonaradical.com.br/images/vamo_junto.png"}
   .heading
     %h1
       Encontra seu parceiro perfeito de Snowboard
@@ -26,7 +26,7 @@
       .select-wrap
         = f.hidden_field :resort_categories, value: search_value_for(:resort_categories)
         .select
-          %span.name Destino
+          %span.name País(es)
           %a.arrow{:href => "#"}
         %ul.option-list
           %li.default{data: {value: ''}} Tanto faz

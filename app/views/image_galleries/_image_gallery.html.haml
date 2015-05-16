@@ -8,8 +8,5 @@
       ='/ 0 Comentários / Marcações:  Snowboard, Viagem, Montanhas'
     -unless image_gallery.gallery_images.all.count.zero?
       =render 'shared/sliders/tip', images: image_gallery.gallery_images.all
-  -if can? :update, image_gallery
-    = link_to 'Edit', edit_polymorphic_path([image_gallery.image_gallerable, image_gallery])
-  -if can? :delete, image_gallery
-    = link_to 'Destroy', polymorphic_path([image_gallery.image_gallerable, image_gallery]), method: :delete, data: { confirm: 'Are you sure?' }
+  = render 'image_galleries/image_gallery_actions', image_gallery: image_gallery
 .clear

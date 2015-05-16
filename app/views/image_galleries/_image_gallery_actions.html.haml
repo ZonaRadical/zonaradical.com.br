@@ -1,0 +1,7 @@
+- if can? :update, image_gallery
+  = link_to t('edit'), edit_polymorphic_path([image_gallery.image_gallerable, image_gallery])
+  |
+- if can? :destroy, image_gallery
+  = link_to 'Destroy', polymorphic_path([image_gallery.image_gallerable, image_gallery]), method: :delete, data: { confirm: 'Are you sure?' }
+  |
+= link_to 'Back', polymorphic_url([@user, ImageGallery.new])

@@ -1,8 +1,8 @@
 .main-content
   -content_for :for_head do
     /* general METAS
-    %title Vamo junto | Zona Radical
-    %meta{:name => "description", :content =>  "é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
+    %title Pacotes de Snow | Zona Radical
+    %meta{:name => "description", :content =>  "Todos os pacotes de vigem de neve num site so. E aqui. Encontre sua viagem de snowboard prefeita!"}
     %meta{:viewport => "width=1220, maximum-scale=2.0"}
   .heading
     %h1
@@ -10,10 +10,7 @@
     - if can? :create, Offer
       = link_to "+ #{t('createOffer')}", new_manage_offer_path, class: 'all add-link'
   %p.search-intro 
-    Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
-    é um sistema para você poder encontrar o perfeito parceiro para sua viagem -
-    tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
-    postar anúncios procurando parceiros, e também procurar companhia entre quem já postou.
+    Aqui voce poe encontrar os pacotes de viagens oferecidos pelas agecias turisticas do Brasil.
 
   = form_for :search, url: search_offers_path, method: :get do |f|
     .search-filter
@@ -71,38 +68,18 @@
           %li{"data-value" => "0..99"} menos de r$ 100 por dia
           %li{"data-value" => "100..200"} r$ 100 - r$ 200
           %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
-      .select-wrap
-        = f.hidden_field :age_group, value: search_value_for(:age_group)
-        .select
-          %span.name Faixa etaria preferida
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Tanto faz
-          %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
-          %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
-          %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
-      .select-wrap
-        = f.hidden_field :resorts, value: search_value_for(:resorts)
-        .select
-          %span.name Estação
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Tanto faz
-          - offer_resorts.each do |resort|
-            %li{data: { value: resort.id, category_id: resort.resort_category_id } }= resort.name
       .clear
     / end search-filter
-    = f.label :show_passed
-    = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
     = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
-    = link_to t('cleanFilters'), main_app.offers_path, class: 'button'
+    = link_to t('cleanFilters'), main_app.offers_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto;"
   / :style=>"float: right;"
   .heading
     - if action_name == 'search'
       %h1 Pacotes filtrados
     - else
       %h1 Todos os pacotes
-    = link_to 'Os meus pacotes', manage_offers_path, class: 'all my-ads', target: '_blank'
+    - if can? :manage, Offer
+      = link_to 'Os meus pacotes', manage_offers_path, class: 'all my-ads', target: '_blank'
   - if @offers.empty?
     Não existem pacotes ou nenhum foi encontrada com os filtros especificados.
   - else

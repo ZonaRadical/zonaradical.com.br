@@ -1,28 +1,12 @@
-.profile-card
+.profile-agnc-card
   .leftcol
-    = link_to image_tag(profile.avatar_url, class: 'userpic', alt: profile.name ), user_url(profile)
+    /* = link_to avatar_img(profile), user_url(profile)
+    = logo_img(profile)
   .rightcol
     .title
       %span.name
-        =link_to profile.name.to_s + ' ' + profile.surname.to_s, user_url(profile)
-      -if !profile.login.blank?
-        =' aka ' + profile.login.to_s
-      - if profile.online?
-        %span.online online
-      - else
-        %span.offline offline
-        %span.activity
-          %b
-            = t('lastSignInAt')
-            \:
-          = user_last_seen_at(profile)
+        = profile.surname.to_s
     %ul.details-list
-      -unless profile.birthday.nil?
-        %li
-          %b
-            = t('age')
-            \:
-          = age profile.birthday
       -unless profile.city.blank?
         %li
           %b
@@ -41,16 +25,5 @@
         .clear
       -unless profile.bio.blank?
         %p.bio
-          %b Biografia:
           =truncate_html(profile.bio, length: 150, omission: '...')
-  .galcol
-    / -unless profile.image_galleries.all.count.zero?
-    /   Numero das galerias de foto:
-    /   =profile.image_galleries.all.count
-    /   =link_to image_tag(profile.image_galleries.sample.gallery_images.sample.image_url(:slider), class: 'galsample', :title=>"Foro de "+profile.name.to_s + " " + profile.surname.to_s), user_url(profile)
-    -if 2<0
-      .buttons
-        %a.button{:href => "#"} Posts do Fórum
-        %a.button{:href => "#"} Posts do Vamo Junto
-      .clear
   .clear

@@ -32,10 +32,10 @@
             = t(participant.status)
           - if !participant.approved?
             %td
-              = link_to t('approve'), manage_tour_participant_approve_path(@tour, participant)
+              = link_to t('approve'), approve_manage_tour_participant_path(@tour, participant)
           %td
             - if !participant.refused?
-              = link_to t('refuse'), manage_tour_participant_refuse_path(@tour, participant)
+              = link_to t('refuse'), refuse_manage_tour_participant_path(@tour, participant)
           %td
             = link_to t('destroy'), manage_tour_participant_path(@tour, participant), method: :delete, data: { confirm: t('confirm_destroy') }
 

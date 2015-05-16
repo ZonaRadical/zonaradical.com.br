@@ -1,5 +1,5 @@
 class Manage::Tours::ParticipantsController < ApplicationController
-  load_and_authorize_resource :tour, through: :current_user
+  load_and_authorize_resource :tour
   load_and_authorize_resource :participant, through: :tour, class: Tour::Participant
   after_filter :clear_owner_notification, only: [:approve, :refuse]
 

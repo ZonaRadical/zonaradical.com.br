@@ -6,6 +6,8 @@
     %meta{:property=>"og:site_name", :content =>"Zona Radical"}
     %meta{:name => "keywords",
       :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
+    %link{:rel=>"shortcut icon", :href=>"images/favicon.gif"}
+    %meta{:viewport => "width=1220, maximum-scale=2.0"}
     -if content_for? :for_head
       = yield :for_head
     -else

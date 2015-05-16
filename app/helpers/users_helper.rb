@@ -14,6 +14,13 @@ module UsersHelper
   end
 
   def avatar_img(user)
-    image_tag(user.avatar_url, class: 'userpic', alt: user.name)
+    image_tag(user.avatar_url(:ava), class: 'userpic', alt: user.name.to_s)
+  end
+  def logo_img(user)
+    image_tag(user.avatar_url(:thumb), class: 'resortlogo', alt: user.name.to_s)
+  end
+  
+  def avatar_img_sm(user)
+    image_tag(user.avatar_url(:ava), class: 'userpic-sm', alt: user.name.to_s+" avatar")
   end
 end

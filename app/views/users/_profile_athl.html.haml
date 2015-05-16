@@ -1,6 +1,6 @@
 .profile-athl-card
   .leftcol
-    = link_to image_tag(profile.avatar_url, class: 'userpic', alt: profile.name ), user_url(profile)
+    = link_to avatar_img(profile), user_url(profile)
   .rightcol
     .title
       %span.name

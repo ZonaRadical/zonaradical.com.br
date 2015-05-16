@@ -7,33 +7,47 @@
           %li= msg
 
   .field
-    %b
-      = f.label :title, t('title')
+    = f.label :title, "* "+t('title')
     = f.text_field :title
+    %br
+    %i
+      Campo obrigatorio, 15 simbolos minimo.
+
   .field
-    = f.label :tour_style_id, t('tourStyle')
+    = f.label :resort_category_ids, "* País(es)"
+    = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
+    %br
+    %i
+      Campo obrigatorio.
+  .field
+    = f.label :resort_ids
+    = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione um país' }
+
+  .field
+    = f.label :tour_style_id, "* "+t('tourStyle')
     = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
+    %br
+    %i
+      Campo obrigatorio.
     %p.small
       -TourStyle.all.each do |t_style|
         %b
-          = t_style.name
-          \:
-        = t_style.description
-        \.
+          = t_style.name.to_s+": "
+        = t_style.description.to_s+"."
   .field
     = f.label :accommodation_id, t('accommodation')
     = f.collection_select(:accommodation_id, Accommodation.all, :id, :name, {:prompt => t('selectAccommodation')})
     %p.small
       -Accommodation.all.each do |acco|
         %b
-          = acco.name
-          \:
-        = acco.description
-        \.
+          = acco.name.to_s+": "
+        = acco.description.to_s+"."
   .field
-    = f.label :description,t('description')
+    = f.label :description, "* "+t('description')
     = f.text_area :description, :class => 'froala', :rows => 40, :cols => 120
     %i
+      Campo obrigatorio.
+      %br
       Coloca aqui uma boa descrição do seu futuro trip. Ela ajuda muito encontrar parceiros certos
       quem buscam o mesmo nas montanhas.
   .field
@@ -41,39 +55,31 @@
     = f.number_field :duration
     dias
   .field
-    = f.label :check_in, t('check_in')
+    = f.label :check_in, "* "+t('check_in')
     = select_day Time.now, field_name: 'check_in_d', prefix: 'tour', prompt: 'Escolha um dia (opcional)'
     = select_month Time.now, field_name: 'check_in_m', prefix: 'tour'
     = select_year Time.now, field_name: 'check_in_y', prefix: 'tour'
     %p
       %i
         Caso não sabe ainda o dia certo do início do seu trip, basta escolher o mês e tbm o ano, óbvio =)
+        %br
+        Mês e ano são campos obrigatorios.
   .field
     = f.label :price, t('price')
     = f.text_field :price
-    %i
-      Já tem uma avaliação preliminar do seu orçamento diário? Coloca aki!
+    %p
+      %i
+        Já tem uma avaliação preliminar do seu orçamento diário? Coloca aki!
   - if current_user.admin?
     .field
       = f.label :published
       = f.check_box :published
-  %p{:style => "margin-top 20px;"}
+  .clear
+  %p{:style => "margin-top 30px; text-transform: uppercase;font-size: 18px;"}
 
-  %h3
-    Destino
-  .field
-    = f.label :resort_category_ids
-    = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
-  .field
-    = f.label :resort_ids
-    = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione um país' }
-
-  %p{:style => "margin-top 20px;"}
-
-  %h3 Gallery
-  %i
-    Algumas fotos da casa onde vai ficar? ou do seu trip anterior?
-    Qualquer coisa ajudará na procura do seu parceiro favorito.
+  %p{:style => "margin-top 30px; text-transform: uppercase;font-size: 18px;"}
+    %b
+      Galleria
   %ul
   -unless @tour.gallery_images.all.count.zero?
     -@tour.gallery_images.all.each do |image|
@@ -87,5 +93,9 @@
   .field
     = f.label :add_gallery_images
     = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
+  %i{:style => "margin-bottom 30px;"}
+    Algumas fotos da casa onde vai ficar? ou do seu trip anterior?
+    Qualquer coisa ajudará na procura do seu parceiro favorito.
+
   .actions
     = f.submit 'Save'

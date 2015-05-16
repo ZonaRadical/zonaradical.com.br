@@ -1,15 +1,14 @@
 .main-content
   -content_for :for_head do
     /* general METAS
-    %title #{@offer.title} | Vamo Junto com Zona Radical
+    %title #{@offer.title} | Pacotes de viagem | ZR
     %meta{:name => "description", :content =>  strip_tags(@offer.description.to_s)}
-
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=> "og:description", :content =>   strip_tags(@offer.description.to_s)}
-    %meta{:property=>"og:title", :content => "Vamo Junto: " +@offer.title}
+    %meta{:property=>"og:title", :content => "Pacote de Viagem: " +@offer.title}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
-    /* %meta{:property=> "og:image", :content=> @resort.image_url(:extra_big_thumb).to_s}
+    /* %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
     -unless @offer.gallery_images.all.count.zero?
       -@offer.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
@@ -19,16 +18,16 @@
       -@offer.gallery_images[0..3].each do |image|
         %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
-  .heading
-    %h1
-      Offers:
-      =@offer.title
+    .heading
+      %h1
+        Offers:
+        =@offer.title
     .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
   = render 'offers/show'
 
   -if !@offer.published
     %p
-      %b Este trip nao foi publicado, por favor entre em contato com o Moderador, info(a)zonaradical.com.br
+      %b Este pacote nao foi publicado, por favor entre em contato com o Moderador, info(a)zonaradical.com.br
 
   .clear
 

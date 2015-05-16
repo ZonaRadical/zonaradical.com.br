@@ -32,7 +32,7 @@
     .buttons
       - if can? :manage, @tour
         = link_to 'Edit', edit_manage_tour_path(@tour), class: "button"
-        = link_to t('newTour'), new_manage_tour_path, class: "button"
+      = link_to t('newTour'), new_manage_tour_path, class: "button"
       = link_to 'Todos Trips', tours_path, class: "button"
 
     .clear

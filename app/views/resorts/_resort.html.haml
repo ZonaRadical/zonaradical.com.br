@@ -2,12 +2,11 @@
   =link_to image_tag(resort.image_url(:thumb).to_s,itemprop: "image"), resort_path(resort), :class => 'img-wrap'
   .details
     %p.name=link_to resort.name, resort_path(resort)
-    -if resort.gallery_images.all.count.zero?
+    %span.pics-amount{:title=> t('picsAmount')}
+      = resort.gallery_images.all.count.to_s
+    -unless resort.gallery_images.all.count.zero?
       %span.drop{:title=> t('drop')}
         = print_with_meters(resort.drop,t('meters'))
-    -else
-      %span.pics-amount{:title=> t('picsAmount')}
-        = resort.gallery_images.all.count.to_s
     -if !resort.level1_description.blank?
       %p
         =truncate_html(resort.level1_description, length: 203, omission: '...')

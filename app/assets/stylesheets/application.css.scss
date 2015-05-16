@@ -118,7 +118,7 @@ label {
   font-family: "HelveticaNeueBold", Arial, Helvetica, sans-serif;
   display: block;
   margin-top: 22px;
-  color: #2c2b2b;
+  color: #686868;
   &.nrml{
     font-family: 'HelveticaNeueRegular', Arial, Helvetica, sans-serif;
   }
@@ -804,8 +804,19 @@ img {
     display: block;
     border: 1px solid #c5c4c4;
   }
+  &.userpic-sm {
+    width: 40px;
+    height: 40px;
+    display: block;
+    /* border: 1px solid #c5c4c4; */
+  }
   &.resortlogo {
     width: 286px;
+    display: block;
+    border: 1px solid #c5c4c4;
+  }
+  &.tourlogo {
+    width: 190px;
     display: block;
     border: 1px solid #c5c4c4;
   }
@@ -873,6 +884,58 @@ ul.galera-list {
   margin-top: 24px;
   margin-bottom: 24px;
 }
+
+/* Styles for Tours  */
+
+.tour-card {
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 3px;
+  .leftcol {
+    width: 200px;
+    float: left;
+    margin-right: 16px;
+  }
+  .userpic {
+    margin-bottom: 20px;
+  }
+  .reputation {
+    margin-bottom: 10px;
+  }
+  .rightcol {
+    width: 321px;
+    float: left;
+  }
+  .parti-col {
+    width: 160px;
+    float: left;
+    .ava-col{
+      width: 40px;
+      float: left;
+    }
+    .name-col{
+      width: 100px;
+      float: left;
+      padding: 10px;
+    }
+  }
+  .title {
+    .name {
+      text-transform: uppercase;
+      font: normal normal 18px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
+      color: #646464;
+      margin-right: 10px;
+    }
+  }
+  p.descr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    b{
+      margin-top: 10px;
+    }
+  }
+}
+
 /* Styles for profile.html */
 
 .profile-card {
@@ -985,6 +1048,46 @@ ul.stars {
   }
 }
 
+
+.profile-agnc-card {
+  position: relative;
+  margin-bottom: 12px;
+  padding-top: 3px;
+  .leftcol {
+    width: 286px;
+    float: left;
+    margin-right: 16px;
+  }
+  .reputation {
+    margin-bottom: 10px;
+  }
+  .rightcol {
+    width: 399px;
+    float: left;
+  }
+  .title {
+    .name {
+      text-transform: uppercase;
+      font: normal normal 18px / 20px "HelveticaNeueBold", Arial, Helvetica, sans-serif;
+      color: #646464;
+      margin-right: 10px;
+    }
+    .online {
+      display: inline-block;
+      height: 21px;
+      padding: 0 3px;
+      background: #2ba106;
+      color: #fff;
+      line-height: 21px;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+    .activity {
+      color: #646464;
+    }
+  }
+}
+
 ul.details-list {
   margin: 0;
   list-style: none;
@@ -1021,6 +1124,30 @@ ul.details-list {
     }
     &.map {
       background: image_url("map-icon.png") no-repeat left center;
+    }
+    &.email {
+      background: image_url("email-icon.png") no-repeat left center;
+    }
+    &.web {
+      background: image_url("web-icon.png") no-repeat left center;
+    }
+    &.date {
+      background: image_url("date-icon.png") no-repeat left center;
+    }
+    &.days {
+      background: image_url("case-icon.png") no-repeat left center;
+    }
+    &.style {
+      background: image_url("style-icon.png") no-repeat left center;
+    }
+    &.accom {
+      background: image_url("accom-icon.png") no-repeat left center;
+    }
+    &.price {
+      background: image_url("price-icon.png") no-repeat left center;
+    }
+    &.case {
+      background: image_url("case-icon.png") no-repeat left center;
     }
     a {
       color: #626262;
@@ -1686,7 +1813,9 @@ ol.announcement-list {
 
 
 .small{
-font-size: 12px;
+  font-size: 12px;
+  color: #a8a7a7;
+  line-height: 1;
 }
 
 
