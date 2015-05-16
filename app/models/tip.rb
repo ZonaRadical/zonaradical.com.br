@@ -12,18 +12,14 @@
 # end
 
 class Tip < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :title, use: :slugged
+  include Slug
+  slugged :title
 
-  validates :title, :slug, presence: true
+  validates :title, presence: true
   validates :tip_category_id, presence: true
 
   belongs_to :tip_category
   has_many :gallery_images, as: :gallerable
 
   mount_uploader :image, TipImageUploader
-
-  def slug_preview
-    set_slug
-  end
 end
