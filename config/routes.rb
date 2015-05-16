@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories
   resources :accommodations, :tour_styles
-  resources :tours, :offers do
+  resources :offers do
     get 'search', on: :collection
   end
-  resources :tours do
+  resources :tours, path: '/vamo-junto/snowboard' do
+    get 'search', on: :collection
     resources :comments
     scope module: 'tours' do
       resources :participants
