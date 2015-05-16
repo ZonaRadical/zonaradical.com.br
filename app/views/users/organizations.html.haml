@@ -23,6 +23,8 @@
 
   - @users.each do |org|
     = render 'profile_org', profile: org
+    -if can? :update, org
+      =link_to t('editProfile'), edit_user_path(org), :target => "_blank"
     .heading
 %aside
   =render 'shared/aside/aside_social_buttons'
