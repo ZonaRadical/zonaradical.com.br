@@ -26,9 +26,9 @@
               =link_to cut_phrase(profile.fb,35), profile.fb, :target => "_blank"
         .clear
 -unless profile.bio.blank?
-  %p.bio2
+  %p.bio2{:style=>"margin-top: 10px;"}
     %b
       O que é:
-  %p.bio2
+  %p.bio2{:style=>"margin-top: 0px;"}
     = profile.bio.html_safe
   .clear
