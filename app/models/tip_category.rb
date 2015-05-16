@@ -7,6 +7,7 @@
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.string   :image
+#   t.string   :slug
 # end
 
 class TipCategory < ActiveRecord::Base
