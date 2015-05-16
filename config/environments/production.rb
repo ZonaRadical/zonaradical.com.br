@@ -93,7 +93,7 @@ Rails.application.configure do
       :address => "smtp.yandex.ru",
       :port => 587,
       :domain => "zonaradical.com.br",
-      :authentication => :login,
+      #:authentication => :login,
       :user_name => "noreply@zonaradical.com.br",
       :password => "noreplyZR"
   }
