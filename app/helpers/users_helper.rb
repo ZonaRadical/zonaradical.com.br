@@ -12,4 +12,15 @@ module UsersHelper
     btn_classes << 'nona' unless can_add_gallery?(current_user)
     link_to t('imageGalleries'), user_image_galleries_path(@user), class: btn_classes
   end
+
+  def avatar_img(user)
+    image_tag(user.avatar_url(:ava), class: 'userpic', alt: user.name.to_s)
+  end
+  def logo_img(user)
+    image_tag(user.avatar_url(:thumb), class: 'resortlogo', alt: user.name.to_s)
+  end
+  
+  def avatar_img_sm(user)
+    image_tag(user.avatar_url(:ava), class: 'userpic-sm', alt: user.name.to_s+" avatar")
+  end
 end

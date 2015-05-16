@@ -22,4 +22,8 @@ module ResortsHelper
     end
   end
 
+  def resort_logo_img(resort)
+    image_tag(resort.image_url(:thumb).to_s, class: "resortlogo", alt: resort.name+" logo")
+  end
+
 end

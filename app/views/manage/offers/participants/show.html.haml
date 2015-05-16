@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Offer:
+  = @participant.offer.title
+%p
+  %b User:
+  = @participant.user.name
+
+= link_to 'Edit', edit_manage_offer_participant_path(@offer, @participant)
+\|
+= link_to 'Back', manage_offer_participants_path

@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @accommodation.name
+
+%p
+  %b Description:
+  = @accommodation.description
+
+= link_to 'Edit', edit_accommodation_path(@accommodation)
+\|
+= link_to 'Back', accommodations_path

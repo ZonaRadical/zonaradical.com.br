@@ -1,0 +1,28 @@
+%h1 Listing offer_participants
+
+%p
+  %b Offer:
+  = @offer.title
+
+%table
+  %thead
+    %tr
+      %th Usuário
+      %th Status
+      %th
+      %th
+      
+  %tbody
+    - @participants.each do |participant|
+      %tr
+        %td= participant.user.name
+        %td= t(participant.status)
+        - if participant.approved?
+          %td= link_to t('destroy'), manage_offer_participant_path(@offer, participant), method: :delete, data: { confirm: t('confirm_destroy') }
+        - else
+          %td= link_to t('approve'), approve_manage_offer_participant_path(@offer, participant)
+        %td= link_to t('refuse'), refuse_manage_offer_participant_path(@offer, participant)
+
+%br
+
+= link_to 'Offer', manage_offers_path

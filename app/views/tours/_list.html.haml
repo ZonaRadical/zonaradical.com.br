@@ -1,0 +1,26 @@
+%ol.announcement-list
+  - @tours.each do |tour|
+    %li
+      %p{:style=>"float: right;"}
+        - if can? :manage, tour and !current_user.admin?
+          Seu trip
+        - else
+          = participation_status(tour)
+      %p.title
+        = link_to tour.title, send(tour_path_method, tour)
+      %i.date
+        = check_in_formatted(tour)
+        %b
+          = tour.resort_categories.collect(&:name).join(', ')
+        = tour_resorts_names(tour)
+      %p= truncate_html(tour.description.html_safe, length: 100)
+      = link_to 'Leia mais', send(tour_path_method, tour), class: 'read-more'
+      - if can? :manage, tour
+        %br
+        = link_to t('edit'), edit_manage_tour_path(tour)
+        |
+        = link_to t('participants'), manage_tour_participants_path(tour)
+        |
+        = link_to t('destroy'), manage_tour_path(tour), method: :delete, data: { confirm: t('confirm_destroy') }
+/ end announcement-list
+= will_paginate @tours

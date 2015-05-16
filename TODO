@@ -9,3 +9,18 @@
   
   This is something that the model can take care. This also apply to code in
   tips_controller
+
+* When a tour participant get's approved/refused, the owner notification is
+  marked as read. The actual implemenation is fragile, since it's rely on the
+  notification text, and must be made more robust.
+
+* When the day is not informed for the check in field in tour it's must be
+  considered equal 1. For now, to be able to sort, I'm creating this date as a
+  virtual attribute called check_in in the application. For performance reasons
+  this must be changed to be dealt in the database scope.
+
+* Image gallery must be refactored to avoid duplication and also remove tip
+  references, since it's being rendered in others contexts too.
+
+* _profile_agency.html.haml is with the image gallery code commented, because
+  this functionality isn't presented in feature/tour branch.

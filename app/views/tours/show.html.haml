@@ -1,0 +1,97 @@
+.main-content
+  -content_for :for_head do
+    /* general METAS
+    %title #{@tour.title} | Vamo Junto com Zona Radical
+    %meta{:name => "description", :content =>  strip_tags(@tour.description.to_s)}
+
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"article"}
+    %meta{:property=> "og:description", :content =>   strip_tags(@tour.description.to_s)}
+    %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
+    -unless @tour.gallery_images.all.count.zero?
+      -@tour.gallery_images[0..3].each do |image|
+        %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
+    /* schema.org METAS
+    /* %meta{:itemprop=>"location", :content => @resort.resort_category.name.to_s}
+    -unless @tour.gallery_images.all.count.zero?
+      -@tour.gallery_images[0..3].each do |image|
+        %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
+    %meta{:itemprop=>"url", :content => request.original_url.to_s}
+  .heading
+    %h1
+      =@tour.title
+    .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
+
+  %article
+    = render 'show'
+    
+    .clear
+    .heading
+    .buttons
+      - if can? :manage, @tour
+        = link_to 'Edit', edit_manage_tour_path(@tour), class: "button"
+      = link_to t('newTour'), new_manage_tour_path, class: "button"
+      = link_to 'Todos Trips', tours_path, class: "button"
+
+    .clear
+    .heading
+      %h1 Comentários
+    %ul.comments-list
+      - all_comments = @tour.discourse_comments
+      - comments = @tour.discourse_comments.paginate(page: params[:comments_page], per_page: 2)
+      - comments.each do |comment|
+        - reply_to = all_comments[-comment['reply_to_post_number']+1] unless comment['reply_to_post_number'].nil?
+        - user = User.find_by_surname(comment['username'])
+        - if reply_to
+          - user_reply = User.find_by_surname(reply_to['username'])
+          %li
+            %a.img-wrap{:href => "#"}
+              %img.userpic{:alt => "", :src => "#{user_reply.avatar_url}"}/
+            .details
+              %p.title
+                %span== #{user_reply.name} #{user_reply.surname}, #{DateTime.parse(reply_to['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+                %i Responder
+              %div= reply_to['cooked'].html_safe
+            .clear
+          %li.comment-reply
+            %a.img-wrap{:href => "#"}
+              %img.userpic{:alt => "", :src => "#{user.avatar_url}"}/
+            .details
+              %p.title
+                %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+                %i Responder
+              %div= comment['cooked'].html_safe
+            .clear
+        - else
+          %li
+            %a.img-wrap{:href => "#"}
+              %img.userpic{:alt => "", :src => "#{user.avatar_url}"}/
+            .details
+              %p.title
+                %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+                %i Responder
+              %div= comment['cooked'].html_safe
+            .clear
+    = will_paginate(comments, param_name: :comments_page)
+
+    - if current_user
+      .clear
+      .heading
+        %h1 Deixe um comentário
+      = form_for [@tour, Comment.new] do |f|
+        .wmd-panel
+          #wmd-button-bar
+          = f.text_area :content, class: 'wmd-input'
+        .actions
+          = f.submit 'Enviar'
+    - else
+      %p== Faça #{link_to 'login', new_user_session_path} para poder comentar.
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_fb_like_box'
+  .clear

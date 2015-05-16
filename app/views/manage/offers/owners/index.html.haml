@@ -1,0 +1,23 @@
+%h1 Listing offer_owners
+
+%table
+  %thead
+    %tr
+      %th Offer
+      %th User
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @owners.each do |owner|
+      %tr
+        %td= owner.offer.title
+        %td= owner.user.name
+        %td= link_to 'Show', [:manage, @offer, owner]
+        %td= link_to 'Edit', edit_manage_offer_owner_path(@offer, owner)
+        %td= link_to 'Destroy', [:manage, @offer, owner], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Owner', new_manage_offer_owner_path

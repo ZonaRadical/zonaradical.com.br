@@ -29,3 +29,11 @@
         %li= link_to t('newVideoCategory'), main_app.new_video_category_path
     %li
       =link_to 'Manage Users', "/manage/users"
+    %li.submenu-item
+      = link_to t('accommodations'), main_app.accommodations_path
+      %ul.submenu
+        %li= link_to t('newAccommodation'), main_app.new_accommodation_path
+    %li.submenu-item
+      = link_to t('tourStyles'), main_app.tour_styles_path
+      %ul.submenu
+        %li= link_to t('newTourStyle'), main_app.new_tour_style_path

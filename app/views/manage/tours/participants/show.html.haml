@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Tour:
+  = @participant.tour.title
+%p
+  %b User:
+  = @participant.user.name
+
+= link_to 'Edit', edit_tour_participant_path(@tour, @participant)
+\|
+= link_to 'Back', tour_participants_path

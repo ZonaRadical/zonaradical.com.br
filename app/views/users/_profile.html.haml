@@ -5,7 +5,7 @@
 
 .profile-card
   .leftcol
-    = image_tag(profile.avatar_url, class: 'userpic', alt: profile.name )
+    = avatar_img(@user)
   .rightcol
     .title
       %span.name= profile.name.to_s + ' ' + profile.surname.to_s

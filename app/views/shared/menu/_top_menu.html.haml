@@ -14,8 +14,16 @@
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 
+  /* %li= active_link_to t('vamoJunto'), main_app.tours_path
+
   %li
     %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
+
+  /* %li.submenu-item
+  /*  = link_to 'Ofertas', '#'
+  /*  %ul.submenu
+  /*    %li= link_to t('agencies'), main_app.agencies_path
+  /*    /* %li= link_to t('offers'), main_app.offers_path
 
   %li
     - if Rails.application.secrets.discourse_url
@@ -29,4 +37,5 @@
       %span Snow
     %ul.submenu
       %li= link_to t('athletes'), main_app.athletes_path
+      %li= link_to t('agencies'), main_app.agencies_path
       %li= link_to "Zona Radical", "http://zonaradical.com.br/galera.html"

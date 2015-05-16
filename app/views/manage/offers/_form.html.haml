@@ -1,0 +1,58 @@
+= form_for [:manage, @offer] do |f|
+  - if @offer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@offer.errors.count, "error")} prohibited this offer from being saved:"
+      %ul
+        - @offer.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :tour_style_id, t('tourStyle')
+    = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
+  .field
+    = f.label :accommodation_id, t('accommodation')
+    = f.collection_select(:accommodation_id, Accommodation.all, :id, :name, {:prompt => t('selectAccommodation')})
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description, :class => 'froala', :rows => 40, :cols => 120
+  .field
+    = f.label :duration
+    = f.number_field :duration
+  .field
+    = f.label :check_in
+    = select_day Time.now, field_name: 'check_in_d', prefix: 'offer', prompt: 'Escolha um dia (opcional)'
+    = select_month Time.now, field_name: 'check_in_m', prefix: 'offer'
+    = select_year Time.now, field_name: 'check_in_y', prefix: 'offer'
+  .field
+    = f.label :price
+    = f.text_field :price
+  - if current_user.admin?
+    .field
+      = f.label :published
+      = f.check_box :published
+  %h3 Destination
+  .field
+    = f.label :resort_category_ids
+    = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
+  .field
+    = f.label :resort_ids
+    = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione um país' }
+  %h3 Gallery
+  %ul
+  -unless @offer.gallery_images.all.count.zero?
+    -@offer.gallery_images.all.each do |image|
+      %li
+        = image_tag image.image_url(:thumb).to_s
+        = text_field_tag "gallery_images[name][#{image.id}]", image.name, {placeholder: 'name'}
+        = text_field_tag "gallery_images[url][#{image.id}]", image.url, {placeholder: 'url'}
+        = text_area_tag "gallery_images[description][#{image.id}]", image.description, size: '30x5'
+        = check_box_tag "gallery_images[remove_image][#{image.id}]"
+        = text_field_tag "gallery_images[order][#{image.id}]", image.order, {placeholder: 'order',size: 4}
+  .field
+    = f.label :add_gallery_images
+    = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
+  .actions
+    = f.submit 'Save'

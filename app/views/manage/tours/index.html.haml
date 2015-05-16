@@ -1,0 +1,17 @@
+.main-content
+  .heading
+    %h1 A lista dos seus Trips
+
+  = render 'tours/list', tour_path_method: "manage_tour_path"
+
+  = link_to t('newTour'), new_manage_tour_path, class: "button"
+
+  .clear
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_resort_gallery'
+    .clear

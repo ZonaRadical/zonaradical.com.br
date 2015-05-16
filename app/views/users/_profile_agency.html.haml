@@ -1,0 +1,29 @@
+.profile-agnc-card
+  .leftcol
+    /* = link_to avatar_img(profile), user_url(profile)
+    = logo_img(profile)
+  .rightcol
+    .title
+      %span.name
+        = profile.surname.to_s
+    %ul.details-list
+      -unless profile.city.blank?
+        %li
+          %b
+            = t('city')
+            \:
+          =profile.city
+      %li.contacts
+        %b
+          = t('contacts')
+          \:
+        .contacts-list
+          - if profile.web
+            %span.web=link_to profile.web, profile.web, :target => "_blank"
+          - if profile.fb
+            %span.fb=link_to profile.fb, profile.fb, :target => "_blank"
+        .clear
+      -unless profile.bio.blank?
+        %p.bio
+          =truncate_html(profile.bio, length: 150, omission: '...')
+  .clear

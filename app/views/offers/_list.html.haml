@@ -1,0 +1,20 @@
+%ol.announcement-list
+  - @offers.each do |offer|
+    %li
+      %p.title
+        = link_to offer.title, send(offer_path_method, offer)
+        = participation_status(offer)
+      %i.date
+        = check_in_formatted(offer)
+        %b= offer.resort_categories.collect(&:name).join(', ')
+      %p= truncate_html(offer.description.html_safe, length: 100)
+      = link_to 'Leia mais', send(offer_path_method, offer), class: 'read-more'
+      - if can? :manage, offer
+        %br
+        = link_to t('edit'), edit_manage_offer_path(offer)
+        |
+        = link_to t('participants'), manage_offer_participants_path(offer)
+        |
+        = link_to t('destroy'), manage_offer_path(offer), method: :delete, data: { confirm: t('confirm_destroy') }
+/ end announcement-list
+= will_paginate @offers

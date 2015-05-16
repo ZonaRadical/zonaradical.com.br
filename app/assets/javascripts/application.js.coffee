@@ -14,6 +14,8 @@
 #= require jquery
 #= require jquery-ui
 #= require jquery_ujs
+#= require select2
+#= require select2_locale_pt-BR
 
 # Запускаем когда страница готова | trigger when page is ready
 $(document).ready ->
@@ -67,10 +69,12 @@ $(document).ready ->
 #
 #
 $(".flash").fadeIn ->
+  secondsToFade = $(this).data('seconds-to-fade') || 5
+  _that = this
   setTimeout (->
-    $(".flash").fadeOut()
+    $(_that).fadeOut()
     return
-  ), "5000"
+  ), (secondsToFade * 1000)
   return
 
 ((d, s, id) ->

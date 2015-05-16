@@ -1,0 +1,23 @@
+%h1 Listing tour_owners
+
+%table
+  %thead
+    %tr
+      %th Tour
+      %th User
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @owners.each do |owner|
+      %tr
+        %td= owner.tour.title
+        %td= owner.user.name
+        %td= link_to 'Show', [:manage, @tour, owner]
+        %td= link_to 'Edit', edit_manage_tour_owner_path(@tour, owner)
+        %td= link_to 'Destroy', [:manage, @tour, owner], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Owner', new_manage_tour_owner_path
