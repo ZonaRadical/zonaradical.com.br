@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   end
 
   def agencies
-    @users = User.agencies
+    @users = User.agencies.sort_by { |a| [ a.surname.to_s.downcase ] }
   end
 
   private

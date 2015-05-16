@@ -19,9 +19,11 @@
           \:
         .contacts-list
           - if profile.web
-            %span.web=link_to profile.web, profile.web, :target => "_blank"
+            %span.web
+              =link_to cut_phrase(profile.web,35), profile.web, :target => "_blank"
           - if profile.fb
-            %span.fb=link_to profile.fb, profile.fb, :target => "_blank"
+            %span.fb
+              =link_to cut_phrase(profile.fb,35), profile.fb, :target => "_blank"
         .clear
       -unless profile.bio.blank?
         %p.bio

@@ -8,7 +8,9 @@
     %b
       =site_user.name
       =site_user.surname
-    %i=site_user.email
+    %i=site_user.email.to_s+","
+    id
+    =site_user.id
     %span.activity
       %b
         = t('lastSignInAt')
