@@ -2,24 +2,26 @@
   -content_for :for_head do
     /* general METAS
     %title Agências de neve | Zona Radical
-    %meta{:name => "description", :content =>  "A lista completa das melhores agências de viagem do Brasil que oferecem pacotes para montanhas de neve."}
+    %meta{:name => "description", :content =>  "A lista completa das melhores agências de viagem do Brasil que oferecem pacotes para montanhas nevedas."}
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:property=> "og:description", :content =>   "A lista completa das melhores agências de viagem do Brasil que oferecem pacotes para montanhas de neve."}
+    %meta{:property=> "og:description", :content =>   "A lista completa das melhores agências de viagem do Brasil que oferecem pacotes para montanhas nevedas."}
     %meta{:property=>"og:title", :content => "Agências de neve | Zona Radical" }
     %meta{:property=>"og:url", :content => request.original_url.to_s}
-    %meta{:property=> "og:image", :content=> "images/agencias.png"}
+    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/agencias.png"}
   .heading
     %h1
       Agências do Brasil
     .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
 
   %p.search-intro
-    Surprendetemente no Brasil tem várias agências que oferecem os pacotes de viagem para praticar snowboard e esqui.
-    Não todas são grandes e/ou famosas. Confira essa lista das melhores agências de viagem que conhecemos aqui no ZR.
+    Surpreendentemente, no Brasil existem várias agências que oferecem pacotes de viagens para praticar snowboard e esqui.
+    Nem todas são grandes e/ou famosas. Confira a lista das melhores que conhecemos aqui no ZR.
 
   .heading
   - @users.each do |agency|
     = render 'profile_agency', profile: agency
+    -if can? :update, agency
+      =link_to t('editProfile'), edit_user_path(agency), :target => "_blank"
     .heading
 
   -content_for :aside do
