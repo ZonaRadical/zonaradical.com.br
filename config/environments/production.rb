@@ -90,11 +90,11 @@ Rails.application.configure do
       from: "noreply@zonaradical.com.br"
   }
   config.action_mailer.smtp_settings = {
-      :address => "smtp.yandex.ru",
+      :address => 'smtp.mandrillapp.com',
       :port => 587,
       :domain => "zonaradical.com.br",
       #:authentication => :login,
-      :user_name => "noreply@zonaradical.com.br",
-      :password => "noreplyZR"
+      :user_name => 'noreply@zonaradical.com.br',
+      :password => 'Tap1Ug1dNCVZDPAV5hybyQ'
   }
 end
