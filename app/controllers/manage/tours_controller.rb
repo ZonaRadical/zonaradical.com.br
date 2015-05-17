@@ -37,7 +37,8 @@ class Manage::ToursController < ApplicationController
 
   private
     def load_tours
-      @tours ||= tour_scope.paginate(page: params[:page]).to_a
+      tours_query = params[:show_passed].nil? ? tour_scope.switched_on : tour_scope
+      @tours ||= tours_query.paginate(page: params[:page]).to_a
     end
 
     def load_tour

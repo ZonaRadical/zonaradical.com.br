@@ -112,8 +112,8 @@
       %h1 Anúncios filtrados
     - else
       %h1 Todos os anúncios
-    /*-if can? Tour, :manage
-    = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
+    - if current_user
+      = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
   - if @tours.empty?
     Não existem tours ou nenhuma foi encontrada com os filtros especificados.
   - else

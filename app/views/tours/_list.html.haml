@@ -2,7 +2,7 @@
   - @tours.each do |tour|
     %li
       %p{:style=>"float: right;"}
-        - if can? :manage, tour and !current_user.admin?
+        - if tour.user_owners.include?(current_user)
           Seu trip
         - else
           = participation_status(tour)
