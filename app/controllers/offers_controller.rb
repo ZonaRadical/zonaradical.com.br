@@ -22,11 +22,6 @@ class OffersController < ApplicationController
     @offers ||= offer_scope.switched_on.paginate(page: params[:page]).to_a
   end
 
-  def load_offers
-    @offers ||= offer_scope.owned_by(User.agencies).paginate(page: params[:page])
-      .to_a
-  end
-
   def load_offer
     @offer ||= offer_scope.find(params[:id])
   end
