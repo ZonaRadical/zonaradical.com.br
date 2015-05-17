@@ -3,6 +3,9 @@
 Rails.application.config.assets.precompile += %w( forem.css )
 Rails.application.config.assets.precompile += %w( forem.js )
 
+# feedbacker
+Rails.application.config.assets.precompile += %w( feedback_tab.png )
+Rails.application.config.assets.precompile += %w( feedback_tab_bottom.png )
 
 # controllers
 

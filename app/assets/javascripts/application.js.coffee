@@ -16,6 +16,7 @@
 #= require jquery_ujs
 #= require select2
 #= require select2_locale_pt-BR
+#= require feedbacker/feedbacker
 
 # Запускаем когда страница готова | trigger when page is ready
 $(document).ready ->

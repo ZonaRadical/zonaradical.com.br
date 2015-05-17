@@ -13,13 +13,18 @@
     %h1
       Encontra seu parceiro perfeito de Snowboard
     /* -if can? Tour, :manage
-    = link_to '+ Adicionar um anúncio', new_manage_tour_path, class: 'all add-link'
-  .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
-  %p.search-intro{:style=>"width: 650px;"}
+    .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
+  %p.search-intro
     Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
-    é um sistema para você poder encontrar o perfeito parceiro para sua viagem -
+    É um sistema para você poder encontrar o perfeito parceiro para sua viagem -
     tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
     postar anúncios procurando parceiros, e também procurar companhia entre quem já postou.
+
+  = link_to 'Adicionar um anúncio', new_manage_tour_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: -10px;margin-bottom: 20px;"
+
+  .heading
+  %p.small
+    Escolha os parametros abaixo para encontrar um trip mais do seu jeito.
 
   = form_for :search, url: search_tours_path, method: :get do |f|
     .search-filter

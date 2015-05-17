@@ -24,8 +24,14 @@
           - if profile.fb
             %span.fb
               =link_to cut_phrase(profile.fb,35), profile.fb, :target => "_blank"
+          - if profile.fb
+            %span.fb
+              =link_to cut_phrase(profile.fb,35), profile.fb, :target => "_blank"
+          - if profile.login
+            %span.email
+              =mail_to profile.login, profile.login, :target => "_blank"
         .clear
-      -unless profile.bio.blank?
-        %p.bio
-          =truncate_html(profile.bio, length: 150, omission: '...')
-  .clear
+-unless profile.bio.blank?
+  %p.bio2{:style=>"margin-top: 10px;"}
+    = profile.bio.html_safe
+.clear

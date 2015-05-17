@@ -34,6 +34,7 @@ gem 'wysiwyg-rails'
 gem 'font-awesome-rails'
 
 gem 'i18n'
+gem 'feedbacker'
 
 # Active Admin
 gem 'activeadmin', github: 'gregbell/active_admin'
