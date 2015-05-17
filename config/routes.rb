@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   resources :offers do
     get 'search', on: :collection
   end
-  resources :tours, path: '/vamo-junto-ski-snowboard' do
+  resources :tours, path: '/vamo-junto-snowboard' do
     get 'search', on: :collection
     resources :comments
     scope module: 'tours' do
       resources :participants
     end
   end
-  resources :offers, path: '/ofertas-ski-snowboard' do
+  resources :offers, path: '/ofertas-snowboard' do
     scope module: 'offers' do
       resources :participants
     end
