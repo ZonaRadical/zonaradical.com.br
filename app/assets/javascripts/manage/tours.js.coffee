@@ -34,3 +34,6 @@ $ ->
   $("#shareTour").dialog
     autoOpen: true
     modal: true
+
+  $('#show_passed').on 'change', ->
+    $('#show_passed_form').submit()
