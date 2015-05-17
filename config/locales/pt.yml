@@ -31,6 +31,7 @@ pt-BR:
     forum: 'Forum'
     received_reply: 'Resposta recebida'
     confirm_destroy: 'Você tem certeza?'
+    share: 'Compartilhar'
 
     # User Profile
     userProfile: 'Perfil de usuario'
