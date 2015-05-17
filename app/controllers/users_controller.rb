@@ -65,6 +65,10 @@ class UsersController < ApplicationController
     @users = User.athletes.paginate(:page => params[:page], :per_page => 15)
   end
 
+  def organizations
+    @users = User.organizations
+  end
+
   def full_sign_out
     discourse_sign_out
     sign_out
@@ -72,7 +76,7 @@ class UsersController < ApplicationController
   end
 
   def agencies
-    @users = User.agencies
+    @users = User.agencies.sort_by { |a| [ a.surname.to_s.downcase ] }
   end
 
   private

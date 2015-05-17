@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
     @tipsOrdered = Tip.order(created_at: :desc)[0..2]
     @breezes = Breeze.last(10)
   end
+
+  def galera
+  end
 end

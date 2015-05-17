@@ -1,5 +1,8 @@
 #= require_tree ./editor
 #= require sliders/slick
+#= require markdown.converter
+#= require markdown.sanitizer
+#= require markdown.editor
 
 $ ->
   update_visible_resorts = ->
@@ -22,6 +25,7 @@ $ ->
   $(".froala").editable
     inlineMode: false
     mediaManager:true
+    key: 'WlxvxhzxtB-16D-13lD3aliC8du=='
 
   # .index-slider Slick
   $(".tip-slider").slick
@@ -69,3 +73,7 @@ $ ->
     if value != ""
       $(this).find(".option-list li[data-value='#{value}']").click()
     return
+
+  converter = Markdown.getSanitizingConverter()
+  editor = new Markdown.Editor(converter)
+  editor.run()

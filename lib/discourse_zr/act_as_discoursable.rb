@@ -24,6 +24,13 @@ module DiscourseZr
     end
 
     module LocalInstanceMethods
+      def discourse_comments
+        topic = discourse_client.topic(self.discourse_topic_id)
+        comments = topic['post_stream']['posts']
+        comments.shift # discard first post (tour description)
+        comments.reverse # from last to first post
+      end
+
       private
 
       def create_or_update_discourse_topic

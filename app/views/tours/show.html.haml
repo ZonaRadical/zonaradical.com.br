@@ -26,14 +26,69 @@
 
   %article
     = render 'show'
-
+    
     .clear
     .heading
     .buttons
       - if can? :manage, @tour
         = link_to 'Edit', edit_manage_tour_path(@tour), class: "button"
-        = link_to t('newTour'), new_manage_tour_path, class: "button"
+      = link_to t('newTour'), new_manage_tour_path, class: "button"
       = link_to 'Todos Trips', tours_path, class: "button"
+
+    .clear
+    .heading
+      %h1{:style=>"margin-top: 40px;"}
+        Comentários
+    %ul.comments-list
+      - all_comments = @tour.discourse_comments
+      - comments = @tour.discourse_comments.paginate(page: params[:comments_page], per_page: 2)
+      - comments.each do |comment|
+        - reply_to = all_comments[-comment['reply_to_post_number']+1] unless comment['reply_to_post_number'].nil?
+        - user = User.find_by_surname(comment['username'])
+        - if reply_to
+          - user_reply = User.find_by_surname(reply_to['username'])
+          %li
+            %a.img-wrap{:href => "#"}
+              %img.userpic{:alt => "", :src => "#{user_reply.avatar_url}"}/
+            .details
+              %p.title
+                %span== #{user_reply.name} #{user_reply.surname}, #{DateTime.parse(reply_to['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+                %i Responder
+              %div= reply_to['cooked'].html_safe
+            .clear
+          %li.comment-reply
+            %a.img-wrap{:href => "#"}
+              %img.userpic{:alt => "", :src => "#{user.avatar_url}"}/
+            .details
+              %p.title
+                %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+                %i Responder
+              %div= comment['cooked'].html_safe
+            .clear
+        - else
+          %li
+            %a.img-wrap{:href => "#"}
+              %img.userpic{:alt => "", :src => "#{user.avatar_url}"}/
+            .details
+              %p.title
+                %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
+                %i Responder
+              %div= comment['cooked'].html_safe
+            .clear
+    = will_paginate(comments, param_name: :comments_page)
+
+    - if current_user
+      .clear
+      .heading
+        %h1 Deixe um comentário
+      = form_for [@tour, Comment.new] do |f|
+        .wmd-panel
+          #wmd-button-bar
+          = f.text_area :content, class: 'wmd-input'
+        .actions
+          = f.submit 'Enviar'
+    - else
+      %p== Faça #{link_to 'login', new_user_session_path} para poder comentar.
 
 -content_for :aside do
   %aside

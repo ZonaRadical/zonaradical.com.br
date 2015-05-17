@@ -75,6 +75,8 @@ class Ability
   def athlete
     can :manage, ImageGallery
   end
+  def organization
+  end
 
   def agency
     can :manage, Offer

@@ -41,6 +41,11 @@ namespace :db do
                               :description => Populator.sentences(1..20),
                               :parent => root_left)
     fill_tip_category(lvl2_2, 100)
+
+    TourStyle.create( :name => 'For fun',:description => ' Just for fun. Npthing else!')
+    TourStyle.create( :name => 'For Sport',:description => 'Prepearing to the Olimpic winter games')
+    TourStyle.create( :name => 'For Work',:description => 'Looking for the Job!')
+
   end
 
 

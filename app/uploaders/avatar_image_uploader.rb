@@ -34,6 +34,7 @@ class AvatarImageUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :create_thumb => [286, 162]
   end
+
   def create_thumb(width, height)
     manipulate! do |source|
       source = source.resize_to_fit(width,height)
