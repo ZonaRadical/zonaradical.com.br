@@ -35,4 +35,3 @@ $ ->
   $("#shareTour").dialog
     autoOpen: true
     modal: true
-    
