@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'tips/slug', to: 'tips#slug'
   resources :tips, path: 'dicas'
+
+  get 'tip_categories/slug', to: 'tip_categories#slug'
   resources :tip_categories
 
   resources :breezes, :breeze_categories
