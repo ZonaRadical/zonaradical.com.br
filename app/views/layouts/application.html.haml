@@ -43,6 +43,7 @@
         %span{:itemprop=>"copyrightHolder"}
           ZonaRadical.com.br
     = render 'layouts/footer'
+    = render(:partial => 'feedbacker/tab') unless current_user.nil?
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag params[:controller], 'data-turbolinks-track' => true
