@@ -4,6 +4,7 @@
     %title Pacotes de Snow | Zona Radical
     %meta{:name => "description", :content =>  "Todos os pacotes de vigem de neve num site so. E aqui. Encontre sua viagem de snowboard prefeita!"}
     %meta{:viewport => "width=1220, maximum-scale=2.0"}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
   .heading
     %h1
       Offers
@@ -11,7 +12,8 @@
       = link_to "+ #{t('createOffer')}", new_manage_offer_path, class: 'all add-link'
   %p.search-intro 
     Aqui voce poe encontrar os pacotes de viagens oferecidos pelas agecias turisticas do Brasil.
-
+  - offer_resort_categories.each do |resort_category|
+    = resort_category.name
   = form_for :search, url: search_offers_path, method: :get do |f|
     .search-filter
       .select-wrap
