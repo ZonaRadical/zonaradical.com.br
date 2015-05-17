@@ -1,4 +1,8 @@
 .main-content
+  = form_tag manage_tours_path, id: 'show_passed_form', method: :get, enforce_utf8: false do
+    Mostrar Trips passados
+    = check_box_tag :show_passed, '1', params[:show_passed] == "1"
+
   .heading
     %h1 A lista dos seus Trips
 

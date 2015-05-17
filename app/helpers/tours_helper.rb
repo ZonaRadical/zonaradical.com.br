@@ -67,4 +67,43 @@ module ToursHelper
 	end
   end
 
+  def tour_day(tour)
+    tour.check_in_d.nil? ? 1 : tour.check_in_d
+  end
+
+  def tour_month(tour)
+    if tour.check_in_m.nil?
+      overflow_month?(tour) ? 1 : Time.now.month + 1
+    else
+      tour.check_in_m
+    end
+  end
+
+  def tour_year(tour)
+    if tour.check_in_y.nil?
+      overflow_year?(tour) ? Time.now.year + 1 : Time.now.year
+    else
+      tour.check_in_y
+    end
+  end
+
+  private
+
+  def overflow_month?(tour)
+    # only overflow, if the value was not selected by the user
+    if tour.check_in_m.nil?
+      (Time.now.month + 1) % 13 == 0 ? true : false
+    else
+      false
+    end
+  end
+
+  def overflow_year?(tour)
+    # only overflow, if the value was not selected by the user
+    if tour.check_in_y.nil?
+      overflow_month?(tour)
+    else
+      false
+    end
+  end
 end
