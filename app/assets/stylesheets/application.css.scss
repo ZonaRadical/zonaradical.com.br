@@ -1187,7 +1187,17 @@ p.bio {
     background: image_url("read-more.png") no-repeat right center;
   }
 }
-
+p.bio2 {
+  margin-bottom: 0px;
+  margin-top: 40px;
+  a.read-more {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+    padding-right: 30px;
+    background: image_url("read-more.png") no-repeat right center;
+  }
+}
 
 .buttons {
   margin-bottom: 20px;

@@ -66,7 +66,7 @@ class UsersController < ApplicationController
   end
 
   def organizations
-    @users = User.organizations
+    @users = User.organizations.sort_by { |a| [ a.surname.to_s.downcase ] }
   end
 
   def full_sign_out
