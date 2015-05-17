@@ -10,3 +10,4 @@
 #// = require plugins/file_upload.min.js
 #// = require plugins/lists.min.js
 #// = require plugins/char_counter.min.js
+#//= require langs/pt_br.js

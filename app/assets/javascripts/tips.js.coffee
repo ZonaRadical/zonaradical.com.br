@@ -10,6 +10,7 @@ $ ->
     inlineMode: false
     mediaManager:true
     key: 'WlxvxhzxtB-16D-13lD3aliC8du=='
+    language: 'pt_br'
 
   $("#tabs").tabs()
 
