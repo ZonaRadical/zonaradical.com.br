@@ -22,6 +22,11 @@ class TipCategoriesController < ApplicationController
   def edit
   end
 
+  def slug
+    @tip_category = TipCategory.new name: params[:title]
+    render json: { slug: @tip_category.slug_preview }
+  end
+
   # POST /tip_categories
   # POST /tip_categories.json
   def create
@@ -65,6 +70,6 @@ class TipCategoriesController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def tip_category_params
-    params.require(:tip_category).permit(:name, :parent_id, :description, :image )
+    params.require(:tip_category).permit(:name, :parent_id, :description, :image, :slug)
   end
 end

@@ -26,6 +26,7 @@ RSpec.describe TipCategoriesController, :type => :controller do
   let(:valid_attributes) {
     {:name => 'Some Category', :description => 'A lot of text',
      :image => File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
+     :slug => 'a-lot-of-text'
      }
   }
 
@@ -162,15 +163,13 @@ RSpec.describe TipCategoriesController, :type => :controller do
         expect(response).to redirect_to(tip_categories_url)
       end
     end
+
+    it_behaves_like 'slugs_preview'
   end
-
-
-
 
   describe 'User' do
 
     login_user
-
 
     describe "GET index" do
       it "assigns all tip_categories as @tip_categories" do
