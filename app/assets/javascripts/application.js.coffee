@@ -10,10 +10,10 @@
 # Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 # about supported directives.
 
-#= require_tree ./shared
 #= require jquery
 #= require jquery-ui
 #= require jquery_ujs
+#= require_tree ./shared
 #= require select2
 #= require select2_locale_pt-BR
 
