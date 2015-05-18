@@ -20,6 +20,10 @@
             %span /
             = link_to t('Sign up'), new_registration_path(:user)
             %br/
+    -if mobile_device?
+      =link_to t('fullVersion'), :mobile => 0
+    -else
+      =link_to t('mobileVersion'), :mobile => 1
     %nav
       =render 'shared/menu/top_menu'
       .search-field
