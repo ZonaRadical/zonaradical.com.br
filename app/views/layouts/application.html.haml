@@ -21,7 +21,7 @@
       %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
       %meta{:property=>"og:type", :content =>"website"}
     -if mobile_device?
-      %meta{:namew=>"viewport", :content => "width=device-width, initial-scale=1"}
+      %meta{:name=>"viewport", :content => "width=device-width, initial-scale=1"}
       = stylesheet_link_tag    'application_mobile', media: 'all', 'data-turbolinks-track' => true
     -else
       = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
