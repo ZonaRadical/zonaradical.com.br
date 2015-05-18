@@ -19,31 +19,44 @@
       %meta{:property=>"og:url", :content => "http://zonaradical.com.br"}
       %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
       %meta{:property=>"og:type", :content =>"website"}
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    -if mobile_device?
+      = stylesheet_link_tag    'application_mobile', media: 'all', 'data-turbolinks-track' => true
+    -else
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body
     .fb-root
-    = render 'layouts/header'
-    -if content_for? :top_section
-      %section.top-section= content_for :top_section
-    %section.content
-      = yield
-      -if content_for? :aside
-        %aside= content_for :aside
-        .clear
-      %p.inv
-        %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
-        Editor:
-        %span{:itemprop=>"editor"}
-          Ignat Fialkovskiy
-        , founder of
-        %span{:itemprop=>"copyrightHolder"}
-          ZonaRadical.com.br
-    = render 'layouts/footer'
-    = render(:partial => 'feedbacker/tab') unless current_user.nil?
+    -if !mobile_device?
+      = render 'layouts/header'
+      -if content_for? :top_section
+        %section.top-section= content_for :top_section
+      %section.content
+        = yield
+        -if content_for? :aside
+          %aside= content_for :aside
+          .clear
+        %p.inv
+          %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
+          Editor:
+          %span{:itemprop=>"editor"}
+            Ignat Fialkovskiy
+          , founder of
+          %span{:itemprop=>"copyrightHolder"}
+            ZonaRadical.com.br
+      = render 'layouts/footer'
+      = render(:partial => 'feedbacker/tab') unless current_user.nil?
+    - else
+      = render 'layouts/header_mobile'
+      -if content_for? :top_section
+        %section.top-section= content_for :top_section
+      %section.content
+        = yield
+        %p.inv
+          %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
+
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag params[:controller], 'data-turbolinks-track' => true

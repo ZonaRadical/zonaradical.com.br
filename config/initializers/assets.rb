@@ -9,6 +9,8 @@ Rails.application.config.assets.precompile += %w( feedback_tab_bottom.png )
 
 # controllers
 
+Rails.application.config.assets.precompile += %w( application_mobile.css )
+
 Rails.application.config.assets.precompile += %w( static_pages.css )
 Rails.application.config.assets.precompile += %w( static_pages.js )
 
