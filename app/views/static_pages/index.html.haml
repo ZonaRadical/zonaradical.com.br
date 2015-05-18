@@ -1,16 +1,16 @@
--content_for :top_section do
-  -content_for :for_head do
-    %title Zona Radical | Snowboard: como aprender, praticar e apreciar
-    %meta{:name => "description",
-      :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
-    /* facebook METAS
-    %meta{:property=> "og:description", :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
-    %meta{:property=>"og:title", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
-    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"}
-    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
-    %meta{:property=>"og:type", :content =>"website"}
+-content_for :for_head do
+  %title Zona Radical | Snowboard: como aprender, praticar e apreciar
+  %meta{:name => "description",
+    :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+  /* facebook METAS
+  %meta{:property=> "og:description", :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+  %meta{:property=>"og:title", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
+  %meta{:property=>"og:url", :content => "http://zonaradical.com.br"}
+  %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+  %meta{:property=>"og:type", :content =>"website"}
   /* Schema ORg
-  -if !mobile_device?
+-if !mobile_device?
+  -content_for :top_section do
     .slider-field{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
       %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
@@ -84,30 +84,14 @@
         = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
         %p Trips e ofertas
     .clear
-    .main-content
-      .heading
-        %h1 últimas dicas de snowboard
-        %a.all{:href => "../tips"} Todas
-      -unless @tipsOrdered.nil?
-        %ul.item-list
-          -@tipsOrdered.each do |tipsOrd|
-            %li
-              =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
-              .details
-                =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
-                %p
-                  -if !tipsOrd.short_description.empty?
-                    =truncate_html(tipsOrd.short_description, length: 253, omission: '...')
-                  -else
-                    =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
-                  = link_to t('readMore'), tip_path(tipsOrd)
-              .clear
+  -content_for :aside do
     %aside
       =render 'shared/aside/aside_social_buttons'
       =render 'shared/aside/aside_advert'
       =render 'shared/aside/aside_fb_like_box'
     .clear
-  - else
+- else
+  -content_for :top_section do
     .heading{:style=>"font-size: 25px; margin-bottom=0px;", :itemscope => true, :itemtype => "http://schema.org/WebSite"}
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
       %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
@@ -130,4 +114,21 @@
       %strong estações de ski
       no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
     .clear
-
+.main-content
+  .heading
+    %h1 últimas dicas de snowboard
+    %a.all{:href => "../tips"} Todas
+  -unless @tipsOrdered.nil?
+    %ul.item-list
+      -@tipsOrdered.each do |tipsOrd|
+        %li
+          =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
+          .details
+            =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
+            %p
+              -if !tipsOrd.short_description.empty?
+                =truncate_html(tipsOrd.short_description, length: 253, omission: '...')
+              -else
+                =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
+              = link_to t('readMore'), tip_path(tipsOrd)
+          .clear
