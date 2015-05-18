@@ -18,8 +18,8 @@ class Tours::ParticipantsController < ApplicationController
     if @participant.save
       url = manage_tour_participants_url(@tour)
       @tour.owners.first.user.notify("Solicitação para participação em tour",
-        "O usuário '#{current_user.name}' gostaria de participar da tour '#{@tour.title}'.
-         Para avaliar este pedido acesse #{view_context.link_to url, url}.")
+        "O usuário '#{current_user.name}' gostaria de participar no seu Trip '#{@tour.title}'.
+         #{view_context.link_to "Avalia este pedido aqui", url}.")
       redirect_to tour_path(@tour), notice: 'Seu pedido foi enviado, em breve você receberá uma resposta.'
     end
   end
