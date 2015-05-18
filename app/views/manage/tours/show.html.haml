@@ -24,7 +24,7 @@
   .heading
     %h1
       =@tour.title
-    = render 'fb_like'
+    = render 'fb_like', :page_url=>tour_path(@tour)
   = render 'tours/show'
 
   -if !@tour.published
@@ -49,5 +49,5 @@
 - if @tour.updated_at > 15.seconds.ago
   #shareTour{:title => t('share')}
     %p Deseja compartilhar seu trip?
-    = render 'fb_like'
+    = render 'fb_like', :page_url=>tour_path(@tour)
     .modal-footer
