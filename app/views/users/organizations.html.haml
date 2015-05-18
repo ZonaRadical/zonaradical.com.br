@@ -26,8 +26,9 @@
     -if can? :update, org
       =link_to t('editProfile'), edit_user_path(org), :target => "_blank"
     .heading
-%aside
-  =render 'shared/aside/aside_social_buttons'
-  =render 'shared/aside/aside_advert'
-  =render 'shared/aside/aside_fb_like_box'
-.clear
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_fb_like_box'
+  .clear
