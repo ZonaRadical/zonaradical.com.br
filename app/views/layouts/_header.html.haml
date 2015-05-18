@@ -26,9 +26,9 @@
         =link_to t('mobileVersion'), :mobile => 1
     %nav
       =render 'shared/menu/top_menu'
-      .search-field
-        %input{:placeholder => "Pesquisa", :type => "text"}/
-        %a{:href => "#"}
+      /.search-field
+      /  %input{:placeholder => "Pesquisa", :type => "text"}/
+      /  %a{:href => "#"}
     - if can? :manage, :all
       =render 'shared/menu/admin_menu'
     - flash.each do |key, value|
