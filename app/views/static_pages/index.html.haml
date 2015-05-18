@@ -84,6 +84,29 @@
         = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
         %p Trips e ofertas
     .clear
+    .main-content
+      .heading
+        %h1 últimas dicas de snowboard
+        %a.all{:href => "../tips"} Todas
+      -unless @tipsOrdered.nil?
+        %ul.item-list
+          -@tipsOrdered.each do |tipsOrd|
+            %li
+              =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
+              .details
+                =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
+                %p
+                  -if !tipsOrd.short_description.empty?
+                    =truncate_html(tipsOrd.short_description, length: 253, omission: '...')
+                  -else
+                    =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
+                  = link_to t('readMore'), tip_path(tipsOrd)
+              .clear
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_fb_like_box'
+    .clear
   - else
     .heading{:style=>"font-size: 25px; margin-bottom=0px;", :itemscope => true, :itemtype => "http://schema.org/WebSite"}
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
@@ -108,90 +131,3 @@
       no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
     .clear
 
-  .main-content
-    -# .heading
-      %h1 Últimas Notícias do Zona Radical
-    -# .news-slider
-      -unless @breezes.empty?
-        -@breezes.each do |breeze|
-          .slide
-            .news-item
-              =link_to image_tag(breeze.image_url(:thumb).to_s), breeze.url, class: "img-wrap"
-              .details
-                =link_to breeze.updated_at.to_date.to_formatted_s(:long_ordinal), breeze.url, class: "date"
-                %p=breeze.body
-              .clear
-      .slide
-        .news-item
-          =link_to image_tag('news-5.jpg'), main_app.tips_url, class: "img-wrap"
-          .details
-            =link_to "05 de Dezembero, 2014", main_app.tips_url, class: "date"
-            %p
-              São 20 dicas de snowboard que a equipoe do Zona Radical preparou para vocês.
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
-          .details
-            %a.date{:href => "#"} 10 de Novembro, 2014
-            %p
-              Temos 25 estações de esqui! A lista está todo dia crescendo.
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-3.jpg')
-          .details
-            %a.date{:href => "#"} 10 de Julho, 2014
-            %p
-              Design está tudo feito. Ainda esperando os programadores... =(
-              Que vida difícil!
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-2.jpg')
-          .details
-            %a.date{:href => "#"} 10 de Junho, 2014
-            %p
-              Os domínios  registrados, até em Portugal...
-              Agora esperamos o designer e os programadores fazer o trabalho deles.
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
-          .details
-            %a.date{:href => "#"} 22 de maio, 2014
-            %p
-              Depois de mais algumas brejas e muita discussão  escolhemos o nome -
-              = succeed "!!!" do
-                %b Zona Radical
-          .clear
-      .slide
-        .news-item
-          %a.img-wrap{:href => "#"}= image_tag('breja.jpg')
-          .details
-            %a.date{:href => "#"} 14 de maio, 2014
-            %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
-          .clear
-    .heading
-      %h1 últimas dicas de snowboard
-      %a.all{:href => "../tips"} Todas
-    -unless @tipsOrdered.nil?
-      %ul.item-list
-        -@tipsOrdered.each do |tipsOrd|
-          %li
-            =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
-            .details
-              =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
-              %p
-                -if !tipsOrd.short_description.empty?
-                  =truncate_html(tipsOrd.short_description, length: 253, omission: '...')
-                -else
-                  =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
-                = link_to t('readMore'), tip_path(tipsOrd)
-            .clear
-  -content_for :aside do
-    %aside
-      =render 'shared/aside/aside_social_buttons'
-      =render 'shared/aside/aside_advert'
-      =render 'shared/aside/aside_fb_like_box'
-    .clear
