@@ -9,4 +9,7 @@ $ ->
   $(".froala").editable
     inlineMode: false
     mediaManager:true
+
+  $("#tip_category_name").slug_preview({ slug_selector: '#tip_category_slug' })
+
   return
