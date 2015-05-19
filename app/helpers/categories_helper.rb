@@ -20,7 +20,7 @@ module CategoriesHelper
   def aside_categories(category)
     html = ''
     category.path.from_depth(0).each do |parent|
-      html += link_to parent.name, url_for(parent), :class => :active
+      html += link_to parent.name, show_tip_category_path(parent), :class => :active
       if parent.depth < category.depth
         html +=content_tag(:span, ' >> ')
       end
