@@ -8,6 +8,7 @@ class StaticPagesController < ApplicationController
     @tipsOrdered = Tip.order(created_at: :desc)[0..2]
     @breezes = Breeze.last(10)
     @gallery_image = GalleryImage.order(:created_at).last
+    @trip = Tour.order(:created_at).last
   end
 
   def galera

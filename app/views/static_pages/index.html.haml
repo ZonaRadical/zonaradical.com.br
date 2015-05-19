@@ -79,10 +79,15 @@
             =link_to image_tag(@tip.image_url(:thumb).to_s, :alt=>"Dicas de snowboard"), tip_path(@tip)
             %p
               %strong
-                =truncate_html(@tip.title, length: 20, omission: '...')
+                /=truncate_html(@tip.title, length: 20, omission: '...')
+                Dica aleatória
       .gallery-field-small.right
-        = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
-        %p Trips e ofertas
+        -if !@gallery_image
+          = link_to image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard"), main_app.tours_path
+          %p Trips e ofertas
+        - else
+          = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
+          %p Última foto no ZR
     .clear
   -content_for :aside do
     %aside
@@ -117,7 +122,7 @@
 .main-content
   .heading
     %h1 últimas dicas de snowboard
-    %a.all{:href => "../tips"} Todas
+    %a.all{:href => main_app.tips_url.to_s} Todas
   -unless @tipsOrdered.nil?
     %ul.item-list
       -@tipsOrdered.each do |tipsOrd|
@@ -132,3 +137,17 @@
                 =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
               = link_to t('readMore'), tip_path(tipsOrd)
           .clear
+  .heading
+    %h1 Última Trip de snowboard
+    %a.all{:href => main_app.tours_path.to_s} Todas
+  -unless @trip.nil?
+    %ul.item-list
+      %li
+        =link_to image_tag(tour_logo_img(@trip).to_s), tour_path(@trip), class: "img-wrap"
+        .details
+          =link_to @trip.title, tour_path(@trip), class: "title"
+          %p
+            -if !@trip.description.empty?
+              =truncate_html(@trip.description, length: 253, omission: '...')
+            = link_to t('readMore'), tour_path(@trip)
+        .clear
