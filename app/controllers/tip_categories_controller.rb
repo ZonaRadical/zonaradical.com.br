@@ -34,7 +34,7 @@ class TipCategoriesController < ApplicationController
 
     respond_to do |format|
       if @tip_category.save
-        format.html { redirect_to @tip_category, notice: 'Tip category was successfully created.' }
+        format.html { redirect_to show_tip_category_path(@tip_category), notice: 'Tip category was successfully created.' }
         format.json { render :show, status: :created, location: @tip_category }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class TipCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @tip_category.update(tip_category_params)
-        format.html { redirect_to @tip_category, notice: 'Tip category was successfully updated.' }
+        format.html { redirect_to show_tip_category_path(@tip_category), notice: 'Tip category was successfully updated.' }
         format.json { render :show, status: :ok, location: @tip_category }
       else
         format.html { render :edit }

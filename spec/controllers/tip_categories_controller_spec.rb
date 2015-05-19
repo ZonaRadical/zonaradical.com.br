@@ -91,7 +91,7 @@ RSpec.describe TipCategoriesController, :type => :controller do
 
         it "redirects to the created tip_category" do
           post :create, {:tip_category => valid_attributes}
-          expect(response).to redirect_to(TipCategory.last)
+          expect(response).to redirect_to(show_tip_category_path(TipCategory.last))
         end
       end
 
@@ -118,7 +118,7 @@ RSpec.describe TipCategoriesController, :type => :controller do
           tip_category = TipCategory.create! valid_attributes
           put :update, {:id => tip_category.id, :tip_category => new_attributes}
           tip_category.reload
-          expect(response).to redirect_to(TipCategory.last)
+          expect(response).to redirect_to(show_tip_category_path(tip_category))
         end
 
         it "assigns the requested tip_category as @tip_category" do
@@ -130,7 +130,7 @@ RSpec.describe TipCategoriesController, :type => :controller do
         it "redirects to the tip_category" do
           tip_category = TipCategory.create! valid_attributes
           put :update, {:id => tip_category.to_param, :tip_category => new_attributes}
-          expect(response).to redirect_to(tip_category)
+          expect(response).to redirect_to(show_tip_category_path(tip_category))
         end
       end
 
