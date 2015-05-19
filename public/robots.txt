@@ -4,4 +4,6 @@
 User-agent: *
 Disallow: /users
 Disallow: /manage
+Disallow: /tips
+Disallow: /tip_categories
 sitemap: http://zonaradical.com.br/sitemap.xml
