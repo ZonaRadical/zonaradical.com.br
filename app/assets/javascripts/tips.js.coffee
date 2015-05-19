@@ -23,5 +23,6 @@ $ ->
     speed: 500
     autoplay: false
 
+  $("#tip_title").slug_preview({ slug_selector: '#tip_slug' })
 
   return

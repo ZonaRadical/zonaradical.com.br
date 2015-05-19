@@ -633,6 +633,7 @@ DEPENDENCIES
   font-awesome-rails
   forem!
   formtastic!
+  friendly_id
   globalize (~> 4.0.2)
   guard-bundler
   guard-rails

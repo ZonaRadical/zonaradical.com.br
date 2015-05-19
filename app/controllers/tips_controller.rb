@@ -22,6 +22,11 @@ class TipsController < ApplicationController
   def edit
   end
 
+  def slug
+    @tip = Tip.new title: params[:title]
+    render json: { slug: @tip.slug_preview }
+  end
+
   # POST /tips
   # POST /tips.json
   def create
@@ -31,7 +36,7 @@ class TipsController < ApplicationController
 
         create_gallery_images(@tip)
 
-        format.html { redirect_to @tip, notice: 'Tip was successfully created.' }
+        format.html { redirect_to show_tip_path(@tip.tip_category, @tip), notice: 'Tip was successfully created.' }
         format.json { render :show, status: :created, location: @tip }
       else
         format.html { render :new }
@@ -48,7 +53,7 @@ class TipsController < ApplicationController
       update_gallery_images(@tip)
 
       if @tip.update(tip_params)
-        format.html { redirect_to @tip, notice: 'Tip was successfully updated.' }
+        format.html { redirect_to show_tip_path(@tip.tip_category, @tip), notice: 'Tip was successfully updated.' }
         format.json { render :show, status: :ok, location: @tip }
       else
         format.html { render :edit }
@@ -73,6 +78,6 @@ class TipsController < ApplicationController
     params.require(:tip).permit(:title, :image, :remove_image,
                                 :tip_category_id, :level1_description,
                                 :level2_description, :level3_description,
-                                :short_description)
+                                :short_description, :slug)
   end
 end

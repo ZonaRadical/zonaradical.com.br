@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(version: 20150517171612) do
     t.datetime "updated_at"
   end
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
   create_table "gallery_images", force: true do |t|
     t.integer  "resort_id"
     t.string   "image"
@@ -263,6 +276,26 @@ ActiveRecord::Schema.define(version: 20150517171612) do
     t.string "name"
   end
 
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
   create_table "tip_categories", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -272,6 +305,7 @@ ActiveRecord::Schema.define(version: 20150517171612) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.string   "slug"
   end
 
   create_table "tips", force: true do |t|
@@ -284,6 +318,7 @@ ActiveRecord::Schema.define(version: 20150517171612) do
     t.string   "short_description"
     t.text     "level2_description"
     t.text     "level3_description"
+    t.string   "slug"
   end
 
   create_table "tour_country_assignments", force: true do |t|

@@ -11,7 +11,7 @@
     -TipCategory.roots.each do |root_category|
       -if tip_category.root != root_category
         %li
-          =link_to root_category.name, tip_category_path(root_category)
+          =link_to root_category.name, show_tip_category_path(root_category)
   -else
     -TipCategory.roots.each do |root_category|
       %li
