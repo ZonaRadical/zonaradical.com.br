@@ -75,7 +75,7 @@
           %p
             %b Muitas Dicas
         -else
-          =link_to image_tag(@tip.image_url(:thumb).to_s, :alt=>"Dicas de snowboard"), tip_path(@tip)
+          =link_to image_tag(@tip.image_url(:thumb).to_s, :alt=>"Dicas de snowboard"), show_tip_path(@tip.tip_category, @tip)
           %p
             %strong
               =truncate_html(@tip.title, length: 20, omission: '...')
@@ -155,15 +155,15 @@
     %ul.item-list
       -@tipsOrdered.each do |tipsOrd|
         %li
-          =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), tip_path(tipsOrd), class: "img-wrap"
+          =link_to image_tag(tipsOrd.image_url(:big_thumb).to_s), show_tip_path(tipsOrd.tip_category, tipsOrd), class: "img-wrap"
           .details
-            =link_to tipsOrd.title, tip_path(tipsOrd), class: "title"
+            =link_to tipsOrd.title, show_tip_path(tipsOrd.tip_category, tipsOrd), class: "title"
             %p
               -if !tipsOrd.short_description.empty?
                 =truncate_html(tipsOrd.short_description, length: 253, omission: '...')
               -else
                 =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
-              = link_to t('readMore'), tip_path(tipsOrd)
+              = link_to t('readMore'), show_tip_path(tipsOrd.tip_category, tipsOrd)
           .clear
 %aside
   =render 'shared/aside/aside_social_buttons'

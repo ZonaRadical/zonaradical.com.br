@@ -36,7 +36,7 @@ class TipsController < ApplicationController
 
         create_gallery_images(@tip)
 
-        format.html { redirect_to @tip, notice: 'Tip was successfully created.' }
+        format.html { redirect_to show_tip_path(@tip.tip_category, @tip), notice: 'Tip was successfully created.' }
         format.json { render :show, status: :created, location: @tip }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TipsController < ApplicationController
       update_gallery_images(@tip)
 
       if @tip.update(tip_params)
-        format.html { redirect_to @tip, notice: 'Tip was successfully updated.' }
+        format.html { redirect_to show_tip_path(@tip.tip_category, @tip), notice: 'Tip was successfully updated.' }
         format.json { render :show, status: :ok, location: @tip }
       else
         format.html { render :edit }
