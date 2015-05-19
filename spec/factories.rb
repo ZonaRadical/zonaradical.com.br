@@ -71,6 +71,9 @@ FactoryGirl.define do
     level2_description 'Description level 2'
     level3_description 'Description level 3'
     short_description 'Short description'
+    after(:build) do |tip|
+      tip.gallery_images << FactoryGirl.build(:gallery_image)
+    end
   end
 
   factory :identity do
@@ -79,4 +82,8 @@ FactoryGirl.define do
     uid '2'
   end
 
+  factory :gallery_image do
+    image File.open(Rails.root.join('spec/fixtures/files/upload.jpg'))
+    name 'Gallery Image Name'
+  end
 end
