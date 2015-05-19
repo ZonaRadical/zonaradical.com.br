@@ -32,6 +32,7 @@ pt-BR:
     received_reply: 'Resposta recebida'
     confirm_destroy: 'Você tem certeza?'
     share: 'Compartilhar'
+    contacts: 'Contatos'
 
     # User Profile
     userProfile: 'Perfil de usuario'
@@ -110,6 +111,7 @@ pt-BR:
     refused: 'Recusado'
     approve: 'Aprovar'
     refuse: 'Recusar'
+    mailboxer.notification_mailer.subject: 'Notificação de aprticipação'
 
     will_paginate:
       previous_label: '<<'
