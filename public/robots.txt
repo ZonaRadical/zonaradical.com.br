@@ -2,7 +2,6 @@
 #
 # To ban all spiders from the entire site uncomment the next two lines:
 User-agent: *
-# Disallow: /resorts/
-# Disallow: /tips/
-# Disallow: /tours/
+Disallow: /users
+Disallow: /manage
 sitemap: http://zonaradical.com.br/sitemap.xml

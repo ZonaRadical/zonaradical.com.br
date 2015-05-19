@@ -8,370 +8,520 @@
 
 <url>
   <loc>http://zonaradical.com.br/</loc>
-  <priority>1.00</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/users/sign_up</loc>
-  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/video_categories/8</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/video_categories/1</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/video_categories/7</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/1</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resort_categories/2</loc>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/6</loc>
-  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resort_categories/2</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/5</loc>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/3</loc>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/9</loc>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/11</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resort_categories/4</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resort_categories/8</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resort_categories/10</loc>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/7</loc>
-  <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/resort_categories/4</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tip_categories/2</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/resort_categories/8</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tip_categories/3</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/resort_categories/10</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tip_categories/4</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/resort_categories/15</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tip_categories/1</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/vamo-junto.html</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/dicas/dicionario</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/dicas/viagens</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/galera.html</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/dicas/equipamento</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/18</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/vamo-junto-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/10</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/athletes</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/1</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/agencies</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/15</loc>
-  <priority>0.80</priority>
+  <loc>http://zonaradical.com.br/organizations</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/12</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/pol_priv.html</loc>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/users/sign_in</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/users/confirmation/new</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/galera</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/9</loc>
-  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/4</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/18</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/8</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/13</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/20</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/6</loc>
-  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts/38</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/dicionario/partes-da-bota-de-snow</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/vamo-junto-snowboard/5</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al/breve-historia-do-snowboard-em-18-partes</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/dicionario/ski-passe</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al/como-alugar-equipamento</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/vamo-junto.html</loc>
+  <lastmod>2015-05-19T13:53:06+00:00</lastmod>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/galera.html</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/pol_priv.html</loc>
+  <lastmod>2015-05-19T13:53:06+00:00</lastmod>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/users/sign_in</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/users/confirmation/new</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/13</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/12</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/18</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/31</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/30</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/29</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/28</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/27</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/26</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/25</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/24</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/23</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/22</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/21</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/20</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/19</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/17</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/16</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/15</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/14</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/11</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/10</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/9</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/8</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/6</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/5</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/videos/4</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/8</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/13</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/10</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/12</loc>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/5</loc>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/15</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/11</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/2</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/16</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/17</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/25</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/28</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/18</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/20</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/35</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/37</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/23</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/27</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/22</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/21</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts/19</loc>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://zonaradical.com.br/resorts?page=2</loc>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/14</loc>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/11</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/69</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/67</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/68</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/2</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/7</loc>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/56</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/58</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/59</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/60</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/62</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/57</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/61</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/63</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/64</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/66</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/65</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/20</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/24</loc>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/16</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/27</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/4</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/32</loc>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/17</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/25</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resorts/26</loc>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/19</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/44</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/49</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/52</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resort_categories/14</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/23</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/21</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/48</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/12</loc>
-  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/37</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/22</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/28</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/resort_categories/13</loc>
-  <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/4</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/resorts/38</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/8</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/resorts/53</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/10</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/resorts/54</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/6</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al/primeiros-passos-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/5</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al/top-10-fotos-de-instagram-de-ano-2014</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/3</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al/alternativas-freeboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/9</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/snowboard-et-al/o-que-e-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/7</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/dicionario/partes-da-prancha-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/11</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/dicionario/manobras</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/tips/28</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/dicionario/modalidades</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/categories/babbling</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/viagens/sua-primeira-viagem</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/quero-saber</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/viagens/deveria-saber-dos-alpes</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/estacoes</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/viagens/como-economizar-na-sua-viagem-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/vamo-junto</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/viagens/as-melhores-estacoes-para-iniciantes-hn</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/categories/shopping</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/equipamento/botas-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/compra</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/equipamento/bindings-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/venda</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/equipamento/a-roupa-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/venda/topics/shorte-prova-de-bala</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/equipamento/como-comprar-seu</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/categories/fala-com-a-zr</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/dicas/equipamento/tipos-de-prancha-de-snowboard</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/bem-vindo</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/vamo-junto-snowboard/3</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/trabalha-conosco</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/30</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/trabalha-conosco/topics/procuramos-jornalista-criador-de-conteudo</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/33</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/categories/news</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/26</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/faq</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/24</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/new-forum-engine-in-alpha-state</loc>
-  <priority>0.64</priority>
+  <loc>http://zonaradical.com.br/manage/users/38</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/27</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/31</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/22</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/18/image_galleries/14</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/18/image_galleries/20</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/20/image_galleries/17</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/20/image_galleries/18</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/tips/31</loc>
 </url>
 <url>
   <loc>http://zonaradical.com.br/users/password/new</loc>
-  <priority>0.51</priority>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/resorts?page=1</loc>
-  <priority>0.51</priority>
+  <loc>http://zonaradical.com.br/resorts/18</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/</loc>
-  <priority>0.51</priority>
+  <loc>http://zonaradical.com.br/resorts/45</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/venda/topics/shorte-prova-de-bala?page=1</loc>
-  <priority>0.51</priority>
+  <loc>http://zonaradical.com.br/resorts/47</loc>
 </url>
 <url>
-  <loc>http://zonaradical.com.br/forum/trabalha-conosco/topics/procuramos-jornalista-criador-de-conteudo?page=1</loc>
-  <priority>0.51</priority>
+  <loc>http://zonaradical.com.br/resorts/46</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/50</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/51</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/resorts/35</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/tip_categories/1</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resort_categories/6</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resort_categories/5</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resorts/12</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resorts/6</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resorts/7</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resorts/5</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resort_categories/1</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/resort_categories/11</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/tips/28</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/tips/1</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/dicas/tips/7</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/30/image_galleries/9</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/33/image_galleries/19</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/38/image_galleries/21</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/27/image_galleries/13</loc>
+</url>
+<url>
+  <loc>http://zonaradical.com.br/manage/users/31/image_galleries/11</loc>
 </url>
 </urlset>
