@@ -1,153 +1,120 @@
--content_for :top_section do
-  -content_for :for_head do
-    %title Zona Radical | Snowboard: como aprender, praticar e apreciar
-    %meta{:name => "description",
-      :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
-    /* facebook METAS
-    %meta{:property=> "og:description", :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
-    %meta{:property=>"og:title", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
-    %meta{:property=>"og:url", :content => "http://zonaradical.com.br"}
-    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
-    %meta{:property=>"og:type", :content =>"website"}
+-content_for :for_head do
+  %title Zona Radical | Snowboard: como aprender, praticar e apreciar
+  %meta{:name => "description",
+    :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+  /* facebook METAS
+  %meta{:property=> "og:description", :content => "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+  %meta{:property=>"og:title", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
+  %meta{:property=>"og:url", :content => "http://zonaradical.com.br"}
+  %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+  %meta{:property=>"og:type", :content =>"website"}
   /* Schema ORg
-  .slider-field{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
-    %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
-    %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
-    %meta{:itemprop=>"contentLocation", :content => "São Paulo, Brasil"}
-    %meta{:itemprop=>"headline", :content => "Porque a vida precisa de mais emoção"}
-    %meta{:itemprop=>"name", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
-    %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"}
-    %meta{:itemprop=> "image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
-    %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
-    .index-slider
-      .slide
-        = link_to image_tag('/images/parkday.jpg'), "https://www.facebook.com/media/set/?set=a.1443366775964237.1073741830.1433724256928489", :target =>"blank"
-        %span.tag
-          Park Day Brasil
-        %p
-          O primeiro campeonato de snowboard com neve de verdade no Brasil rolou com muito sucesso em
-          =link_to "Snowland.", main_app.resorts_url+"/9"
-          Parabéns
-          =link_to "Isis Dassow", main_app.users_url+"/18"
-          Gabriel Irlandini, e
-          =link_to "Amaury Rousa", main_app.users_url+"/20"
-          e todos participantes!
-      .slide
-        = image_tag('slide-1.jpg')
-        %span.tag
-          Bem vindo a Snowboard na Zona Radical
-        %p
-          %strong Snowboard
-          é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
-          cheinha de neve com um “pedaço de madeira” preso nos pés?
-          Nós tentaremos no Zona Radical juntar o máximo das informações para você aprender o
-          %strong snowboarding,
-          escolher os equipamentos certos e viajar pelas
-          %strong estações de ski
-          no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
-      .slide
-        =link_to image_tag('pro-rider.jpg'), main_app.tips_url+"/18"
-        %p
-          O Zona Radical está procurando riders, seja parte de nossa equipe!
-          %br
-          =mail_to('info@zonardical.com.br',' Mande seu vídeo e escreva o que você poderia trazer de bom para a equipe do ZR.',:target=>"_newtab")
-        %span.tag Procurando riders
-      .slide
-        =link_to image_tag('10-top-10-most-liked-instagram-images-2014.jpg'), main_app.tips_url+"/18"
-        %p
-          As melhores fotos de ano 2014, versão TansWorld.
-          =link_to "Feliz Natal. Feliz Ano Novo. Boas Pistas.", main_app.tips_url+"/18"
-        %span.tag Instragram Top-10
-  .gallery-field
-    -unless @resort.nil?
-      .gallery-field-large{:title=> t('resorts')}
-        =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
-        %p
-          /* =truncate_html(@resort.level1_description, length: 47, omission: '...')
-          =strip_tags(@resort.level1_description)[0..47].html_safe
-          \...
-        %span.tag
-          Conhece mais uma estação
-    -unless @tip.nil?
-      .gallery-field-small{:title=> t('tips')}
-        -if @tip.nil?
-          =link_to image_tag('gallery-2.jpg', :alt=>"Dicas de snowboard"), main_app.tips_url
-          %p
-            %b Muitas Dicas
-        -else
-          =link_to image_tag(@tip.image_url(:thumb).to_s, :alt=>"Dicas de snowboard"), tip_path(@tip)
-          %p
-            %strong
-              =truncate_html(@tip.title, length: 20, omission: '...')
-    .gallery-field-small.right
-      = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
-      %p Trips e ofertas
-  .clear
-
-.main-content
-  -# .heading
-    %h1 Últimas Notícias do Zona Radical
-  -# .news-slider
-    -unless @breezes.empty?
-      -@breezes.each do |breeze|
+-if !mobile_device?
+  -content_for :top_section do
+    .slider-field{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
+      %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
+      %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
+      %meta{:itemprop=>"contentLocation", :content => "São Paulo, Brasil"}
+      %meta{:itemprop=>"headline", :content => "Porque a vida precisa de mais emoção"}
+      %meta{:itemprop=>"name", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
+      %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"}
+      %meta{:itemprop=> "image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+      %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+      .index-slider
         .slide
-          .news-item
-            =link_to image_tag(breeze.image_url(:thumb).to_s), breeze.url, class: "img-wrap"
-            .details
-              =link_to breeze.updated_at.to_date.to_formatted_s(:long_ordinal), breeze.url, class: "date"
-              %p=breeze.body
-            .clear
-    .slide
-      .news-item
-        =link_to image_tag('news-5.jpg'), main_app.tips_url, class: "img-wrap"
-        .details
-          =link_to "05 de Dezembero, 2014", main_app.tips_url, class: "date"
+          = link_to image_tag('/images/parkday.jpg'), "https://www.facebook.com/media/set/?set=a.1443366775964237.1073741830.1433724256928489", :target =>"blank"
+          %span.tag
+            Park Day Brasil
           %p
-            São 20 dicas de snowboard que a equipoe do Zona Radical preparou para vocês.
-        .clear
-    .slide
-      .news-item
-        %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
-        .details
-          %a.date{:href => "#"} 10 de Novembro, 2014
+            O primeiro campeonato de snowboard com neve de verdade no Brasil rolou com muito sucesso em
+            =link_to "Snowland.", main_app.resorts_url+"/9"
+            Parabéns
+            =link_to "Isis Dassow", main_app.users_url+"/18"
+            Gabriel Irlandini, e
+            =link_to "Amaury Rousa", main_app.users_url+"/20"
+            e todos participantes!
+        .slide
+          = image_tag('slide-1.jpg')
+          %span.tag
+            Bem vindo a Snowboard na Zona Radical
           %p
-            Temos 25 estações de esqui! A lista está todo dia crescendo.
-        .clear
-    .slide
-      .news-item
-        %a.img-wrap{:href => "#"}= image_tag('news-3.jpg')
-        .details
-          %a.date{:href => "#"} 10 de Julho, 2014
+            %strong Snowboard
+            é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
+            cheinha de neve com um “pedaço de madeira” preso nos pés?
+            Nós tentaremos no Zona Radical juntar o máximo das informações para você aprender o
+            %strong snowboarding,
+            escolher os equipamentos certos e viajar pelas
+            %strong estações de ski
+            no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
+        .slide
+          =link_to image_tag('pro-rider.jpg'), main_app.tips_url+"/18"
           %p
-            Design está tudo feito. Ainda esperando os programadores... =(
-            Que vida difícil!
-        .clear
-    .slide
-      .news-item
-        %a.img-wrap{:href => "#"}= image_tag('news-2.jpg')
-        .details
-          %a.date{:href => "#"} 10 de Junho, 2014
+            O Zona Radical está procurando riders, seja parte de nossa equipe!
+            %br
+            =mail_to('info@zonardical.com.br',' Mande seu vídeo e escreva o que você poderia trazer de bom para a equipe do ZR.',:target=>"_newtab")
+          %span.tag Procurando riders
+        .slide
+          =link_to image_tag('10-top-10-most-liked-instagram-images-2014.jpg'), main_app.tips_url+"/18"
           %p
-            Os domínios  registrados, até em Portugal...
-            Agora esperamos o designer e os programadores fazer o trabalho deles.
-        .clear
-    .slide
-      .news-item
-        %a.img-wrap{:href => "#"}= image_tag('news-1.jpg')
-        .details
-          %a.date{:href => "#"} 22 de maio, 2014
+            As melhores fotos de ano 2014, versão TansWorld.
+            =link_to "Feliz Natal. Feliz Ano Novo. Boas Pistas.", main_app.tips_url+"/18"
+          %span.tag Instragram Top-10
+    .gallery-field
+      -unless @resort.nil?
+        .gallery-field-large{:title=> t('resorts')}
+          =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
           %p
-            Depois de mais algumas brejas e muita discussão  escolhemos o nome -
-            = succeed "!!!" do
-              %b Zona Radical
-        .clear
-    .slide
-      .news-item
-        %a.img-wrap{:href => "#"}= image_tag('breja.jpg')
-        .details
-          %a.date{:href => "#"} 14 de maio, 2014
-          %p Nos reunimos  para tomar uma breja e resolvemos (finalmente!) lançar um site para toda galera Snow do Brasil =)
-        .clear
+            /* =truncate_html(@resort.level1_description, length: 47, omission: '...')
+            =strip_tags(@resort.level1_description)[0..47].html_safe
+            \...
+          %span.tag
+            Conhece mais uma estação
+      -unless @tip.nil?
+        .gallery-field-small{:title=> t('tips')}
+          -if @tip.nil?
+            =link_to image_tag('gallery-2.jpg', :alt=>"Dicas de snowboard"), main_app.tips_url
+            %p
+              %b Muitas Dicas
+          -else
+            =link_to image_tag(@tip.image_url(:thumb).to_s, :alt=>"Dicas de snowboard"), tip_path(@tip)
+            %p
+              %strong
+                =truncate_html(@tip.title, length: 20, omission: '...')
+      .gallery-field-small.right
+        = image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard")
+        %p Trips e ofertas
+    .clear
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_fb_like_box'
+    .clear
+- else
+  -content_for :top_section do
+    .heading{:style=>"font-size: 25px; margin-bottom=0px;", :itemscope => true, :itemtype => "http://schema.org/WebSite"}
+      %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
+      %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
+      %meta{:itemprop=>"contentLocation", :content => "São Paulo, Brasil"}
+      %meta{:itemprop=>"headline", :content => "Porque a vida precisa de mais emoção"}
+      %meta{:itemprop=>"name", :content => "Zona Radical | Snowboard: como aprender, praticar e apreciar"}
+      %meta{:itemprop=>"url", :content => "http://zonaradical.com.br"}
+      %meta{:itemprop=> "image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+      %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
+      %h1
+        Bem vindo a Snowboard no Zona Radical
+    = image_tag('slide-1.jpg', :style=>"margin-top=0px;")
+    %p{:style=>"font-size: 25px;"}
+      %strong Snowboard
+      é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
+      cheinha de neve com um “pedaço de madeira” preso nos pés?
+      Nós tentaremos no Zona Radical juntar o máximo das informações para você aprender o
+      %strong snowboarding,
+      escolher os equipamentos certos e viajar pelas
+      %strong estações de ski
+      no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
+    .clear
+.main-content
   .heading
     %h1 últimas dicas de snowboard
     %a.all{:href => "../tips"} Todas
@@ -165,9 +132,3 @@
                 =truncate_html(tipsOrd.level1_description, length: 253, omission: '...')
               = link_to t('readMore'), tip_path(tipsOrd)
           .clear
--content_for :aside do
-  %aside
-    =render 'shared/aside/aside_social_buttons'
-    =render 'shared/aside/aside_advert'
-    =render 'shared/aside/aside_fb_like_box'
-  .clear

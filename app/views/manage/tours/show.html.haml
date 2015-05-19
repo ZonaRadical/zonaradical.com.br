@@ -9,22 +9,21 @@
     %meta{:property=> "og:description", :content =>   strip_tags(@tour.description.to_s)}
     %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
     %meta{:property=>"og:url", :content => main_app.tours_url+"/"+@tour.id.to_s}
-    %meta{:property=> "og:image", :content=> "images/vamo_junto.png"}
 
-    -unless @tour.gallery_images.all.count.zero?
+    - if @tour.gallery_images.all.count.zero?
+      %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/vamo_junto.png"}
+      %meta{:itemprop=> "photo", :content=> "http://zonaradical.com.br/images/vamo_junto.png"}
+    - else
       -@tour.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
-    /* schema.org METAS
-    /* %meta{:itemprop=>"location", :content => @resort.resort_category.name.to_s}
-    -unless @tour.gallery_images.all.count.zero?
-      -@tour.gallery_images[0..3].each do |image|
         %meta{:itemprop=> "photo", :content=> image.image_url(:slider).to_s}
+
     %meta{:itemprop=>"url", :content => main_app.tours_url+"/"+@tour.id.to_s}
 
   .heading
     %h1
       =@tour.title
-    = render 'fb_like'
+    = render 'fb_like', :page_url=>tour_path(@tour)
   = render 'tours/show'
 
   -if !@tour.published
@@ -49,5 +48,5 @@
 - if @tour.updated_at > 15.seconds.ago
   #shareTour{:title => t('share')}
     %p Deseja compartilhar seu trip?
-    = render 'fb_like'
+    = render 'fb_like', :page_url=>tour_path(@tour)
     .modal-footer
