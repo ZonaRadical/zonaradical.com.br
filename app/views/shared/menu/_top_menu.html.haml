@@ -10,7 +10,7 @@
       =menu_resort_categories ResortCategory.all.arrange
 
   %li.submenu-item
-    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['tips', 'tip_categories'], []]
+    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['dicas'], []]
     %ul.submenu
       =menu_tip_categories TipCategory.all.arrange
 
@@ -40,4 +40,4 @@
       %li= link_to t('agencies'), main_app.agencies_path
       %li= link_to t('organizations'), main_app.organizations_path
   %li
-    = active_link_to t('Contatos'), galera_url
+    = link_to t('contacts'), galera_url
