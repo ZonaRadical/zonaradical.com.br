@@ -94,6 +94,6 @@ class UsersController < ApplicationController
     client.api_key = Rails.application.secrets.discourse_api_key
     client.api_username = Rails.application.secrets.discourse_api_username
     user = client.user_by_external_id(current_user.id)
-    client.log_out(user['id'])
+    client.log_out(user['id']) unless user.nil?
   end
 end
