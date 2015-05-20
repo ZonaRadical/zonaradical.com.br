@@ -10,11 +10,11 @@ module DiscourseZr
         cattr_accessor :discourse_title, instance_accessor: false
         cattr_accessor :discourse_raw, instance_accessor: false
         cattr_accessor :discourse_category, instance_accessor: false
-        cattr_accessor :discourse_username, instance_accessor: false
+        cattr_accessor :discourse_external_id, instance_accessor: false
         self.discourse_title = options[:title]
         self.discourse_raw = options[:description]
         self.discourse_category = options[:category]
-        self.discourse_username = options[:username]
+        self.discourse_external_id = options[:external_id]
 
         before_save :create_or_update_discourse_topic
         before_destroy :destroy_discourse_topic
@@ -59,8 +59,9 @@ module DiscourseZr
       end
 
       def discourse_client
+        
         @discourse_client ||= ::DiscourseZr.client(
-          username: instance_eval(&self.class.discourse_username)
+          username: discourse_username
         )
       end
 
@@ -77,7 +78,11 @@ module DiscourseZr
       end
 
       def discourse_username
-        @discourse_username ||= instance_eval(&self.class.discourse_username)        
+        return @discourse_username if @discourse_username
+        discourse_user = DiscourseZr.client.user_by_external_id(
+          instance_eval(&self.class.discourse_external_id)
+        )
+        @discourse_username = discourse_user['username']
       end
     end
   end
