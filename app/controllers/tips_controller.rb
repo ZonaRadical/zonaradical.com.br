@@ -27,6 +27,10 @@ class TipsController < ApplicationController
     render json: { slug: @tip.slug_preview }
   end
 
+  def tip_redirect
+    redirect_to show_tip_path(@tip.tip_category, @tip), status: :moved_permanently
+  end
+
   # POST /tips
   # POST /tips.json
   def create
