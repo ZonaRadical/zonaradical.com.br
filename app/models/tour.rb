@@ -29,7 +29,7 @@ class Tour < ActiveRecord::Base
     title:        -> (tour) { tour.title },
     description:  -> (tour) { tour.description },
     category:     -> (tour) { tour.resort_categories.first.name.downcase },
-    username:     -> (tour) { tour.owners.first.user.surname }
+    external_id:  -> (tour) { tour.owners.first.user.id }
   )
   belongs_to :tour_style
   belongs_to :accommodation
