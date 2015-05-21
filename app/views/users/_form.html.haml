@@ -25,9 +25,16 @@
     %div#tab_main
       .actions{:style => "float: right;"}
         = f.submit
-      .field
-        = f.label :name
-        = f.text_field :name
+      - if !current_user.has_role?("agency") and current_user.admin?
+        %b
+          Nome
+        =@user.name
+        %p.small
+          As agencia são obrigadas manter o nome "Agencia".
+      - else
+        .field
+          = f.label :name
+          = f.text_field :name
       .field
         = f.label :surname
         = f.text_field :surname
