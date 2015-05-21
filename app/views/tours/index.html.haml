@@ -3,12 +3,11 @@
     /* general METAS
     %title Vamo Junto | Zona Radical
     %meta{:name => "description", :content =>  "Isso é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
-    %meta{:viewport => "width=1220, maximum-scale=2.0"}
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=> "og:description", :content =>   "Isso é um sistema para você poder encontrar o perfeito parceiro para sua viagem. Você pode postar anúncios procurando parceiros, e também procurar companhia entre quem já postou."}
     %meta{:property=>"og:title", :content => "Vamo Junto | Zona Radical" }
     %meta{:property=>"og:url", :content => request.original_url.to_s}
-    %meta{:property=> "og:image", :content=> "https://zonaradical.com.br/images/vamo_junto.png"}
+    %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/vamo_junto1.png"}
   .heading
     %h1
       Encontra seu parceiro perfeito de Snowboard
@@ -24,7 +23,7 @@
 
   .heading
   %p.small
-    Escolha os parametros abaixo para encontrar um trip mais do seu jeito.
+    Escolha os parâmetros abaixo para encontrar uma trip do seu jeito, do seu gosto.
 
   = form_for :search, url: search_tours_path, method: :get do |f|
     .search-filter

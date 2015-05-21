@@ -32,5 +32,32 @@ feature 'main page' do
         menu.find_link('Ekaterina Ilyukhina', href: video_category_path(vcat_ekaterina))
       end
     end
+
+    scenario 'dynamic display forum categories' do
+      create(:forem_category, name: 'Travels')
+      create(:forem_category, name: 'E-shopping')
+      create(:forem_category, name: 'Talk with ZR')
+
+      visit root_path
+
+      within('li.submenu-item', text: 'Forum') do
+        Forem::Category.find_each do |f_category|
+          menu = find('li', text: f_category.name)
+          menu.find_link(f_category.name, href: forem.category_path(f_category))
+        end
+      end
+    end
+
+    scenario 'display last gallery image' do
+      tip = create(:tip)
+      visit root_path
+
+      within('div.gallery-field') do
+        expect(page).to have_link('', href: "/tips/#{tip.id}")
+        expect(page).to have_selector("img[src='#{tip.gallery_images.last.image_url}']")
+        expect(page).to have_content(tip.title)
+        expect(page).to have_content(tip.gallery_images.last.name)
+      end
+    end
   end
 end

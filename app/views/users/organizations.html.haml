@@ -15,9 +15,9 @@
     .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
 
   .introtext
-    Não tem muitas Organizações de snowboard no Brasil, mas damos aqui a lista completa delas.
+    Não há muitas Organizações de snowboard no Brasil, mas damos aqui a lista completa delas.
   .introtext
-    Caso você conheça mais alguém merecendo um espaço aqui, nos envie todas informações disponíveis por favor
+    Caso você conheça mais alguma merecendo espaço aqui, nos envie todas informações disponíveis
     =link_to "info@zonaradical.com.br", "mailto:info@zonaradical.com.br", :target => '_blank'
   .heading
 
@@ -26,8 +26,9 @@
     -if can? :update, org
       =link_to t('editProfile'), edit_user_path(org), :target => "_blank"
     .heading
-%aside
-  =render 'shared/aside/aside_social_buttons'
-  =render 'shared/aside/aside_advert'
-  =render 'shared/aside/aside_fb_like_box'
-.clear
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_fb_like_box'
+  .clear

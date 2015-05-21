@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
   resources :resorts, :resort_categories
-  resources :tips, :tip_categories
+
+
+  concern :sluggable do
+    collection do
+      get 'slug'
+    end
+  end
+
+  resources :tips, path: 'dicas', concerns: :sluggable, except: :show
+  get 'dicas/:category_id/:id', to: 'tips#show', as: :show_tip
+
+  get 'dicas/:id', to: 'tip_categories#show', as: :show_tip_category
+  resources :tip_categories, concerns: :sluggable, except: :show
+
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
   resources :videos, :video_categories

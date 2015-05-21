@@ -11,7 +11,10 @@
     = f.submit
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title, data: { url: slug_tips_path }
+  .field
+    = f.label :slug
+    = f.text_field :slug
   .field
     = f.label :category
     = f.select(:tip_category_id, nested_dropdown(TipCategory.all.arrange))

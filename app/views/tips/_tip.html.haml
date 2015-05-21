@@ -1,11 +1,11 @@
 %li
-  =link_to image_tag(tip.image_url(:big_thumb).to_s, itemprop: "image"), tip_path(tip), :class => 'img-wrap'
+  =link_to image_tag(tip.image_url(:big_thumb).to_s, itemprop: "image"), show_tip_path(tip.tip_category, tip), :class => 'img-wrap'
   .details
-    %p.name=link_to tip.title, tip_path(tip)
+    %p.name=link_to tip.title, show_tip_path(tip.tip_category, tip)
     %p=tip.short_description
-    =link_to t('readMore'), tip_path(tip)
+    =link_to t('readMore'), show_tip_path(tip.tip_category, tip)
   -if can? :tip, :update
     = link_to 'Edit', edit_tip_path(tip)
   -if can? :tip, :delete
-    = link_to 'Destroy', tip, method: :delete, data: { confirm: 'Are you sure?' }
+    = link_to 'Destroy', tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' }
   .clear

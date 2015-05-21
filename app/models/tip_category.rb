@@ -7,13 +7,16 @@
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.string   :image
+#   t.string   :slug
 # end
 
 class TipCategory < ActiveRecord::Base
+  include Slug
+  slugged :name
+
   has_ancestry( :cache_depth => true )
 
   has_many :tips
   validates :name, presence: true
   mount_uploader :image, CategoryImageUploader
-
 end

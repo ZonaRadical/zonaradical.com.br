@@ -25,8 +25,9 @@
     = render 'profile_athl', profile: athlete
     = will_paginate @users,:previous_label => '<<',:next_label => '>>', :inner_window => 1
     .heading
-%aside
-  =render 'shared/aside/aside_social_buttons'
-  =render 'shared/aside/aside_advert'
-  =render 'shared/aside/aside_fb_like_box'
-.clear
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_fb_like_box'
+  .clear

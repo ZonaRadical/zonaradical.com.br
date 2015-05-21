@@ -36,6 +36,8 @@ gem 'font-awesome-rails'
 gem 'i18n'
 gem 'feedbacker'
 
+gem 'friendly_id'
+
 # Active Admin
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
@@ -67,6 +69,8 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'populator'
   gem 'faker'
+
+  gem 'pry-rails'
 end
 
 group :test do

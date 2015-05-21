@@ -23,14 +23,17 @@ RSpec.describe TipsController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # TipCategory. As you add validations to TipCategory, be sure to
   # adjust the attributes here as well.
+  let(:tip_category) { create(:tip_category) }
+
   let(:valid_attributes){
     { :title => 'Name',
       :image => File.open(Rails.root.join('spec/fixtures/files/upload.jpg')),
-      :tip_category_id => 1,
+      :tip_category_id => tip_category.id,
       :level1_description => 'Description level 1',
       :level2_description => 'Description level 2',
       :level3_description => 'Description level 3',
       :short_description => 'Short description',
+      :slug => 'name'
     }
   }
 
@@ -55,10 +58,22 @@ RSpec.describe TipsController, :type => :controller do
   login_admin
 
     describe "GET show" do
-      it "assigns the requested tip as @tip" do
-        tip = Tip.create! valid_attributes
-        get :show, {:id => tip.to_param}
+      let(:tip) { Tip.create! valid_attributes }
+
+      after(:each) do
         expect(assigns(:tip)).to eq(tip)
+      end
+
+      context 'when param is the id' do
+        it "assigns the requested tip as @tip" do
+          get :show, { category_id: tip.tip_category_id, id: tip.to_param }
+        end
+      end
+
+      context 'when param is the slug' do
+        it 'assigns the requested tip as @tip' do
+          get :show, { category_id: tip.tip_category_id, id: tip.slug }
+        end
       end
     end
 
@@ -101,7 +116,7 @@ RSpec.describe TipsController, :type => :controller do
       end
       it "redirects to the created tip" do
         post :create, {:tip => valid_attributes}
-        expect(response).to redirect_to(Tip.last)
+        expect(response).to redirect_to(show_tip_path(Tip.last.tip_category, Tip.last))
       end
     end
     context "with invalid params" do
@@ -124,7 +139,7 @@ RSpec.describe TipsController, :type => :controller do
             :email => 'new_email@mail.ru',
             :web => 'http://new-webaddress.ru',
             :fb => 'http://new-fb.com/tip',
-            :tip_category_id => 1,
+            :tip_category_id => tip_category.id,
             :level1_description => 'Description level 01',
             :level2_description => 'Description level 02',
             :level3_description => 'Description level 03',
@@ -143,7 +158,7 @@ RSpec.describe TipsController, :type => :controller do
           tip = Tip.create! valid_attributes
           put :update, {:id => tip.id, :tip => new_attributes}
           tip.reload
-          expect(response).to redirect_to(Tip.last)
+          expect(response).to redirect_to(show_tip_path(tip.tip_category, tip))
         end
 
         it "assigns the requested tip as @tip" do
@@ -155,10 +170,12 @@ RSpec.describe TipsController, :type => :controller do
         it "redirects to the tip" do
           tip = Tip.create! valid_attributes
           put :update, {:id => tip.to_param, :tip => new_attributes}
-          expect(response).to redirect_to(tip)
+          expect(response).to redirect_to(show_tip_path(tip.tip_category, tip))
         end
       end
     end
+
+    it_behaves_like 'slugs_preview'
   end
 
   describe 'Not Admin' do
@@ -168,7 +185,7 @@ RSpec.describe TipsController, :type => :controller do
     describe "GET show" do
       it "assigns the requested tip as @tip" do
         tip = Tip.create! valid_attributes
-        get :show, {:id => tip.to_param}
+        get :show, { category_id: tip.tip_category_id, id: tip.to_param }
         expect(assigns(:tip)).to eq(tip)
       end
     end
@@ -201,5 +218,4 @@ RSpec.describe TipsController, :type => :controller do
       end
     end
   end
-
 end

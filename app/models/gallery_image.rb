@@ -13,7 +13,7 @@
 
 class GalleryImage < ActiveRecord::Base
 
-  belongs_to :galerable, polymorphic: true
+  belongs_to :gallerable, polymorphic: true
   mount_uploader :image, GalleryImageUploader
 
   default_scope {order :order}

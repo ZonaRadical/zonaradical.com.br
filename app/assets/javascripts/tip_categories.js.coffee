@@ -12,3 +12,6 @@ $ ->
     key: 'WlxvxhzxtB-16D-13lD3aliC8du=='
     language: 'pt_br'
   return
+  $("#tip_category_name").slug_preview({ slug_selector: '#tip_category_slug' })
+
+  return

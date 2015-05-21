@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
+  before_filter :prepare_for_mobile
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -35,4 +36,17 @@ class ApplicationController < ActionController::Base
     current_user.update_attribute(:last_seen_at, Time.now)
     session[:last_seen_at] = Time.now
   end
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == '1'
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
+  helper_method :mobile_device?
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+  end
+
 end
