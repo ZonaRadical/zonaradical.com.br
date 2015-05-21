@@ -97,7 +97,7 @@
     .clear
 - else
   -content_for :top_section do
-    .heading{:style=>"font-size: 25px; margin-bottom=0px;", :itemscope => true, :itemtype => "http://schema.org/WebSite"}
+    .heading{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
       %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
       %meta{:itemprop=>"contentLocation", :content => "São Paulo, Brasil"}
@@ -109,7 +109,7 @@
       %h1
         Bem vindo a Snowboard no Zona Radical
     = image_tag('slide-1.jpg', :style=>"margin-top=0px;")
-    %p{:style=>"font-size: 25px;"}
+    %p
       %strong Snowboard
       é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
       cheinha de neve com um “pedaço de madeira” preso nos pés?
