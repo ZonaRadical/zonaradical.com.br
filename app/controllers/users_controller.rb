@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_action :finish_signup, except: [:update_password]
 
   def index
+    @orgs=User.organizations.sort_by { |a| [ a.name.to_s.downcase, a.surname.to_s.downcase ] }
+    @athletes=User.athletes.sort_by { |a| [ a.name.to_s.downcase, a.surname.to_s.downcase ] }
+    @agencies=User.agencies.sort_by { |a| [ a.name.to_s.downcase, a.surname.to_s.downcase ] }
     @users = User.all.sort_by { |a| [ a.name.to_s.downcase, a.surname.to_s.downcase ] }
     #.paginate(:page => params[:page], :per_page => 15)
   end

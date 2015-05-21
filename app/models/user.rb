@@ -134,6 +134,16 @@ class User < ActiveRecord::Base
     roles.include?(Role.find_by_name(:admin))
   end
 
+  def agency?
+    roles.include?(Role.find_by_name(:agency))
+  end
+  def athlete?
+    roles.include?(Role.find_by_name(:athlete))
+  end
+  def org?
+    roles.include?(Role.find_by_name(:organization))
+  end
+
   def mailboxer_email(object)
     email
   end
