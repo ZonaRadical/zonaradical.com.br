@@ -150,14 +150,7 @@ class User < ActiveRecord::Base
   private
 
   def create_discourse_user
-    client = DiscourseZr.client
-    client.sync_sso(
-      sso_secret: Rails.application.secrets.discourse_secret,
-      name: self.name,
-      username: self.surname,
-      email: self.email,
-      external_id: self.id
-    )
+    DiscourseZr.sync_sso(self)
   end
 
   def update_discourse_user

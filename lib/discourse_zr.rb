@@ -9,4 +9,15 @@ module DiscourseZr
       options[:username]
     )
   end
+
+  def self.sync_sso(user)
+    client = DiscourseZr.client
+    client.sync_sso(
+      sso_secret: Rails.application.secrets.discourse_secret,
+      name: user.name,
+      username: user.surname,
+      email: user.email,
+      external_id: user.id
+    )
+  end
 end
