@@ -1,0 +1,37 @@
+.main-content
+  .heading
+    %h1 Amigos e links uteis
+  .introtext
+    %p
+      Aqui vem a lista dos nosso amigos alguns link uteis.
+  .heading
+  .profile-agnc-card
+    .leftcol
+      logo
+    .rightcol
+      .title
+        %span.name
+          Nome
+      %ul.details-list
+        %li.contacts
+          %b= t('contacts')+":"
+          .contacts-list
+            %span.web
+              =link_to cut_phrase("profile.web",35), "url", :target => "_blank"
+            %span.fb
+              =link_to cut_phrase("profile.fb",35), "url", :target => "_blank"
+          .clear
+  %p.bio2{:style=>"margin-top: 10px;"}
+    %b
+      O que é:
+  %p.bio2{:style=>"margin-top: 0px;"}
+    Eles sao otiomos!
+  .clear
+  .heading
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_fb_like_box'
+  .clear

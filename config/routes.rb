@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'galera', to: 'static_pages#galera'
+  get 'friends', to: 'static_pages#friends'
 
   get 'users_controller/finish_signup'
 

@@ -31,8 +31,9 @@
 	%b Colaboração: 
 	%a{:href => "mailto:ifialk@gmail.com"} Ignat, ifialk@gmail.com
 	
-%aside
-  =render 'shared/aside/aside_social_buttons'
-  =render 'shared/aside/aside_advert'
-  =render 'shared/aside/aside_fb_like_box'
-.clear
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    =render 'shared/aside/aside_advert'
+    =render 'shared/aside/aside_fb_like_box'
+  .clear

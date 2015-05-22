@@ -39,5 +39,6 @@
       %li= link_to t('athletes'), main_app.athletes_path
       %li= link_to t('agencies'), main_app.agencies_path
       %li= link_to t('organizations'), main_app.organizations_path
+      %li= link_to "Amigos e links úteis", friends_url
   %li
     = active_link_to t('contacts'), galera_url, active: [['static_pages'], ['galera', 'show']]
