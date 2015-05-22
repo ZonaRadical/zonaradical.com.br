@@ -4,5 +4,6 @@
     = link_to 'New Tip category', new_tip_category_path
   .clear
   %ul.tip_category_list
-    =nested_categories @tip_categories.arrange
+    - @tip_categories.all.each do |tip_category|
+      = render tip_category
 .clear

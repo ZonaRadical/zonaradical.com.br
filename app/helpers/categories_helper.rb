@@ -16,18 +16,4 @@ module CategoriesHelper
       content_tag(:li,link_to(url_for(category)))
     end.join.html_safe
   end
-
-  def aside_categories(category)
-    html = ''
-    category.path.from_depth(0).each do |parent|
-      html += link_to parent.name, show_tip_category_path(parent), :class => :active
-      if parent.depth < category.depth
-        html +=content_tag(:span, ' >> ')
-      end
-    end
-    html.html_safe
-  end
-
 end
-
-
