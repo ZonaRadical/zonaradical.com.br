@@ -223,7 +223,7 @@ RSpec.describe TipCategoriesController, :type => :controller do
     describe "PUT update" do
       describe "with valid params" do
         let(:new_attributes) {
-          {:name => 'Changed Category II', :description => 'Changed description', :parent_id => 2}
+          {:name => 'Changed Category II', :description => 'Changed description'}
         }
 
         it "does not update the requested tip_category" do

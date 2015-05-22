@@ -12,9 +12,6 @@
     = f.label :slug
     = f.text_field :slug
   .field
-    = f.label :parent_id, t('parent')
-    = f.collection_select(:parent_id, TipCategory.all,:id, :name,{:prompt => t('selectParent')})
-  .field
     = f.label :description
     = f.text_area :description,:class => 'froala', :rows => 40, :cols => 120
   .field
