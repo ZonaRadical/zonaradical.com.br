@@ -33,7 +33,7 @@
                 - else
                   %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
             %li
-              %a{:href => "http://zonaradical.com.br/galera.html"} Galera ZR
+              = link_to t('contacts'), galera_url
       %li
         .heading
           %h1 Sobre a zr
