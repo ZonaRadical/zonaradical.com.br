@@ -1,3 +1,6 @@
+* How legagy tours without a Discourse Topic will be treated. Run a command in
+  rails console? Create comments will fail without a Topic.
+
 * Code that change models must be removed from controller, for example, the
   create action of ImageGalleriesController contains the following code:
   

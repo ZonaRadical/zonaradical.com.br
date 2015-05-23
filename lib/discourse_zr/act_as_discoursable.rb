@@ -49,6 +49,10 @@ module DiscourseZr
           category: discourse_category
         )
         self.discourse_topic_id = topic['topic_id']
+      rescue DiscourseApi::Error => e
+        parse_discourse_error(e.message)
+      rescue
+        discourse_unknow_error
       end
 
       def update_topic
@@ -86,6 +90,31 @@ module DiscourseZr
           User.find(instance_eval(&self.class.discourse_external_id))
         ) if discourse_user.nil?
         @discourse_username = discourse_user['username']
+      end
+
+      def parse_discourse_error(message)
+        begin
+          discourse_errors = JSON.parse(message.gsub('=>',':'))['errors']
+          discourse_errors.each do |error|
+            if error =~ /^Title/
+              error = error.gsub(/^Title/, '')
+              errors.add(:title, error)
+            elsif error =~ /^Body/
+              error = error.gsub(/^Body/, '')
+              errors.add(:description, error)
+            else
+              errors.add(:base, error)
+            end
+          end
+          false
+        rescue
+          unknow_error
+        end
+      end
+
+      def discourse_unknow_error
+        errors.add(:base, 'Ocorreu um erro desconhecido, por favor tente novamente. Se o problema persistir, contate o administrador do sistema.')
+        false
       end
     end
   end
