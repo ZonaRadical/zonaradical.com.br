@@ -7,7 +7,7 @@ module DiscourseApi
       end
 
       def user_sso(username)
-        response = get("/admin/users/#{username}")
+        response = get("/admin/users/#{username.downcase}")
         response[:body]['single_sign_on_record']
       end
     end

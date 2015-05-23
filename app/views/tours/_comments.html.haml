@@ -7,9 +7,9 @@
   - comments = @tour.discourse_comments.paginate(page: params[:comments_page], per_page: 2)
   - comments.each do |comment|
     - reply_to = all_comments[-comment['reply_to_post_number']+1] unless comment['reply_to_post_number'].nil?
-    - user = User.find(discourse_client.user_sso(comment['username'].downcase)['external_id'])
+    - user = User.find(discourse_client.user_sso(comment['username'])['external_id'])
     - if reply_to
-      - user_reply = User.find(discourse_client.user_sso(reply_to['username'].downcase)['external_id'])
+      - user_reply = User.find(discourse_client.user_sso(reply_to['username'])['external_id'])
       %li
         %a.img-wrap{:href => "#"}
           %img.userpic{:alt => "", :src => "#{user_reply.avatar_url}"}/
