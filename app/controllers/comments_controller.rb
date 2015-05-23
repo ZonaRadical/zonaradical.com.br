@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def build_comment
     @comment ||= Comment.new
     @comment.tour_id = params[:tour_id]
-    @comment.surname = current_user.surname
+    @comment.user_id = current_user.id
     @comment.content = comment_params[:content]
   end
 

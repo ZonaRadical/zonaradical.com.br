@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
 
   validates :password, presence: true, length: {minimum: 5, maximum: 120}, on: :create
   validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true
+  validates :name, :surname, presence: true
+
+  after_create :create_discourse_user
+  after_save :update_discourse_user
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -141,5 +145,24 @@ class User < ActiveRecord::Base
 
   def notifications
     mailbox.notifications
+  end
+
+  private
+
+  def create_discourse_user
+    DiscourseZr.sync_sso(self)
+  end
+
+  def update_discourse_user
+    sso_data = {
+      sso_secret: Rails.application.secrets.discourse_secret,
+      external_id: self.id
+    }
+    if self.name_changed? or self.email_changed?
+      sso_data[:name] = self.name if self.name_changed?
+      sso_data[:email] = self.email if self.email_changed?
+      client = DiscourseZr.client
+      client.sync_sso(sso_data)
+    end
   end
 end
