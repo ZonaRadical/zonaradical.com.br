@@ -81,7 +81,11 @@
       .clear
       .heading
         %h1 Deixe um comentário
-      = form_for [@tour, Comment.new] do |f|
+      = form_for @comment || Comment.new, url: comment_tour_path do |f|
+        - if @comment and @comment.errors.any?
+          %ul
+            - @comment.errors.full_messages.each do |msg|
+              %li= msg
         .wmd-panel
           #wmd-button-bar
           = f.text_area :content, class: 'wmd-input'
