@@ -5,14 +5,6 @@
     =link_to tips_path, :rel => 'nofollow' do
       All
       %span='(' + Tip.all.size.to_s + ')'
-  -if !tip_category.nil?
-    %li
-      =aside_categories tip_category
-    -TipCategory.roots.each do |root_category|
-      -if tip_category.root != root_category
-        %li
-          =link_to root_category.name, show_tip_category_path(root_category)
-  -else
-    -TipCategory.roots.each do |root_category|
+    -TipCategory.all.each do |root_category|
       %li
         =link_to root_category.name, show_tip_category_path(root_category)
