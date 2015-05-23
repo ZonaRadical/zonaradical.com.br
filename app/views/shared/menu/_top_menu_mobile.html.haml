@@ -2,10 +2,10 @@
   %li
     = active_link_to t('home'), main_app.root_path, active: [['static_pages', 'video_categories'], ['index', 'show']]
 
-  %li.submenu-item
+  %li
     = active_link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow', active: [['resorts', 'resort_categories'], []]
 
-  %li.submenu-item
+  %li
     = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['dicas'], []]
 
   %li= active_link_to t('vamoJunto'), main_app.tours_path
