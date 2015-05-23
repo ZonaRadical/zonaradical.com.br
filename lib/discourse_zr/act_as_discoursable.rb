@@ -82,6 +82,9 @@ module DiscourseZr
         discourse_user = DiscourseZr.client.user_by_external_id(
           instance_eval(&self.class.discourse_external_id)
         )
+        discourse_user = DiscourseZr.sync_sso(
+          User.find(instance_eval(&self.class.discourse_external_id))
+        ) if discourse_user.nil?
         @discourse_username = discourse_user['username']
       end
     end
