@@ -121,10 +121,11 @@
       = render 'list', tour_path_method: "tour_path"
     .clear
   - else
+    Para publicar anuncios usa por favor a versão desktop do site.
     .heading
       %h1 Todos os anúncios
     - if @tours.empty?
-      Não existem tours ou nenhuma foi encontrada com os filtros especificados.
+      Não existem anuncios ou nenhum foi encontrado com os filtros especificados.
     - else
       = render 'list', tour_path_method: "tour_path"
     .clear

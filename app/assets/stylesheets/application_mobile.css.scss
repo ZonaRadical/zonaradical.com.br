@@ -29,42 +29,45 @@ body {
   }
 }
 
-nav {
-  height: 3.5rem;
-  background: #333333;
+header {
   position: relative;
-  ul {
-    &.menu {
-      margin: 0;
-      list-style: none;
-      > li {
-        float: left;
-        a {
-          color: #fff;
-          text-decoration: none;
-          text-transform: uppercase;
-          font-size: 1.3rem;
-          display: block;
-          height: 4rem;
-          line-height: 4rem;
-          padding: 0 1.1rem;
+  nav {
+    height: 2rem;
+    position: relative;
+    ul {
+      &.menu {
+        margin: 0;
+        list-style: none;
+        > li {
+          float: left;
+          a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1rem;
+            display: block;
+            height: 2rem;
+            line-height: 2rem;
+            padding: .3rem .3rem;
+          }
+          > a.active {
+            cursor: default;
+            background: #ee9200;
+          }
         }
-        > a.active {
-          cursor: default;
-          background: #ee9200;
+        li {
+          background: #333333;
+          a:hover {
+            background: #ee9200;
+          }
         }
-      }
-      li {
-        a:hover {
-          background: #ee9200;
-        }
-      }
-      > li > a {
-        span {
-          color: #ee9200;
-        }
-        &.active span, &:hover span {
-          color: #333;
+        > li > a {
+          span {
+            color: #ee9200;
+          }
+          &.active span, &:hover span {
+            color: #333;
+          }
         }
       }
     }
