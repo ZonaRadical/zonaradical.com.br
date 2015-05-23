@@ -30,9 +30,9 @@ body {
 }
 
 nav {
-  height: 4rem;
+  height: 3.5rem;
   background: #333333;
-  /* position: relative; */
+  position: relative;
   ul {
     &.menu {
       margin: 0;
@@ -43,7 +43,7 @@ nav {
           color: #fff;
           text-decoration: none;
           text-transform: uppercase;
-          font-size: 1.4rem;
+          font-size: 1.3rem;
           display: block;
           height: 4rem;
           line-height: 4rem;
@@ -71,3 +71,28 @@ nav {
   }
 }
 
+.main-content {
+  width: 90%;
+  float: left;
+}
+
+.heading {
+  /* position: relative;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid #ee9200;*/
+  a.all {
+    text-decoration: none;
+    float: right;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+h1 {
+  font: normal normal 1.1rem / 1.5rem "HelveticaNeueBold", Arial, Helvetica, sans-serif;
+  color: #686868;
+  text-transform: uppercase;
+  display: inline-block;
+  border-bottom: 0.3rem solid #f78e00;
+  padding-bottom: 0.0rem;
+}
