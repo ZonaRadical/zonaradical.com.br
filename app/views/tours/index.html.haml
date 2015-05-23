@@ -108,7 +108,6 @@
 
       = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
     / :style=>"float: right;"
-  - else
     .heading
       - if action_name == 'search'
         %h1 Anúncios filtrados
@@ -116,6 +115,14 @@
         %h1 Todos os anúncios
       - if current_user
         = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
+    - if @tours.empty?
+      Não existem tours ou nenhuma foi encontrada com os filtros especificados.
+    - else
+      = render 'list', tour_path_method: "tour_path"
+    .clear
+  - else
+    .heading
+      %h1 Todos os anúncios
     - if @tours.empty?
       Não existem tours ou nenhuma foi encontrada com os filtros especificados.
     - else
