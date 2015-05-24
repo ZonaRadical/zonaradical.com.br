@@ -74,6 +74,20 @@ header {
   }
 }
 
+.content {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+section.top-section {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+
 .main-content {
   width: 90%;
   float: left;

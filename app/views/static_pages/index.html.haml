@@ -95,8 +95,8 @@
       =render 'shared/aside/aside_advert'
       =render 'shared/aside/aside_fb_like_box'
     .clear
-- else
-  -content_for :top_section do
+.main-content
+  -if mobile_device?
     .heading{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
       %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
@@ -119,7 +119,6 @@
       %strong estações de ski
       no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
     .clear
-.main-content
   .heading
     %h1 últimas dicas de snowboard
     %a.all{:href => main_app.tips_url.to_s} Todas
