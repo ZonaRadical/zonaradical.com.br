@@ -61,6 +61,11 @@ class Tour < ActiveRecord::Base
     participants.where(status: Tour::Participant.statuses[:approved])
   end
 
+  def participants_in(statuses)
+    statuses = statuses.collect { |item| Tour::Participant.statuses[item] }
+    participants.where(status: statuses)
+  end
+
   def self.published
     where(published: true)
   end

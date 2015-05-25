@@ -45,6 +45,13 @@
         =t('description')
         \:
       = @tour.description.html_safe
+  - unless @tour.participants_in([:pending, :approved]).empty?
+    %p.descr
+      %b
+        =t('participants')
+      %ul
+        - @tour.participants_in([:pending, :approved]).each do |participant|
+          %li== #{participant.user.name} #{participant.user.surname}
   %p.small
     %b
       Estilos de trip:
