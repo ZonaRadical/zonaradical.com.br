@@ -52,6 +52,9 @@
       %ul
         - @tour.participants_in([:pending, :approved]).each do |participant|
           %li== #{participant.user.name} #{participant.user.surname}
+      - if @tour.participants_in([:pending]).where(user: current_user).first
+        - tour_participant = @tour.participants_in([:pending]).where(user: current_user).first
+        = link_to 'Recall', recall_tour_participant_path(@tour, tour_participant), class: 'button'
   %p.small
     %b
       Estilos de trip:
