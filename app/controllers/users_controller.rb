@@ -93,7 +93,7 @@ class UsersController < ApplicationController
     client = DiscourseApi::Client.new(Rails.application.secrets.discourse_url)
     client.api_key = Rails.application.secrets.discourse_api_key
     client.api_username = Rails.application.secrets.discourse_api_username
-    user = client.user(current_user.surname)
-    client.log_out(user['id'])
+    user = client.user_by_external_id(current_user.id)
+    client.log_out(user['id']) unless user.nil?
   end
 end

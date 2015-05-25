@@ -17,7 +17,7 @@
     = f.text_field :slug
   .field
     = f.label :category
-    = f.select(:tip_category_id, nested_dropdown(TipCategory.all.arrange))
+    = f.select(:tip_category_id, TipCategory.all.collect { |tip_category| [tip_category.name, tip_category.id] })
   .field
     minimal image 368*210
     = image_tag @tip.image_url(:thumb).to_s
