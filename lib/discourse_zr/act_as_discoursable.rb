@@ -16,8 +16,8 @@ module DiscourseZr
         self.discourse_category = options[:category]
         self.discourse_external_id = options[:external_id]
 
-        before_save :create_or_update_discourse_topic
-        before_destroy :destroy_discourse_topic
+        after_save :create_or_update_discourse_topic
+        after_destroy :destroy_discourse_topic
 
         include DiscourseZr::ActAsDiscoursable::LocalInstanceMethods
       end
@@ -48,7 +48,7 @@ module DiscourseZr
           raw: discourse_raw,
           category: discourse_category
         )
-        self.discourse_topic_id = topic['topic_id']
+        self.update_attribute(:discourse_topic_id, topic['topic_id'])
       end
 
       def update_topic

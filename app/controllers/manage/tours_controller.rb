@@ -18,6 +18,7 @@ class Manage::ToursController < ApplicationController
 
   def create
     build_tour
+    @tour.owners.build(user: current_user)
     save_tour or (render 'new' and return)
     create_gallery_images(@tour)
   end
@@ -48,7 +49,6 @@ class Manage::ToursController < ApplicationController
     def build_tour
       @tour ||= tour_scope.build
       @tour.attributes = tour_params
-      @tour.owners.build(user: current_user) unless @tour.owners.collect { |owner| owner.user }.include?(current_user)
     end
 
     def save_tour
