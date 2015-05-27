@@ -173,6 +173,16 @@ RSpec.describe TipsController, :type => :controller do
           expect(response).to redirect_to(show_tip_path(tip.tip_category, tip))
         end
       end
+
+    end
+
+    describe 'GET #tip_redirect' do
+      let(:tip) { create(:tip) }
+
+      it 'returns status 301' do
+        get :tip_redirect, { id: tip.id }
+        expect(response).to redirect_to show_tip_path(tip.tip_category, tip)
+      end
     end
 
     it_behaves_like 'slugs_preview'
