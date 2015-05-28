@@ -22,6 +22,18 @@
       %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
       .index-slider
         .slide
+          = link_to image_tag('/images/amador.jpg'), "http://zonaradical.com.br/image_galleries/23", :target =>"blank"
+          %span.tag
+            Amador Snowboard Festival
+          %p
+            Mais um evento de snowboard no pais. Agoro no "dry slope" do
+            =link_to "Ski Mountain Park,", main_app.resorts_url+"/8"
+            São Roque SP.
+            Parabéns
+            =link_to "Maira Kawasaki,", main_app.users_url+"/38"
+            =link_to "Gabriel Irlandini,", main_app.users_url+"/33"
+            Cleiton Luis, e todos participantes e organizadores!
+        .slide
           = link_to image_tag('/images/parkday.jpg'), "https://www.facebook.com/media/set/?set=a.1443366775964237.1073741830.1433724256928489", :target =>"blank"
           %span.tag
             Park Day Brasil
@@ -53,12 +65,6 @@
             %br
             =mail_to('info@zonardical.com.br',' Mande seu vídeo e escreva o que você poderia trazer de bom para a equipe do ZR.',:target=>"_newtab")
           %span.tag Procurando riders
-        .slide
-          =link_to image_tag('10-top-10-most-liked-instagram-images-2014.jpg'), main_app.tips_url+"/18"
-          %p
-            As melhores fotos de ano 2014, versão TansWorld.
-            =link_to "Feliz Natal. Feliz Ano Novo. Boas Pistas.", main_app.tips_url+"/18"
-          %span.tag Instragram Top-10
     .gallery-field
       -unless @resort.nil?
         .gallery-field-large{:title=> t('resorts')}
