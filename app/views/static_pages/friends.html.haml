@@ -1,9 +1,22 @@
+-content_for :for_head do
+  %title Amigos do Zona Radical
+  %meta{:name => "description",
+    :content => "A lista dos amigos do Zona Radical"}
+  /* facebook METAS
+  %meta{:property=> "og:description", :content => "A lista dos amigos do Zona Radical"}
+  %meta{:property=>"og:title", :content => "Amigos do Zona Radical"}
+  %meta{:property=>"og:url", :content => request.original_url.to_s}
+  %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+  %meta{:property=>"og:type", :content =>"article"}
 .main-content
   .heading
     %h1 Amigos e links úteis
   .introtext
     %p
       Aqui vem a lista dos nosso amigos e alguns links úteis.
+      %br
+      Quer aparecer aqui? É só escrever pra gente
+      =link_to "info@zonaradical.com.br", "mailto:info@zonaradical.com.br",:target => 'blank'
   .heading
     %h2 Blogs Turisticos e Radicais
   %ol.announcement-list

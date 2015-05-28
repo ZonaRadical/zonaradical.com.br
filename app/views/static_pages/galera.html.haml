@@ -1,3 +1,13 @@
+-content_for :for_head do
+  %title A Galera e Contatos do Zona Radical
+  %meta{:name => "description",
+    :content => "A historia curta do Zona Radical"}
+  /* facebook METAS
+  %meta{:property=> "og:description", :content => "A historia curta e contatos do Zona Radical"}
+  %meta{:property=>"og:title", :content => "A Galera e Contatos do Zona Radical"}
+  %meta{:property=>"og:url", :content => request.original_url.to_s}
+  %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
+  %meta{:property=>"og:type", :content =>"article"}
 .main-content
   .heading
     %h1 Galera ZR
@@ -20,13 +30,13 @@
     Por favor, nos escreve com qualquer idéia louca, que juntos tentaremos realizar-lá!
   %p
     %b Questões gerais:
-    %a{:href => "mailto:info@zonaradical.com.br"} info(a)zonaradical.com.br
+    %a{:href => "mailto:info@zonaradical.com.br", :target=>'blank'} info(a)zonaradical.com.br
   %p
     %b Divulgação e marketing:
-    %a{:href => "mailto:caio@zonaradical.com.br"} Caio, caio(a)zonaradical.com.br
+    %a{:href => "mailto:caio@zonaradical.com.br", :target=>'blank'} Caio, caio(a)zonaradical.com.br
   %p
     %b Programação/questões tecnicas:
-    %a{:href => "mailto:nzonov@gmail.com"} Nikita, nzonov(a)gmail.com
+    %a{:href => "mailto:nzonov@gmail.com", :target=>'blank'} Nikita, nzonov(a)gmail.com
   %p
     %b Colaboração:
     %a{:href => "mailto:ifialk@gmail.com", :target=>'blank'} Ignat, ifialk@gmail.com
