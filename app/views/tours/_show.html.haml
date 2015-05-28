@@ -37,7 +37,7 @@
       .ava-col
         = avatar_img_sm(onwr)
       .name-col
-        = link_to onwr.name, onwr
+        = link_to onwr.name, onwr, target: '_blank'
   .clear
   -unless @tour.description.nil?
     %p.descr
