@@ -5,8 +5,14 @@
 
   .heading
     %h1 A lista dos seus Trips
-
-  = render 'tours/list', tour_path_method: "manage_tour_path"
+  = render 'tours/list', tours: @tours_mine, tour_path_method: "manage_tour_path"
+  .heading
+    %h1 Trips que você participa
+  = render 'tours/list', tours: @tours_participate, tour_path_method: "manage_tour_path"
+  - unless @tours_others.empty?
+    .heading
+      %h1 Outros Trips
+    = render 'tours/list', tours: @tours_others, tour_path_method: "manage_tour_path"
 
   = link_to t('newTour'), new_manage_tour_path, class: "button"
 

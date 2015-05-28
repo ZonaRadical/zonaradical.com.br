@@ -10,7 +10,7 @@
     .h2
       /* %span.name
       %b{:title=>"Estacoes"}
-        = tour_resorts_names(@tour)
+        = tour_resorts_names_linked(@tour)
     %ul.details-list
       %li.details
         .details-list
@@ -37,7 +37,7 @@
       .ava-col
         = avatar_img_sm(onwr)
       .name-col
-        = onwr.name
+        = link_to onwr.name, onwr
   .clear
   -unless @tour.description.nil?
     %p.descr
@@ -45,6 +45,16 @@
         =t('description')
         \:
       = @tour.description.html_safe
+  - unless @tour.participants_in([:pending, :approved]).empty?
+    %p.descr
+      %b
+        =t('participants')
+      %ul
+        - @tour.participants_in([:pending, :approved]).each do |participant|
+          %li== #{participant.user.name} #{participant.user.surname}
+      - if @tour.participants_in([:pending]).where(user: current_user).first
+        - tour_participant = @tour.participants_in([:pending]).where(user: current_user).first
+        = link_to 'Recall', recall_tour_participant_path(@tour, tour_participant), class: 'button'
   %p.small
     %b
       Estilos de trip:

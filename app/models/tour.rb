@@ -61,6 +61,11 @@ class Tour < ActiveRecord::Base
     participants.where(status: Tour::Participant.statuses[:approved])
   end
 
+  def participants_in(statuses)
+    statuses = statuses.collect { |item| Tour::Participant.statuses[item] }
+    participants.where(status: statuses)
+  end
+
   def self.published
     where(published: true)
   end
@@ -75,6 +80,12 @@ class Tour < ActiveRecord::Base
         OR tour_user_participant_assignments.user_id = :user_id",
         user_id: user.id)
       .references([:user_owners, :user_participants])
+  end
+
+  def self.involved_as_participant(user)
+    includes(:user_participants).where(
+      tour_user_participant_assignments: { user_id: user.id }
+    )
   end
 
   def self.owned_by(users)

@@ -28,7 +28,9 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     resources :comments
     scope module: 'tours' do
-      resources :participants
+      resources :participants do
+        get 'recall', on: :member
+      end
     end
   end
   resources :offers, path: '/ofertas-snowboard' do

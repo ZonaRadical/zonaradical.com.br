@@ -127,7 +127,8 @@
   - if @tours.empty?
     Não existem tours ou nenhuma foi encontrada com os filtros especificados.
   - else
-    = render 'list', tour_path_method: "tour_path"
+    = render 'list', tours: @tours, tour_path_method: "tour_path"
+    = will_paginate @tours
   .clear
 
   -content_for :aside do
