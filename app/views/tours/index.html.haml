@@ -21,101 +21,109 @@
     tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
     postar anúncios procurando parceiros, e também procurar companhia entre quem já postou.
 
-  = link_to 'Adicionar um anúncio', new_manage_tour_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: -10px;margin-bottom: 20px;"
+  -if !mobile_device?
+    = link_to 'Adicionar um anúncio', new_manage_tour_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: -10px;margin-bottom: 20px;"
+  - else
+    Para publicar anúncio ou aplicar filtros nos anuncios publicados por favor usa a versão desktop do site.
 
   .heading
-  %p.small
-    Escolha os parâmetros abaixo para encontrar uma trip do seu jeito, do seu gosto.
+  -if !mobile_device?
+    %p.small
+      Escolha os parâmetros abaixo para encontrar uma trip do seu jeito, do seu gosto.
 
-  = form_for :search, url: search_tours_path, method: :get do |f|
-    .search-filter
-      .select-wrap
-        = f.hidden_field :resort_categories, value: search_value_for(:resort_categories)
-        .select
-          %span.name País(es)
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Tanto faz
-          - tour_resort_categories.each do |resort_category|
-            %li{data: { value: resort_category.id }}= resort_category.name
-      .select-wrap
-        = f.hidden_field :resorts, value: search_value_for(:resorts)
-        .select
-          %span.name Estação
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Tanto faz
-          - tour_resorts.each do |resort|
-            %li{data: { value: resort.id, category_id: resort.resort_category_id } }= resort.name
-      .select-wrap
-        = f.hidden_field :period, value: search_value_for(:period)
-        .select
-          %span.name Periodo
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Todos
-          - tour_dates.each do |date|
-            %li{data: { value: date.strftime("%m/%Y") }}= date.strftime("%B'%y")
-      .select-wrap
-        = f.hidden_field :tour_style, value: search_value_for(:tour_style)
-        .select
-          %span.name Alvo
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Tanto faz
-          - tour_styles.each do |tour_style|
-            %li{data: { value: tour_style.id }}= tour_style.name
-      .select-wrap
-        = f.hidden_field :accommodation, value: search_value_for(:accommodation)
-        .select
-          %span.name Hospedagem
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Todos tipos
-          - tour_accommodations.each do |accommodation|
-            %li{data: { value: accommodation.id }}= accommodation.name
-      .select-wrap
-        = f.hidden_field :cost, value: search_value_for(:cost)
-        .select
-          %span.name Custos
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Qq
-          %li{"data-value" => "0..99"} menos de r$ 100 por dia
-          %li{"data-value" => "100..200"} r$ 100 - r$ 200
-          %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
-      .select-extra
-      /.select-wrap
-      /  = f.hidden_field :age_group, value: search_value_for(:age_group)
-      /  .select
-      /    %span.name Faixa etaria preferida
-      /    %a.arrow{:href => "#"}
-      /  %ul.option-list
-      /    %li.default{data: {value: ''}} Tanto faz
-      /    %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
-      /    %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
-      /    %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
-      .select-extra
-        %label.nrml{ :for => "show_passed",:style=>"margin-top: 0px;" }
-          Mostrar Trips passados
-          = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
-      .select-extra
-        - if action_name == 'search'
-          = link_to t('cleanFilters'), main_app.tours_path, class: 'button', style: "display: block; margin-left: auto; margin-right: auto;"
+    = form_for :search, url: search_tours_path, method: :get do |f|
+      .search-filter
+        .select-wrap
+          = f.hidden_field :resort_categories, value: search_value_for(:resort_categories)
+          .select
+            %span.name País(es)
+            %a.arrow{:href => "#"}
+          %ul.option-list
+            %li.default{data: {value: ''}} Tanto faz
+            - tour_resort_categories.each do |resort_category|
+              %li{data: { value: resort_category.id }}= resort_category.name
+        .select-wrap
+          = f.hidden_field :resorts, value: search_value_for(:resorts)
+          .select
+            %span.name Estação
+            %a.arrow{:href => "#"}
+          %ul.option-list
+            %li.default{data: {value: ''}} Tanto faz
+            - tour_resorts.each do |resort|
+              %li{data: { value: resort.id, category_id: resort.resort_category_id } }= resort.name
+        .select-wrap
+          = f.hidden_field :period, value: search_value_for(:period)
+          .select
+            %span.name Periodo
+            %a.arrow{:href => "#"}
+          %ul.option-list
+            %li.default{data: {value: ''}} Todos
+            - tour_dates.each do |date|
+              %li{data: { value: date.strftime("%m/%Y") }}= date.strftime("%B'%y")
+        .select-wrap
+          = f.hidden_field :tour_style, value: search_value_for(:tour_style)
+          .select
+            %span.name Alvo
+            %a.arrow{:href => "#"}
+          %ul.option-list
+            %li.default{data: {value: ''}} Tanto faz
+            - tour_styles.each do |tour_style|
+              %li{data: { value: tour_style.id }}= tour_style.name
+        .select-wrap
+          = f.hidden_field :accommodation, value: search_value_for(:accommodation)
+          .select
+            %span.name Hospedagem
+            %a.arrow{:href => "#"}
+          %ul.option-list
+            %li.default{data: {value: ''}} Todos tipos
+            - tour_accommodations.each do |accommodation|
+              %li{data: { value: accommodation.id }}= accommodation.name
+        .select-wrap
+          = f.hidden_field :cost, value: search_value_for(:cost)
+          .select
+            %span.name Custos
+            %a.arrow{:href => "#"}
+          %ul.option-list
+            %li.default{data: {value: ''}} Qq
+            %li{"data-value" => "0..99"} menos de r$ 100 por dia
+            %li{"data-value" => "100..200"} r$ 100 - r$ 200
+            %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
+        .select-extra
+        /.select-wrap
+        /  = f.hidden_field :age_group, value: search_value_for(:age_group)
+        /  .select
+        /    %span.name Faixa etaria preferida
+        /    %a.arrow{:href => "#"}
+        /  %ul.option-list
+        /    %li.default{data: {value: ''}} Tanto faz
+        /    %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
+        /    %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
+        /    %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
+        .select-extra
+          %label.nrml{ :for => "show_passed",:style=>"margin-top: 0px;" }
+            Mostrar Trips passados
+            = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
+        .select-extra
+          - if action_name == 'search'
+            = link_to t('cleanFilters'), main_app.tours_path, class: 'button', style: "display: block; margin-left: auto; margin-right: auto;"
 
-      .clear
-      / end search-filter
+        .clear
+        / end search-filter
 
 
-    = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
-  / :style=>"float: right;"
-  .heading
-    - if action_name == 'search'
-      %h1 Anúncios filtrados
-    - else
+      = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
+    / :style=>"float: right;"
+    .heading
+      - if action_name == 'search'
+        %h1 Anúncios filtrados
+      - else
+        %h1 Todos os anúncios
+      - if current_user
+        = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
+  - else
+    .heading
       %h1 Todos os anúncios
-    - if current_user
-      = link_to 'Os meus anúncios', manage_tours_path, class: 'all my-ads', target: '_blank'
+
   - if @tours.empty?
     Não existem tours ou nenhuma foi encontrada com os filtros especificados.
   - else
