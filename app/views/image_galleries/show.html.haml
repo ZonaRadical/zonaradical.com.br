@@ -1,7 +1,8 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   -content_for :for_head do
     /* general METAS
-    %title Zona Radical | Dicas de Snowboard: #{@image_gallery.image_gallerable.name}
+    -unless !@image_gallery.image_gallerable
+      %title Zona Radical | Dicas de Snowboard: #{@image_gallery.image_gallerable.name}
     %meta{:name => "description", :content =>  @image_gallery.description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"gallery"}
@@ -16,7 +17,8 @@
   .heading
     %h1
       =t('image_galleries')+":"
-      #{@image_gallery.image_gallerable.name}
+      -unless !@image_gallery.image_gallerable
+        #{@image_gallery.image_gallerable.name}
   %article
     %h3
       =@image_gallery.title
@@ -33,7 +35,8 @@
     = render 'image_gallery_actions', image_gallery: @image_gallery
   .heading
     %b{:style=>"font-size: 16px;" }
-      = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, @image_gallery.image_gallerable
+      -unless !@image_gallery.image_gallerable
+        = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, @image_gallery.image_gallerable
 
   -content_for :aside do
     %aside
