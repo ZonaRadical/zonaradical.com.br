@@ -14,7 +14,9 @@
     /* -if can? Tour, :manage
     .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
   %p.search-intro
-    Esta parte do <strong> Zona Radical Snowboard </strong> é muito especial.
+    Ficou um quarto vazio na casa alugada? Sobrou uma cama no hotel? Ou simplesmente está sem companhia para fazer uma viagem de snow?
+    Procure aqui - no “Vamo Junto"!
+  %p.search-intro
     É um sistema para você poder encontrar o perfeito parceiro para sua viagem -
     tanto uma de apreder snowboard quanto de radicalizar freeride. Você pode
     postar anúncios procurando parceiros, e também procurar companhia entre quem já postou.
@@ -82,16 +84,17 @@
           %li{"data-value" => "0..99"} menos de r$ 100 por dia
           %li{"data-value" => "100..200"} r$ 100 - r$ 200
           %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
-      .select-wrap
-        = f.hidden_field :age_group, value: search_value_for(:age_group)
-        .select
-          %span.name Faixa etaria preferida
-          %a.arrow{:href => "#"}
-        %ul.option-list
-          %li.default{data: {value: ''}} Tanto faz
-          %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
-          %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
-          %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
+      .select-extra
+      /.select-wrap
+      /  = f.hidden_field :age_group, value: search_value_for(:age_group)
+      /  .select
+      /    %span.name Faixa etaria preferida
+      /    %a.arrow{:href => "#"}
+      /  %ul.option-list
+      /    %li.default{data: {value: ''}} Tanto faz
+      /    %li{"data-value" => "#{18.years.ago.to_date}..#{Date.today}"} menos de 18
+      /    %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
+      /    %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
       .select-extra
         %label.nrml{ :for => "show_passed",:style=>"margin-top: 0px;" }
           Mostrar Trips passados
