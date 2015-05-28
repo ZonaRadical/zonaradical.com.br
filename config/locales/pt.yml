@@ -28,6 +28,7 @@ pt-BR:
     noUnlock: "Nao recebeu as intrucoes de desbloqueio?"
     signWith: "Sign in com"
     home: "Home"
+    imageGalleries: 'Galerias de fotos'
     forum: 'Forum'
     received_reply: 'Resposta recebida'
     confirm_destroy: 'Você tem certeza?'

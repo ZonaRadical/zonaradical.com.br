@@ -3,6 +3,7 @@
     = active_link_to t('home'), main_app.root_path, active: [['static_pages', 'video_categories'], ['index', 'show']]
     %ul.submenu
       =menu_video_categories VideoCategory.all.arrange
+      =link_to t('imageGalleries'), main_app.image_galleries_path
 
   %li.submenu-item
     = active_link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow', active: [['resorts', 'resort_categories'], []]
