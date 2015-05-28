@@ -8,4 +8,13 @@
     = will_paginate @image_galleries ,:previous_label => '<<',:next_label => '>>', :inner_window => 1
   - if @user and can_add_gallery?
     = link_to t('newImageGallery'), new_user_image_gallery_path(@user), class: 'button'
-.clear
+
+-content_for :aside do
+  %aside
+    =render 'shared/aside/aside_social_buttons'
+    /=render 'shared/aside/aside_tip_category', :tip_category => nil
+    =render 'shared/aside/aside_fb_like_box'
+    =render 'shared/aside/aside_advert'
+    /=render 'shared/aside/aside_resort_gallery'
+  .clear
+  
