@@ -86,7 +86,10 @@
           = link_to image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard"), main_app.tours_path
           %p Trips e ofertas
         - else
-          = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
+          - if @gallery_image.gallerable
+            = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
+          -else
+            = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallery)
           %p Última foto no ZR
     .clear
   -content_for :aside do
