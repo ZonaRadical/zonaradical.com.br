@@ -95,7 +95,7 @@
           - if @gallery_image.gallerable
             = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
           -else
-            = link_to image_tag(@gallery_image.image_url), polymorphic_path([image_gallery.image_gallerable, image_gallery])
+            = image_tag(@gallery_image.image_url)
           %p Última foto no ZR
     .clear
   -content_for :aside do
