@@ -18,6 +18,7 @@
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.string   :map_url
+#   t.string   :slug
 # end
 
 class Resort < ActiveRecord::Base
