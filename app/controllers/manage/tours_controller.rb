@@ -39,7 +39,9 @@ class Manage::ToursController < ApplicationController
   private
     def load_tours
       tours_query = params[:show_passed].nil? ? tour_scope.switched_on : tour_scope
-      @tours ||= tours_query.paginate(page: params[:page]).to_a
+      @tours_mine = tours_query.owned_by([current_user]).to_a
+      @tours_participate = tours_query.involved_as_participant(current_user).to_a
+      @tours_others = tours_query.to_a - @tours_mine - @tours_participate
     end
 
     def load_tour

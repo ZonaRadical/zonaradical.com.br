@@ -1,23 +1,25 @@
 -content_for :for_head do
   /* general METAS
   %title All users of Zona Radical
+
 .heading
-  %h1 All Users
--@users.each do |site_user|
-  %p{:style=>"margin-top: 10px;"}
-    %b
-      =site_user.name
-      =site_user.surname
-    %i=site_user.email.to_s+","
-    id
-    =site_user.id
-    %span.activity
-      %b
-        = t('lastSignInAt')
-        \:
-      = user_last_seen_at(site_user)
-  .buttons
-    -if can? :update, site_user
-      %a.button{:href => edit_user_path(site_user), :target => "_blank"}= t('editProfile')
-    %a.button{:href => user_path(site_user),:target => "_blank"}= t('showProfile')
-  .clear
+  %h1 Agencies
+-@agencies.each do |agency|
+  = render 'profile_short', site_user: agency
+
+.heading
+  %h1 Orgs
+-@orgs.each do |org|
+  = render 'profile_short', site_user: org
+
+.heading
+  %h1 Athetes
+-@athletes.each do |athlete|
+  = render 'profile_short', site_user: athlete
+
+.heading
+  %h1 All others
+-@users.each do |user|
+  -if !user.athlete? and !user.org? and !user.agency?
+    = render 'profile_short', site_user: user
+

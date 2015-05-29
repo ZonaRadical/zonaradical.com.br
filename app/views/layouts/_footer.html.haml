@@ -25,8 +25,7 @@
             %li= link_to t('Home'), main_app.root_path
             %li= link_to t('resorts'),main_app.resorts_url, :rel => 'nofollow'
             %li= link_to t('tips'),main_app.tips_url, :rel => 'nofollow'
-            %li
-              %a{:href => "http://zonaradical.com.br/vamo-junto.html"} VAMO JUNTO
+            %li= link_to "VAMO JUNTO", main_app.tours_url
             %li
               - if Rails.application.secrets.discourse_url
                 - if @current_user.nil?
@@ -34,7 +33,7 @@
                 - else
                   %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
             %li
-              %a{:href => "http://zonaradical.com.br/galera.html"} Galera ZR
+              = link_to t('contacts'), galera_url
       %li
         .heading
           %h1 Sobre a zr
