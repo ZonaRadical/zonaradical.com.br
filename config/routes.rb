@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :resorts, :resort_categories
 
   concern :sluggable do
     collection do
       get 'slug'
     end
   end
+
+  resources :resorts, path: 'estacoes-ski-snowboard'
+  resources :resort_categories
 
   resources :tips, path: 'dicas', concerns: :sluggable, except: :show
   get '/tips/:id', to: 'tips#tip_redirect', as: :tip_redirect
