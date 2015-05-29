@@ -1,5 +1,5 @@
 %ol.announcement-list
-  - @tours.each do |tour|
+  - tours.each do |tour|
     %li
       %p{:style=>"float: right;"}
         - if tour.user_owners.include?(current_user)
@@ -23,4 +23,3 @@
         |
         = link_to t('destroy'), manage_tour_path(tour), method: :delete, data: { confirm: t('confirm_destroy') }
 / end announcement-list
-= will_paginate @tours

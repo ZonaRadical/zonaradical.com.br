@@ -38,6 +38,7 @@
       -unless !@image_gallery.image_gallerable
         = link_to "Voltar para perfil de "+@image_gallery.image_gallerable.name.to_s, @image_gallery.image_gallerable
 
+
   -content_for :aside do
     %aside
       =render 'shared/aside/aside_social_buttons'

@@ -1,7 +1,12 @@
 %li
   %gallery
     %h3
-      =link_to image_gallery.title, polymorphic_path([image_gallery.image_gallerable, image_gallery])
+      -if image_gallery.image_gallerable
+        =link_to image_gallery.title, polymorphic_path([image_gallery.image_gallerable, image_gallery])
+        |
+        =link_to image_gallery.image_gallerable.name, polymorphic_path(image_gallery.image_gallerable)
+      - else
+        =link_to image_gallery.title, polymorphic_path([image_gallery.image_gallerable, image_gallery])
     %i.extra-info
       =distance_of_time_in_words_to_now image_gallery.updated_at
       = t('ago')

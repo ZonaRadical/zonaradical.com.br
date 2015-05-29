@@ -59,6 +59,12 @@ module ToursHelper
     tour.resorts.collect(&:name).join(', ')
   end
 
+  def tour_resorts_names_linked(tour)
+    tour.resorts.collect do |resort|
+      link_to resort.name, resort_path(resort), target: '_blank'
+    end.join(', ').html_safe
+  end
+
   def tour_logo_img(tour)
 	if !tour.resorts.first.nil?
 		image_tag(tour.resorts.first.image_url(:thumb).to_s, class: "tourlogo", alt: tour.title+" logo")

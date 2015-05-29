@@ -1,0 +1,21 @@
+%ul.menu
+  %li
+    = active_link_to t('home'), main_app.root_path, active: [['static_pages', 'video_categories'], ['index', 'show']]
+
+  %li
+    = active_link_to t('resortsShort'),main_app.resorts_url, :rel => 'nofollow', active: [['resorts', 'resort_categories'], []]
+
+  %li
+    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['dicas'], []]
+
+  %li
+    = active_link_to t('vamoJunto'), main_app.tours_path
+
+  %li
+    - if Rails.application.secrets.discourse_url
+      - if @current_user.nil?
+        %a{:href => Rails.application.secrets.discourse_url} Forum
+      - else
+        %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
+  %li
+    = active_link_to t('contacts'), galera_url, active: [['static_pages'], ['galera', 'show']]
