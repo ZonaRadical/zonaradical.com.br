@@ -29,4 +29,8 @@ module ApplicationHelper
       out+='...'
     end
   end
+
+  def discourse_client
+    @discourse_client ||= DiscourseZr.client
+  end
 end
