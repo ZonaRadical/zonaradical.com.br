@@ -5,6 +5,7 @@
 #   t.string  :index
 #   t.integer :ancestry_depth, default: 0
 #   t.string  :image
+#   t.string  :slug
 # end
 
 class ResortCategory < ActiveRecord::Base
