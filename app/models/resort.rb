@@ -22,6 +22,8 @@
 # end
 
 class Resort < ActiveRecord::Base
+  include Slug
+  slugged :name
 
   validates :name, presence: true
   validates :resort_category_id, presence: true
