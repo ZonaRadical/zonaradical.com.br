@@ -22,6 +22,11 @@ class ResortCategoriesController < ApplicationController
   def edit
   end
 
+  def slug
+    resort_category = ResortCategory.new name: params[:title]
+    render json: { slug: resort_category.slug_preview }
+  end
+
   # POST /resort_categories
   # POST /resort_categories.json
   def create

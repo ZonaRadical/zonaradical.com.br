@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :resorts, path: 'estacoes-ski-snowboard', concerns: :sluggable
-  resources :resort_categories
+  resources :resort_categories, concerns: :sluggable
 
   resources :tips, path: 'dicas', concerns: :sluggable, except: :show
   get '/tips/:id', to: 'tips#tip_redirect', as: :tip_redirect
