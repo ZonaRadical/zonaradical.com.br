@@ -18,4 +18,7 @@ $ ->
     infinite: true,
     speed: 500,
     autoplay: false
+
+  $("#resort_name").slug_preview({ slug_selector: '#resort_slug' })
+
   return

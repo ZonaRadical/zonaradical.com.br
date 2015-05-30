@@ -21,6 +21,11 @@ class ResortsController < ApplicationController
   def edit
   end
 
+  def slug
+    resort = Resort.new name: params[:title]
+    render json: { slug: resort.slug_preview }
+  end
+
   # POST /resorts
   # POST /resorts.json
   def create

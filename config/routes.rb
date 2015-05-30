@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :resorts, path: 'estacoes-ski-snowboard'
+  resources :resorts, path: 'estacoes-ski-snowboard', concerns: :sluggable
   resources :resort_categories
 
   resources :tips, path: 'dicas', concerns: :sluggable, except: :show
