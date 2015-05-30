@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
   resources :tours, path: '/vamo-junto-snowboard' do
     get 'search', on: :collection
-    resources :comments
+    post 'comment', on: :member
     scope module: 'tours' do
       resources :participants do
         get 'recall', on: :member
