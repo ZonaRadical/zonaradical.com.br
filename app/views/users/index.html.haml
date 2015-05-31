@@ -3,6 +3,12 @@
   %title All users of Zona Radical
 
 .heading
+  %h1 All others
+-@users.sort_by{ |a| [ a.id ] }.reverse.each do |user|
+  -if !user.athlete? and !user.org? and !user.agency?
+    = render 'profile_short', site_user: user
+
+.heading
   %h1 Agencies
 -@agencies.each do |agency|
   = render 'profile_short', site_user: agency
@@ -16,10 +22,3 @@
   %h1 Athetes
 -@athletes.each do |athlete|
   = render 'profile_short', site_user: athlete
-
-.heading
-  %h1 All others
--@users.each do |user|
-  -if !user.athlete? and !user.org? and !user.agency?
-    = render 'profile_short', site_user: user
-
