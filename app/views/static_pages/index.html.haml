@@ -93,7 +93,7 @@
           %p Trips e ofertas
         - else
           - if @gallery_image.gallerable
-            = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
+            = link_to image_tag(@gallery_image.image_url), gallery_image_link(@gallery_image)
           -else
             = link_to image_tag(@gallery_image.image_url), polymorphic_path([image_gallery.image_gallerable, image_gallery])
           %p Última foto no ZR
