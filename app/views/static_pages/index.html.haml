@@ -92,7 +92,10 @@
           = link_to image_tag('gallery-3.jpg', :alt=>"Pacotes de snowboard"), main_app.tours_path
           %p Trips e ofertas
         - else
-          = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
+          - if @gallery_image.gallerable
+            = link_to image_tag(@gallery_image.image_url), url_for(@gallery_image.gallerable)
+          -else
+            = link_to image_tag(@gallery_image.image_url), polymorphic_path([image_gallery.image_gallerable, image_gallery])
           %p Última foto no ZR
     .clear
   -content_for :aside do
@@ -101,9 +104,9 @@
       =render 'shared/aside/aside_advert'
       =render 'shared/aside/aside_fb_like_box'
     .clear
-- else
-  -content_for :top_section do
-    .heading{:style=>"font-size: 25px; margin-bottom=0px;", :itemscope => true, :itemtype => "http://schema.org/WebSite"}
+.main-content
+  -if mobile_device?
+    .heading{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
       %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
       %meta{:itemprop=>"contentLocation", :content => "São Paulo, Brasil"}
@@ -115,7 +118,7 @@
       %h1
         Bem vindo a Snowboard no Zona Radical
     = image_tag('slide-1.jpg', :style=>"margin-top=0px;")
-    %p{:style=>"font-size: 25px;"}
+    %p
       %strong Snowboard
       é um dos esportes mais irados de se praticar. Tem coisa mais louca do que você descer uma montanha
       cheinha de neve com um “pedaço de madeira” preso nos pés?
@@ -125,7 +128,6 @@
       %strong estações de ski
       no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
     .clear
-.main-content
   .heading
     %h1 últimas dicas de snowboard
     %a.all{:href => main_app.tips_url.to_s} Todas

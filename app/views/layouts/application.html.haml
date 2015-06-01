@@ -30,8 +30,8 @@
     /[if lt IE 9]
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   %body
-    .fb-root
     -if !mobile_device?
+      .fb-root
       = render 'layouts/header'
       -if content_for? :top_section
         %section.top-section= content_for :top_section
@@ -51,13 +51,12 @@
       = render 'layouts/footer'
       = render(:partial => 'feedbacker/tab') unless current_user.nil?
     - else
+      .fb-root
       = render 'layouts/header_mobile'
       -if content_for? :top_section
         %section.top-section= content_for :top_section
       %section.content
         = yield
-        %p.inv
-          %a.inv{:href => "https://plus.google.com/113457398355662495397", :rel => "publisher"} Google+
 
     %a.to-top{:href => "#"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

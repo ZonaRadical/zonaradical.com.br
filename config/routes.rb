@@ -37,9 +37,11 @@ Rails.application.routes.draw do
   end
   resources :tours, path: '/vamo-junto-snowboard' do
     get 'search', on: :collection
-    resources :comments
+    post 'comment', on: :member
     scope module: 'tours' do
-      resources :participants
+      resources :participants do
+        get 'recall', on: :member
+      end
     end
   end
   resources :offers, path: '/ofertas-snowboard' do
@@ -59,6 +61,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   get 'galera', to: 'static_pages#galera'
+  get 'friends', to: 'static_pages#friends'
 
   get 'users_controller/finish_signup'
 

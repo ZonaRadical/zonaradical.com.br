@@ -16,6 +16,12 @@ class ToursController < ApplicationController
     load_offers
   end
 
+  def comment
+    load_tour
+    build_comment
+    save_comment or render 'show'
+  end
+
   private
 
   def load_tours
@@ -63,5 +69,21 @@ class ToursController < ApplicationController
 
   def tour_scope
     Tour.published.order(:check_in)
+  end
+
+  def build_comment
+    @comment ||= Comment.new
+    @comment.tour_id = @tour.id
+    @comment.user_id = current_user.id
+    @comment.content = comment_params[:content]
+  end
+
+  def save_comment
+    redirect_to @tour if @comment.save
+  end
+
+  def comment_params
+    comment_params = params[:comment]
+    comment_params ? comment_params.permit(:content) : {}
   end
 end

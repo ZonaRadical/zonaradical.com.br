@@ -32,7 +32,7 @@
           %a.arrow{:href => "#"}
         %ul.option-list
           - offer_resorts.each do |resort|
-            %li{data: { value: resort.id } }= resort.name
+            %li{data: { value: resort.id, category_id: resort.resort_category_id } }= resort.name
       .select-wrap
         = f.hidden_field :period, value: search_value_for(:period)
         .select
@@ -43,7 +43,7 @@
           - offer_dates.each do |date|
             %li{data: { value: date.strftime("%m/%Y") }}= date.strftime("%B'%y")
       .select-wrap
-        = f.hidden_field :offer_style, value: search_value_for(:offer_style)
+        = f.hidden_field :tour_style, value: search_value_for(:tour_style)
         .select
           %span.name Alvo
           %a.arrow{:href => "#"}

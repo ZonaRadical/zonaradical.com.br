@@ -1,37 +1,9 @@
-=render 'shared/sign_in'
 %header
   .inner
     = link_to image_tag('logo.png'), main_app.root_path, class: :logo
-    .enter-block
-      - if user_signed_in?
-        .registered
-          %span
-            = t('hello')
-            , #{link_to current_user.name, main_app.profile_path} /
-          = link_to t('signOut'), main_app.full_sign_out_path, :class => 'exit-link', :method => :get
-      - else
-        .non-registered
-          - if controller_name != 'sessions'
-            %span.signIn-dialog= t('signIn')
-            = link_to omniauth_authorize_path(:user, 'facebook'), :class => 'login' do
-              %span.fb
-            = link_to omniauth_authorize_path(:user, 'twitter'), :class => 'login' do
-              %span.tw
-            %span /
-            = link_to t('Sign up'), new_registration_path(:user)
-            %br/
-      -if mobile_device?
-        =link_to t('fullVersion'), :mobile => 0
-      -else
-        =link_to t('mobileVersion'), :mobile => 1
+    -if mobile_device?
+      =link_to t('fullVersion'), :mobile => 0
+    -else
+      =link_to t('mobileVersion'), :mobile => 1
     %nav
-      =render 'shared/menu/top_menu'
-      .search-field
-        %input{:placeholder => "Pesquisa", :type => "text"}/
-        %a{:href => "#"}
-    - if can? :manage, :all
-      =render 'shared/menu/admin_menu'
-    - flash.each do |key, value|
-      %div{:class => "flash flash-#{key}"}= value
-    = unread_notifications
-
+      =render 'shared/menu/top_menu_mobile'

@@ -10,7 +10,7 @@
     %meta{:property=>"og:description", :content =>  strip_tags(@resort_category.description.to_s)}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     /* @Todo Make proper images for all resort categories
-    %meta{:property=> "og:image", :content=> "https://zonaradical.com.br"+@resort_category.image_url(:thumb_1200_630).to_s}
+    %meta{:property=> "og:image", :content=> @resort_category.image_url(:thumb_1200_630).to_s}
     /* schema.org METAS
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
