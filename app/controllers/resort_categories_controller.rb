@@ -34,7 +34,7 @@ class ResortCategoriesController < ApplicationController
 
     respond_to do |format|
       if @resort_category.save
-        format.html { redirect_to @resort_category, notice: 'Resort category was successfully created.' }
+        format.html { redirect_to show_resort_category_path(@resort_category), notice: 'Resort category was successfully created.' }
         format.json { render :show, status: :created, location: @resort_category }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class ResortCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @resort_category.update(resort_category_params)
-        format.html { redirect_to @resort_category, notice: 'Resort category was successfully updated.' }
+        format.html { redirect_to show_resort_category_path(@resort_category), notice: 'Resort category was successfully updated.' }
         format.json { render :show, status: :ok, location: @resort_category }
       else
         format.html { render :edit }

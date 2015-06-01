@@ -38,7 +38,7 @@ class ResortsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @resort, notice: 'Resort was successfully created.' }
+        format.html { redirect_to show_resort_path(@resort.resort_category, @resort), notice: 'Resort was successfully created.' }
         format.json { render :show, status: :created, location: @resort }
       else
         format.html { render :new }
@@ -71,7 +71,7 @@ class ResortsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @resort, notice: 'Resort was successfully updated.' }
+        format.html { redirect_to show_resort_path(@resort.resort_category, @resort), notice: 'Resort was successfully updated.' }
         format.json { render :show, status: :ok, location: @resort }
       else
         format.html { render :edit }

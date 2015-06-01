@@ -68,7 +68,7 @@
     .gallery-field
       -unless @resort.nil?
         .gallery-field-large{:title=> t('resorts')}
-          =link_to image_tag(@resort.image_url(:thumb).to_s), resort_path(@resort)
+          =link_to image_tag(@resort.image_url(:thumb).to_s), show_resort_path(@resort.resort_category, @resort)
           %p
             /* =truncate_html(@resort.level1_description, length: 47, omission: '...')
             =strip_tags(@resort.level1_description)[0..47].html_safe

@@ -31,19 +31,19 @@
       -unless resort_category.resorts.empty?
         .heading
           %h1= resort_category.name + ' (' + resort_category.resorts.size.to_s + ')'
-          = link_to t('allResorts') + resort_category.name, resort_category_path(resort_category), class: :all
+          = link_to t('allResorts') + resort_category.name, show_resort_category_path(resort_category), class: :all
         .introtext
           -if !resort_category.description.nil?
             =truncate_html(resort_category.description, length: 203, omission: '...')
             -if resort_category.description.html_safe.length>200
-              =link_to t('readMore'), resort_category_path(resort_category)
+              =link_to t('readMore'), show_resort_category_path(resort_category)
         -if can? :update, resort_category
           = link_to t('edit'), edit_resort_category_path(resort_category)
         .clear
         %ul.stations-list
           =render resort_category.resorts.limit(3)
           -if resort_category.resorts.size > 3
-            %p.others= link_to t('otherResorts') + resort_category.name, resort_category_path(resort_category)
+            %p.others= link_to t('otherResorts') + resort_category.name, show_resort_category_path(resort_category)
 -content_for :aside do
   %aside
     =render 'shared/aside/aside_social_buttons'
