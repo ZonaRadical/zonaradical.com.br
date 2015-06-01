@@ -6,12 +6,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # Resorts
   resources :resorts, path: 'estacoes-ski-snowboard', concerns: :sluggable, except: :show
+  get '/resorts/:id', to: 'resorts#resort_redirect', as: :resort_redirect
   get 'estacoes-ski-snowboard/:resort_category_id/:id', to: 'resorts#show', as: :show_resort
 
   get 'estacoes-ski-snowboard/:id', to: 'resort_categories#show', as: :show_resort_category
   resources :resort_categories, concerns: :sluggable, except: :show
 
+  get '/resorts', to: redirect('/estacoes-ski-snowboard')
+  get '/resort_categories/:id', to: redirect('/estacoes-ski-snowboard/%{id}')
+
+  # Tips
   resources :tips, path: 'dicas', concerns: :sluggable, except: :show
   get '/tips/:id', to: 'tips#tip_redirect', as: :tip_redirect
   get 'dicas/:category_id/:id', to: 'tips#show', as: :show_tip

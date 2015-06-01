@@ -26,6 +26,10 @@ class ResortsController < ApplicationController
     render json: { slug: resort.slug_preview }
   end
 
+  def resort_redirect
+    redirect_to show_resort_path(@resort.resort_category, @resort), status: :moved_permanently
+  end
+
   # POST /resorts
   # POST /resorts.json
   def create
