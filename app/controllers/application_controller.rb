@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_last_seen_at, if: proc { |p| user_signed_in? && (session[:last_seen_at] == nil || session[:last_seen_at] < 15.minutes.ago) }
   before_filter :prepare_for_mobile
 
-  def forem_user
-    current_user
-  end
-  helper_method :forem_user
-
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
