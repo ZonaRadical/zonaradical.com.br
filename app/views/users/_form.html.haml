@@ -46,7 +46,7 @@
         -if Identity.find_by_user_id(@user.id).blank?
           = f.text_field :email
         -else
-          = f.text_field :email, :disabled => true
+          = f.text_field :email
       .field
         = f.label :sex
         = select(:user, :sex,options_for_select([[t('man'),'M'],[t('women'),'F']],@user.sex),:prompt => t('chooseSex'))
