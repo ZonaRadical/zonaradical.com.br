@@ -5,7 +5,7 @@ module VideoCategoriesHelper
       if sub_video_categories.empty?
         content_tag(:li, link_to(video_category.name, main_app.video_category_path(video_category)))
       else
-        content_tag(:li, link_to(video_category.name, main_app.video_category_path(video_category)) + content_tag(:ul, sub_menu_video_categories(sub_video_categories),:class => 'subsubmenu'),:class => 'subsubmenu-item')
+        content_tag(:li, link_to(video_category.name, "#" ) + content_tag(:ul, sub_menu_video_categories(sub_video_categories),:class => 'subsubmenu'),:class => 'subsubmenu-item')
       end
 
     end.join.html_safe
