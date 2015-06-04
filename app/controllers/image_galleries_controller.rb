@@ -69,7 +69,7 @@ class ImageGalleriesController < ApplicationController
   private
 
   def load_image_galleries
-    @image_galleries = image_gallery_scope.page(params[:page]).to_a
+    @image_galleries = image_gallery_scope.to_a.sort_by { |a| [ a.created_at ] }.reverse.paginate(page: params[:page])
   end
 
   def build_image_gallery

@@ -1,5 +1,14 @@
 %p#notice= notice
 .main-content
+  -content_for :for_head do
+    %title Videos de Snowboard: #{@video_category.name.to_s} | Zona Radical
+    /* facebook METAS
+    %meta{:property=>"og:type", :content =>"website"}
+    %meta{:name => "description", :content => @video_category.description.to_s}
+    %meta{:property=>"og:title", :content => "Videos de Snowboard: "+@video_category.name.to_s+" | Zona Radical"}
+    %meta{:property=>"og:description", :content => @video_category.description.to_s}
+    %meta{:property=>"og:url", :content => request.original_url.to_s}
+    %meta{:property=>"og:image", :content =>@video_category.image_url(:thumb_1200_630).to_s}
   .heading
     %h1
       =@video_category.name
@@ -22,7 +31,8 @@
         %ul.stations-list
           =render video_category.videos.limit(3)
         -if video_category.videos.size > 3
-          %p= link_to t('othervideos') + video_category.name, video_category_path(video_category)
+          %p.others
+            = link_to t('othervideos') + video_category.name, video_category_path(video_category)
 -content_for :aside do
   %aside
     =render 'shared/aside/aside_social_buttons'
