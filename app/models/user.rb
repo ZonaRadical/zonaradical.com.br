@@ -157,6 +157,10 @@ class User < ActiveRecord::Base
     mailbox.notifications
   end
 
+  def confirmed?
+    self.unconfirmed_email.blank? && !!self.confirmed_at
+  end
+
   private
 
   def create_discourse_user
