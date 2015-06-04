@@ -88,9 +88,9 @@ Rails.application.routes.draw do
 
   match '/user' => 'users#profile', via: [:get], :as => :profile
   match '/user/full_sign_out' => 'users#full_sign_out', via: [:get], :as => :full_sign_out
-  match '/athletes' => 'users#athletes', via: [:get], :as => :athletes
-  match '/agencies' => 'users#agencies', via: [:get], :as => :agencies
-  match '/organizations' => 'users#organizations', via: [:get], :as => :organizations
+  match '/athletes' => 'users#athletes', via: [:get], :as => :athletes, path: 'atletas-de-snowboard'
+  match '/agencies' => 'users#agencies', via: [:get], :as => :agencies, path: 'agencias-ski-snowboard'
+  match '/organizations' => 'users#organizations', via: [:get], :as => :organizations, path: 'ogranizacoes-de-snowboard'
 
   mount Forem::Engine, :at => '/forum', :as => 'forem'
 
