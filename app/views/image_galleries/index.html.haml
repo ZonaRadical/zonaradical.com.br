@@ -2,7 +2,7 @@
   .heading
     %h1
       =t('imageGalleries')
-  %p= 'Galerias estão disponíveis somente para atletas.' unless can_add_gallery?
+  %p= 'Galerias estão disponíveis somente para atletas.' unless can_add_gallery? or !current_user
   %ul.stations-list
     =render @image_galleries
     = will_paginate @image_galleries ,:previous_label => '<<',:next_label => '>>', :inner_window => 1
@@ -17,4 +17,3 @@
     =render 'shared/aside/aside_advert'
     /=render 'shared/aside/aside_resort_gallery'
   .clear
-  
