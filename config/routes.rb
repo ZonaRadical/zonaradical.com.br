@@ -49,8 +49,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
-  get 'galera', to: 'static_pages#galera'
-  get 'friends', to: 'static_pages#friends'
+  get '/galera', to: 'static_pages#galera', path: '/contatos'
+  get '/friends', to: 'static_pages#friends', path: '/amigos'
 
   get 'users_controller/finish_signup'
 
@@ -93,6 +93,16 @@ Rails.application.routes.draw do
   match '/organizations' => 'users#organizations', via: [:get], :as => :organizations, path: 'ogranizacoes-de-snowboard'
 
   mount Forem::Engine, :at => '/forum', :as => 'forem'
+
+
+  # Redirecting old routes
+  get '/galera', to: redirect('contatos')
+  get '/friends', to: redirect('amigos')
+  get '/tours', to: redirect('vamo-junto-snowboard')
+  get '/athletes', to: redirect('atletas-de-snowboard')
+  get '/agencies', to: redirect('agencias-ski-snowboard')
+  get '/organizations', to: redirect('ogranizacoes-de-snowboard')
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
