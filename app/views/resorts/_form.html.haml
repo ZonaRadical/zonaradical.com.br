@@ -11,7 +11,10 @@
     = f.submit
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, data: { url: slug_resorts_path }
+  .field
+    = f.label :slug
+    = f.text_field :slug
   .field
     = image_tag @resort.image_url(:thumb).to_s
     = f.label :image

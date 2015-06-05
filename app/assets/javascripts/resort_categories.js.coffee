@@ -10,4 +10,7 @@ $ ->
     inlineMode: false
     mediaManager:true
     key: 'WlxvxhzxtB-16D-13lD3aliC8du=='
+
+  $("#resort_category_name").slug_preview({ slug_selector: '#resort_category_slug' })
+
   return

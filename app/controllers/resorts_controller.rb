@@ -21,6 +21,15 @@ class ResortsController < ApplicationController
   def edit
   end
 
+  def slug
+    resort = Resort.new name: params[:title]
+    render json: { slug: resort.slug_preview }
+  end
+
+  def resort_redirect
+    redirect_to show_resort_path(@resort.resort_category, @resort), status: :moved_permanently
+  end
+
   # POST /resorts
   # POST /resorts.json
   def create
@@ -33,7 +42,7 @@ class ResortsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @resort, notice: 'Resort was successfully created.' }
+        format.html { redirect_to show_resort_path(@resort.resort_category, @resort), notice: 'Resort was successfully created.' }
         format.json { render :show, status: :created, location: @resort }
       else
         format.html { render :new }
@@ -66,7 +75,7 @@ class ResortsController < ApplicationController
           end
         end
 
-        format.html { redirect_to @resort, notice: 'Resort was successfully updated.' }
+        format.html { redirect_to show_resort_path(@resort.resort_category, @resort), notice: 'Resort was successfully updated.' }
         format.json { render :show, status: :ok, location: @resort }
       else
         format.html { render :edit }
@@ -89,10 +98,10 @@ class ResortsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def resort_params
       params.require(:resort).permit(
-          :name, :image, :remove_image, :resort_category_id, :web,
-          :fb, :map_url, :level1_description,
-          :airport, :altitude_top, :altitude_bottom,
-          :drop, :terrain, :lifts, :slopes
+        :name, :slug, :image, :remove_image, :resort_category_id, :web,
+        :fb, :map_url, :level1_description,
+        :airport, :altitude_top, :altitude_bottom,
+        :drop, :terrain, :lifts, :slopes
       )
     end
 end

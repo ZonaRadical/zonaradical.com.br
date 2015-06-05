@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :resorts, :resort_categories
 
   concern :sluggable do
     collection do
@@ -7,6 +6,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # Resorts
+  resources :resorts, path: 'estacoes-ski-snowboard', concerns: :sluggable, except: :show
+  get '/resorts/:id', to: 'resorts#resort_redirect', as: :resort_redirect
+  get 'estacoes-ski-snowboard/:resort_category_id/:id', to: 'resorts#show', as: :show_resort
+
+  get 'estacoes-ski-snowboard/:id', to: 'resort_categories#show', as: :show_resort_category
+  resources :resort_categories, concerns: :sluggable, except: :show
+
+  get '/resorts', to: redirect('/estacoes-ski-snowboard')
+  get '/resort_categories/:id', to: redirect('/estacoes-ski-snowboard/%{id}')
+
+  # Tips
   resources :tips, path: 'dicas', concerns: :sluggable, except: :show
   get '/tips/:id', to: 'tips#tip_redirect', as: :tip_redirect
   get 'dicas/:category_id/:id', to: 'tips#show', as: :show_tip
@@ -49,8 +60,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
-  get 'galera', to: 'static_pages#galera'
-  get 'friends', to: 'static_pages#friends'
+  get '/galera', to: 'static_pages#galera', path: '/contatos'
+  get '/friends', to: 'static_pages#friends', path: '/amigos'
 
   get 'users_controller/finish_signup'
 
@@ -88,11 +99,21 @@ Rails.application.routes.draw do
 
   match '/user' => 'users#profile', via: [:get], :as => :profile
   match '/user/full_sign_out' => 'users#full_sign_out', via: [:get], :as => :full_sign_out
-  match '/athletes' => 'users#athletes', via: [:get], :as => :athletes
-  match '/agencies' => 'users#agencies', via: [:get], :as => :agencies
-  match '/organizations' => 'users#organizations', via: [:get], :as => :organizations
+  match '/athletes' => 'users#athletes', via: [:get], :as => :athletes, path: 'atletas-de-snowboard'
+  match '/agencies' => 'users#agencies', via: [:get], :as => :agencies, path: 'agencias-ski-snowboard'
+  match '/organizations' => 'users#organizations', via: [:get], :as => :organizations, path: 'ogranizacoes-de-snowboard'
 
   mount Forem::Engine, :at => '/forum', :as => 'forem'
+
+
+  # Redirecting old routes
+  get '/galera', to: redirect('contatos')
+  get '/friends', to: redirect('amigos')
+  get '/tours', to: redirect('vamo-junto-snowboard')
+  get '/athletes', to: redirect('atletas-de-snowboard')
+  get '/agencies', to: redirect('agencias-ski-snowboard')
+  get '/organizations', to: redirect('ogranizacoes-de-snowboard')
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
