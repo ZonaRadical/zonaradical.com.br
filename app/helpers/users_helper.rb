@@ -4,7 +4,9 @@ module UsersHelper
 	end
 
   def can_add_gallery?(user = @user)
-    (user == current_user and user.has_role?(:athlete)) or (current_user.has_role?(:admin))
+    if user
+      (user == current_user and user.has_role?(:athlete)) or (current_user.has_role?(:admin))
+    end
   end
 
   def image_gallery_button
@@ -19,7 +21,7 @@ module UsersHelper
   def logo_img(user)
     image_tag(user.avatar_url(:thumb), class: 'resortlogo', alt: user.name.to_s)
   end
-  
+
   def avatar_img_sm(user)
     image_tag(user.avatar_url(:ava), class: 'userpic-sm', alt: user.name.to_s+" avatar")
   end
