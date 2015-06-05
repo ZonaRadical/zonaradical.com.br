@@ -22,6 +22,11 @@ class ResortCategoriesController < ApplicationController
   def edit
   end
 
+  def slug
+    resort_category = ResortCategory.new name: params[:title]
+    render json: { slug: resort_category.slug_preview }
+  end
+
   # POST /resort_categories
   # POST /resort_categories.json
   def create
@@ -29,7 +34,7 @@ class ResortCategoriesController < ApplicationController
 
     respond_to do |format|
       if @resort_category.save
-        format.html { redirect_to @resort_category, notice: 'Resort category was successfully created.' }
+        format.html { redirect_to show_resort_category_path(@resort_category), notice: 'Resort category was successfully created.' }
         format.json { render :show, status: :created, location: @resort_category }
       else
         format.html { render :new }
@@ -43,7 +48,7 @@ class ResortCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @resort_category.update(resort_category_params)
-        format.html { redirect_to @resort_category, notice: 'Resort category was successfully updated.' }
+        format.html { redirect_to show_resort_category_path(@resort_category), notice: 'Resort category was successfully updated.' }
         format.json { render :show, status: :ok, location: @resort_category }
       else
         format.html { render :edit }
@@ -65,6 +70,6 @@ class ResortCategoriesController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def resort_category_params
-    params.require(:resort_category).permit(:name, :parent_id, :description, :image)
+    params.require(:resort_category).permit(:name, :slug, :parent_id, :description, :image)
   end
 end

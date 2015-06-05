@@ -18,9 +18,12 @@
 #   t.datetime :created_at
 #   t.datetime :updated_at
 #   t.string   :map_url
+#   t.string   :slug
 # end
 
 class Resort < ActiveRecord::Base
+  include Slug
+  slugged :name
 
   validates :name, presence: true
   validates :resort_category_id, presence: true

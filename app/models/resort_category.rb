@@ -5,9 +5,13 @@
 #   t.string  :index
 #   t.integer :ancestry_depth, default: 0
 #   t.string  :image
+#   t.string  :slug
 # end
 
 class ResortCategory < ActiveRecord::Base
+  include Slug
+  slugged :name
+
   has_ancestry( :cache_depth => true )
 
   has_many :resorts

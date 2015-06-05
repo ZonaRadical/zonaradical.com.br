@@ -1,7 +1,7 @@
 %li
-  =link_to image_tag(resort.image_url(:thumb).to_s,itemprop: "image"), resort_path(resort), :class => 'img-wrap'
+  =link_to image_tag(resort.image_url(:thumb).to_s,itemprop: "image"), show_resort_path(resort.resort_category, resort), :class => 'img-wrap'
   .details
-    %p.name=link_to resort.name, resort_path(resort)
+    %p.name=link_to resort.name, show_resort_path(resort.resort_category, resort)
     %span.pics-amount{:title=> t('picsAmount')}
       = resort.gallery_images.all.count.to_s
     -unless resort.gallery_images.all.count.zero?
@@ -10,7 +10,7 @@
     -if !resort.level1_description.blank?
       %p
         =truncate_html(resort.level1_description, length: 203, omission: '...')
-        =link_to t('readMore'), resort_path(resort)
+        =link_to t('readMore'), show_resort_path(resort.resort_category, resort)
   -if can? :resort, :update
     = link_to t('edit'), edit_resort_path(resort)
   -if can? :resort, :delete

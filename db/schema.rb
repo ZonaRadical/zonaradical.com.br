@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521232726) do
+ActiveRecord::Schema.define(version: 20150530191119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,7 @@ ActiveRecord::Schema.define(version: 20150521232726) do
     t.string  "index"
     t.integer "ancestry_depth", default: 0
     t.string  "image"
+    t.string  "slug"
   end
 
   create_table "resorts", force: true do |t|
@@ -265,6 +266,7 @@ ActiveRecord::Schema.define(version: 20150521232726) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "map_url"
+    t.string   "slug"
   end
 
   create_table "role_assignments", force: true do |t|
