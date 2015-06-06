@@ -16,7 +16,6 @@
         .details
           %p.title
             %span== #{user_reply.name} #{user_reply.surname}, #{DateTime.parse(reply_to['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
-            %i Responder
           %div= reply_to['cooked'].html_safe
         .clear
       %li.comment-reply
@@ -25,7 +24,6 @@
         .details
           %p.title
             %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
-            %i Responder
           %div= comment['cooked'].html_safe
         .clear
     - else
@@ -35,7 +33,6 @@
         .details
           %p.title
             %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
-            %i Responder
           %div= comment['cooked'].html_safe
         .clear
 = will_paginate(comments, param_name: :comments_page)
