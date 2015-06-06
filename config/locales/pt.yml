@@ -112,7 +112,9 @@ pt-BR:
     refused: 'Recusado'
     approve: 'Aprovar'
     refuse: 'Recusar'
-    mailboxer.notification_mailer.subject: 'Notificação de aprticipação'
+    mailboxer:
+      notification_mailer:
+        subject: '%{subject}'
 
     will_paginate:
       previous_label: '<<'
