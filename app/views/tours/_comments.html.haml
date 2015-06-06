@@ -35,4 +35,5 @@
             %span== #{user.name} #{user.surname}, #{DateTime.parse(comment['updated_at']).strftime('%d de %B, %Y às %I:%M %p')}
           %div= comment['cooked'].html_safe
         .clear
+= link_to 'Todos os comentários', DiscourseZr.topic_url(@tour.discourse_topic_id), target: '_blank' unless comments.empty?
 = will_paginate(comments, param_name: :comments_page)
