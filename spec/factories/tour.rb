@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :tour do
+    sequence(:title) { |n| "Tour #{n}" }
 
     factory :tour_with_owners do
       transient do
@@ -11,6 +12,6 @@ FactoryGirl.define do
           tour.owners.create(user: user)
         end
       end
-    end    
+    end
   end
 end
