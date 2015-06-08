@@ -37,7 +37,9 @@ class Manage::OffersController < ApplicationController
 
   private
     def load_offers
-      @offers = offer_scope.paginate(page: params[:page]).to_a
+      offers_query = params[:show_passed].nil? ? offer_scope.switched_on : offer_scope
+      @offers_mine = offers_query.owned_by([current_user]).to_a
+      @offers_others = offers_query.to_a - @offers_mine
     end
 
     def load_offer

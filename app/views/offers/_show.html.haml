@@ -1,47 +1,78 @@
-%p= avatar_img(@offer.user_owners.first)
-%p= image_tag(@offer.image_url(:big_thumb).to_s, class: 'med-img', itemprop: "image")
-%p
-  %b Offer style:
-  = @offer.tour_style
-%p
-  %b Accommodation:
-  = @offer.accommodation
-%p
-  %b Title:
-  = @offer.title
-%p
-  %b Description:
-  = @offer.description.html_safe
-%p
-  %b Duration:
-  = @offer.duration
-%p
-  %b Check in:
-  = check_in_formatted(@offer)
-%p
-  %b Price:
-  = @offer.price
-%p
-  %b Hotel name:
-  = @offer.hotel_name
-%p
-  %b Air included?
-  = @offer.air_included
-%p
-  %b Published:
-  = @offer.published
+.tour-card
+  .leftcol
+    = tour_logo_img(@offer)
+    %ul.details-list
+      %li.contacts
+        .contacts-list
+          %span.map{:title=> t('countries')}
+            = offer_countries(@offer)
+  .rightcol
+    .h2
+      /* %span.name
+      %b{:title=>"Estacoes"}
+        = offer_resorts_names_linked(@offer)
+    %ul.details-list
+      %li.details
+        .details-list
+          %span.date{:title=> t('check_in')}
+            = check_in_formatted(@offer)
+          -unless @offer.duration.nil?
+            %span.days{:title=> t('duration')}
+              = @offer.duration
+              dias
+          -unless @offer.price.nil?
+            %span.price{:title=> t('price')}
+              R$
+              = @offer.price
+              por dia
+          %span.style{:title=> t('tourStyle')}
+            = @offer.tour_style
+          %span.accom{:title=> t('accommodation')}
+            = @offer.accommodation
+        .clear
+  .h2{:itemprop=>"name"}
+    Criador(es)
+  .parti-col
+    - @offer.user_owners.each do |onwr|
+      .ava-col
+        = avatar_img_sm(onwr)
+      .name-col
+        = link_to onwr.name, onwr, target: '_blank'
+  .clear
+  -unless @offer.description.nil?
+    %p.descr
+      %b
+        =t('description')
+        \:
+      = @offer.description.html_safe
+  / - unless @offer.participants_in([:pending, :approved]).empty?
+  /   %p.descr
+  /     %b
+  /       =t('participants')
+  /     %ul
+  /       - @offer.participants_in([:pending, :approved]).each do |participant|
+  /         %li== #{participant.user.name} #{participant.user.surname}
+  /     - if @offer.participants_in([:pending]).where(user: current_user).first
+  /       - tour_participant = @offer.participants_in([:pending]).where(user: current_user).first
+  /       = link_to 'Recall', recall_tour_participant_path(@offer, tour_participant), class: 'button'
+  %p.small
+    %b
+      Estilos de trip:
+    -TourStyle.all.each do |t_style|
+      = t_style.name
+      ="("+t_style.description.to_s+")."
+    %b
+      Tipos de moradia:
+    -Accommodation.all.each do |acco|
+      = acco.name
+      ="("+ acco.description.to_s+")."
+  %div{:style=>"text-align: center"}
+  -unless @offer.gallery_images.all.count.zero?
+    = render 'shared/sliders/tip', images: @offer.gallery_images.all
 
-%p
-  %b County(ies):
-  = offer_countries(@offer)
 
-%p
-  %b Resort(s):
-  = offer_resorts_names(@offer)
-  - @offer.resorts.each do |resort|
-    = resort_logo_img(resort)
 
--unless @offer.gallery_images.all.count.zero?
-  = render 'shared/sliders/tip', images: @offer.gallery_images.all
+/*  - @offer.resorts.each do |resort|
+/*    = resort_logo_img(resort)
 
-/ = offer_participation_status(@offer, participate_button: true)
+/ = participation_status(@offer, participate_button: true)
