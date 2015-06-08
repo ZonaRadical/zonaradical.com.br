@@ -40,7 +40,7 @@
     = f.label :image
     = f.file_field :image
     = f.check_box :remove_image
-  - if current_user.admin?
+  - if can? :manage, @offer
     .field
       = f.label :published
       = f.check_box :published

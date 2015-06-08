@@ -59,7 +59,7 @@ class Manage::OffersController < ApplicationController
         :description, :duration, :check_in_d, :check_in_m, :check_in_y,
         :switch_off, :price, :hotel_name, :air_included, :image, :remove_image,
         resort_category_ids: [], resort_ids: []]
-      permitted_params << :published if current_user.admin?
+      permitted_params << :published if can? :manage, @offer
       offer_params = params[:offer]
       offer_params ? offer_params.permit(permitted_params) : {}
     end
