@@ -26,8 +26,10 @@
       .buttons
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
         = image_gallery_button
-        -if can? Tour, :manage
+        -if !current_user.agency? and can? :manage, Tour
           %a.button{:href => manage_tours_path}= t('tours')
+        - if current_user.agency? and can? :manage, Offer
+          %a.button{:href => manage_offers_path}= t('offers')
       .clear
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_fb_like_box'
