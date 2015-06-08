@@ -29,6 +29,17 @@
   .field
     = f.label :price
     = f.text_field :price
+  .field
+    = f.label :hotel_name
+    = f.text_field :hotel_name
+  .field
+    = f.label :air_included
+    = f.check_box :air_included
+  .field
+    = image_tag @offer.image_url(:thumb).to_s
+    = f.label :image
+    = f.file_field :image
+    = f.check_box :remove_image
   - if current_user.admin?
     .field
       = f.label :published

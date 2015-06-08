@@ -1,4 +1,5 @@
 %p= avatar_img(@offer.user_owners.first)
+%p= image_tag(@offer.image_url(:big_thumb).to_s, class: 'med-img', itemprop: "image")
 %p
   %b Offer style:
   = @offer.tour_style
@@ -20,6 +21,12 @@
 %p
   %b Price:
   = @offer.price
+%p
+  %b Hotel name:
+  = @offer.hotel_name
+%p
+  %b Air included?
+  = @offer.air_included
 %p
   %b Published:
   = @offer.published

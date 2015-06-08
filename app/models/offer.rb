@@ -18,6 +18,8 @@
 #   t.boolean  :published,                                default: true
 #   t.datetime :created_at
 #   t.datetime :updated_at
+#   t.string   :hotel_name
+#   t.boolean  :air_included
 # end
 #
 # add_index :offers, [:accommodation_id], name: :index_offers_on_accommodation_id, using: :btree
@@ -40,6 +42,8 @@ class Offer < ActiveRecord::Base
   validates :check_in_y, :check_in_m, presence: true
   validates :check_in_y, :check_in_m, numericality: { only_integer: true, greater_than: 0 }
   validate :country_presence
+
+  mount_uploader :image, OfferImageUploader
 
   before_save do
     self.switch_off_d = check_in_d
