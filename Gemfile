@@ -69,8 +69,6 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'populator'
   gem 'faker'
-
-  gem 'pry-rails'
 end
 
 group :test do
