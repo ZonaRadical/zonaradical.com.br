@@ -12,8 +12,8 @@
       - if can? :manage, offer
         %br
         = link_to t('edit'), edit_manage_offer_path(offer)
-        |
-        = link_to t('participants'), manage_offer_participants_path(offer)
+        / |
+        / = link_to t('participants'), manage_offer_participants_path(offer)
         |
         = link_to t('destroy'), manage_offer_path(offer), method: :delete, data: { confirm: t('confirm_destroy') }
 / end announcement-list
