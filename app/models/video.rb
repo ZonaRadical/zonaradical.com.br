@@ -10,6 +10,9 @@
 # end
 
 class Video < ActiveRecord::Base
+  include Slug
+  slugged :title
+
   as_enum :source, youtube: 0, vimeo: 1
   belongs_to :video_category
   validates :title, presence: true
