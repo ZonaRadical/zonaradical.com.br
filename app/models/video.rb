@@ -6,6 +6,7 @@
 #   t.string   :source_link
 #   t.datetime :created_at
 #   t.datetime :updated_at
+#   t.string   :slug
 # end
 
 class Video < ActiveRecord::Base
