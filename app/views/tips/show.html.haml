@@ -1,12 +1,12 @@
 .main-content{:itemscope => true, :itemtype => "http://schema.org/Article"}
   -content_for :for_head do
     /* general METAS
-    %title Dicas de Snowboard: #{@tip.title}
+    %title Dicas de Snowboard: #{@tip.title} | ZR
     %meta{:name => "description", :content =>  @tip.short_description.to_s}
     /* facebook METAS
     %meta{:property=>"og:type", :content =>"article"}
     %meta{:property=>"og:description", :content =>  @tip.short_description.to_s}
-    %meta{:property=>"og:title", :content => "ZR Dicas: "+@tip.title}
+    %meta{:property=>"og:title", :content => "Dicas de Snowboard: "+@tip.title+" | ZR"}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     %meta{:property=> "og:image", :content=> @tip.image_url(:extra_big_thumb).to_s}
     -unless @tip.gallery_images.all.count.zero?
@@ -14,12 +14,12 @@
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
     /* schema.org METAS
     %meta{:itemprop=>"author", :content =>"Zona Radical"}
-  .heading
     %meta{:itemprop=>"description", :content => @tip.short_description.to_s}
-    / @todo Adding (!) separate keywords set for every material
-    / %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding"}
+    / @todo Adding (!) separate keywords set for every material - when tagging is available
+    %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, dicas, aprender snowboard, equipamento, roupa de neve"}
     %meta{:itemprop=>"url", :content => request.original_url.to_s}
     %meta{:itemprop=>"image", :content=> @tip.image_url(:big_thumb).to_s}
+  .heading
     %h1
       %span{:itemprop=>"articleSection"}
         =t('tips')

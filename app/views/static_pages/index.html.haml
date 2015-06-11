@@ -12,6 +12,7 @@
 -if !mobile_device?
   -content_for :top_section do
     .slider-field{:itemscope => true, :itemtype => "http://schema.org/WebSite"}
+      /* Index is the only page which does not start with .main-content
       %meta{:itemprop=>"keywords", :content => "snowboard, snowboarding, Brasil, Brazil, ski, prancha, montanha, escola de snowboard, praticar snowboard, aprender snowboard, estações de ski, tudo sobre equipo, Alpes"}
       %meta{:itemprop=>"about", :content => "Como pratricar snowboard morando no Brasil"}
       %meta{:itemprop=>"contentLocation", :content => "São Paulo, Brasil"}
@@ -21,6 +22,11 @@
       %meta{:itemprop=> "image", :content=> "http://zonaradical.com.br/images/slide-1.jpg"}
       %meta{:itemprop=> "description", :content=> "Junto apreciamos snowboard - o melhor esporte da neve! Aki temos tudo - noticias, guia das estações de ski, dicas, forum."}
       .index-slider
+        .slide
+          =link_to image_tag('/images/vamo_junto1.jpg'), main_app.tours_path
+          %p
+            Laçamos no Zona Radical o "Vamo Junto" - um sistema para você poder encontrar o parceiro perfeito para sua viagem!
+          %span.tag Vamo Junto
         .slide
           = link_to image_tag('/images/amador.jpg'), "http://zonaradical.com.br/image_galleries/23", :target =>"blank"
           %span.tag
@@ -58,13 +64,6 @@
             escolher os equipamentos certos e viajar pelas
             %strong estações de ski
             no mundo inteiro desfrutando o máximo que este esporte radical pode te oferecer!
-        .slide
-          =link_to image_tag('pro-rider.jpg'), main_app.tips_url+"/18"
-          %p
-            O Zona Radical está procurando riders, seja parte de nossa equipe!
-            %br
-            =mail_to('info@zonardical.com.br',' Mande seu vídeo e escreva o que você poderia trazer de bom para a equipe do ZR.',:target=>"_newtab")
-          %span.tag Procurando riders
     .gallery-field
       -unless @resort.nil?
         .gallery-field-large{:title=> t('resorts')}
