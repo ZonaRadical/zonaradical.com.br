@@ -151,10 +151,16 @@
     %ul.item-list
       %li
         =link_to tour_logo_img(@trip), tour_path(@trip), class: "img-wrap"
+        =link_to @trip.title, tour_path(@trip), class: "title"
         .details
-          =link_to @trip.title, tour_path(@trip), class: "title"
+          %i.date
+            %span{:title=> t('check_in')}
+              = check_in_formatted(@trip)
+            %b{:title=> t('country')}
+              = @trip.resort_categories.collect(&:name).join(', ')
           %p
-            -if !@trip.description.empty?
-              =truncate_html(@trip.description, length: 253, omission: '...')
-            = link_to t('readMore'), tour_path(@trip)
+          -if !@trip.description.empty?
+            =truncate_html(strip_tags(@trip.description.to_s), length: 253, omission: '...')
+          = link_to t('readMore'), tour_path(@trip)
         .clear
+
