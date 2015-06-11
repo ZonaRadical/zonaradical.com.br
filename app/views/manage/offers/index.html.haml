@@ -4,14 +4,14 @@
     = check_box_tag :show_passed, '1', params[:show_passed] == "1"
 
   .heading
-    %h1 A lista dos seus Pacotes
-  = render 'offers/list', offers: @offers_mine, offer_path_method: "manage_offer_path"
-  - unless @offers_others.empty?
+    %h1 Pacotes publicados
+  = render 'offers/list', offers: @offers_published, offer_path_method: "manage_offer_path"
+  - unless @offers_draft.empty?
     .heading
-      %h1 Outros Pacotes
-    = render 'offers/list', offers: @offers_others, offer_path_method: "manage_offer_path"
+      %h1 Rascunhos
+    = render 'offers/list', offers: @offers_draft, offer_path_method: "manage_offer_path"
 
-  = link_to t('newTour'), new_manage_offer_path, class: "button"
+  = link_to t('newOffer'), new_manage_offer_path, class: "button"
 
   .clear
 
