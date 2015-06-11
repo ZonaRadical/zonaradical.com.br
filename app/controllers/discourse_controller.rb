@@ -24,4 +24,9 @@ class DiscourseController < ApplicationController
     sso.sso_secret = Rails.application.secrets.discourse_secret
     redirect_to sso.to_url(Rails.application.secrets.discourse_url + '/session/sso_login')
   end
+
+  def logout
+    sign_out
+    redirect_to root_url(subdomain: 'forum')
+  end
 end
