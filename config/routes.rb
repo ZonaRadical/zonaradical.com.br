@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :offers, path: '/ofertas-snowboard' do
+  resources :offers, path: '/pacotes-snowboard' do
     scope module: 'offers' do
       resources :participants
     end
