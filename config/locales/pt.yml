@@ -103,6 +103,7 @@ pt-BR:
     cleanFilters: 'Limpar filtros'
 
     # Offer
+    offers: 'Pacotes'
     createOffer: 'Criar Pacote'
     agencies:   'Agências'
     offerTitle: 'Titulo do Pacote'
