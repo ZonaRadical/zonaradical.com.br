@@ -1,0 +1,184 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://forum.zonaradical.dev/admin/users/sync_sso/?api_key=d8c2f1d9eba226632736d65b73c3e04cf2a2903b49bc2a74091e2134639238f6&api_username=Zonov
+    body:
+      encoding: UTF-8
+      string: sso=bmFtZT1KbyVDMyVBM28mdXNlcm5hbWU9QXRobGV0ZVVzZXImZW1haWw9am9h%0AbyU0MG1haWwuY29tJmV4dGVybmFsX2lkPTIxNw%3D%3D%0A&sig=269e3b62d21aec5986fea88f9df9f2d366bda3943e6b4f39ecffe7797fb3c284
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - DiscourseAPI Ruby Gem 0.4.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - _forum_session=REFUMWc0N1k4WE93WTZTSHljRktwNStOMWRITVBNN0tSNVBrd1dHM2RVVmZGMWdDUHlDcWljQkR2THpDVWViRjNXajRLRGQwcGJ2RE9KZzRCMUZiQmxFeThxZC9ZK3NqWUJ0SUJMYXdjT0JMOWM0STdsN0IwNGx6clFHaEZCWTF5WTFrTlVtcWlsSlV4TjZWWnJ0MjFDYTQvRU9pN3FFNVJoeUt3N3RiUjJwZ0R3bjdtMmsyQlhrcWJXc2ViM05OLS11cTlzbzVGcnIra0Zac2xDczlidlVBPT0%3D--90c38c83bb5ebd3a8e9fb25d4d0b34086a1c9866;
+        path=/; HttpOnly
+      X-Request-Id:
+      - 67cff106-0a0c-46a0-bc02-7f97521f20fa
+      X-Runtime:
+      - '0.306797'
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      X-Miniprofiler-Ids:
+      - '["kqr2is48xvcnm5p1x859","8ylbhyjrb29s3496q30m","my7o0z5izg814ka7akdd","y38wutoxklqioxjj562m","h9vnk3w8bvejzc5d9o28","eo4cym2fupm3afwpgp26","eoog4am7wxsbgwxb1g66","r4u028dn6bu3sot6qkcq","9rls350idwrv4lbsculf","kz6p4b87tc131qkbv9m6"]'
+      Date:
+      - Fri, 12 Jun 2015 23:08:40 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6MTUsInVzZXJuYW1lIjoiQXRobGV0ZVVzZXIxIiwidXBsb2FkZWRf
+        YXZhdGFyX2lkIjpudWxsLCJhdmF0YXJfdGVtcGxhdGUiOiIvbGV0dGVyX2F2
+        YXRhci9hdGhsZXRldXNlcjEve3NpemV9LzNfNmExYmJiM2VkZDI1NjkyYmRm
+        ZWI0Y2FlYjU1YmIzYzMucG5nIiwiYWN0aXZlIjp0cnVlLCJhZG1pbiI6ZmFs
+        c2UsIm1vZGVyYXRvciI6ZmFsc2UsImxhc3Rfc2Vlbl9hdCI6bnVsbCwibGFz
+        dF9lbWFpbGVkX2F0IjpudWxsLCJjcmVhdGVkX2F0IjoiMjAxNS0wNi0xMlQy
+        MjozNDozMy44MDZaIiwibGFzdF9zZWVuX2FnZSI6bnVsbCwibGFzdF9lbWFp
+        bGVkX2FnZSI6bnVsbCwiY3JlYXRlZF9hdF9hZ2UiOiIzNG0iLCJ1c2VybmFt
+        ZV9sb3dlciI6ImF0aGxldGV1c2VyMSIsInRydXN0X2xldmVsIjowLCJ0cnVz
+        dF9sZXZlbF9sb2NrZWQiOmZhbHNlLCJmbGFnX2xldmVsIjowLCJ0aXRsZSI6
+        bnVsbCwic3VzcGVuZGVkX2F0IjpudWxsLCJzdXNwZW5kZWRfdGlsbCI6bnVs
+        bCwic3VzcGVuZGVkIjpudWxsLCJibG9ja2VkIjpmYWxzZSwidGltZV9yZWFk
+        IjoiPCAxbSIsImRheXNfdmlzaXRlZCI6MCwicG9zdHNfcmVhZF9jb3VudCI6
+        MCwidG9waWNzX2VudGVyZWQiOjAsInBvc3RfY291bnQiOjAsImNhbl9zZW5k
+        X2FjdGl2YXRpb25fZW1haWwiOnRydWUsImNhbl9hY3RpdmF0ZSI6ZmFsc2Us
+        ImNhbl9kZWFjdGl2YXRlIjp0cnVlLCJpcF9hZGRyZXNzIjpudWxsLCJyZWdp
+        c3RyYXRpb25faXBfYWRkcmVzcyI6bnVsbCwiY2FuX2dyYW50X2FkbWluIjp0
+        cnVlLCJjYW5fcmV2b2tlX2FkbWluIjpmYWxzZSwiY2FuX2dyYW50X21vZGVy
+        YXRpb24iOnRydWUsImNhbl9yZXZva2VfbW9kZXJhdGlvbiI6ZmFsc2UsImNh
+        bl9pbXBlcnNvbmF0ZSI6dHJ1ZSwibGlrZV9jb3VudCI6MCwibGlrZV9naXZl
+        bl9jb3VudCI6MCwidG9waWNfY291bnQiOjAsImZsYWdzX2dpdmVuX2NvdW50
+        IjowLCJmbGFnc19yZWNlaXZlZF9jb3VudCI6MCwicHJpdmF0ZV90b3BpY3Nf
+        Y291bnQiOjAsImNhbl9kZWxldGVfYWxsX3Bvc3RzIjp0cnVlLCJjYW5fYmVf
+        ZGVsZXRlZCI6dHJ1ZSwiY2FuX2JlX2Fub255bWl6ZWQiOnRydWUsInN1c3Bl
+        bmRfcmVhc29uIjpudWxsLCJwcmltYXJ5X2dyb3VwX2lkIjpudWxsLCJiYWRn
+        ZV9jb3VudCI6MCwid2FybmluZ3NfcmVjZWl2ZWRfY291bnQiOjAsInNpbmds
+        ZV9zaWduX29uX3JlY29yZCI6eyJ1c2VyX2lkIjoxNSwiZXh0ZXJuYWxfaWQi
+        OiIyMTciLCJsYXN0X3BheWxvYWQiOiJuYW1lPUpvJUMzJUEzbyZ1c2VybmFt
+        ZT1BdGhsZXRlVXNlciZlbWFpbD1qb2FvJTQwbWFpbC5jb20mZXh0ZXJuYWxf
+        aWQ9MjE3IiwiY3JlYXRlZF9hdCI6IjIwMTUtMDYtMTJUMjI6MzQ6MzMuOTE0
+        WiIsInVwZGF0ZWRfYXQiOiIyMDE1LTA2LTEyVDIzOjA4OjQwLjczNFoiLCJl
+        eHRlcm5hbF91c2VybmFtZSI6IkF0aGxldGVVc2VyIiwiZXh0ZXJuYWxfZW1h
+        aWwiOiJqb2FvQG1haWwuY29tIiwiZXh0ZXJuYWxfbmFtZSI6Ikpvw6NvIiwi
+        ZXh0ZXJuYWxfYXZhdGFyX3VybCI6bnVsbH0sImFwcHJvdmVkX2J5IjpudWxs
+        LCJzdXNwZW5kZWRfYnkiOm51bGwsImdyb3VwcyI6W3siaWQiOjEwLCJhdXRv
+        bWF0aWMiOnRydWUsIm5hbWUiOiJ0cnVzdF9sZXZlbF8wIiwidXNlcl9jb3Vu
+        dCI6MTAsImFsaWFzX2xldmVsIjowLCJ2aXNpYmxlIjp0cnVlLCJhdXRvbWF0
+        aWNfbWVtYmVyc2hpcF9lbWFpbF9kb21haW5zIjpudWxsLCJhdXRvbWF0aWNf
+        bWVtYmVyc2hpcF9yZXRyb2FjdGl2ZSI6ZmFsc2UsInByaW1hcnlfZ3JvdXAi
+        OmZhbHNlLCJ0aXRsZSI6bnVsbH1dfQ==
+    http_version: 
+  recorded_at: Fri, 12 Jun 2015 23:08:40 GMT
+- request:
+    method: post
+    uri: http://forum.zonaradical.dev/admin/users/sync_sso/?api_key=d8c2f1d9eba226632736d65b73c3e04cf2a2903b49bc2a74091e2134639238f6&api_username=Zonov
+    body:
+      encoding: UTF-8
+      string: sso=bmFtZT1KbyVDMyVBM28mZW1haWw9am9hbyU0MG1haWwuY29tJmV4dGVybmFs%0AX2lkPTIxNw%3D%3D%0A&sig=01f78d44b6bc5eee6983a948827fbb108bfc1fce26aa11f2a50b2083bd688d4e
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - DiscourseAPI Ruby Gem 0.4.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - _forum_session=aGc2WE5EUzBvR1YyRHlNdGJ1ZlAxSFlQMjlxWGhBTy9ucFlvczFXL1IyZDVLNmg1dGZhSXhaUHF5aG8yWFoxZGhnSFJrUWlXMG1QS0UxWmNpVTZpcWpLRGtMc2VUbWxMOVZpd3pCUitOcEJZVUxiK0kwT2NFZVVtTkI5eTQxb0l4NW5ONEpBZTlKOUdYR2VhZXVDcGFlOTZWYWo5eUpQZzJLY3R6aFZBLzVMdHUxV2lKa3dRT0ZiUXI0RXVCSFVOLS1nWWpSdWVEbDZ0YXo5cENDWDArOWdRPT0%3D--272b69f86d9f860137a945b78e0d04d53d127654;
+        path=/; HttpOnly
+      X-Request-Id:
+      - 9a78cd40-54ae-40ad-82a4-38f32cdc9124
+      X-Runtime:
+      - '0.222031'
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      X-Miniprofiler-Ids:
+      - '["c28xgbs9uyyz5kdduj0e","y38wutoxklqioxjj562m","h9vnk3w8bvejzc5d9o28","eo4cym2fupm3afwpgp26","eoog4am7wxsbgwxb1g66","r4u028dn6bu3sot6qkcq","9rls350idwrv4lbsculf","kz6p4b87tc131qkbv9m6","legx6r65zvmbecyx1rdw","z1xi7akyiozrli2bbnv6"]'
+      Date:
+      - Fri, 12 Jun 2015 23:08:41 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6MTUsInVzZXJuYW1lIjoiQXRobGV0ZVVzZXIxIiwidXBsb2FkZWRf
+        YXZhdGFyX2lkIjpudWxsLCJhdmF0YXJfdGVtcGxhdGUiOiIvbGV0dGVyX2F2
+        YXRhci9hdGhsZXRldXNlcjEve3NpemV9LzNfNmExYmJiM2VkZDI1NjkyYmRm
+        ZWI0Y2FlYjU1YmIzYzMucG5nIiwiYWN0aXZlIjp0cnVlLCJhZG1pbiI6ZmFs
+        c2UsIm1vZGVyYXRvciI6ZmFsc2UsImxhc3Rfc2Vlbl9hdCI6bnVsbCwibGFz
+        dF9lbWFpbGVkX2F0IjpudWxsLCJjcmVhdGVkX2F0IjoiMjAxNS0wNi0xMlQy
+        MjozNDozMy44MDZaIiwibGFzdF9zZWVuX2FnZSI6bnVsbCwibGFzdF9lbWFp
+        bGVkX2FnZSI6bnVsbCwiY3JlYXRlZF9hdF9hZ2UiOiIzNG0iLCJ1c2VybmFt
+        ZV9sb3dlciI6ImF0aGxldGV1c2VyMSIsInRydXN0X2xldmVsIjowLCJ0cnVz
+        dF9sZXZlbF9sb2NrZWQiOmZhbHNlLCJmbGFnX2xldmVsIjowLCJ0aXRsZSI6
+        bnVsbCwic3VzcGVuZGVkX2F0IjpudWxsLCJzdXNwZW5kZWRfdGlsbCI6bnVs
+        bCwic3VzcGVuZGVkIjpudWxsLCJibG9ja2VkIjpmYWxzZSwidGltZV9yZWFk
+        IjoiPCAxbSIsImRheXNfdmlzaXRlZCI6MCwicG9zdHNfcmVhZF9jb3VudCI6
+        MCwidG9waWNzX2VudGVyZWQiOjAsInBvc3RfY291bnQiOjAsImNhbl9zZW5k
+        X2FjdGl2YXRpb25fZW1haWwiOnRydWUsImNhbl9hY3RpdmF0ZSI6ZmFsc2Us
+        ImNhbl9kZWFjdGl2YXRlIjp0cnVlLCJpcF9hZGRyZXNzIjpudWxsLCJyZWdp
+        c3RyYXRpb25faXBfYWRkcmVzcyI6bnVsbCwiY2FuX2dyYW50X2FkbWluIjp0
+        cnVlLCJjYW5fcmV2b2tlX2FkbWluIjpmYWxzZSwiY2FuX2dyYW50X21vZGVy
+        YXRpb24iOnRydWUsImNhbl9yZXZva2VfbW9kZXJhdGlvbiI6ZmFsc2UsImNh
+        bl9pbXBlcnNvbmF0ZSI6dHJ1ZSwibGlrZV9jb3VudCI6MCwibGlrZV9naXZl
+        bl9jb3VudCI6MCwidG9waWNfY291bnQiOjAsImZsYWdzX2dpdmVuX2NvdW50
+        IjowLCJmbGFnc19yZWNlaXZlZF9jb3VudCI6MCwicHJpdmF0ZV90b3BpY3Nf
+        Y291bnQiOjAsImNhbl9kZWxldGVfYWxsX3Bvc3RzIjp0cnVlLCJjYW5fYmVf
+        ZGVsZXRlZCI6dHJ1ZSwiY2FuX2JlX2Fub255bWl6ZWQiOnRydWUsInN1c3Bl
+        bmRfcmVhc29uIjpudWxsLCJwcmltYXJ5X2dyb3VwX2lkIjpudWxsLCJiYWRn
+        ZV9jb3VudCI6MCwid2FybmluZ3NfcmVjZWl2ZWRfY291bnQiOjAsInNpbmds
+        ZV9zaWduX29uX3JlY29yZCI6eyJ1c2VyX2lkIjoxNSwiZXh0ZXJuYWxfaWQi
+        OiIyMTciLCJsYXN0X3BheWxvYWQiOiJuYW1lPUpvJUMzJUEzbyZlbWFpbD1q
+        b2FvJTQwbWFpbC5jb20mZXh0ZXJuYWxfaWQ9MjE3IiwiY3JlYXRlZF9hdCI6
+        IjIwMTUtMDYtMTJUMjI6MzQ6MzMuOTE0WiIsInVwZGF0ZWRfYXQiOiIyMDE1
+        LTA2LTEyVDIzOjA4OjQwLjk2OFoiLCJleHRlcm5hbF91c2VybmFtZSI6bnVs
+        bCwiZXh0ZXJuYWxfZW1haWwiOiJqb2FvQG1haWwuY29tIiwiZXh0ZXJuYWxf
+        bmFtZSI6Ikpvw6NvIiwiZXh0ZXJuYWxfYXZhdGFyX3VybCI6bnVsbH0sImFw
+        cHJvdmVkX2J5IjpudWxsLCJzdXNwZW5kZWRfYnkiOm51bGwsImdyb3VwcyI6
+        W3siaWQiOjEwLCJhdXRvbWF0aWMiOnRydWUsIm5hbWUiOiJ0cnVzdF9sZXZl
+        bF8wIiwidXNlcl9jb3VudCI6MTAsImFsaWFzX2xldmVsIjowLCJ2aXNpYmxl
+        Ijp0cnVlLCJhdXRvbWF0aWNfbWVtYmVyc2hpcF9lbWFpbF9kb21haW5zIjpu
+        dWxsLCJhdXRvbWF0aWNfbWVtYmVyc2hpcF9yZXRyb2FjdGl2ZSI6ZmFsc2Us
+        InByaW1hcnlfZ3JvdXAiOmZhbHNlLCJ0aXRsZSI6bnVsbH1dfQ==
+    http_version: 
+  recorded_at: Fri, 12 Jun 2015 23:08:41 GMT
+recorded_with: VCR 2.9.3
