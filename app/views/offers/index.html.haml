@@ -4,27 +4,25 @@
     %title Pacotes de Snow | Zona Radical
     %meta{:name => "description", :content =>  "Todos os pacotes de vigem de neve num site so. E aqui. Encontre sua viagem de snowboard prefeita!"}
     %meta{:property=>"og:type", :content =>"article"}
-    %meta{:viewport => "width=1220, maximum-scale=2.0"}
     %meta{:property=>"og:title", :content => "Pacotes de Snow | Zona Radical" }
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/vamo_junto1.png"}
   .heading
     %h1
-      Offers
+      Pacotes turisticos
     .fb-like{"data-href"=> request.original_url.to_s, "data-layout"=>"button", "data-action"=>"like", "data-show-faces"=>"true", "data-share"=>"true", :style => "float: right;"}
-  %p.search-intro 
-    Aqui voce poe encontrar os pacotes de viagens oferecidos pelas agecias turisticas do Brasil.
+  %p.search-intro{:style => "margin-bottom: 0px;"}
+    Aqui você pode encontrar os pacotes de viagens para praticar snowboard e ski oferecidos no Brasil.
+    %br
+    Não são os pacotes do ZR, nos não estamos vendendo nada. São das agêcias turísticas brasileiras, a lista dessas ultimas está aqui:
+    = link_to "Agências de neve", main_app.agencies_path
 
   -if !mobile_device?
-    = link_to 'Adicionar um pacote', new_manage_offer_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: -10px;margin-bottom: 20px;" if can? :create, Offer
-  - else
-    Para publicar um pacote ou aplicar filtros nos anuncios publicados por favor usa a versão desktop do site.
-
-  - offer_resort_categories.each do |resort_category|
-    = resort_category.name
-
-  -if !mobile_device?
+    -if current_user.agency?
+      = link_to 'Adicionar um pacote', new_manage_offer_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: -10px;margin-bottom: 20px;"
     = form_for :search, url: search_offers_path, method: :get do |f|
+      %p.small
+        Escolha os parâmetros abaixo para encontrar um pacote do seu jeito, do seu gosto.
       .search-filter
         .select-wrap
           = f.hidden_field :resort_categories, value: search_value_for(:resort_categories)
@@ -77,7 +75,7 @@
             %span.name Custos
             %a.arrow{:href => "#"}
           %ul.option-list
-            %li.default{data: {value: ''}} Qq
+            %li.default{data: {value: ''}} Qualquer
             %li{"data-value" => "0..99"} menos de r$ 100 por dia
             %li{"data-value" => "100..200"} r$ 100 - r$ 200
             %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
@@ -93,15 +91,14 @@
         /    %li{"data-value" => "#{25.years.ago.to_date}..#{18.years.ago.to_date}"} 18-25
         /    %li{"data-value" => "#{99.years.ago.to_date}..#{25.years.ago.to_date}"} 25-99
         .select-extra
-          %label.nrml{ :for => "show_passed",:style=>"margin-top: 0px;" }
-            Mostrar Trips passados
-            = f.check_box :show_passed, checked: search_value_for(:show_passed) == "1"
+          = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
         .select-extra
           - if action_name == 'search'
             = link_to t('cleanFilters'), main_app.offers_path, class: 'button', style: "display: block; margin-left: auto; margin-right: auto;"
+
         .clear
       / end search-filter
-      = f.submit t('applyFilters'), :style=>"display: block; margin-left: auto; margin-right: auto;"
+
     / :style=>"float: right;"
     .heading
       - if action_name == 'search'
@@ -111,9 +108,10 @@
       - if can? :manage, Offer
         = link_to 'Os meus pacotes', manage_offers_path, class: 'all my-ads', target: '_blank'
   - else
+    Para publicar um pacote ou aplicar filtros nos anuncios publicados por favor usa a versão desktop do site.
     .heading
       %h1 Todos os anúncios
-    
+
   - if @offers.empty?
     Não existem pacotes ou nenhum foi encontrada com os filtros especificados.
   - else

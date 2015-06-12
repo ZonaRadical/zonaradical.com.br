@@ -4,12 +4,19 @@
       %p{:style=>"float: right;"}
         - if offer.user_owners.include?(current_user)
           Seu pacote
+        - else
+          - offer.user_owners.each do |onwr|
+            = avatar_img_sm(onwr)
+            = link_to onwr.surname[0..12]+"...", onwr, target: '_blank'
       %p.title
         = link_to offer.title, send(offer_path_method, offer)
         / = participation_status(offer)
       %i.date
-        = check_in_formatted(offer)
-        %b= offer.resort_categories.collect(&:name).join(', ')
+        %span{:title=>t('check_in')}
+          = check_in_formatted(offer)
+        %span{:title=>"Paises de destino"}
+          %b= offer.resort_categories.collect(&:name).join(', ')
+        %span{:title=>"Estações de destino"}
         = tour_resorts_names(offer)
       %p= truncate_html(offer.description.html_safe, length: 100)
       = link_to 'Leia mais', send(offer_path_method, offer), class: 'read-more'
