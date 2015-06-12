@@ -19,7 +19,7 @@
 
   -if !mobile_device?
     -if current_user.agency?
-      = link_to 'Adicionar um pacote', new_manage_offer_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: -10px;margin-bottom: 20px;"
+      = link_to 'Adicionar um pacote', new_manage_offer_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: 5px;margin-bottom: 5px;"
     = form_for :search, url: search_offers_path, method: :get do |f|
       %p.small
         Escolha os parâmetros abaixo para encontrar um pacote do seu jeito, do seu gosto.
