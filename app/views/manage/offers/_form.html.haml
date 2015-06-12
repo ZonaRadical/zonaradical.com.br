@@ -5,102 +5,119 @@
       %ul
         - @offer.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :title, "* "+t('offerTitle')
-    = f.text_field :title
-    %br
-    %i
-      Campo obrigatorio, 15 simbolos minimo.
-
-  .field
-    = f.label :resort_category_ids, "* País(es)"
-    = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
-    %br
-    %i
-      Campo obrigatorio.
-  .field
-    = f.label :resort_ids
-    = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione um país' }
-
-  .field
-    = f.label :tour_style_id, "* "+t('tourStyle')
-    = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
-    %br
-    %i
-      Campo obrigatorio.
-    %p.small
-      -TourStyle.all.each do |t_style|
-        %b
-          = t_style.name.to_s+": "
-        = t_style.description.to_s+"."
-  .field
-    = f.label :accommodation_id, t('accommodation')
-    = f.collection_select(:accommodation_id, Accommodation.all, :id, :name, {:prompt => t('selectAccommodation')})
-    %p.small
-      -Accommodation.all.each do |acco|
-        %b
-          = acco.name.to_s+": "
-        = acco.description.to_s+"."
-  .field
-    = f.label :description, "* "+t('description')
-    = f.text_area :description, :class => 'froala', :rows => 40, :cols => 120
-    %i
-      Campo obrigatorio.
-      %br
-      Coloca aqui uma boa descrição do seu pacote.
-  .field
-    = f.label :duration,t('duration')
-    = f.number_field :duration
-    dias
-  .field
-    = f.label :check_in, "* "+t('check_in')
-    = select_day tour_day(@offer), field_name: 'check_in_d', prefix: 'offer', prompt: 'Escolha um dia (opcional)'
-    = select_month tour_month(@offer), field_name: 'check_in_m', prefix: 'offer'
-    = select_year tour_year(@offer), field_name: 'check_in_y', prefix: 'offer'
-    %p
-      %i
-        Caso não sabe ainda o dia certo do início do seu pacote, basta escolher o mês e tbm o ano, óbvio =)
-        %br
-        Mês e ano são campos obrigatorios.
-  .field
-    = f.label :price, t('price')
-    = f.text_field :price
-    %p
-      %i
-        Já tem uma avaliação preliminar do seu orçamento diário? Coloca aki!
-  .field
-    = f.label :hotel_name
-    = f.text_field :hotel_name
-  .field
-    = f.label :air_included
-    = f.check_box :air_included
   .field
     = image_tag @offer.image_url(:thumb).to_s
     = f.label :image
     = f.file_field :image
     = f.check_box :remove_image
+  %table{:style=>"width: 100%;"}
+    %tr
+      %td
+        .field
+          = f.label :title, "* "+t('offerTitle')
+          = f.text_field :title
+          %br
+          %i
+            Campo obrigatorio, 15 simbolos minimo.
+      %td
+        .field
+          = f.label :tour_style_id, "* "+t('tourStyle')
+          = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
+          %br
+          %i
+            Campo obrigatorio.
+        %p.small
+          -TourStyle.all.each do |t_style|
+            %b
+              = t_style.name.to_s+": "
+            = t_style.description.to_s+"."
+    %tr
+      %td
+        .field
+          = f.label :resort_category_ids, "* País(es) de destino"
+          = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
+          %br
+          %i
+            Campo obrigatorio.
+      %td
+        .field
+          = f.label :resort_ids, "Estações de destino"
+          = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione 1o um país' }
+    %tr
+      %td
+        .field
+          = f.label :hotel_name, "Nome de moradia"
+          = f.text_field :hotel_name
+      %td
+        .field
+          = f.label :accommodation_id, t('accommodation')
+          = f.collection_select(:accommodation_id, Accommodation.all, :id, :name, {:prompt => t('selectAccommodation')})
+          %p.small
+            -Accommodation.all.each do |acco|
+              %b
+                = acco.name.to_s+": "
+              = acco.description.to_s+"."
+  .field
+    = f.label :description, "* O que está incluido no seu pacote"
+    = f.text_area :description, :class => 'froala', :rows => 40, :cols => 120
+    %i
+      Campo obrigatorio.
+      %br
+      Coloca aqui uma boa descrição do seu pacote.
+  %table
+    %tr
+      %td{:style=>"width: 80%;"}
+        .field
+          = f.label :check_in, "* "+t('check_in')
+          = select_day tour_day(@offer), field_name: 'check_in_d', prefix: 'offer', prompt: 'Escolha um dia (opcional)'
+          = select_month tour_month(@offer), field_name: 'check_in_m', prefix: 'offer'
+          = select_year tour_year(@offer), field_name: 'check_in_y', prefix: 'offer'
+          %p
+            %i
+              Campos obrigatorios.
+      %td
+        .field
+          = f.label :duration,"* "+t('duration')
+          = f.number_field :duration
+          dias
+          %p
+            %i
+              Campo obrigatorio.
+  %table
+    %tr
+      %td
+        .field
+          = f.label :price, "Preço do seu pacote"
+          = f.text_field :price
+      %td
+        .field
+          = f.label :air_included, "A passagem está inlcusa?"
+          = f.check_box :air_included
+
   - if can? :manage, @offer
     .field
-      = f.label :published
+      = f.label :published, "Publicar?"
       = f.check_box :published
-  %p{:style => "margin-top 30px; text-transform: uppercase;font-size: 18px;"}
+    %p
+      Pode deixar este pacote como rascunho, sem publicar-lo para usuarios do ZR.
 
   %p{:style => "margin-top 30px; text-transform: uppercase;font-size: 18px;"}
-    %b
-      Galleria
+
   %ul
-  -unless @offer.gallery_images.all.count.zero?
-    -@offer.gallery_images.all.each do |image|
-      %li
-        = image_tag image.image_url(:thumb).to_s
-        = text_field_tag "gallery_images[name][#{image.id}]", image.name, {placeholder: 'name'}
-        = text_field_tag "gallery_images[url][#{image.id}]", image.url, {placeholder: 'url'}
-        = text_area_tag "gallery_images[description][#{image.id}]", image.description, size: '30x5'
-        = check_box_tag "gallery_images[remove_image][#{image.id}]"
-        = text_field_tag "gallery_images[order][#{image.id}]", image.order, {placeholder: 'order',size: 4}
+    -unless @offer.gallery_images.all.count.zero?
+      -@offer.gallery_images.all.each do |image|
+        %li
+          = image_tag image.image_url(:thumb).to_s
+          = text_field_tag "gallery_images[name][#{image.id}]", image.name, {placeholder: 'name'}
+          = text_field_tag "gallery_images[url][#{image.id}]", image.url, {placeholder: 'url'}
+          = text_area_tag "gallery_images[description][#{image.id}]", image.description, size: '30x5'
+          = check_box_tag "gallery_images[remove_image][#{image.id}]"
+          = text_field_tag "gallery_images[order][#{image.id}]", image.order, {placeholder: 'order',size: 4}
   .field
-    = f.label :add_gallery_images
+    = f.label :add_gallery_images, "Algumas fotos da estação, ou de hotel? Adiciona aqui."
     = f.file_field :add_gallery_images, :multiple => true, name: 'gallery_images[images][]'
+  %p{:style => "margin-bottom 30px;"}
+
+
   .actions
     = f.submit 'Save'
