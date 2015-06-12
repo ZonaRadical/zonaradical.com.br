@@ -42,6 +42,7 @@ class Offer < ActiveRecord::Base
   validates :check_in_y, :check_in_m, presence: true
   validates :check_in_y, :check_in_m, numericality: { only_integer: true, greater_than: 0 }
   validate :country_presence
+  validates :duration, presence: true
 
   mount_uploader :image, OfferImageUploader
 
