@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-feature 'user galleries' do
+
+feature 'user galleries', broken: true do
   BASE_PATH = "#{Rails.root}/spec/fixtures/files/user_gallery"
 
   scenario "athlete add images to it's profiles" do

@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://forum.zonaradical.dev/admin/users/sync_sso/?api_key=d8c2f1d9eba226632736d65b73c3e04cf2a2903b49bc2a74091e2134639238f6&api_username=Zonov
+    body:
+      encoding: UTF-8
+      string: sso=bmFtZT1UZXN0K3VzZXImdXNlcm5hbWU9VGVzdFVzZXImZW1haWw9bWFpbCU0%0AMG1haWwxMjMucnUmZXh0ZXJuYWxfaWQ9MTMz%0A&sig=93fbf4c689573f26f0e1f46d132d27d8d0185b3690d99cab82b225ef484654dd
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - DiscourseAPI Ruby Gem 0.4.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - _forum_session=RExZaHBzRnh5VlFlVHFzQjAzTjlyZnpJK2lhZjNhV1Y2R3gyY0tsR1Aya1RqbW5CQkxDdVZLcnFMS29Pcm13VEtBYlZVTm04amVxamFaSVBza0FzdUs5aC9XWkwyczlweXJxbm1DQWxYaTlodDV3WFowbHg1bE1HRy9pbWdrKzZvdVYwQ0lFdU1XYzhkT3NCQ3FaRStIcW1YM0pzYzF2SnkreGx3Wkg0bjdCRk9uRjJtQUh2TStPWW1nZUNmeHBDLS1jek5KRmJiNmFvOUM0WklJOWhYNWZRPT0%3D--eced421529d47ce3c33288fd46468a7da833d289;
+        path=/; HttpOnly
+      X-Request-Id:
+      - b0593575-e7a7-4acb-a051-399cbfa270a0
+      X-Runtime:
+      - '0.306008'
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      X-Miniprofiler-Ids:
+      - '["zvtdekbzf9b0k098doew","lscwouk7k1hyxdvktm0g","ot9u5r5y4466f6zu016g","gjv7h36ccz6ua1o1cdld","zf09x466gb78uco747on","56kcbshi8zlujcw2yl4o","gpxfd4frue10bp1oler2","b34y8cyilku19u1a6cbx","lwhkrpzvns30x2nyfn10","2v20sgbcr39s3o4l0ppq"]'
+      Date:
+      - Fri, 12 Jun 2015 22:33:52 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":13,"username":"TestUser","uploaded_avatar_id":null,"avatar_template":"/letter_avatar/testuser/{size}/3_6a1bbb3edd25692bdfeb4caeb55bb3c3.png","active":true,"admin":false,"moderator":false,"last_seen_at":null,"last_emailed_at":null,"created_at":"2015-06-12T22:31:51.348Z","last_seen_age":null,"last_emailed_age":null,"created_at_age":"2m","username_lower":"testuser","trust_level":0,"trust_level_locked":false,"flag_level":0,"title":null,"suspended_at":null,"suspended_till":null,"suspended":null,"blocked":false,"time_read":"<
+        1m","days_visited":0,"posts_read_count":0,"topics_entered":0,"post_count":0,"can_send_activation_email":true,"can_activate":false,"can_deactivate":true,"ip_address":null,"registration_ip_address":null,"can_grant_admin":true,"can_revoke_admin":false,"can_grant_moderation":true,"can_revoke_moderation":false,"can_impersonate":true,"like_count":0,"like_given_count":0,"topic_count":0,"flags_given_count":0,"flags_received_count":0,"private_topics_count":0,"can_delete_all_posts":true,"can_be_deleted":true,"can_be_anonymized":true,"suspend_reason":null,"primary_group_id":null,"badge_count":0,"warnings_received_count":0,"single_sign_on_record":{"user_id":13,"external_id":"133","last_payload":"name=Test+user&username=TestUser&email=mail%40mail123.ru&external_id=133","created_at":"2015-06-12T22:31:51.497Z","updated_at":"2015-06-12T22:33:52.156Z","external_username":"TestUser","external_email":"mail@mail123.ru","external_name":"Test
+        user","external_avatar_url":null},"approved_by":null,"suspended_by":null,"groups":[{"id":10,"automatic":true,"name":"trust_level_0","user_count":5,"alias_level":0,"visible":true,"automatic_membership_email_domains":null,"automatic_membership_retroactive":false,"primary_group":false,"title":null}]}'
+    http_version: 
+  recorded_at: Fri, 12 Jun 2015 22:33:52 GMT
+- request:
+    method: post
+    uri: http://forum.zonaradical.dev/admin/users/sync_sso/?api_key=d8c2f1d9eba226632736d65b73c3e04cf2a2903b49bc2a74091e2134639238f6&api_username=Zonov
+    body:
+      encoding: UTF-8
+      string: sso=bmFtZT1UZXN0K3VzZXImZW1haWw9bWFpbCU0MG1haWwxMjMucnUmZXh0ZXJu%0AYWxfaWQ9MTMz%0A&sig=e6ee84e0777d470135b118b02156930843f514772c443dd4315d14f2ef1369f1
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - DiscourseAPI Ruby Gem 0.4.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Set-Cookie:
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - __profilin=p%3Dt; path=/
+      - _forum_session=K2NhZ25OZm4zTS96NUlyMXExSjRsS0docnpEdHFxLzQ3Ym1aYWJUODRvWWJMTG8wenY4ZkVTYVU1NlRhd1lXd1U3bEhzR00rblBkZnJCS29MSDBxVnFtREpaLzJoQzNiWFdRMjJVQVBOZHNETUw3dFpaZlVKZnRjZDkwUDNaZmRjeGVlc01SSGJpaXBqeDhML292cnFMcUozbmJqWDlmOTJtQ1paMWpGNkRaakFiM3RXbXByK0xQVForZ1ZCckRiLS1HUDFpcVNKUXdDdCt4RWlxN3FzSlNBPT0%3D--2f9f439d5adaa9f351feca7ffe33e7ff0257876e;
+        path=/; HttpOnly
+      X-Request-Id:
+      - 3044348d-7a3e-4a65-aa38-99a9aa7815db
+      X-Runtime:
+      - '0.193893'
+      Cache-Control:
+      - no-store, must-revalidate, private, max-age=0
+      X-Miniprofiler-Ids:
+      - '["ceiuwha1gx0y7inbqjvk","zf09x466gb78uco747on","56kcbshi8zlujcw2yl4o","gpxfd4frue10bp1oler2","b34y8cyilku19u1a6cbx","lwhkrpzvns30x2nyfn10","2v20sgbcr39s3o4l0ppq","pw67r5nstj0cogo0v5xe","hp012yvr4ubpq0upkxwo","hl2chepummaqd5iw7llf"]'
+      Date:
+      - Fri, 12 Jun 2015 22:33:52 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":13,"username":"TestUser","uploaded_avatar_id":null,"avatar_template":"/letter_avatar/testuser/{size}/3_6a1bbb3edd25692bdfeb4caeb55bb3c3.png","active":true,"admin":false,"moderator":false,"last_seen_at":null,"last_emailed_at":null,"created_at":"2015-06-12T22:31:51.348Z","last_seen_age":null,"last_emailed_age":null,"created_at_age":"2m","username_lower":"testuser","trust_level":0,"trust_level_locked":false,"flag_level":0,"title":null,"suspended_at":null,"suspended_till":null,"suspended":null,"blocked":false,"time_read":"<
+        1m","days_visited":0,"posts_read_count":0,"topics_entered":0,"post_count":0,"can_send_activation_email":true,"can_activate":false,"can_deactivate":true,"ip_address":null,"registration_ip_address":null,"can_grant_admin":true,"can_revoke_admin":false,"can_grant_moderation":true,"can_revoke_moderation":false,"can_impersonate":true,"like_count":0,"like_given_count":0,"topic_count":0,"flags_given_count":0,"flags_received_count":0,"private_topics_count":0,"can_delete_all_posts":true,"can_be_deleted":true,"can_be_anonymized":true,"suspend_reason":null,"primary_group_id":null,"badge_count":0,"warnings_received_count":0,"single_sign_on_record":{"user_id":13,"external_id":"133","last_payload":"name=Test+user&email=mail%40mail123.ru&external_id=133","created_at":"2015-06-12T22:31:51.497Z","updated_at":"2015-06-12T22:33:52.362Z","external_username":null,"external_email":"mail@mail123.ru","external_name":"Test
+        user","external_avatar_url":null},"approved_by":null,"suspended_by":null,"groups":[{"id":10,"automatic":true,"name":"trust_level_0","user_count":5,"alias_level":0,"visible":true,"automatic_membership_email_domains":null,"automatic_membership_retroactive":false,"primary_group":false,"title":null}]}'
+    http_version: 
+  recorded_at: Fri, 12 Jun 2015 22:33:52 GMT
+recorded_with: VCR 2.9.3
