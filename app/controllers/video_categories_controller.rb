@@ -23,6 +23,11 @@ class VideoCategoriesController < ApplicationController
   def edit
   end
 
+  def slug
+    video_category = VideoCategory.new name: params[:title]
+    render json: { slug: video_category.slug_preview }
+  end
+
   # POST /video_categories
   # POST /video_categories.json
   def create

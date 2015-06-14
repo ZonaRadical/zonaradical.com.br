@@ -7,7 +7,7 @@
           %li= msg
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, data: { url: slug_video_categories_path }
   .field
     = f.label :slug
     = f.text_field :slug
