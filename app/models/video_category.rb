@@ -11,6 +11,9 @@
 # end
 
 class VideoCategory < ActiveRecord::Base
+  include Slug
+  slugged :name
+
   has_ancestry( :cache_depth => true )
   has_many :videos
 
