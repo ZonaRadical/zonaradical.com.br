@@ -108,7 +108,7 @@ module DiscourseZr
           end
           false
         rescue
-          unknow_error
+          discourse_unknow_error
         end
       end
 
