@@ -52,7 +52,7 @@ module DiscourseZr
       rescue DiscourseApi::Error => e
         parse_discourse_error(e.message)
       rescue
-        discourse_unknow_error
+        discourse_unknown_error
       end
 
       def update_topic
@@ -108,11 +108,11 @@ module DiscourseZr
           end
           false
         rescue
-          discourse_unknow_error
+          discourse_unknown_error
         end
       end
 
-      def discourse_unknow_error
+      def discourse_unknown_error
         errors.add(:base, 'Ocorreu um erro desconhecido, por favor tente novamente. Se o problema persistir, contate o administrador do sistema.')
         false
       end
