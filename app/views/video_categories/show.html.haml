@@ -32,7 +32,7 @@
           =render video_category.videos.limit(3)
         -if video_category.videos.size > 3
           %p.others
-            = link_to t('othervideos') + video_category.name, video_category_path(video_category)
+            = link_to t('othervideos') + video_category.name, show_video_category_path(video_category)
 -content_for :aside do
   %aside
     =render 'shared/aside/aside_social_buttons'

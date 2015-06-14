@@ -28,8 +28,12 @@ Rails.application.routes.draw do
   get '/tips', to: redirect('/dicas')
   get '/tip_categories/:id', to: redirect('/dicas/%{id}')
 
-  resources :videos, concerns: :sluggable
-  resources :video_categories, concerns: :sluggable
+  # Videos
+  resources :videos, concerns: :sluggable, except: :show
+  get 'videos/:category_id/:id', to: 'videos#show', as: :show_video
+
+  get 'videos/:id', to: 'video_categories#show', as: :show_video_category
+  resources :video_categories, concerns: :sluggable, except: :show
 
   resources :breezes, :breeze_categories
   resources :image_galleries, :media_image_categories
