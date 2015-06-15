@@ -10,6 +10,8 @@ role :db,  %w{deployer@develop.zonaradical.com.br}
 
 set :branch, 'develop'
 
+set :keep_releases, 1
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
