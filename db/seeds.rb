@@ -96,3 +96,10 @@ Resort.create!([
                  {name: "Centro de Esqui Antillanca", image: "3240_ANTILLANCA_WEB_logo.jpg", web: "http://www.antillanca.cl/", fb: "", resort_category_id: 5, index: nil, level1_description: "<p>O Complexo Turístico Antillanca fica dentro do Parque Nacional Puyehue, a 98km de distância da cidade de Osorno, que situa-se na vertente do Vulcão Casablanca, no Sul do Chile.</p><p>Contando com 512 hectares de terreno esquiável, Antillanca é um lugar ideal para a prática do snowboard fora de pista, pois tem cornijas e cerros espetaculares para praticar o esporte.</p><p>O Centro de Esqui possui uma excelente infra-estrutura nas pistas, uma equipe de instrutores para ensinar quem quer aprender, fazendo da estação uma ótima escolha para os snowboarders iniciantes. Antillanca  também é para os mais experientes, dispondo de setores como o elevador de São Pedro, que exige mais domínio do ski, por causa das agudas encostas de grande longitude.</p><p>Também se destacam nesta categoria El Haique, El Mirador, e com descidas mais extremas ainda, o Casablanca em La Taza. &nbsp;cenário onde se localiza o complexo turístico, permite a prática de várias outras atividades como trekking, escalada em rocha, rapel, visita as covas vulcânicas entre outras coisas.</p>", level2_description: nil, level3_description: nil, airport: "Osorno", altitude_top: 1236, altitude_bottom: 1700, drop: nil, terrain: 412, lifts: 8, slopes: "14 Pistas ( 20% iniciante, 35% Intermediário, 45% Avançado)", map_url: "http://pt.snow-forecast.com/resorts/Antillanca/pistemap", slug: "centro-de-esqui-antillanca"}
                ])
 
+
+Accommodation.create!([
+                        {name: "Cabana", description: "Uma casa inteira só para o seu grupo"},
+                        {name: "Apto", description: "Um apartamento dividido entre seus amigos"},
+                        {name: "Hotel", description: "Um quarto bom com uma ou mais estrelas"},
+                        {name: "Hostel", description: "Um dormitório de orçamento baixo"}
+                      ])
