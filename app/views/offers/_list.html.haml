@@ -1,5 +1,5 @@
 %ol.announcement-list
-  - @offers.each do |offer|
+  - offers.each do |offer|
     %li
       %p.title
         = link_to offer.title, send(offer_path_method, offer)
@@ -17,4 +17,3 @@
         |
         = link_to t('destroy'), manage_offer_path(offer), method: :delete, data: { confirm: t('confirm_destroy') }
 / end announcement-list
-= will_paginate @offers

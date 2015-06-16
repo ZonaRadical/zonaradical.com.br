@@ -1,7 +1,8 @@
 .main-content
   %h1 Listing offers
   
-  = render 'offers/list', offer_path_method: "manage_offer_path"
+  = render 'offers/list', offers: @offers, offer_path_method: "manage_offer_path"
+  = will_paginate @offers
 
   = link_to 'New offer', new_manage_offer_path
 

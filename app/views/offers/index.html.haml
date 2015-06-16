@@ -85,7 +85,8 @@
   - if @offers.empty?
     Não existem pacotes ou nenhum foi encontrada com os filtros especificados.
   - else
-    = render 'list', offer_path_method: "offer_path"
+    = render 'list', offers: @offers, offer_path_method: "offer_path"
+    = will_paginate @offers
   .clear
 
   -content_for :aside do

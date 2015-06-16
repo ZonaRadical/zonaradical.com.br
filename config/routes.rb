@@ -71,7 +71,10 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
   resources :users do
-    resources :tours, module: 'users'
+    scope module: 'users' do
+      resources :tours
+      resources :offers
+    end
   end 
   scope '/manage' do
     resources :users do
