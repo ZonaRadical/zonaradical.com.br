@@ -33,7 +33,7 @@
             = t('sex')
             \:
           =profile.sex.to_s
-      -unless profile.birthday.blank?
+      -unless age profile.birthday>45
         %li
           %b
             = t('birthday')
@@ -59,9 +59,9 @@
           - if profile.confirmed?
             %span.email=mail_to profile.email, profile.email, :target => "_blank"
           -elsif !profile.unconfirmed_email.blank?
-            %span.unconfirmed-email=mail_to profile.unconfirmed_email, profile.unconfirmed_email, :target => "_blank"
+            %span.email=mail_to profile.unconfirmed_email, profile.unconfirmed_email, :target => "_blank"
           -else
-            %span.unconfirmed-email=mail_to profile.email, profile.email, :target => "_blank"
+            %span.email=mail_to profile.email, profile.email, :target => "_blank"
           - if profile.web
             %span.web=link_to cut_phrase(profile.web,45), profile.web, :target => "_blank"
           - if profile.fb
