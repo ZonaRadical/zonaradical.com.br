@@ -70,11 +70,15 @@ Rails.application.routes.draw do
   get '/discourse/logout', to: 'discourse#logout'
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
+  resources :users do
+    resources :tours, module: 'users'
+  end 
   scope '/manage' do
     resources :users do
       resources :image_galleries
       resources :notifications
       patch 'update_password', on: :collection
+      resources :tours, module: 'manage'
     end
   end
   namespace :manage do
