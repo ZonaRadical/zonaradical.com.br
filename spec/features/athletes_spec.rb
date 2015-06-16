@@ -6,10 +6,10 @@ feature 'athletes' do
     @athlete = create(:athlete)
   end
 
-  scenario 'admin can change athlete role' do
+  scenario 'admin can change athlete role', broken: true do
     admin = create(:admin)
     login(admin)
-    
+
     # remove the athlete role
     visit edit_user_path(@athlete)
     within('#tab_roles') do
@@ -17,6 +17,7 @@ feature 'athletes' do
       athlete_li = find('li', text: 'athlete')
       athlete_li.find('input').set(true)
     end
+
     first(:button, 'Update User').click
     within('#tab_roles') do
       athlete_li = find('li', text: 'athlete')
@@ -43,7 +44,7 @@ feature 'athletes' do
     create(:athlete, name: 'João', email: 'joao@mail.com')
     create(:athlete, name: 'Zeferino', email: 'zeferino@mail.com')
     create(:athlete, name: 'Duda', email: 'duda@mail.com')
-    
+
     visit root_path
     galera_zr_menu = find('li.submenu-item', text: 'Galera Snow')
     athletes_menu = galera_zr_menu.find('ul.submenu').find('li', text: 'Athletes')

@@ -61,4 +61,16 @@ RSpec.configure do |config|
 =end
 
   config.filter_run_excluding :broken => true
+
+  #  VCR save each request without cassette
+  config.around(:each) do |example|
+    options = example.metadata[:vcr] || {}
+    if options[:record] == :skip
+      VCR.turned_off(&example)
+    else
+      name = example.metadata[:full_description].split(/\s+/, 2).join("/").underscore.gsub(/[^\w\/]+/, "_")
+      VCR.use_cassette(name, options, &example)
+    end
+  end
+
 end

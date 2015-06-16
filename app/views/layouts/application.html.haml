@@ -28,7 +28,8 @@
     = stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
     /[if lt IE 9]
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      %script{:src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    = render 'layouts/custom_audience_pixel'
   %body
     -if !mobile_device?
       .fb-root
