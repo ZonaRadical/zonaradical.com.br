@@ -11,7 +11,7 @@
       =menu_resort_categories ResortCategory.all.arrange
 
   %li.submenu-item
-    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['dicas'], []]
+    = active_link_to t('tipsShort'),main_app.tips_url, :rel => 'nofollow', active: [['tips','tip_categories'], []]
     %ul.submenu
       =menu_tip_categories TipCategory.all
 

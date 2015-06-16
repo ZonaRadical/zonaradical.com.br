@@ -25,6 +25,7 @@ RSpec.describe UsersController, :type => :controller do
   # adjust the attributes here as well.
   let(:valid_attributes){
     { :name => 'Name',
+      :surname => 'Surname',
       :email => 'email@mail.ru',
       :password => 'password',
       :password_confirmation => 'password',

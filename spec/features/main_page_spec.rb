@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'main page' do
+feature 'main page', broken: true do
   context 'main menu' do
     scenario 'dynamic display video categories' do
       vcat_digiacomo = create(:video_category, name: 'Digiácomo Dias')

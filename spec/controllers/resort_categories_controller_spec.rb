@@ -90,7 +90,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
 
         it "redirects to the created resort_category" do
           post :create, {:resort_category => valid_attributes}
-          expect(response).to redirect_to(ResortCategory.last)
+          expect(response).to redirect_to(show_resort_category_path ResortCategory.last)
         end
       end
 
@@ -117,7 +117,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
           resort_category = ResortCategory.create! valid_attributes
           put :update, {:id => resort_category.id, :resort_category => new_attributes}
           resort_category.reload
-          expect(response).to redirect_to(ResortCategory.last)
+          expect(response).to redirect_to(show_resort_category_path ResortCategory.last)
         end
 
         it "assigns the requested resort_category as @resort_category" do
@@ -129,7 +129,7 @@ RSpec.describe ResortCategoriesController, :type => :controller do
         it "redirects to the resort_category" do
           resort_category = ResortCategory.create! valid_attributes
           put :update, {:id => resort_category.to_param, :resort_category => new_attributes}
-          expect(response).to redirect_to(resort_category)
+          expect(response).to redirect_to(show_resort_category_path resort_category)
         end
       end
 
