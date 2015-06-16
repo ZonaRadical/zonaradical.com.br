@@ -25,4 +25,20 @@ module UsersHelper
   def avatar_img_sm(user)
     image_tag(user.avatar_url(:ava), class: 'userpic-sm', alt: user.name.to_s+" avatar")
   end
+
+  def tour_button(user = @user)
+    if can? :manage, Tour and current_user == user
+      link_to t('tours'), manage_tours_path, class: 'button'
+    else
+      link_to t('tours'), user_tours_path(user), class: 'button'
+    end
+  end
+
+  def offer_button(user = @user)
+    if can? :manage, Offer and current_user == user
+      link_to t('offers'), manage_offers_path, class: 'button'
+    else
+      link_to t('offers'), user_offers_path(user), class: 'button'
+    end
+  end
 end
