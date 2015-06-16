@@ -18,6 +18,9 @@
           %b= offer.resort_categories.collect(&:name).join(', ')
         %span{:title=>"Estações de destino"}
         = tour_resorts_names(offer)
+        %br
+        r$
+        =offer.price
       %p= truncate_html(offer.description.html_safe, length: 100)
       = link_to 'Leia mais', send(offer_path_method, offer), class: 'read-more'
       - if can? :manage, offer

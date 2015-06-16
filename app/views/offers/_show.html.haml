@@ -24,11 +24,15 @@
             %span.price{:title=> t('price')}
               R$
               = @offer.price
-              por dia
+              por pessoa
+          -unless !@offer.air_included
+            %span.air
+              A passagem aérea está inclusa
           %span.style{:title=> t('tourStyle')}
             = @offer.tour_style
           %span.accom{:title=> t('accommodation')}
             = @offer.accommodation
+
         .clear
   .h2{:itemprop=>"name"}
     Criador(es)

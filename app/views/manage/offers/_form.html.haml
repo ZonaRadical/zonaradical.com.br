@@ -87,11 +87,11 @@
     %tr
       %td
         .field
-          = f.label :price, "Preço do seu pacote"
+          = f.label :price, "Preço de pacote por pessoa"
           = f.text_field :price
       %td
         .field
-          = f.label :air_included, "A passagem está inlcusa?"
+          = f.label :air_included, "A passagem está inclusa?"
           = f.check_box :air_included
 
   - if can? :manage, @offer
