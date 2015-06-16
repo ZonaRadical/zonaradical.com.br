@@ -41,4 +41,9 @@ module UsersHelper
       link_to t('offers'), user_offers_path(user), class: 'button'
     end
   end
+
+  def offers_published(user)
+    total_offers = Offer.published.owned_by([user]).count
+    link_to total_offers, user_offers_path(user)
+  end
 end
