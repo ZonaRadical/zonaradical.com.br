@@ -26,6 +26,7 @@ en:
   forgotPsw: "Forgot your password?"
   noConfirm: "Didn't receive confirmation instructions?"
   noUnlock: "Didn't receive unlock instructions?"
+  pleaseConfirmEmail: "Please confirm your e-mail"
   signWith: "Sign in with"
   home: "Home"
   forum: 'Forum'

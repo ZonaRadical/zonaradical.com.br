@@ -17,7 +17,7 @@
         /    \:
         /  = user_last_seen_at(profile)
     %ul.details-list
-      -unless profile.birthday.nil?
+      -unless age(profile.birthday)>45
         %li
           %b
             = t('age')
