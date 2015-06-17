@@ -20,15 +20,15 @@
   = render 'profile', profile: @user
 -content_for :aside do
   %aside
-    -if can? :update, @user
-      .heading
-        %h1= t('personalMenu')
-      .buttons
+    .heading
+      %h1= t('personalMenu')
+    .buttons
+      -if can? :update, @user
         %a.button{:href => edit_user_path(@user)}= t('editProfile')
         = image_gallery_button
-        -if can? Tour, :manage
-          %a.button{:href => manage_tours_path}= t('tours')
-      .clear
+      = tour_button unless @user.agency?
+      = offer_button if @user.agency?
+    .clear
     =render 'shared/aside/aside_social_buttons'
     =render 'shared/aside/aside_fb_like_box'
     =render 'shared/aside/aside_advert'

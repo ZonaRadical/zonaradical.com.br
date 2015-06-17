@@ -13,6 +13,11 @@
             = t('city')
             \:
           =profile.city
+      %li
+        %b
+          = t('offers')
+          \:
+        = offers_published(profile)
       %li.contacts
         %b
           = t('contacts')

@@ -106,6 +106,7 @@ pt-BR:
     # Offer
     createOffer: 'Criar pacote'
     agencies:   'Agências'
+    offers: 'Pacotes'
 
     # Tour Participants
     pending: 'Pendente'
