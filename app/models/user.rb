@@ -174,7 +174,7 @@ class User < ActiveRecord::Base
     }
     if self.name_changed? or self.email_changed?
       sso_data[:name] = self.name if self.name_changed?
-      sso_data[:email] = self.email if self.email_changed?
+      sso_data[:email] = self.email
       client = DiscourseZr.client
       client.sync_sso(sso_data)
     end

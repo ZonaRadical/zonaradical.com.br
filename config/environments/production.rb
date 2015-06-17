@@ -84,6 +84,7 @@ Rails.application.configure do
 
   #smtp config
   config.action_mailer.default_url_options = { :host => 'www.zonaradical.com.br' }
+  routes.default_url_options = { :host => "www.zonaradical.com.br" }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_options = {

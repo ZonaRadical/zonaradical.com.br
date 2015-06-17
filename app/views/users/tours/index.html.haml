@@ -1,0 +1,21 @@
+.main-content
+  = form_tag user_tours_path(@user), id: 'show_passed_form', method: :get, enforce_utf8: false do
+    Mostrar Trips passados
+    = check_box_tag :show_passed, '1', params[:show_passed] == "1"
+
+  .heading
+    %h1== Trips criadas por #{@user.name}
+  = render 'tours/list', tours: @tours_owned, tour_path_method: "tour_path"
+  .heading
+    %h1== Trips que #{@user.name} participa
+  = render 'tours/list', tours: @tours_participate, tour_path_method: "tour_path"
+
+  .clear
+
+  -content_for :aside do
+    %aside
+      =render 'shared/aside/aside_social_buttons'
+      =render 'shared/aside/aside_advert'
+      =render 'shared/aside/aside_fb_like_box'
+      =render 'shared/aside/aside_resort_gallery'
+    .clear

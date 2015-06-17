@@ -26,7 +26,8 @@ pt-BR:
     forgotPsw: "Esqueceu sua senha?"
     noConfirm: "Nao recebeu a mensagem de confirmacao?"
     noUnlock: "Nao recebeu as intrucoes de desbloqueio?"
-    signWith: "Sign in com"
+    pleaseConfirmEmail: "Por favor, verifique seu e-mail"
+    signWith: "Sign-in com"
     home: "Home"
     imageGalleries: 'Galerias de fotos'
     forum: 'Forum'
@@ -105,6 +106,7 @@ pt-BR:
     # Offer
     createOffer: 'Criar pacote'
     agencies:   'Agências'
+    offers: 'Pacotes'
 
     # Tour Participants
     pending: 'Pendente'

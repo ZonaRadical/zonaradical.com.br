@@ -4,6 +4,8 @@
 
 #=require shared/underscore
 
+$("#video_title").slug_preview({ slug_selector: '#video_slug' })
+
 getYoutubeId = (url) ->
   regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
   match = url.match(regExp)

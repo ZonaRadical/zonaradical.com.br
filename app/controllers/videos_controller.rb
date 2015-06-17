@@ -21,13 +21,18 @@ class VideosController < ApplicationController
   def edit
   end
 
+  def slug
+    video = Video.new title: params[:title]
+    render json: { slug: video.slug_preview }
+  end
+
   # POST /videos
   # POST /videos.json
   def create
     @video = Video.new(video_params)
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+        format.html { redirect_to show_video_path(@video.video_category, @video), notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class VideosController < ApplicationController
     respond_to do |format|
 
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+        format.html { redirect_to show_video_path(@video.video_category, @video), notice: 'Video was successfully updated.' }
         format.json { render :show, status: :ok, location: @video }
       else
         format.html { render :edit }
@@ -64,6 +69,6 @@ class VideosController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def video_params
-    params.require(:video).permit(:title, :source_cd, :source_link, :video_category_id, :description)
+    params.require(:video).permit(:title, :slug, :source_cd, :source_link, :video_category_id, :description)
   end
 end

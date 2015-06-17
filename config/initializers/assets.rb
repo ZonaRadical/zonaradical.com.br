@@ -35,6 +35,8 @@ Rails.application.config.assets.precompile += %w( image_galleries.js )
 Rails.application.config.assets.precompile += %w( videos.css )
 Rails.application.config.assets.precompile += %w( videos.js )
 
+Rails.application.config.assets.precompile += %w( video_categories.js )
+
 Rails.application.config.assets.precompile += %w( tours.css )
 Rails.application.config.assets.precompile += %w( tours.js )
 Rails.application.config.assets.precompile += %w( markdown-buttons.png )
@@ -47,5 +49,11 @@ Rails.application.config.assets.precompile += %w( manage/tours.js )
 
 Rails.application.config.assets.precompile += %w( manage/offers.css )
 Rails.application.config.assets.precompile += %w( manage/offers.js )
+
+Rails.application.config.assets.precompile += %w( users/tours.css )
+Rails.application.config.assets.precompile += %w( users/tours.js )
+
+Rails.application.config.assets.precompile += %w( users/offers.css )
+Rails.application.config.assets.precompile += %w( users/offers.js )
 
 Rails.application.config.assets.precompile += %w( accommodations.js )

@@ -20,4 +20,10 @@ module DiscourseZr
       external_id: user.id
     )
   end
+
+  def self.topic_url(topic_id)
+    client = DiscourseZr.client
+    topic = client.topic(topic_id)
+    Rails.application.routes.url_helpers.root_url(subdomain: 'forum') + "t/#{topic['slug']}/#{topic_id}"
+  end
 end
