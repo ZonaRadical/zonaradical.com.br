@@ -18,6 +18,7 @@ module DiscourseZr
 
         before_save :create_or_update_discourse_topic
         before_destroy :destroy_discourse_topic
+        after_save :update_discourse_topic_with_tour_link
 
         include DiscourseZr::ActAsDiscoursable::LocalInstanceMethods
       end
@@ -60,6 +61,17 @@ module DiscourseZr
         topic = discourse_client.topic(self.discourse_topic_id)
         post_id = topic['post_stream']['posts'].first['id']
         discourse_client.edit_post(post_id, discourse_raw)
+      end
+
+      def update_discourse_topic_with_tour_link
+        topic = discourse_client.topic(self.discourse_topic_id)
+        post_id = topic['post_stream']['posts'].first['id']
+        discourse_client.edit_post(
+          post_id,
+          discourse_raw + ActionController::Base.helpers.link_to(
+            title, Rails.application.routes.url_helpers.tour_url(self), target: '_blank'
+          )
+        )
       end
 
       def discourse_client

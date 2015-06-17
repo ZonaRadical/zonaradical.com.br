@@ -27,7 +27,7 @@
 class Tour < ActiveRecord::Base
   act_as_discoursable(
     title:        -> (tour) { tour.title },
-    description:  -> (tour) { tour.description_with_link },
+    description:  -> (tour) { tour.description },
     category:     -> (tour) { tour.resort_categories.first.name.downcase },
     external_id:  -> (tour) { tour.owners.first.user.id }
   )
@@ -55,11 +55,6 @@ class Tour < ActiveRecord::Base
 
     self.check_in = check_in_d.nil? ? Date.new(check_in_y, check_in_m) : Date.new(check_in_y, check_in_m, check_in_d)
     self.switch_off = switch_off_d.nil? ? Date.new(switch_off_y, switch_off_m) : Date.new(switch_off_y, switch_off_m, switch_off_d)
-  end
-
-  def description_with_link
-    description +
-    ActionController::Base.helpers.link_to(title, Rails.application.routes.url_helpers.tour_url(self), target: '_blank')
   end
 
   def approved_participants
