@@ -10,8 +10,8 @@
     %meta{:property=>"og:title", :content => "Vamo Junto: " +@tour.title}
     %meta{:property=>"og:url", :content => request.original_url.to_s}
     - if @tour.gallery_images.all.count.zero?
-      %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/vamo_junto.png"}
-      %meta{:itemprop=> "photo", :content=> "http://zonaradical.com.br/images/vamo_junto.png"}
+      %meta{:property=> "og:image", :content=> "http://zonaradical.com.br/images/vamo_junto1.jpg"}
+      %meta{:itemprop=> "photo", :content=> "http://zonaradical.com.br/images/vamo_junto1.jpg"}
     - else
       -@tour.gallery_images[0..3].each do |image|
         %meta{:property=> "og:image", :content=> image.image_url(:slider).to_s}
