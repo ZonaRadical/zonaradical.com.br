@@ -1681,6 +1681,9 @@ p.search-intro {
   border-radius: 3px;
   float: left;
   margin-left: 86px;
+  label.selected {
+    color: #ee9200;
+  }
 }
 
 .select {
@@ -1701,6 +1704,9 @@ p.search-intro {
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
+  }
+  span.selected {
+    color: #ee9200;
   }
   .arrow {
     position: absolute;

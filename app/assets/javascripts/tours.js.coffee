@@ -73,7 +73,10 @@ $ ->
     value = $(this).find('input[type=hidden]').val()
     if value != ""
       $(this).find(".option-list li[data-value='#{value}']").click()
+      $(this).find("span").addClass 'selected'
     return
+
+  $('label[for=show_passed]').addClass 'selected' if $('#search_show_passed').val() == "1"
 
   converter = Markdown.getSanitizingConverter()
   editor = new Markdown.Editor(converter)
