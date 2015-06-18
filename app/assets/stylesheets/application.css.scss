@@ -1150,6 +1150,9 @@ ul.details-list {
     &.case {
       background: image_url("case-icon.png") no-repeat left center;
     }
+    &.phone {
+      background: image_url("phone-icon.png") no-repeat left center;
+    }
     a {
       color: #626262;
       text-decoration: none;

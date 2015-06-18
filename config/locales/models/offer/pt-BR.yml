@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      offer: Pacote
+    attributes:
+      offer:
+        resort_category_ids: País(es)
+        resort_ids: Resort(s)
+    errors:
+      models:
+        offer:
+          missing_country: 'Você deve selecionar pelo menos um país.'

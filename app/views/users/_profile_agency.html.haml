@@ -32,6 +32,9 @@
           - if profile.login
             %span.email
               =mail_to profile.login, profile.login, :target => "_blank"
+          - if profile.telephone
+            %span.phone
+              = profile.telephone
         .clear
 -unless profile.bio.blank?
   %p.bio2{:style=>"margin-top: 10px;"}

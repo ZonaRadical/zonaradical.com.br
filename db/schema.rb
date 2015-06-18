@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614190158) do
+ActiveRecord::Schema.define(version: 20150608180332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -223,6 +223,8 @@ ActiveRecord::Schema.define(version: 20150614190158) do
     t.boolean  "published",                                default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hotel_name"
+    t.boolean  "air_included"
   end
 
   add_index "offers", ["accommodation_id"], name: "index_offers_on_accommodation_id", using: :btree
@@ -278,35 +280,15 @@ ActiveRecord::Schema.define(version: 20150614190158) do
     t.string "name"
   end
 
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-
   create_table "tip_categories", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "index"
+    t.integer  "ancestry_depth", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
     t.string   "slug"
-    t.integer  "ancestry_depth", default: 0
   end
 
   create_table "tips", force: true do |t|
@@ -421,6 +403,7 @@ ActiveRecord::Schema.define(version: 20150614190158) do
     t.text     "bio"
     t.string   "fb_avatar"
     t.string   "image"
+    t.string   "telephone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -435,7 +418,6 @@ ActiveRecord::Schema.define(version: 20150614190158) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
-    t.string   "slug"
   end
 
   create_table "videos", force: true do |t|
@@ -446,7 +428,6 @@ ActiveRecord::Schema.define(version: 20150614190158) do
     t.string   "source_link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
   end
 
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", name: "mb_opt_outs_on_conversations_id", column: "conversation_id"
