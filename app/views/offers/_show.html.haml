@@ -40,7 +40,7 @@
     .ava-col
       = avatar_img_sm(@offer.user_owners.first)
     .name-col
-      = link_to @offer.user_owners.first.name, @offer.user_owners.first, target: '_blank'
+      = link_to @offer.user_owners.first.surname, @offer.user_owners.first, target: '_blank'
   .clear
   %div{:style=>"text-align: center; margin-bottom: 10px;"}
     %i

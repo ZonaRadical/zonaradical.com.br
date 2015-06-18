@@ -21,7 +21,7 @@
           - if profile.web
             %span.web
               =link_to cut_phrase(profile.web,35), profile.web, :target => "_blank"
-          - if profile.fb
+          - if profile.fb and !profile.fb.to_s.empty?
             %span.fb
               =link_to profile.surname.to_s, profile.fb, :target => "_blank"
           - if profile.login

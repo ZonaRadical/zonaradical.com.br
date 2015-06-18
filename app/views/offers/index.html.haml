@@ -18,7 +18,7 @@
     = link_to "Agências de neve", main_app.agencies_path
 
   -if !mobile_device?
-    -if current_user.agency?
+    - if can? :manage, Offer
       = link_to 'Adicionar um pacote', new_manage_offer_path, class: 'button', :style=>"display: block; margin-left: auto; margin-right: auto; margin-top: 5px;margin-bottom: 5px;"
     = form_for :search, url: search_offers_path, method: :get do |f|
       %p.small
