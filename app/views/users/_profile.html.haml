@@ -64,9 +64,8 @@
             %span.email=mail_to profile.email, profile.email, :target => "_blank"
           - if profile.web
             %span.web=link_to cut_phrase(profile.web,45), profile.web, :target => "_blank"
-          - if profile.fb
+          - if profile.fb and !profile.fb.to_s.empty?
             %span.fb=link_to profile.name.to_s, profile.fb, :target => "_blank"
-            %span.fb=link_to cut_phrase(profile.fb,45), profile.fb, :target => "_blank"
           - if (profile.agency? or profile.org?) and profile.telephone
             %span.phone=profile.telephone
         .clear
