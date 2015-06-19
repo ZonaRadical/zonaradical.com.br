@@ -17,12 +17,12 @@
         /    \:
         /  = user_last_seen_at(profile)
     %ul.details-list
-      -unless age(profile.birthday)>45
+      -if profile.younger_45?
         %li
           %b
             = t('age')
             \:
-          = age profile.birthday
+          = profile.age
       -unless profile.city.blank?
         %li
           %b
