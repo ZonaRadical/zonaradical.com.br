@@ -17,12 +17,12 @@
         /    \:
         /  = user_last_seen_at(profile)
     %ul.details-list
-      -unless age(profile.birthday)>45
+      -if profile.younger_45?
         %li
           %b
             = t('age')
             \:
-          = age profile.birthday
+          = profile.age
       -unless profile.city.blank?
         %li
           %b
@@ -36,7 +36,7 @@
         .contacts-list
           - if profile.web
             %span.web=link_to cut_phrase(profile.web,45), profile.web, :target => "_blank"
-          - if profile.fb
+          - if profile.fb and !profile.fb.to_s.empty?
             %span.fb=link_to profile.name.to_s, profile.fb, :target => "_blank"
         .clear
   .galcol

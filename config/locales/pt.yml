@@ -104,9 +104,11 @@ pt-BR:
     cleanFilters: 'Limpar filtros'
 
     # Offer
-    createOffer: 'Criar pacote'
-    agencies:   'Agências'
     offers: 'Pacotes'
+    createOffer: 'Criar Pacote'
+    agencies:   'Agências'
+    offerTitle: 'Titulo do Pacote'
+    newOffer: 'Criar Pacote'
 
     # Tour Participants
     pending: 'Pendente'

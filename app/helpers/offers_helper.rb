@@ -54,4 +54,10 @@ module OffersHelper
   def offer_resorts_names(offer)
     offer.resorts.collect(&:name).join(', ')
   end
+
+  def offer_resorts_names_linked(offer)
+    offer.resorts.collect do |resort|
+      link_to resort.name, show_resort_path(resort.resort_category, resort), target: '_blank'
+    end.join(', ').html_safe
+  end
 end

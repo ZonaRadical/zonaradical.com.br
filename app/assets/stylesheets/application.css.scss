@@ -1150,6 +1150,9 @@ ul.details-list {
     &.case {
       background: image_url("case-icon.png") no-repeat left center;
     }
+    &.phone {
+      background: image_url("phone-icon.png") no-repeat left center;
+    }
     a {
       color: #626262;
       text-decoration: none;
@@ -1678,6 +1681,9 @@ p.search-intro {
   border-radius: 3px;
   float: left;
   margin-left: 86px;
+  label.selected {
+    color: #ee9200;
+  }
 }
 
 .select {
@@ -1698,6 +1704,9 @@ p.search-intro {
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
+  }
+  span.selected {
+    color: #ee9200;
   }
   .arrow {
     position: absolute;

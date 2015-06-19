@@ -31,6 +31,7 @@
 #   t.text     :bio
 #   t.string   :fb_avatar
 #   t.string   :image
+#   t.string   :telephone
 # end
 #
 # add_index :users, [:email], name: :index_users_on_email, unique: true, using: :btree
@@ -151,6 +152,14 @@ class User < ActiveRecord::Base
 
   def mailboxer_email(object)
     email
+  end
+  def younger_45?
+    !self.birthday.blank? && self.age<=45
+  end
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - self.birthday.year - ((now.month > self.birthday.month || (now.month == self.birthday.month && now.day >= self.birthday.day)) ? 0 : 1)
   end
 
   def notifications
