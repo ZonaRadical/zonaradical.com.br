@@ -1,40 +1,87 @@
-%p= avatar_img(@offer.user_owners.first)
-%p
-  %b Offer style:
-  = @offer.tour_style
-%p
-  %b Accommodation:
-  = @offer.accommodation
-%p
-  %b Title:
-  = @offer.title
-%p
-  %b Description:
-  = @offer.description.html_safe
-%p
-  %b Duration:
-  = @offer.duration
-%p
-  %b Check in:
-  = check_in_formatted(@offer)
-%p
-  %b Price:
-  = @offer.price
-%p
-  %b Published:
-  = @offer.published
+.tour-card
+  .leftcol
+    = tour_logo_img(@offer)
+    %ul.details-list
+      %li.contacts
+        .contacts-list
+          %span.map{:title=> t('countries')}
+            = offer_countries(@offer)
+  .rightcol
+    .h2
+      /* %span.name
+      %b{:title=>"Estacoes"}
+        = offer_resorts_names_linked(@offer)
+    %ul.details-list
+      %li.details
+        .details-list
+          %span.date{:title=> t('check_in')}
+            = check_in_formatted(@offer)
+          -unless @offer.duration.nil?
+            %span.days{:title=> t('duration')}
+              = @offer.duration
+              dias
+          -unless @offer.price.nil?
+            %span.price{:title=> t('price')}
+              R$
+              = @offer.price
+              por pessoa
+          -unless !@offer.air_included
+            %span.air
+              A passagem aérea está inclusa
+          %span.style{:title=> t('tourStyle')}
+            = @offer.tour_style
+          %span.accom{:title=> t('accommodation')}
+            = @offer.accommodation
 
-%p
-  %b County(ies):
-  = offer_countries(@offer)
+        .clear
+  .h2{:itemprop=>"name"}
+    Agência
+  .parti-col
+    .ava-col
+      = avatar_img_sm(@offer.user_owners.first)
+    .name-col
+      = link_to @offer.user_owners.first.surname, @offer.user_owners.first, target: '_blank'
+  .clear
+  %div{:style=>"text-align: center; margin-bottom: 10px;"}
+    %i
+      Entra em contato com a Agência
+      = @offer.user_owners.first.surname
+      =link_to @offer.user_owners.first.email,"mailto:"+@offer.user_owners.first.email.to_s+"?subject= pacote publicado no ZR"
 
-%p
-  %b Resort(s):
-  = offer_resorts_names(@offer)
-  - @offer.resorts.each do |resort|
-    = resort_logo_img(resort)
+  -unless @offer.description.nil?
+    %p.descr
+      %b
+        =t('description')
+        \:
+      = @offer.description.html_safe
+  / - unless @offer.participants_in([:pending, :approved]).empty?
+  /   %p.descr
+  /     %b
+  /       =t('participants')
+  /     %ul
+  /       - @offer.participants_in([:pending, :approved]).each do |participant|
+  /         %li== #{participant.user.name} #{participant.user.surname}
+  /     - if @offer.participants_in([:pending]).where(user: current_user).first
+  /       - tour_participant = @offer.participants_in([:pending]).where(user: current_user).first
+  /       = link_to 'Recall', recall_tour_participant_path(@offer, tour_participant), class: 'button'
+  %p.small
+    %b
+      Estilos de trip:
+    -TourStyle.all.each do |t_style|
+      = t_style.name
+      ="("+t_style.description.to_s+")."
+    %b
+      Tipos de moradia:
+    -Accommodation.all.each do |acco|
+      = acco.name
+      ="("+ acco.description.to_s+")."
+  %div{:style=>"text-align: center"}
+  -unless @offer.gallery_images.all.count.zero?
+    = render 'shared/sliders/tip', images: @offer.gallery_images.all
 
--unless @offer.gallery_images.all.count.zero?
-  = render 'shared/sliders/tip', images: @offer.gallery_images.all
 
-= offer_participation_status(@offer, participate_button: true)
+
+/*  - @offer.resorts.each do |resort|
+/*    = resort_logo_img(resort)
+
+/ = participation_status(@offer, participate_button: true)

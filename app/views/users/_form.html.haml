@@ -38,6 +38,10 @@
       .field
         = f.label :surname
         = f.text_field :surname
+      - if @user.agency? || @user.org?
+        .field
+          = f.label :telephone
+          = f.text_field :telephone
       .field
         = f.label :login
         = f.text_field :login

@@ -37,7 +37,9 @@ class Manage::OffersController < ApplicationController
 
   private
     def load_offers
-      @offers = offer_scope.paginate(page: params[:page]).to_a
+      offers_query = params[:show_passed].nil? ? offer_scope.switched_on : offer_scope
+      @offers_published = offers_query.published.owned_by([current_user]).to_a
+      @offers_draft = offers_query.owned_by([current_user]).to_a - @offers_published
     end
 
     def load_offer
@@ -57,8 +59,9 @@ class Manage::OffersController < ApplicationController
     def offer_params
       permitted_params = [:tour_style_id, :accommodation_id, :title,
         :description, :duration, :check_in_d, :check_in_m, :check_in_y,
-        :switch_off, :price, resort_category_ids: [], resort_ids: []]
-      permitted_params << :published if current_user.admin?
+        :switch_off, :price, :hotel_name, :air_included, :image, :remove_image,
+        resort_category_ids: [], resort_ids: []]
+      permitted_params << :published if can? :manage, @offer
       offer_params = params[:offer]
       offer_params ? offer_params.permit(permitted_params) : {}
     end

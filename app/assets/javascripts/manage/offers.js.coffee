@@ -30,3 +30,6 @@ $ ->
     inlineMode: false
     mediaManager:true
     key: 'WlxvxhzxtB-16D-13lD3aliC8du=='
+
+  $('#show_passed').on 'change', ->
+    $('#show_passed_form').submit()
