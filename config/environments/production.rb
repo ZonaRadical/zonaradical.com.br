@@ -98,4 +98,6 @@ Rails.application.configure do
       :user_name => 'noreply@zonaradical.com.br',
       :password => 'Tap1Ug1dNCVZDPAV5hybyQ'
   }
+
+  config.action_dispatch.tld_length = 2
 end
