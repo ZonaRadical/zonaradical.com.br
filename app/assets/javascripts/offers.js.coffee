@@ -51,6 +51,8 @@ $ ->
       $(this).find('.arrow').addClass 'active'
     return
   $('.option-list li').click ->
+    $(this).closest('.select-wrap').find('span').removeClass 'selected'
+    $(this).closest('.select-wrap').find('span').addClass 'selected' if $(this).data('selected')
     title = $(this).closest('.select-wrap').find('.select .name')
     option = $(this).html()
     $(this).closest('.select-wrap').find('input[type=hidden]').val $(this).attr('data-value')
@@ -73,7 +75,11 @@ $ ->
     value = $(this).find('input[type=hidden]').val()
     if value != ""
       $(this).find(".option-list li[data-value='#{value}']").click()
+      $(this).find(".option-list li[data-value='#{value}']").data('selected', true)
+      $(this).find("span").addClass 'selected'
     return
+
+  $('label[for=show_passed]').addClass 'selected' if $('#search_show_passed').is(':checked')
 
   converter = Markdown.getSanitizingConverter()
   editor = new Markdown.Editor(converter)
