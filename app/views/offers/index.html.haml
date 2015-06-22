@@ -76,9 +76,9 @@
             %a.arrow{:href => "#"}
           %ul.option-list
             %li.default{data: {value: ''}} Qualquer
-            %li{"data-value" => "0..99"} menos de r$ 100 por dia
-            %li{"data-value" => "100..200"} r$ 100 - r$ 200
-            %li{"data-value" => "201..Infinity"} mais de r$ 200 por dia
+            %li{"data-value" => "0..499"} menos de r$ 500 por pessoa
+            %li{"data-value" => "500..1000"} r$ 500 - r$ 1000
+            %li{"data-value" => "1000..Infinity"} mais de r$ 1000 por pessoa
         .select-extra
         /.select-wrap
         /  = f.hidden_field :age_group, value: search_value_for(:age_group)
