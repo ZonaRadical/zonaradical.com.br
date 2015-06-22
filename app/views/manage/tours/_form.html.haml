@@ -5,35 +5,39 @@
       %ul
         - @tour.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :title, "* "+t('title')
-    = f.text_field :title
-    %br
-    %i
-      Campo obrigatorio, 15 simbolos minimo.
-
-  .field
-    = f.label :resort_category_ids, "* País(es)"
-    = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
-    %br
-    %i
-      Campo obrigatorio.
-  .field
-    = f.label :resort_ids
-    = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione um país' }
-
-  .field
-    = f.label :tour_style_id, "* "+t('tourStyle')
-    = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
-    %br
-    %i
-      Campo obrigatorio.
-    %p.small
-      -TourStyle.all.each do |t_style|
-        %b
-          = t_style.name.to_s+": "
-        = t_style.description.to_s+"."
+  %table{:style=>"width: 100%;"}
+    %tr
+      %td
+        .field
+          = f.label :title, "* "+t('title')
+          = f.text_field :title
+          %br
+          %i
+            Campo obrigatorio, 15 simbolos minimo.
+      %td
+        .field
+          = f.label :tour_style_id, "* "+t('tourStyle')
+          = f.collection_select(:tour_style_id, TourStyle.all, :id, :name, {:prompt => t('selectTourStyle')})
+          %br
+          %i
+            Campo obrigatorio.
+          %p.small
+            -TourStyle.all.each do |t_style|
+              %b
+                = t_style.name.to_s+": "
+              = t_style.description.to_s+"."
+    %tr
+      %td
+        .field
+          = f.label :resort_category_ids, "* País(es)"
+          = f.collection_select :resort_category_ids, ResortCategory.find(1).children, :id, :name, {}, multiple: true, style: 'width: 226px'
+          %br
+          %i
+            Campo obrigatorio.
+      %td
+        .field
+          = f.label :resort_ids
+          = f.grouped_collection_select :resort_ids, ResortCategory.find(1).children, :resorts, :name, :id, :name, { include_blank: true }, multiple: true, style: 'width: 226px', data: { placeholder: 'Selecione um país' }
   .field
     = f.label :accommodation_id, t('accommodation')
     = f.collection_select(:accommodation_id, Accommodation.all, :id, :name, {:prompt => t('selectAccommodation')})
