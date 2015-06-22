@@ -26,6 +26,7 @@
             %li= link_to t('resorts'),main_app.resorts_url, :rel => 'nofollow'
             %li= link_to t('tips'),main_app.tips_url, :rel => 'nofollow'
             %li= link_to "VAMO JUNTO", main_app.tours_url
+            %li= link_to t('offers'), main_app.offers_path
             %li
               - if Rails.application.secrets.discourse_url
                 - if @current_user.nil?
