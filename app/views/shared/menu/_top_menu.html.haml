@@ -17,8 +17,10 @@
 
   %li= active_link_to t('vamoJunto'), main_app.tours_path
 
-  %li
+  %li.submenu-item
     = active_link_to t('offers'), main_app.offers_path
+    %ul.submenu
+      %li= link_to t('agencies'), main_app.agencies_path
 
   /* %li
   /*  %a{:href => "http://zonaradical.com.br/vamo-junto.html"} Vamo junto
@@ -41,8 +43,7 @@
       %span Snow
     %ul.submenu
       %li= link_to t('athletes'), main_app.athletes_path
-      %li= link_to t('agencies'), main_app.agencies_path
       %li= link_to t('organizations'), main_app.organizations_path
       %li= link_to "Amigos e links úteis", friends_url
-  %li
-    = active_link_to t('contacts'), galera_url, active: [['static_pages'], ['galera', 'show']]
+      %li= link_to "Sobre o ZR", galera_url, active: [['static_pages'], ['galera', 'show']]
+

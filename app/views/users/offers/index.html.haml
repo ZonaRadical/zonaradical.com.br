@@ -4,7 +4,7 @@
     = check_box_tag :show_passed, '1', params[:show_passed] == "1"
 
   .heading
-    %h1== Pacotes criados por #{@user.name}
+    %h1== Pacotes criados por #{@user.name} #{@user.surname}
   = render 'offers/list', offers: @offers_owned, offer_path_method: "offer_path"
 
   .clear
