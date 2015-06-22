@@ -76,7 +76,7 @@ $ ->
       $(this).find("span").addClass 'selected'
     return
 
-  $('label[for=show_passed]').addClass 'selected' if $('#search_show_passed').val() == "1"
+  $('label[for=show_passed]').addClass 'selected' if $('#search_show_passed').is(':checked')
 
   converter = Markdown.getSanitizingConverter()
   editor = new Markdown.Editor(converter)
