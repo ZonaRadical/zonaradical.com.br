@@ -94,7 +94,7 @@ class Offer < ActiveRecord::Base
         .where(users: { birthday: options['age_group'] })
     end
     offers = offers.includes(:resorts).where(resorts: { id: options['resorts'] }) if options['resorts']
-    offers = offers.switched_on if options['show_passed'] == "0"
+    offers = offers.switched_on if options['show_passed'] != "1"
     offers
   end
 
