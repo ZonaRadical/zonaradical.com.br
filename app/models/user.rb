@@ -39,8 +39,12 @@
 # add_index :users, [:reset_password_token], name: :index_users_on_reset_password_token, unique: true, using: :btree
 
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
+
+  friendly_id :slug_candidates, use: [:slugged, :finders]
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -188,5 +192,16 @@ class User < ActiveRecord::Base
       client = DiscourseZr.client
       client.sync_sso(sso_data)
     end
+  end
+
+  def slug_candidates
+    [
+      :login,
+      [:name, :surname]
+    ]
+  end
+
+  def should_generate_new_friendly_id?
+    login_changed?
   end
 end
