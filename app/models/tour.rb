@@ -19,6 +19,7 @@
 #   t.date     :check_in
 #   t.date     :switch_off
 #   t.integer  :discourse_topic_id
+#   t.string   :slug
 # end
 #
 # add_index :tours, [:accommodation_id], name: :index_tours_on_accommodation_id, using: :btree
