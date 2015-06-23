@@ -6,7 +6,7 @@ module Slug
   module ClassMethods
     def slugged(field)
       extend FriendlyId
-      friendly_id field, use: :slugged
+      friendly_id field, use: [:slugged, :finders]
     end
   end
 
