@@ -10,7 +10,7 @@
       %td
         .field
           = f.label :title, "* "+t('title')
-          = f.text_field :title
+          = f.text_field :title, data: { url: slug_manage_tours_path }
           %br
           %i
             Campo obrigatorio, 15 simbolos minimo.

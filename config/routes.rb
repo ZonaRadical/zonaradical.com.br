@@ -82,7 +82,7 @@ Rails.application.routes.draw do
       resources :tours
       resources :offers
     end
-  end 
+  end
   scope '/manage' do
     resources :users do
       resources :image_galleries
@@ -92,7 +92,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :manage do
-    resources :tours do
+    resources :tours, concerns: :sluggable do
       scope module: 'tours' do
         resources :owners
         resources :participants do

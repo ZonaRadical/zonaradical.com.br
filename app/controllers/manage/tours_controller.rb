@@ -36,6 +36,11 @@ class Manage::ToursController < ApplicationController
     redirect_to manage_tours_path
   end
 
+  def slug
+    @tour = Tour.new title: params[:title]
+    render json: { slug: @tour.slug_preview }
+  end
+
   private
     def load_tours
       tours_query = params[:show_passed].nil? ? tour_scope.switched_on : tour_scope
