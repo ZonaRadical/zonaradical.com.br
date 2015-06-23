@@ -58,7 +58,7 @@ class Manage::ToursController < ApplicationController
     end
 
     def tour_params
-      permitted_params = [:tour_style_id, :accommodation_id, :title,
+      permitted_params = [:tour_style_id, :accommodation_id, :title, :slug,
         :description, :duration, :check_in_d, :check_in_m, :check_in_y,
         :switch_off, :img, :price, resort_category_ids: [], resort_ids: []]
       permitted_params << :published if current_user.admin?

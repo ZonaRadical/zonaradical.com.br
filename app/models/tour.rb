@@ -26,6 +26,9 @@
 # add_index :tours, [:tour_style_id], name: :index_tours_on_tour_style_id, using: :btree
 
 class Tour < ActiveRecord::Base
+  include Slug
+  slugged :title
+
   act_as_discoursable(
     title:        -> (tour) { tour.title },
     description:  -> (tour) { tour.description },
