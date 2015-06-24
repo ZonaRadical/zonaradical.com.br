@@ -112,4 +112,8 @@ module ToursHelper
       false
     end
   end
+
+  def country_or_resort(tour)
+    tour.resorts.first || tour.countries.first.resort_category
+  end
 end

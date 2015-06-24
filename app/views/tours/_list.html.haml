@@ -7,14 +7,14 @@
         - else
           = participation_status(tour)
       %p.title
-        = link_to tour.title, send(tour_path_method, tour)
+        = link_to tour.title, show_tour_tours_path(country_or_resort(tour), tour)
       %i.date
         = check_in_formatted(tour)
         %b
           = tour.resort_categories.collect(&:name).join(', ')
         = tour_resorts_names(tour)
       %p= truncate_html(strip_tags(tour.description.html_safe.to_s), length: 70)
-      = link_to 'Leia mais', send(tour_path_method, tour), class: 'read-more'
+      = link_to 'Leia mais', show_tour_tours_path(country_or_resort(tour), tour), class: 'read-more'
       - if can? :manage, tour
         %br
         = link_to t('edit'), edit_manage_tour_path(tour)

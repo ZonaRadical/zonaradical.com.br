@@ -1,4 +1,6 @@
 class Tours::ParticipantsController < ApplicationController
+  include ToursHelper
+
   load_resource :tour
   load_and_authorize_resource :participant, through: :tour, class: Tour::Participant
 
@@ -17,7 +19,7 @@ class Tours::ParticipantsController < ApplicationController
         "Solicitação para participação em tour", notification_body
       )
     end
-    redirect_to tour_path(@tour), notice: 'Seu recall foi enviado, aguarde uma resposta.'
+    redirect_to show_tour_tours_path(country_or_resort(@tour), @tour), notice: 'Seu recall foi enviado, aguarde uma resposta.'
   end
 
   private
@@ -32,7 +34,7 @@ class Tours::ParticipantsController < ApplicationController
       @tour.owners.first.user.notify(
         "Solicitação para participação em tour", notification_body
       )
-      redirect_to tour_path(@tour), notice: 'Seu pedido foi enviado, em breve você receberá uma resposta.'
+      redirect_to show_tour_tours_path(country_or_resort(@tour), @tour), notice: 'Seu pedido foi enviado, em breve você receberá uma resposta.'
     end
   end
 

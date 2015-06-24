@@ -42,7 +42,9 @@ Rails.application.routes.draw do
   resources :offers do
     get 'search', on: :collection
   end
-  resources :tours, path: '/vamo-junto-snowboard' do
+
+  resources :tours, path: '/vamo-junto-snowboard', except: :show do
+    get ':resort_country_id/:id', to: 'tours#show', as: :show_tour, on: :collection
     get 'search', on: :collection
     post 'comment', on: :member
     scope module: 'tours' do

@@ -48,7 +48,7 @@
   %br
   %br
   .buttons
-    = link_to "Trip #{@tour.title}", tour_path(@tour), class: "button"
+    = link_to "Trip #{@tour.title}", show_tour_tours_path(country_or_resort(@tour), @tour), class: "button"
     = link_to 'Todos Seus Trips', manage_tours_path, class: "button"
 
   -content_for :aside do

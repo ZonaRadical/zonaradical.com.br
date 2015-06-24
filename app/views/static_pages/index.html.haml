@@ -143,8 +143,8 @@
   -unless @trip.nil?
     %ul.stations-list
       %li
-        =link_to tour_logo_img(@trip), tour_path(@trip), class: "img-wrap"
-        =link_to @trip.title, tour_path(@trip), class: "title"
+        =link_to tour_logo_img(@trip), show_tour_tours_path(country_or_resort(@trip), @trip), class: "img-wrap"
+        =link_to @trip.title, show_tour_tours_path(country_or_resort(@trip), @trip), class: "title"
         .details
           %i.date
             %span{:title=> t('check_in')}
@@ -154,6 +154,6 @@
           %p
           -if !@trip.description.empty?
             =truncate_html(strip_tags(@trip.description.to_s), length: 253, omission: '...')
-          = link_to t('readMore'), tour_path(@trip)
+          = link_to t('readMore'), show_tour_tours_path(country_or_resort(@trip), @trip)
         .clear
 
