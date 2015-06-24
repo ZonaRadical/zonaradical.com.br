@@ -77,12 +77,12 @@ Rails.application.routes.draw do
   get '/discourse/logout', to: 'discourse#logout'
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: 'omniauth_callbacks' }
-  resources :users do
+  resources :users, path: 'usuarios' do
     scope module: 'users' do
       resources :tours
       resources :offers
     end
-  end 
+  end
   scope '/manage' do
     resources :users do
       resources :image_galleries
