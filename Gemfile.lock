@@ -680,3 +680,6 @@ DEPENDENCIES
   webmock
   will_paginate (~> 3.0.5)
   wysiwyg-rails
+
+BUNDLED WITH
+   1.10.5

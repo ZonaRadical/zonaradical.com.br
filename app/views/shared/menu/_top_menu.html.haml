@@ -31,12 +31,9 @@
   /*    %li= link_to t('agencies'), main_app.agencies_path
   /*    /* %li= link_to t('offers'), main_app.offers_path
 
-  %li
+  %li#discourse-menu-item
     - if Rails.application.secrets.discourse_url
-      - if @current_user.nil?
-        %a{:href => Rails.application.secrets.discourse_url} Forum
-      - else
-        %a{:href => Rails.application.secrets.discourse_url + '/session/sso?return_path=%2F'} Forum
+      = active_link_to t(:forum), menu_discourse_url, active: ['discourse_integration', 'top_menu']
   %li.submenu-item
     %a{:href => "#"}
       Galera

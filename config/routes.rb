@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: {format: :json} do
+    scope path: '/discourse_integration', as: :discourse do
+      get 'top_menu', to: 'discourse_integration#top_menu', as: :top_menu
+    end
+  end
+
   # Resorts
   resources :resorts, path: 'estacoes-ski-snowboard', concerns: :sluggable, except: :show
   get '/resorts/:id', to: 'resorts#resort_redirect', as: :resort_redirect
@@ -82,7 +88,7 @@ Rails.application.routes.draw do
       resources :tours
       resources :offers
     end
-  end 
+  end
   scope '/manage' do
     resources :users do
       resources :image_galleries
