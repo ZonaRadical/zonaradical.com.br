@@ -1,8 +1,12 @@
+require 'digest/sha2'
+
 class API::DiscourseIntegrationController < API::BaseController
   before_action :authenticate_discourse
 
   def top_menu
-    render partial: 'layouts/header_discourse'
+    @top_menu = TopMenu.fetch
+
+    render json: @top_menu.to_json
   end
 
 
@@ -14,7 +18,10 @@ class API::DiscourseIntegrationController < API::BaseController
   end
 
   def authenticate_token
-    authenticate_with_http_token{ |token, options| api_key == token }
+    authenticate_with_http_token do |token, options|
+      sha256 = Digest::SHA2.new(256)
+      sha256.digest(api_key) == token
+    end
   end
 
   def api_key
