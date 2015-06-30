@@ -31,7 +31,7 @@ module ApplicationHelper
 
   def menu_discourse_url
     url = Rails.application.secrets.discourse_url
-    url << '/session/sso' if user_signed_in?
+    url << '/session/sso?return_path=%2F' if user_signed_in?
     url
   end
 
