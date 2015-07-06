@@ -19,14 +19,15 @@ class API::DiscourseIntegrationController < API::BaseController
 
   def authenticate_token
     authenticate_with_http_token do |token, options|
-      sha256 = Digest::SHA2.new(256)
-      sha256.digest(api_key) == token
+      Digest::SHA2.new(256).digest(api_key) == token
     end
   end
 
   def api_key
-    Rails.application.secrets.discourse_integration_api_key ||
-      raise SecurityError "API key for discourse integration is not provided. Add 'discourse_integration_api_key' entry in your secrets.yml"
+    if !Rails.application.secrets.key?(:discourse_integration_api_key)
+      raise SecurityError, "API key for discourse integration is not provided. Add 'discourse_integration_api_key' entry in your secrets.yml"
+    end
+    Rails.application.secrets.discourse_integration_api_key
   end
 
   def render_unauthorized

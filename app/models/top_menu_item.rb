@@ -18,14 +18,6 @@ class TopMenuItem
     yield item
   end
 
-  def root?
-    parent_key == 'root'
-  end
-
-  def leaf?
-    children.empty?
-  end
-
   # Set text using i18n backend, by translation key
   def text_from_yml!(translation_key)
     self.text_en = I18n.t(translation_key, locale: :en)
